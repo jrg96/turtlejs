@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      div{
+        border: 2px black solid;
+        float:left;
+      }
+      div.inline { float:left; }
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+      $(document).ready(function() {
+      });
+    </script>
+  </head>
+  <body>
+    <div><div id="container"></div><div id="container2"></div></div>
+    <script src="kinetic-v4.7.4.min.js"></script>
+    <script src="block_lib/basic_blocks_func.js"></script>
+    <script src="sprites.js"></script>
+    <script src="block.js"></script>
+    <script src="turtle.js"></script>
+    <script defer="defer">
+      var stage = new Kinetic.Stage({
+        container: 'container',
+        width: 600,
+        height: 250
+      });
+      var layer = new Kinetic.Layer();
+      var anim = new Kinetic.Animation(function(frame) {}, layer);
+      stage.add(layer);
+      anim.start();
+
+
+
+      var stage2 = new Kinetic.Stage({
+        container: 'container2',
+        width: 600,
+        height: 450
+      });
+
+      var layer2 = new Kinetic.Layer();
+      var anim2 = new Kinetic.Animation(function(frame) {}, layer2);
+      stage2.add(layer2);
+      anim2.start();
+      var turtle = new Turtle([300, 225], layer2);
+
+      var points = [];
+      var line = null;
+
+
+
+      var sprit = new Sprite('block_res/basic1arg.svg', layer, true);
+      sprit.set_label('Forward', 5, 13, 19, 'Calibri', 'black');
+      var block1 = new TurtleBlock(sprit, layer, forward_block, [turtle, points, line]);
+      block1.group.setY(100);
+
+      var sprit2 = new Sprite('block_res/basic1arg.svg', layer, true);
+      sprit2.set_label('Backward', 5, 13, 19, 'Calibri', 'black');
+      var block2 = new TurtleBlock(sprit2, layer, backward_block, [turtle, points, line]);
+      block2.group.setX(125);
+      block2.group.setY(100);
+
+      var sprit3 = new Sprite('block_res/basic1arg.svg', layer, true);
+      sprit3.set_label('Right', 5, 13, 19, 'Calibri', 'black');
+      var block3 = new TurtleBlock(sprit3, layer, right_block, [turtle, points, line]);
+      block3.group.setX(250);
+      block3.group.setY(100);
+
+      var sprit4 = new Sprite('block_res/basic1arg.svg', layer, true);
+      sprit4.set_label('Left', 5, 13, 19, 'Calibri', 'black');
+      var block4 = new TurtleBlock(sprit4, layer, left_block, [turtle, points, line]);
+      block4.group.setX(375);
+      block4.group.setY(100);
+    </script>
+  </body>
+</html>
