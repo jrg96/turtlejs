@@ -25,7 +25,7 @@ TurtleBlock.prototype = {
         this.group.on('dragmove', function(){
         });
         this.group.on('dragend', function(){
-            collide = parent.tracker.get_collide_obj(parent);
+            var collide = parent.tracker.get_collide_obj(parent);
             if (collide != null){
                 alert('detectamos collide!!!');
             }
@@ -41,6 +41,37 @@ TurtleBlock.prototype = {
     get_xy: function(){
         pos = [this.group.getX(), this.group.getY()];
         return pos;
+    },
+    get_collide_points: function(){
+        
+    },
+    get_upper_left: function(){
+        return this.get_xy();
+    },
+    get_upper_right: function(){
+        pos = this.get_xy();
+        pos[0] += this.sprite.safe_width();
+        return pos;
+    },
+    get_lower_left: function(){
+        pos = this.get_xy();
+        pos[1] += this.sprite.safe_height();
+        return pos;
+    },
+    get_lower_right: function(){
+        pos = this.get_xy();
+        pos[0] += this.sprite.safe_width();
+        pos[1] += this.sprite.safe_height();
+        return pos;
+    },
+    get_upper_mid: function(){
+        pos = this.get_xy();
+        pos[0] += parseInt(this.sprite.safe_width() / 2);
+        return pos;
+    },
+    get_lower_mid: function(){
+        pos = this.get_lower_left();
+        pos[0] += parseInt(this.sprite.safe_width() / 2);
     },
     is_collide: function(point){
         min_x = this.group.getX();
