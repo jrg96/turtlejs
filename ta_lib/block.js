@@ -22,8 +22,6 @@ TurtleBlock.prototype = {
         this.group.on('dragstart', function(){
             parent.group.moveToTop();
         });
-        this.group.on('dragmove', function(){
-        });
         this.group.on('dragend', function(){
             var collide = parent.tracker.get_collide_obj(parent);
             if (collide != null){
