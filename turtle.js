@@ -43,7 +43,6 @@ Turtle.prototype = {
         return this.img.get_xy();
     },
     bring_front: function(){
-        this.img.group.remove();
-        this.layer.add(this.img.group);
+        this.img.group.moveToTop();
     }
 }

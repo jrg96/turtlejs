@@ -15,11 +15,17 @@ TurtleBlock.prototype = {
     set_events: function(){
         var parent = this;
         this.group.on('click', function(){
-            parent.func(parent.params);
+            parent.exec_block();
+        });
+        this.group.on('dragstart', function(){
+            parent.group.moveToTop();
         });
     },
     display_block: function(){
         this.group.add(this.sprite.group);
         this.layer.add(this.group);
+    },
+    exec_block: function(){
+        this.func(this.params);
     }
 }
