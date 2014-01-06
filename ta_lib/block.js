@@ -44,7 +44,26 @@ TurtleBlock.prototype = {
                     op2 -= (collide.get_upper_dock()[1] + collide.get_xy()[1]);
                     lower_distance = Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2));
                 }
-                alert("upper: " + upper_distance + " and lower: " + lower_distance);
+                alert('upper: ' + upper_distance + ' y lower: ' + lower_distance);
+                if(upper_distance > -1){
+                    if (upper_distance < 9.0){
+                        var point = [];
+                        point.push(collide.get_xy()[0]);
+                        point.push(collide.get_lower_dock()[1] + collide.get_xy()[1]);
+                        alert(point);
+                        parent.set_xy(point);
+                    }
+                }
+                if (lower_distance > -1){
+                    if (lower_distance < 9.0){
+                        var point = [];
+                        point.push(collide.get_xy()[0]);
+                        point.push(
+                          collide.get_xy()[1] - collide.get_height() + 3);
+                        alert(point);
+                        parent.set_xy(point);
+                    }
+                }
             }
         });
     },
@@ -55,8 +74,12 @@ TurtleBlock.prototype = {
     exec_block: function(){
         this.func(this.params);
     },
+    set_xy: function(point){
+        this.group.setX(point[0]);
+        this.group.setY(point[1]);
+    },
     get_xy: function(){
-        pos = [this.group.getX(), this.group.getY()];
+        var pos = [this.group.getX(), this.group.getY()];
         return pos;
     },
     get_collide_points: function(){
@@ -68,6 +91,9 @@ TurtleBlock.prototype = {
         points.push(this.get_upper_mid());
         points.push(this.get_lower_mid());
         return points;
+    },
+    get_height: function(){
+        return this.sprite.safe_height();
     },
     get_upper_left: function(){
         return this.get_xy();
