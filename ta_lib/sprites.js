@@ -14,7 +14,7 @@ Sprite.prototype = {
         // create group object, so the image and label objects that conforms the "sprite" 
         // can be treated as a whole object
         var group = new Kinetic.Group({
-            draggable: true
+            draggable: false
         });
         // saves a reference of the object on sprite class
         this.group = group;
