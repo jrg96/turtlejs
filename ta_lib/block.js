@@ -43,7 +43,14 @@ TurtleBlock.prototype = {
         return pos;
     },
     get_collide_points: function(){
-        
+        points = [];
+        points.push(this.get_upper_left());
+        points.push(this.get_upper_right());
+        points.push(this.get_lower_left());
+        points.push(this.get_lower_right());
+        points.push(this.get_upper_mid());
+        points.push(this.get_lower_mid());
+        return points;
     },
     get_upper_left: function(){
         return this.get_xy();
@@ -72,6 +79,7 @@ TurtleBlock.prototype = {
     get_lower_mid: function(){
         pos = this.get_lower_left();
         pos[0] += parseInt(this.sprite.safe_width() / 2);
+        return pos;
     },
     is_collide: function(point){
         min_x = this.group.getX();
