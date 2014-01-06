@@ -10,6 +10,13 @@ function TurtleBlock(sprite, layer, func, params){
     });
     this.set_events();
     this.display_block();
+
+    // set joined blocks
+    this.upper_block = [];
+    this.lower_block = [];
+    this.param_blocks = [];
+    // variable that stores tart point of drag
+    this.start_drag_pos = null;
 }
 
 TurtleBlock.prototype = {
@@ -21,6 +28,23 @@ TurtleBlock.prototype = {
         });
         this.group.on('dragstart', function(){
             parent.group.moveToTop();
+            parent.start_drag_pos = parent.get_xy();
+        });
+        this.group.on('dragmove', function(){
+            var actual_pos = parent.get_xy();
+            var movement = [0, 0];
+            movement[0] = actual_pos[0] - parent.start_drag_pos[0];
+            movement[1] = actual_pos[1] - parent.start_drag_pos[1];
+            //console.log('' + actual_pos[0] + ',' + actual_pos[1] + ' mov de ' + );
+            if (parent.upper_block.length > 0){
+                //alert(movement);
+                parent.upper_block[0].group_movement(parent, movement);
+            }
+            if (parent.lower_block.length > 0){
+                //alert(movement);
+                parent.lower_block[0].group_movement(parent, movement);
+            }
+            parent.start_drag_pos = actual_pos;
         });
         this.group.on('dragend', function(){
             var collide = parent.tracker.get_collide_obj(parent);
@@ -44,14 +68,16 @@ TurtleBlock.prototype = {
                     op2 -= (collide.get_upper_dock()[1] + collide.get_xy()[1]);
                     lower_distance = Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2));
                 }
-                alert('upper: ' + upper_distance + ' y lower: ' + lower_distance);
+
                 if(upper_distance > -1){
                     if (upper_distance < 9.0){
                         var point = [];
                         point.push(collide.get_xy()[0]);
                         point.push(collide.get_lower_dock()[1] + collide.get_xy()[1]);
-                        alert(point);
                         parent.set_xy(point);
+                        // make the respective joints
+                        parent.upper_block.push(collide);
+                        collide.lower_block.push(parent);
                     }
                 }
                 if (lower_distance > -1){
@@ -60,8 +86,10 @@ TurtleBlock.prototype = {
                         point.push(collide.get_xy()[0]);
                         point.push(
                           collide.get_xy()[1] - collide.get_height() + 3);
-                        alert(point);
                         parent.set_xy(point);
+                        // make the respective joints
+                        parent.lower_block.push(collide);
+                        collide.upper_block.push(parent);
                     }
                 }
             }
@@ -73,6 +101,11 @@ TurtleBlock.prototype = {
     },
     exec_block: function(){
         this.func(this.params);
+    },
+    move_relative: function(movement){
+        var x_final = this.get_xy()[0] + movement[0];
+        var y_final = this.get_xy()[1] + movement[1];
+        this.set_xy([x_final, y_final]);
     },
     set_xy: function(point){
         this.group.setX(point[0]);
@@ -147,5 +180,14 @@ TurtleBlock.prototype = {
     },
     get_lower_dock: function(){
         return this.descriptor.get_lower_dock();
+    },
+    group_movement: function(caller, movement){
+        this.move_relative(movement);
+        if (this.upper_block.length > 0 && this.upper_block[0] != caller){
+            this.upper_block[0].group_movement(this, movement);
+        }
+        if (this.lower_block.length > 0 && this.lower_block[0] != caller){
+            this.lower_block[0].group_movement(this, movement);
+        }
     }
 }
