@@ -1,7 +1,7 @@
 function TurtleBlock(sprite, layer, func, params){
     this.sprite = sprite;
     this.tracker = null;
-    this.collide_obj = null;
+    this.descriptor = null;
     this.layer = layer;
     this.func = func;
     this.params = params;
@@ -25,7 +25,26 @@ TurtleBlock.prototype = {
         this.group.on('dragend', function(){
             var collide = parent.tracker.get_collide_obj(parent);
             if (collide != null){
-                alert('detectamos collide!!!');
+                var upper_distance = -1;
+                var lower_distance = -1;
+                var op1 = -1;
+                var op2 = -1;
+                
+                if (parent.has_upper_dock() && collide.has_lower_dock()){
+                    op1 = (parent.get_upper_dock()[0] + parent.get_xy()[0]);
+                    op1 -= (collide.get_lower_dock()[0] + collide.get_xy()[0]);
+                    op2 = (parent.get_upper_dock()[1] + parent.get_xy()[1]);
+                    op2 -= (collide.get_lower_dock()[1] + collide.get_xy()[1]);
+                    upper_distance = Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2));
+                }
+                if (parent.has_lower_dock() && collide.has_upper_dock()){
+                    op1 = (parent.get_lower_dock()[0] + parent.get_xy()[0]); 
+                    op1 -= (collide.get_upper_dock()[0] + collide.get_xy()[0]);
+                    op2 = (parent.get_lower_dock()[1] + parent.get_xy()[1]);
+                    op2 -= (collide.get_upper_dock()[1] + collide.get_xy()[1]);
+                    lower_distance = Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2));
+                }
+                alert("upper: " + upper_distance + " and lower: " + lower_distance);
             }
         });
     },
@@ -90,5 +109,17 @@ TurtleBlock.prototype = {
         }else{
             return false;
         }
+    },
+    has_upper_dock: function(){
+        return this.descriptor.has_upper_dock();
+    },
+    has_lower_dock: function(){
+        return this.descriptor.has_lower_dock();
+    },
+    get_upper_dock: function(){
+        return this.descriptor.get_upper_dock();
+    },
+    get_lower_dock: function(){
+        return this.descriptor.get_lower_dock();
     }
 }

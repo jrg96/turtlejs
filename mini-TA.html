@@ -26,6 +26,7 @@
     <script src="ta_lib/block.js"></script>
     <script src="ta_lib/turtle.js"></script>
     <script src="ta_lib/blocktracker.js"></script>
+    <script src="ta_lib/dockdescriptor.js"></script>
     <script defer="defer">
       var stage = new Kinetic.Stage({
         container: 'container',
@@ -54,34 +55,42 @@
       var points = [];
       var line = null;
       var block_tracker = new BlockTracker();
+      var dock_descriptor = new DockDescriptor();
+      dock_descriptor.add_upper_dock([17, 1]);
+      dock_descriptor.add_lower_dock([17, 43]);
+      dock_descriptor.add_param_dock([115, 25]);
 
 
       var sprit = new Sprite('block_res/basic1arg.svg', layer, true);
       sprit.set_label('Forward', 5, 13, 19, 'Calibri', 'black');
       var block1 = new TurtleBlock(sprit, layer, forward_block, [turtle, points, line]);
-      block1.group.setY(100);
+      //block1.group.setY(100);
       block_tracker.add_block(block1);
+      block1.descriptor = dock_descriptor;
 
       var sprit2 = new Sprite('block_res/basic1arg.svg', layer, true);
       sprit2.set_label('Backward', 5, 13, 19, 'Calibri', 'black');
       var block2 = new TurtleBlock(sprit2, layer, backward_block, [turtle, points, line]);
-      block2.group.setX(125);
-      block2.group.setY(100);
+      //block2.group.setX(125);
+      //block2.group.setY(100);
       block_tracker.add_block(block2);
+      block2.descriptor = dock_descriptor;
 
       var sprit3 = new Sprite('block_res/basic1arg.svg', layer, true);
       sprit3.set_label('Right', 5, 13, 19, 'Calibri', 'black');
       var block3 = new TurtleBlock(sprit3, layer, right_block, [turtle, points, line]);
-      block3.group.setX(250);
-      block3.group.setY(100);
+      //block3.group.setX(250);
+      //block3.group.setY(100);
       block_tracker.add_block(block3);
+      block3.descriptor = dock_descriptor;
 
       var sprit4 = new Sprite('block_res/basic1arg.svg', layer, true);
       sprit4.set_label('Left', 5, 13, 19, 'Calibri', 'black');
       var block4 = new TurtleBlock(sprit4, layer, left_block, [turtle, points, line]);
-      block4.group.setX(375);
-      block4.group.setY(100);
+      //block4.group.setX(375);
+      //block4.group.setY(100);
       block_tracker.add_block(block4);
+      block4.descriptor = dock_descriptor;
     </script>
   </body>
 </html>
