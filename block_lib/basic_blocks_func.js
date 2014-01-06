@@ -1,4 +1,8 @@
 var forward_block = function(params){
+    if (params[1].length == 0){
+        params[1].push(params[0].get_xy()[0]);
+        params[1].push(params[0].get_xy()[1]);
+    }
     params[0].move(20);
     x_pos = params[0].get_xy()[0];
     y_pos = params[0].get_xy()[1];
@@ -20,6 +24,10 @@ var forward_block = function(params){
 }
 
 function backward_block(params){
+    if (params[1].length == 0){
+        params[1].push(params[0].get_xy()[0]);
+        params[1].push(params[0].get_xy()[1]);
+    }
     params[0].move(-20);
     x_pos = params[0].get_xy()[0];
     y_pos = params[0].get_xy()[1];
