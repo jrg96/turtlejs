@@ -70,7 +70,7 @@ TurtleBlock.prototype = {
                 }
 
                 if(upper_distance > -1){
-                    if (upper_distance < 9.0){
+                    if (upper_distance < 13.0){
                         var point = [];
                         point.push(collide.get_xy()[0]);
                         point.push(collide.get_lower_dock()[1] + collide.get_xy()[1]);
@@ -81,7 +81,7 @@ TurtleBlock.prototype = {
                     }
                 }
                 if (lower_distance > -1){
-                    if (lower_distance < 9.0){
+                    if (lower_distance < 13.0){
                         var point = [];
                         point.push(collide.get_xy()[0]);
                         point.push(
