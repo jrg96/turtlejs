@@ -73,7 +73,7 @@ TurtleBlock.prototype = {
                     if (upper_distance < 13.0){
                         var point = [];
                         point.push(collide.get_xy()[0]);
-                        point.push(collide.get_lower_dock()[1] + collide.get_xy()[1]);
+                        point.push(collide.get_lower_dock()[1] + collide.get_xy()[1] - 1);
                         parent.set_xy(point);
                         // make the respective joints
                         parent.upper_block.push(collide);
@@ -85,7 +85,7 @@ TurtleBlock.prototype = {
                         var point = [];
                         point.push(collide.get_xy()[0]);
                         point.push(
-                          collide.get_xy()[1] - collide.get_height() + 3);
+                          collide.get_xy()[1] - collide.get_height() + 5);
                         parent.set_xy(point);
                         // make the respective joints
                         parent.lower_block.push(collide);
