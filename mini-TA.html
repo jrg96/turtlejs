@@ -22,7 +22,7 @@
               dock_descriptor.add_param_dock([115, 25]);
               var sprit = new Sprite('block_res/basic1arg.svg', layer, true);
               sprit.set_label('Forward', 5, 13, 19, 'Calibri', 'black');
-              var block1 = new TurtleBlock(sprit, layer, forward_block, [turtle, points, line]);
+              var block1 = new TurtleBlock(sprit, layer, forward_block, [turtle, draw_tracker]);
               block_tracker.add_block(block1);
               block1.descriptor = dock_descriptor;
           });
@@ -33,7 +33,7 @@
               dock_descriptor.add_param_dock([115, 25]);
               var sprit2 = new Sprite('block_res/basic1arg.svg', layer, true);
               sprit2.set_label('Backward', 5, 13, 19, 'Calibri', 'black');
-              var block2 = new TurtleBlock(sprit2, layer, backward_block, [turtle, points, line]);
+              var block2 = new TurtleBlock(sprit2, layer, backward_block, [turtle, draw_tracker]);
               block_tracker.add_block(block2);
               block2.descriptor = dock_descriptor;
           });
@@ -44,7 +44,7 @@
               dock_descriptor.add_param_dock([115, 25]);
               var sprit3 = new Sprite('block_res/basic1arg.svg', layer, true);
               sprit3.set_label('Right', 5, 13, 19, 'Calibri', 'black');
-              var block3 = new TurtleBlock(sprit3, layer, right_block, [turtle, points, line]);
+              var block3 = new TurtleBlock(sprit3, layer, right_block, [turtle, draw_tracker]);
               block_tracker.add_block(block3);
               block3.descriptor = dock_descriptor;
           });
@@ -55,9 +55,14 @@
               dock_descriptor.add_param_dock([115, 25]);
               var sprit4 = new Sprite('block_res/basic1arg.svg', layer, true);
               sprit4.set_label('Left', 5, 13, 19, 'Calibri', 'black');
-              var block4 = new TurtleBlock(sprit4, layer, left_block, [turtle, points, line]);
+              var block4 = new TurtleBlock(sprit4, layer, left_block, [turtle, draw_tracker]);
               block_tracker.add_block(block4);
               block4.descriptor = dock_descriptor;
+          });
+          $("#runbtn").click(function(){
+              for (var i=0; i<block_tracker.blocks.length; i++){
+                  block_tracker.blocks[i].exec_block();
+              }
           });
       });
     </script>
@@ -67,6 +72,7 @@
     <input type="submit" id="bwdbtn" value= "Backward block" />
     <input type="submit" id="rightbtn" value= "Right block" />
     <input type="submit" id="leftbtn" value= "Left block" />
+    <input type="submit" id="runbtn" value= "Run" />
     <div><div id="container"></div><div id="container2"></div></div>
     <script src="ext_lib/kinetic-v4.7.4.min.js"></script>
     <script src="block_lib/basic_blocks_func.js"></script>
@@ -74,13 +80,16 @@
     <script src="ta_lib/block.js"></script>
     <script src="ta_lib/turtle.js"></script>
     <script src="ta_lib/blocktracker.js"></script>
+    <script src="ta_lib/drawtracker.js"></script>
     <script src="ta_lib/dockdescriptor.js"></script>
 
     <script defer="defer">
+      var block_tracker = new BlockTracker();
+      
       var stage = new Kinetic.Stage({
         container: 'container',
         width: 600,
-        height: 250
+        height: 350
       });
       var layer = new Kinetic.Layer();
       var anim = new Kinetic.Animation(function(frame) {}, layer);
@@ -101,9 +110,7 @@
       anim2.start();
       var turtle = new Turtle([300, 225], layer2);
 
-      var points = [];
-      var line = null;
-      var block_tracker = new BlockTracker();
+      var draw_tracker = new DrawTracker(layer2, turtle);
     </script>
   </body>
 </html>
