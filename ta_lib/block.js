@@ -123,6 +123,8 @@ TurtleBlock.prototype = {
         points.push(this.get_lower_right());
         points.push(this.get_upper_mid());
         points.push(this.get_lower_mid());
+        points.push(this.get_mid_left());
+        points.push(this.get_mid_right());
         return points;
     },
     get_height: function(){
@@ -155,6 +157,16 @@ TurtleBlock.prototype = {
     get_lower_mid: function(){
         pos = this.get_lower_left();
         pos[0] += parseInt(this.sprite.safe_width() / 2);
+        return pos;
+    },
+    get_mid_left: function(){
+        pos = this.get_xy();
+        pos[1] += (this.sprite.safe_height() / 2);
+        return pos;
+    },
+    get_mid_right: function(){
+        pos = this.get_upper_right();
+        pos[1] += (this.sprite.safe_height() / 2);
         return pos;
     },
     is_collide: function(point){
