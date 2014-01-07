@@ -64,6 +64,17 @@
                   block_tracker.blocks[i].exec_block();
               }
           });
+          $("#textinput").click(function(){
+              var dock_descriptor = new DockDescriptor();
+              dock_descriptor.add_upper_dock([17, 1]);
+              dock_descriptor.add_lower_dock([17, 43]);
+              dock_descriptor.add_param_dock([115, 25]);
+              var sprit5 = new Sprite('block_res/box.svg', layer, true);
+              sprit5.set_label('Text', 20, 11, 19, 'Calibri', 'black');
+              var block5 = new TurtleBlock(sprit5, layer, text_block, [sprit5]);
+              block_tracker.add_block(block5);
+              block5.descriptor = dock_descriptor;
+          });
       });
     </script>
   </head>
@@ -72,6 +83,7 @@
     <input type="submit" id="bwdbtn" value= "Backward block" />
     <input type="submit" id="rightbtn" value= "Right block" />
     <input type="submit" id="leftbtn" value= "Left block" />
+    <input type="submit" id="textinput" value= "Text input" />
     <input type="submit" id="runbtn" value= "Run" />
     <div><div id="container"></div><div id="container2"></div></div>
     <script src="ext_lib/kinetic-v4.7.4.min.js"></script>
