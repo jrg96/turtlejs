@@ -59,6 +59,15 @@
               block_tracker.add_block(block4);
               block4.descriptor = dock_descriptor;
           });
+          $("#boxbtn").click(function(){
+              var dock_descriptor = new DockDescriptor();
+              dock_descriptor.add_param_dock([17, 25]);
+              var sprit4 = new Sprite('block_res/box.svg', layer, true);
+              sprit4.set_label('100', 25, 13, 19, 'Calibri', 'black');
+              var block4 = new TurtleBlock(sprit4, layer, null, null);
+              block_tracker.add_block(block4);
+              block4.descriptor = dock_descriptor;
+          });
           $("#runbtn").click(function(){
               for (var i=0; i<block_tracker.blocks.length; i++){
                   block_tracker.blocks[i].exec_block();
@@ -72,6 +81,7 @@
     <input type="submit" id="bwdbtn" value= "Backward block" />
     <input type="submit" id="rightbtn" value= "Right block" />
     <input type="submit" id="leftbtn" value= "Left block" />
+    <input type="submit" id="boxbtn" value= "Box block" />
     <input type="submit" id="runbtn" value= "Run" />
     <div><div id="container"></div><div id="container2"></div></div>
     <script src="ext_lib/kinetic-v4.7.4.min.js"></script>
