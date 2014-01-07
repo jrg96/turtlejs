@@ -9,7 +9,7 @@ BlockTracker.prototype = {
         block.tracker = this;
     },
     get_collide_obj: function(caller){
-        var collide_obj = null;
+        var collide_obj = [];
         var points = caller.get_collide_points();
         var can_continue = true;
         for (var i=0; i<this.blocks.length; i++){
@@ -18,13 +18,9 @@ BlockTracker.prototype = {
             }
             for (var s=0; s<points.length; s++){
                 if (this.blocks[i].is_collide(points[s])){
-                   collide_obj = this.blocks[i];
-                   can_continue = false;
+                   collide_obj.push(this.blocks[i]);
                    break;
                 }
-            }
-            if (!can_continue){
-                break;
             }
         }
         return collide_obj;

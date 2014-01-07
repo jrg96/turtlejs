@@ -31,6 +31,12 @@ TurtleBlock.prototype = {
             parent.start_drag_pos = parent.get_xy();
         });
         this.group.on('dragmove', function(){
+            console.log(parent.upper_block.length);
+            if (parent.upper_block.length == 1){
+                parent.upper_block[0].lower_block = [];
+                parent.upper_block = [];
+            }
+
             var actual_pos = parent.get_xy();
             var movement = [0, 0];
             movement[0] = actual_pos[0] - parent.start_drag_pos[0];
@@ -50,76 +56,90 @@ TurtleBlock.prototype = {
         });
         this.group.on('dragend', function(){
             var collide = parent.tracker.get_collide_obj(parent);
-            if (collide != null){
-                var upper_distance = -1;
-                var lower_distance = -1;
-                var op1 = -1;
-                var op2 = -1;
-                
-                if (parent.has_upper_dock() && collide.has_lower_dock()){
-                    op1 = (parent.get_upper_dock()[0] + parent.get_xy()[0]);
-                    op1 -= (collide.get_lower_dock()[0] + collide.get_xy()[0]);
-                    op2 = (parent.get_upper_dock()[1] + parent.get_xy()[1]);
-                    op2 -= (collide.get_lower_dock()[1] + collide.get_xy()[1]);
-                    upper_distance = Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2));
-                }
-                if (parent.has_lower_dock() && collide.has_upper_dock()){
-                    op1 = (parent.get_lower_dock()[0] + parent.get_xy()[0]); 
-                    op1 -= (collide.get_upper_dock()[0] + collide.get_xy()[0]);
-                    op2 = (parent.get_lower_dock()[1] + parent.get_xy()[1]);
-                    op2 -= (collide.get_upper_dock()[1] + collide.get_xy()[1]);
-                    lower_distance = Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2));
-                }
-                if (parent.has_giving_param() && collide.has_receiver_param()){
-                    var giving_point = parent.get_giving_point();
-                    var receiver_points = collide.get_receiver_points();
-                    var point_distances = [];
-                    for (var i=0; i<receiver_points.length; i++){
-                        op1 = (giving_point[0] + parent.get_xy()[0]);
-                        op1 -= (receiver_points[i][0] + collide.get_xy()[0]);
-                        op2 = (giving_point[1] + parent.get_xy()[1]);
-                        op2 -= (receiver_points[i][1] + collide.get_xy()[1]);
-                        point_distances.push(Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2)));
-                    }
-                    for (var i=0; i< point_distances.length; i++){
-                        if (point_distances[i] < 13.0){
-                            var align_point = receiver_points[i];
-                            var point = [0, 0];
-                            point[0] = collide.get_xy()[0] + align_point[0] - 17;
-                            point[1] = collide.get_xy()[1];
-                            parent.set_xy(point);
-                            collide.param_blocks[i] = parent;
-                            parent.param_blocks[0] = collide;
-                            break;
-                        }
-                    }
-                }
-
-                if(upper_distance > -1){
-                    if (upper_distance < 13.0){
-                        var point = [];
-                        point.push(collide.get_xy()[0]);
-                        point.push(collide.get_lower_dock()[1] + collide.get_xy()[1]);
-                        parent.set_xy(point);
-                        // make the respective joints
-                        parent.upper_block.push(collide);
-                        collide.lower_block.push(parent);
-                    }
-                }
-                if (lower_distance > -1){
-                    if (lower_distance < 13.0){
-                        var point = [];
-                        point.push(collide.get_xy()[0]);
-                        point.push(
-                          collide.get_xy()[1] - collide.get_height() + 3);
-                        parent.set_xy(point);
-                        // make the respective joints
-                        parent.lower_block.push(collide);
-                        collide.upper_block.push(parent);
-                    }
-                }
+            for (var i=0; i<collide.length; i++){
+                parent.collide_action(parent, collide[i]);
             }
         });
+    },
+    collide_action: function(parent, collide){
+        var upper_distance = -1;
+        var lower_distance = -1;
+        var op1 = -1;
+        var op2 = -1;
+                
+        if (parent.has_upper_dock() && collide.has_lower_dock()){
+            op1 = (parent.get_upper_dock()[0] + parent.get_xy()[0]);
+            op1 -= (collide.get_lower_dock()[0] + collide.get_xy()[0]);
+            op2 = (parent.get_upper_dock()[1] + parent.get_xy()[1]);
+            op2 -= (collide.get_lower_dock()[1] + collide.get_xy()[1]);
+            upper_distance = Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2));
+        }
+        if (parent.has_lower_dock() && collide.has_upper_dock()){
+            op1 = (parent.get_lower_dock()[0] + parent.get_xy()[0]); 
+            op1 -= (collide.get_upper_dock()[0] + collide.get_xy()[0]);
+            op2 = (parent.get_lower_dock()[1] + parent.get_xy()[1]);
+            op2 -= (collide.get_upper_dock()[1] + collide.get_xy()[1]);
+            lower_distance = Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2));
+        }
+        if (parent.has_giving_param() && collide.has_receiver_param()){
+            var giving_point = parent.get_giving_point();
+            var receiver_points = collide.get_receiver_points();
+            var point_distances = [];
+            for (var i=0; i<receiver_points.length; i++){
+                op1 = (giving_point[0] + parent.get_xy()[0]);
+                op1 -= (receiver_points[i][0] + collide.get_xy()[0]);
+                op2 = (giving_point[1] + parent.get_xy()[1]);
+                op2 -= (receiver_points[i][1] + collide.get_xy()[1]);
+                point_distances.push(Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2)));
+            }
+            for (var i=0; i< point_distances.length; i++){
+                if (point_distances[i] < 13.0){
+                    var align_point = receiver_points[i];
+                    var point = [0, 0];
+                    point[0] = collide.get_xy()[0] + align_point[0] - 17;
+                    point[1] = collide.get_xy()[1];
+                    parent.set_xy(point);
+                    collide.param_blocks[i] = parent;
+                    parent.param_blocks[0] = collide;
+                    break;
+                }
+            }
+        }
+        if(upper_distance > -1){
+            if (upper_distance < 13.0){
+                var point = [];
+                point.push(collide.get_xy()[0]);
+                point.push(collide.get_lower_dock()[1] + collide.get_xy()[1] - 1);
+                parent.set_xy(point);
+                /*var movement = [0, 0];
+                movement[0] = point[0] - parent.start_drag_pos[0];
+                movement[1] = point[1] - parent.start_drag_pos[1];
+                parent.group_movement(parent, movement);*/
+                // make the respective joints
+                if (parent.upper_block.indexOf(collide) == -1){
+                    parent.upper_block.push(collide);
+                    collide.lower_block.push(parent);
+                }
+            }
+        }
+        if (lower_distance > -1){
+            if (lower_distance < 13.0){
+                var point = [];
+                point.push(collide.get_xy()[0]);
+                point.push(collide.get_xy()[1] - collide.get_height() + 5);
+                parent.set_xy(point);
+                /*var movement = [0, 0];
+                movement[0] = point[0] - parent.start_drag_pos[0];
+                movement[1] = point[1] - parent.start_drag_pos[1];
+                alert(movement);*/
+                //parent.group_movement(parent, movement);
+                // make the respective joints
+                if (parent.lower_block.indexOf(collide) == -1){
+                    parent.lower_block.push(collide);
+                    collide.upper_block.push(parent);
+                }
+             }
+        }
     },
     display_block: function(){
         this.group.add(this.sprite.group);
@@ -246,5 +266,11 @@ TurtleBlock.prototype = {
                 }
             }
         }
+    },
+    is_attached_block: function(block){
+        if (this.param_blocks.indexOf(block)){
+            return true;
+        }
+        return false;
     }
 }
