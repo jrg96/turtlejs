@@ -55,3 +55,9 @@ function right_block(params){
 function left_block(params){
     params[0].rotate(-90);
 }
+
+function text_block(params) {
+    console.log(params);
+    params[0].labels[0].setText(prompt('New Text:'));
+    params[0].layer.draw();
+}
