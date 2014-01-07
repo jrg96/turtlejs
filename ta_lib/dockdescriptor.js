@@ -52,7 +52,7 @@ DockDescriptor.prototype = {
         }
         return result;
     },
-    get_giving_param: function(){
+    get_giving_point: function(){
         var point = null;
         for (var i=0; i<this.param_dock.length; i++){
             if (this.param_dock[i][0] < 50){

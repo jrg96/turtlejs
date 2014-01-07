@@ -45,7 +45,9 @@ Sprite.prototype = {
         imageObj.onload = function() {
             // when image it's completely loaded, create the corresponding Kinetic image
             var img = new Kinetic.Image({
-                image: imageObj
+                image: imageObj,
+                width: imageObj.width,
+                height: imageObj.height
             });
             // saves a reference for the Kinetic image object
             parent.img = img;
