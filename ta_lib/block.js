@@ -35,13 +35,10 @@ TurtleBlock.prototype = {
             var movement = [0, 0];
             movement[0] = actual_pos[0] - parent.start_drag_pos[0];
             movement[1] = actual_pos[1] - parent.start_drag_pos[1];
-            //console.log('' + actual_pos[0] + ',' + actual_pos[1] + ' mov de ' + );
             if (parent.upper_block.length > 0){
-                //alert(movement);
                 parent.upper_block[0].group_movement(parent, movement);
             }
             if (parent.lower_block.length > 0){
-                //alert(movement);
                 parent.lower_block[0].group_movement(parent, movement);
             }
             parent.start_drag_pos = actual_pos;
@@ -67,6 +64,9 @@ TurtleBlock.prototype = {
                     op2 = (parent.get_lower_dock()[1] + parent.get_xy()[1]);
                     op2 -= (collide.get_upper_dock()[1] + collide.get_xy()[1]);
                     lower_distance = Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2));
+                }
+                if (parent.has_giving_param() && collide.has_receiver_param()){
+                    alert('podemos hacer union de parametros');
                 }
 
                 if(upper_distance > -1){
@@ -186,6 +186,12 @@ TurtleBlock.prototype = {
     },
     has_lower_dock: function(){
         return this.descriptor.has_lower_dock();
+    },
+    has_giving_param: function(){
+        return this.descriptor.has_giving_param();
+    },
+    has_receiver_param: function(){
+        return this.descriptor.has_receiver_param();
     },
     get_upper_dock: function(){
         return this.descriptor.get_upper_dock();

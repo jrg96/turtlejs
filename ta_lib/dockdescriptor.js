@@ -41,5 +41,44 @@ DockDescriptor.prototype = {
     },
     get_lower_dock: function(){
         return this.lower_dock[0];
+    },
+    has_giving_param: function(){
+        var result = false;
+        for (var i=0; i<this.param_dock.length; i++){
+            if (this.param_dock[i][0] < 50){
+                result = true;
+                break;
+            }
+        }
+        return result;
+    },
+    get_giving_param: function(){
+        var point = null;
+        for (var i=0; i<this.param_dock.length; i++){
+            if (this.param_dock[i][0] < 50){
+                point = this.param_dock[i];
+                break;
+            }
+        }
+        return point;
+    },
+    has_receiver_param: function(){
+        var result = false;
+        for (var i=0; i<this.param_dock.length; i++){
+            if (this.param_dock[i][0] > 50){
+                result = true;
+                break;
+            }
+        }
+        return result;
+    },
+    get_receiver_points: function(){
+        var point_array = [];
+        for (var i=0; i<this.param_dock.length; i++){
+            if (this.param_dock[i][0] > 50){
+                point_array.push(this.param_dock[i]);
+            }
+        }
+        return point_array;
     }
 }
