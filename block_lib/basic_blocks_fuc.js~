@@ -1,7 +1,0 @@
-function forward_block(params){
-    param[0].move_relative([0, -10]);
-}
-
-function backward_block(params){
-    param[0].move_relative([0, 10]);
-}
