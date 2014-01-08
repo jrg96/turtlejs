@@ -22,9 +22,8 @@
               dock_descriptor.add_param_dock([115, 25]);
               var sprit = new Sprite('block_res/basic1arg.svg', layer, true);
               sprit.set_label('Forward', 5, 13, 19, 'Calibri', 'black');
-              var block1 = new TurtleBlock(sprit, layer, forward_block, [turtle, draw_tracker]);
+              var block1 = new TurtleBlock(sprit, layer, dock_descriptor, forward_block, [turtle, draw_tracker]);
               block_tracker.add_block(block1);
-              block1.descriptor = dock_descriptor;
               block1.block_id = block_tracker.get_next_id();
           });
           $("#bwdbtn").click(function(){
@@ -34,9 +33,8 @@
               dock_descriptor.add_param_dock([115, 25]);
               var sprit2 = new Sprite('block_res/basic1arg.svg', layer, true);
               sprit2.set_label('Backward', 5, 13, 19, 'Calibri', 'black');
-              var block2 = new TurtleBlock(sprit2, layer, backward_block, [turtle, draw_tracker]);
+              var block2 = new TurtleBlock(sprit2, layer, dock_descriptor, backward_block, [turtle, draw_tracker]);
               block_tracker.add_block(block2);
-              block2.descriptor = dock_descriptor;
               block2.block_id = block_tracker.get_next_id();
           });
           $("#rightbtn").click(function(){
@@ -46,9 +44,8 @@
               dock_descriptor.add_param_dock([115, 25]);
               var sprit3 = new Sprite('block_res/basic1arg.svg', layer, true);
               sprit3.set_label('Right', 5, 13, 19, 'Calibri', 'black');
-              var block3 = new TurtleBlock(sprit3, layer, right_block, [turtle, draw_tracker]);
+              var block3 = new TurtleBlock(sprit3, layer, dock_descriptor, right_block, [turtle, draw_tracker]);
               block_tracker.add_block(block3);
-              block3.descriptor = dock_descriptor;
               block3.block_id = block_tracker.get_next_id();
           });
           $("#leftbtn").click(function(){
@@ -58,9 +55,8 @@
               dock_descriptor.add_param_dock([115, 25]);
               var sprit4 = new Sprite('block_res/basic1arg.svg', layer, true);
               sprit4.set_label('Left', 5, 13, 19, 'Calibri', 'black');
-              var block4 = new TurtleBlock(sprit4, layer, left_block, [turtle, draw_tracker]);
+              var block4 = new TurtleBlock(sprit4, layer, dock_descriptor, left_block, [turtle, draw_tracker]);
               block_tracker.add_block(block4);
-              block4.descriptor = dock_descriptor;
               block4.block_id = block_tracker.get_next_id();
           });
           $("#boxbtn").click(function(){
@@ -68,9 +64,8 @@
               dock_descriptor.add_param_dock([17, 25]);
               var sprit4 = new Sprite('block_res/box.svg', layer, true);
               sprit4.set_label('100', 25, 13, 19, 'Calibri', 'black');
-              var block4 = new TurtleBlock(sprit4, layer, null, null);
+              var block4 = new TurtleBlock(sprit4, layer, dock_descriptor, null, null);
               block_tracker.add_block(block4);
-              block4.descriptor = dock_descriptor;
               block4.block_id = block_tracker.get_next_id();
           });
           $("#runbtn").click(function(){

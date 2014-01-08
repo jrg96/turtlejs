@@ -1,7 +1,7 @@
-function TurtleBlock(sprite, layer, func, params){
+function TurtleBlock(sprite, layer, descriptor, func, params){
     this.sprite = sprite;
     this.tracker = null;
-    this.descriptor = null;
+    this.descriptor = descriptor;
     this.block_id = null;
     this.layer = layer;
     this.func = func;
