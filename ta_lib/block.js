@@ -39,6 +39,10 @@ TurtleBlock.prototype = {
                 parent.upper_block[0].lower_block = [];
                 parent.upper_block = [];
             }
+            if (parent.has_giving_param()){
+                parent.param_blocks[0].param_blocks = [];
+                parent.param_blocks = [];
+            }
 
             var actual_pos = parent.get_xy();
             var movement = [0, 0];
