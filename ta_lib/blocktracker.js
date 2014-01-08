@@ -1,5 +1,6 @@
 function BlockTracker(){
     this.blocks = [];
+    this.id = 0;
 }
 
 BlockTracker.prototype = {
@@ -24,5 +25,9 @@ BlockTracker.prototype = {
             }
         }
         return collide_obj;
+    },
+    get_next_id: function(){
+        this.id += 1;
+        return this.id;
     }
 }

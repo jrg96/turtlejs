@@ -2,6 +2,7 @@ function TurtleBlock(sprite, layer, func, params){
     this.sprite = sprite;
     this.tracker = null;
     this.descriptor = null;
+    this.block_id = null;
     this.layer = layer;
     this.func = func;
     this.params = params;
@@ -16,7 +17,7 @@ function TurtleBlock(sprite, layer, func, params){
     this.lower_block = [];
     this.param_blocks = [];
     // variable that stores tart point of drag
-    this.start_drag_pos = null;
+    this.start_drag_pos = this.get_xy();
 }
 
 TurtleBlock.prototype = {
@@ -26,12 +27,14 @@ TurtleBlock.prototype = {
         this.group.on('click', function(){
             parent.exec_block();
         });
-        this.group.on('dragstart', function(){
-            parent.group.moveToTop();
+        this.group.on('mousedown', function(){
             parent.start_drag_pos = parent.get_xy();
         });
+        this.group.on('dragstart', function(){
+            parent.group.moveToTop();
+        });
         this.group.on('dragmove', function(){
-            console.log(parent.upper_block.length);
+            //console.log('dragmove por parte de ' + parent.block_id);
             if (parent.upper_block.length == 1){
                 parent.upper_block[0].lower_block = [];
                 parent.upper_block = [];
@@ -42,19 +45,20 @@ TurtleBlock.prototype = {
             movement[0] = actual_pos[0] - parent.start_drag_pos[0];
             movement[1] = actual_pos[1] - parent.start_drag_pos[1];
             if (parent.upper_block.length > 0){
-                parent.upper_block[0].group_movement(parent, movement);
+                parent.upper_block[0].group_movement(parent, movement, false);
             }
             if (parent.lower_block.length > 0){
-                parent.lower_block[0].group_movement(parent, movement);
+                parent.lower_block[0].group_movement(parent, movement, false);
             }
             if (parent.param_blocks.length > 0){
                 for (var i=0; i<parent.param_blocks.length; i++){
-                    parent.param_blocks[i].group_movement(parent, movement);
+                    parent.param_blocks[i].group_movement(parent, movement, false);
                 }
             }
             parent.start_drag_pos = actual_pos;
         });
         this.group.on('dragend', function(){
+            //console.log('dragend por parte de ' + parent.block_id);
             var collide = parent.tracker.get_collide_obj(parent);
             for (var i=0; i<collide.length; i++){
                 parent.collide_action(parent, collide[i]);
@@ -105,34 +109,35 @@ TurtleBlock.prototype = {
                 }
             }
         }
+        //console.log('upper dist: ' + upper_distance + ' lower dist: ' + lower_distance);
         if(upper_distance > -1){
-            if (upper_distance < 13.0){
+            if (upper_distance < 13.0 && upper_distance > 0){
                 var point = [];
                 point.push(collide.get_xy()[0]);
                 point.push(collide.get_lower_dock()[1] + collide.get_xy()[1] - 1);
                 parent.set_xy(point);
-                /*var movement = [0, 0];
+                var movement = [0, 0];
                 movement[0] = point[0] - parent.start_drag_pos[0];
                 movement[1] = point[1] - parent.start_drag_pos[1];
-                parent.group_movement(parent, movement);*/
+                parent.group_movement(parent, movement, true);
                 // make the respective joints
                 if (parent.upper_block.indexOf(collide) == -1){
+                    //alert('registramos');
                     parent.upper_block.push(collide);
                     collide.lower_block.push(parent);
                 }
             }
         }
         if (lower_distance > -1){
-            if (lower_distance < 13.0){
+            if (lower_distance < 13.0 && lower_distance > 0){
                 var point = [];
                 point.push(collide.get_xy()[0]);
                 point.push(collide.get_xy()[1] - collide.get_height() + 5);
                 parent.set_xy(point);
-                /*var movement = [0, 0];
+                var movement = [0, 0];
                 movement[0] = point[0] - parent.start_drag_pos[0];
                 movement[1] = point[1] - parent.start_drag_pos[1];
-                alert(movement);*/
-                //parent.group_movement(parent, movement);
+                parent.group_movement(parent, movement, true);
                 // make the respective joints
                 if (parent.lower_block.indexOf(collide) == -1){
                     parent.lower_block.push(collide);
@@ -251,18 +256,28 @@ TurtleBlock.prototype = {
     get_receiver_points: function(){
         return this.descriptor.get_receiver_points();
     },
-    group_movement: function(caller, movement){
-        this.move_relative(movement);
-        if (this.upper_block.length > 0 && this.upper_block[0] != caller){
-            this.upper_block[0].group_movement(this, movement);
+    group_movement: function(caller, movement, moved){
+        //console.log('movimiento de: ' + movement);
+        //console.log('id: ' + this.block_id + ' xy de: ' + this.get_xy());
+        if (!moved){
+            this.move_relative(movement);
+            this.already_moved = false;
+        }else{
+            //console.log('vino de un moevimiento link');
         }
+        //console.log('id: ' + this.block_id + ' xy new de: ' + this.get_xy());
         if (this.lower_block.length > 0 && this.lower_block[0] != caller){
-            this.lower_block[0].group_movement(this, movement);
+            this.lower_block[0].group_movement(this, movement, false);
+            //this.lower_block[0].collide_action(this, this.lower_block[0]);
+        }
+        if (this.upper_block.length > 0 && this.upper_block[0] != caller){
+            this.upper_block[0].group_movement(this, movement, false);
+            //this.upper_block[0].collide_action(this, this.upper_block[0]);
         }
         if (this.param_blocks.length > 0){
             for (var i=0; i<this.param_blocks.length; i++){
                 if (this.param_blocks[i] != caller){
-                    this.param_blocks[i].group_movement(this, movement);
+                    this.param_blocks[i].group_movement(this, movement, false);
                 }
             }
         }

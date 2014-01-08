@@ -25,6 +25,7 @@
               var block1 = new TurtleBlock(sprit, layer, forward_block, [turtle, draw_tracker]);
               block_tracker.add_block(block1);
               block1.descriptor = dock_descriptor;
+              block1.block_id = block_tracker.get_next_id();
           });
           $("#bwdbtn").click(function(){
               var dock_descriptor = new DockDescriptor();
@@ -36,6 +37,7 @@
               var block2 = new TurtleBlock(sprit2, layer, backward_block, [turtle, draw_tracker]);
               block_tracker.add_block(block2);
               block2.descriptor = dock_descriptor;
+              block2.block_id = block_tracker.get_next_id();
           });
           $("#rightbtn").click(function(){
               var dock_descriptor = new DockDescriptor();
@@ -47,6 +49,7 @@
               var block3 = new TurtleBlock(sprit3, layer, right_block, [turtle, draw_tracker]);
               block_tracker.add_block(block3);
               block3.descriptor = dock_descriptor;
+              block3.block_id = block_tracker.get_next_id();
           });
           $("#leftbtn").click(function(){
               var dock_descriptor = new DockDescriptor();
@@ -58,6 +61,7 @@
               var block4 = new TurtleBlock(sprit4, layer, left_block, [turtle, draw_tracker]);
               block_tracker.add_block(block4);
               block4.descriptor = dock_descriptor;
+              block4.block_id = block_tracker.get_next_id();
           });
           $("#boxbtn").click(function(){
               var dock_descriptor = new DockDescriptor();
@@ -67,6 +71,7 @@
               var block4 = new TurtleBlock(sprit4, layer, null, null);
               block_tracker.add_block(block4);
               block4.descriptor = dock_descriptor;
+              block4.block_id = block_tracker.get_next_id();
           });
           $("#runbtn").click(function(){
               for (var i=0; i<block_tracker.blocks.length; i++){
