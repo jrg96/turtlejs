@@ -1,10 +1,11 @@
-function TurtleBlock(sprite, layer, descriptor, func, params){
+function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     this.sprite = sprite;
     this.tracker = null;
     this.descriptor = descriptor;
     this.block_id = null;
     this.layer = layer;
     this.func = func;
+    this.value_func = value_func;
     this.params = params;
     this.group = new Kinetic.Group({
         draggable: true
@@ -36,7 +37,6 @@ TurtleBlock.prototype = {
             parent.group.moveToTop();
         });
         this.group.on('dragmove', function(){
-            //console.log('dragmove por parte de ' + parent.block_id);
             if (parent.upper_block.length == 1){
                 parent.upper_block[0].lower_block = [];
                 parent.upper_block = [];
@@ -72,7 +72,6 @@ TurtleBlock.prototype = {
             parent.start_drag_pos = actual_pos;
         });
         this.group.on('dragend', function(){
-            //console.log('dragend por parte de ' + parent.block_id);
             var collide = parent.tracker.get_collide_obj(parent);
             for (var i=0; i<collide.length; i++){
                 parent.collide_action(parent, collide[i]);
@@ -123,7 +122,6 @@ TurtleBlock.prototype = {
                 }
             }
         }
-        //console.log('upper dist: ' + upper_distance + ' lower dist: ' + lower_distance);
         if(upper_distance > -1){
             if (upper_distance < 13.0 && upper_distance > 0){
                 var point = [];
@@ -136,7 +134,6 @@ TurtleBlock.prototype = {
                 parent.group_movement(parent, movement, true);
                 // make the respective joints
                 if (parent.upper_block.indexOf(collide) == -1){
-                    //alert('registramos');
                     parent.upper_block.push(collide);
                     collide.lower_block.push(parent);
                 }
@@ -166,6 +163,9 @@ TurtleBlock.prototype = {
     },
     exec_block: function(){
         this.func(this.params);
+    },
+    get_value: function(){
+        return this.value_func(this.params);
     },
     move_relative: function(movement){
         var x_final = this.get_xy()[0] + movement[0];
@@ -276,23 +276,32 @@ TurtleBlock.prototype = {
             this.receiver_slots[i] = null;
         }
     },
+    has_all_slots: function(){
+        for (var i=0; i<this.receiver_slots.length; i++){
+            if (this.receiver_slots[i] == null){
+                return false;
+            }
+        }
+        return true;
+    },
+    get_slot_values: function(){
+        var values = [];
+        for (var i=0; i<this.receiver_slots.length; i++){
+            values.push(this.receiver_slots[i].get_value());
+        }
+        return values;
+    },
     group_movement: function(caller, movement, moved){
-        //console.log('movimiento de: ' + movement);
-        //console.log('id: ' + this.block_id + ' xy de: ' + this.get_xy());
         if (!moved){
             this.move_relative(movement);
             this.already_moved = false;
-        }else{
-            //console.log('vino de un moevimiento link');
         }
-        //console.log('id: ' + this.block_id + ' xy new de: ' + this.get_xy());
+
         if (this.lower_block.length > 0 && this.lower_block[0] != caller){
             this.lower_block[0].group_movement(this, movement, false);
-            //this.lower_block[0].collide_action(this, this.lower_block[0]);
         }
         if (this.upper_block.length > 0 && this.upper_block[0] != caller){
             this.upper_block[0].group_movement(this, movement, false);
-            //this.upper_block[0].collide_action(this, this.upper_block[0]);
         }
         if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
             this.param_blocks[i].group_movement(this, movement, false);
