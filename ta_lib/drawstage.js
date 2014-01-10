@@ -22,7 +22,7 @@ DrawStage.prototype = {
         this.stage.add(this.layer);
         this.anim = new Kinetic.Animation(function(frame) {}, this.layer);
         this.anim.start();
-        this.turtle = new Turtle([300, 225], this.layer);
+        this.turtle = new Turtle([this.width/2, this.height/2], this.layer);
         this.draw_tracker = new DrawTracker(this.layer, this.turtle);
     }
 }

@@ -319,5 +319,8 @@ TurtleBlock.prototype = {
             return true;
         }
         return false;
+    },
+    fire: function(evt){
+        this.group.fire(evt);
     }
 }

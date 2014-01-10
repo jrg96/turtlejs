@@ -15,63 +15,12 @@
     <script src="ext_lib/jquery.js"></script>
     <script>
       $(document).ready(function() {
-          $("#fwdbtn").click(function(){
-              var dock_descriptor = new DockDescriptor();
-              dock_descriptor.add_upper_dock([17, 1]);
-              dock_descriptor.add_lower_dock([17, 43]);
-              dock_descriptor.add_param_dock([115, 25]);
-              var sprit = new Sprite('block_res/basic1arg.svg', block_stage.layer, true);
-              sprit.set_label('Forward', 5, 13, 19, 'Calibri', 'black');
-              var block1 = new TurtleBlock(sprit, block_stage.layer, dock_descriptor, forward_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-              block1.params[2] = block1;
-              block_tracker.add_block(block1);
-              block1.block_id = block_tracker.get_next_id();
-          });
-          $("#bwdbtn").click(function(){
-              var dock_descriptor = new DockDescriptor();
-              dock_descriptor.add_upper_dock([17, 1]);
-              dock_descriptor.add_lower_dock([17, 43]);
-              dock_descriptor.add_param_dock([115, 25]);
-              var sprit2 = new Sprite('block_res/basic1arg.svg', block_stage.layer, true);
-              sprit2.set_label('Backward', 5, 13, 19, 'Calibri', 'black');
-              var block2 = new TurtleBlock(sprit2, block_stage.layer, dock_descriptor, backward_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-              block2.params[2] = block2;
-              block_tracker.add_block(block2);
-              block2.block_id = block_tracker.get_next_id();
-          });
-          $("#rightbtn").click(function(){
-              var dock_descriptor = new DockDescriptor();
-              dock_descriptor.add_upper_dock([17, 1]);
-              dock_descriptor.add_lower_dock([17, 43]);
-              dock_descriptor.add_param_dock([115, 25]);
-              var sprit3 = new Sprite('block_res/basic1arg.svg', block_stage.layer, true);
-              sprit3.set_label('Right', 5, 13, 19, 'Calibri', 'black');
-              var block3 = new TurtleBlock(sprit3, block_stage.layer, dock_descriptor, right_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-              block3.params[2] = block3;
-              block_tracker.add_block(block3);
-              block3.block_id = block_tracker.get_next_id();
-          });
-          $("#leftbtn").click(function(){
-              var dock_descriptor = new DockDescriptor();
-              dock_descriptor.add_upper_dock([17, 1]);
-              dock_descriptor.add_lower_dock([17, 43]);
-              dock_descriptor.add_param_dock([115, 25]);
-              var sprit4 = new Sprite('block_res/basic1arg.svg', block_stage.layer, true);
-              sprit4.set_label('Left', 5, 13, 19, 'Calibri', 'black');
-              var block4 = new TurtleBlock(sprit4, block_stage.layer, dock_descriptor, left_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-              block4.params[2] = block4;
-              block_tracker.add_block(block4);
-              block4.block_id = block_tracker.get_next_id();
-          });
-          $("#boxbtn").click(function(){
-              var dock_descriptor = new DockDescriptor();
-              dock_descriptor.add_param_dock([17, 25]);
-              var sprit4 = new Sprite('block_res/box.svg', block_stage.layer, true);
-              sprit4.set_label('100', 25, 13, 19, 'Calibri', 'black');
-              var block4 = new TurtleBlock(sprit4, block_stage.layer, dock_descriptor, text_block, get_number, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-              block4.params[2] = block4;
-              block_tracker.add_block(block4);
-              block4.block_id = block_tracker.get_next_id();
+          $("#basicpal").click(function(){
+              if (basic1.is_visible()){
+                  basic1.hide();
+              }else{
+                  basic1.show();
+              }
           });
           $("#runbtn").click(function(){
               for (var i=0; i<block_tracker.blocks.length; i++){
@@ -82,11 +31,7 @@
     </script>
   </head>
   <body>
-    <input type="submit" id="fwdbtn" value= "Forward block" />
-    <input type="submit" id="bwdbtn" value= "Backward block" />
-    <input type="submit" id="rightbtn" value= "Right block" />
-    <input type="submit" id="leftbtn" value= "Left block" />
-    <input type="submit" id="boxbtn" value= "Box block" />
+    <input type="submit" id="basicpal" value= "Basic Palette" />
     <input type="submit" id="runbtn" value= "Run" />
     <div><div id="container"></div><div id="container2"></div></div>
     <script src="ext_lib/kinetic-v4.7.4.min.js"></script>
@@ -98,13 +43,23 @@
     <script src="ta_lib/drawtracker.js"></script>
     <script src="ta_lib/dockdescriptor.js"></script>
     <script src="ta_lib/palettecontainer.js"></script>
+    <script src="ta_lib/blockfactory.js"></script>
     <script src="ta_lib/drawstage.js"></script>
     <script src="ta_lib/blockstage.js"></script>
+    <script src="ta_lib/globalvarstracker.js"></script>
+    <script src="ta_pal/basicblockpalette.js"></script>
 
     <script defer="defer">
+      var global_tracker = new GlobalVarsTracker();
       var block_tracker = new BlockTracker();
-      var block_stage = new BlockStage('container', 600, 350);
-      var draw_stage = new DrawStage('container2', 600, 500);
+      var block_stage = new BlockStage('container', 900, 350);
+      var draw_stage = new DrawStage('container2', 900, 500);
+
+      global_tracker.add_var('block_tracker', block_tracker);
+      global_tracker.add_var('block_stage', block_stage);
+      global_tracker.add_var('draw_stage', draw_stage);
+
+      var basic1 = new BasicBlockPalette(475, 100, 'green', block_stage.layer, global_tracker);
     </script>
   </body>
 </html>
