@@ -20,9 +20,9 @@
               dock_descriptor.add_upper_dock([17, 1]);
               dock_descriptor.add_lower_dock([17, 43]);
               dock_descriptor.add_param_dock([115, 25]);
-              var sprit = new Sprite('block_res/basic1arg.svg', layer, true);
+              var sprit = new Sprite('block_res/basic1arg.svg', block_stage.layer, true);
               sprit.set_label('Forward', 5, 13, 19, 'Calibri', 'black');
-              var block1 = new TurtleBlock(sprit, layer, dock_descriptor, forward_block, null, [turtle, draw_tracker, null]);
+              var block1 = new TurtleBlock(sprit, block_stage.layer, dock_descriptor, forward_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
               block1.params[2] = block1;
               block_tracker.add_block(block1);
               block1.block_id = block_tracker.get_next_id();
@@ -32,9 +32,9 @@
               dock_descriptor.add_upper_dock([17, 1]);
               dock_descriptor.add_lower_dock([17, 43]);
               dock_descriptor.add_param_dock([115, 25]);
-              var sprit2 = new Sprite('block_res/basic1arg.svg', layer, true);
+              var sprit2 = new Sprite('block_res/basic1arg.svg', block_stage.layer, true);
               sprit2.set_label('Backward', 5, 13, 19, 'Calibri', 'black');
-              var block2 = new TurtleBlock(sprit2, layer, dock_descriptor, backward_block, null, [turtle, draw_tracker, null]);
+              var block2 = new TurtleBlock(sprit2, block_stage.layer, dock_descriptor, backward_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
               block2.params[2] = block2;
               block_tracker.add_block(block2);
               block2.block_id = block_tracker.get_next_id();
@@ -44,9 +44,9 @@
               dock_descriptor.add_upper_dock([17, 1]);
               dock_descriptor.add_lower_dock([17, 43]);
               dock_descriptor.add_param_dock([115, 25]);
-              var sprit3 = new Sprite('block_res/basic1arg.svg', layer, true);
+              var sprit3 = new Sprite('block_res/basic1arg.svg', block_stage.layer, true);
               sprit3.set_label('Right', 5, 13, 19, 'Calibri', 'black');
-              var block3 = new TurtleBlock(sprit3, layer, dock_descriptor, right_block, null, [turtle, draw_tracker, null]);
+              var block3 = new TurtleBlock(sprit3, block_stage.layer, dock_descriptor, right_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
               block3.params[2] = block3;
               block_tracker.add_block(block3);
               block3.block_id = block_tracker.get_next_id();
@@ -56,9 +56,9 @@
               dock_descriptor.add_upper_dock([17, 1]);
               dock_descriptor.add_lower_dock([17, 43]);
               dock_descriptor.add_param_dock([115, 25]);
-              var sprit4 = new Sprite('block_res/basic1arg.svg', layer, true);
+              var sprit4 = new Sprite('block_res/basic1arg.svg', block_stage.layer, true);
               sprit4.set_label('Left', 5, 13, 19, 'Calibri', 'black');
-              var block4 = new TurtleBlock(sprit4, layer, dock_descriptor, left_block, null, [turtle, draw_tracker, null]);
+              var block4 = new TurtleBlock(sprit4, block_stage.layer, dock_descriptor, left_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
               block4.params[2] = block4;
               block_tracker.add_block(block4);
               block4.block_id = block_tracker.get_next_id();
@@ -66,9 +66,9 @@
           $("#boxbtn").click(function(){
               var dock_descriptor = new DockDescriptor();
               dock_descriptor.add_param_dock([17, 25]);
-              var sprit4 = new Sprite('block_res/box.svg', layer, true);
+              var sprit4 = new Sprite('block_res/box.svg', block_stage.layer, true);
               sprit4.set_label('100', 25, 13, 19, 'Calibri', 'black');
-              var block4 = new TurtleBlock(sprit4, layer, dock_descriptor, text_block, get_number, [turtle, draw_tracker, null]);
+              var block4 = new TurtleBlock(sprit4, block_stage.layer, dock_descriptor, text_block, get_number, [draw_stage.turtle, draw_stage.draw_tracker, null]);
               block4.params[2] = block4;
               block_tracker.add_block(block4);
               block4.block_id = block_tracker.get_next_id();
@@ -97,35 +97,14 @@
     <script src="ta_lib/blocktracker.js"></script>
     <script src="ta_lib/drawtracker.js"></script>
     <script src="ta_lib/dockdescriptor.js"></script>
+    <script src="ta_lib/palettecontainer.js"></script>
+    <script src="ta_lib/drawstage.js"></script>
+    <script src="ta_lib/blockstage.js"></script>
 
     <script defer="defer">
       var block_tracker = new BlockTracker();
-      
-      var stage = new Kinetic.Stage({
-        container: 'container',
-        width: 600,
-        height: 350
-      });
-      var layer = new Kinetic.Layer();
-      var anim = new Kinetic.Animation(function(frame) {}, layer);
-      stage.add(layer);
-      anim.start();
-
-
-
-      var stage2 = new Kinetic.Stage({
-        container: 'container2',
-        width: 600,
-        height: 450
-      });
-
-      var layer2 = new Kinetic.Layer();
-      var anim2 = new Kinetic.Animation(function(frame) {}, layer2);
-      stage2.add(layer2);
-      anim2.start();
-      var turtle = new Turtle([300, 225], layer2);
-
-      var draw_tracker = new DrawTracker(layer2, turtle);
+      var block_stage = new BlockStage('container', 600, 350);
+      var draw_stage = new DrawStage('container2', 600, 500);
     </script>
   </body>
 </html>
