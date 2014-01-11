@@ -278,6 +278,19 @@ TurtleBlock.prototype = {
         }
         return false;
     },
+    chain_exec: function(){
+        this.exec_block();
+        if (this.receiver_slots.length > 0){
+            for (var i=0; i<this.receiver_slots.length; i++){
+                if (this.receiver_slots[i] != null){
+                    this.receiver_slots[i].chain_exec();
+                }
+            }
+        }
+        if (this.lower_block.length > 0){
+            this.lower_block[0].chain_exec();
+        }
+    },
     get_upper_dock: function(){
         return this.descriptor.get_upper_dock();
     },
