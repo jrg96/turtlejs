@@ -23,8 +23,9 @@
               }
           });
           $("#runbtn").click(function(){
-              for (var i=0; i<block_tracker.blocks.length; i++){
-                  block_tracker.blocks[i].exec_block();
+              var starter_blocks = block_tracker.get_starter_blocks();
+              for (var i=0; i<starter_blocks.length; i++){
+                  starter_blocks[i].exec_block();
               }
           });
       });

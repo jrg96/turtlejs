@@ -260,6 +260,24 @@ TurtleBlock.prototype = {
     has_receiver_param: function(){
         return this.descriptor.has_receiver_param();
     },
+    has_upper_block: function(){
+        if (this.upper_block.length > 0){
+            return true;
+        }
+        return false;
+    },
+    is_param_block: function(){
+        if (this.has_giving_param() && !this.has_receiver_param()){
+            return true;
+        }
+        return false;
+    },
+    is_start_block: function(){
+        if (!this.has_upper_block() && !this.is_param_block()){
+            return true;
+        }
+        return false;
+    },
     get_upper_dock: function(){
         return this.descriptor.get_upper_dock();
     },

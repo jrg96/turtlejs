@@ -29,5 +29,14 @@ BlockTracker.prototype = {
     get_next_id: function(){
         this.id += 1;
         return this.id;
+    },
+    get_starter_blocks: function(){
+        var starter_blocks = [];
+        for (var i=0; i<this.blocks.length; i++){
+            if (this.blocks[i].is_start_block()){
+                starter_blocks.push(this.blocks[i]);
+            }
+        }
+        return starter_blocks;
     }
 }
