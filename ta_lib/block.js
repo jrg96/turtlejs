@@ -28,7 +28,7 @@ TurtleBlock.prototype = {
     set_events: function(){
         var parent = this;
         this.group.on('click', function(){
-            parent.exec_block();
+            parent.func(parent.params);
         });
         this.group.on('mousedown', function(){
             parent.start_drag_pos = parent.get_xy();
@@ -162,7 +162,9 @@ TurtleBlock.prototype = {
         this.layer.add(this.group);
     },
     exec_block: function(){
-        this.func(this.params);
+        if (!this.has_giving_param() && this.has_receiver_param()){
+            this.func(this.params);
+        }
     },
     get_value: function(){
         return this.value_func(this.params);
