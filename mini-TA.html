@@ -33,7 +33,7 @@
   <body>
     <input type="submit" id="basicpal" value= "Basic Palette" />
     <input type="submit" id="runbtn" value= "Run" />
-    <div><div id="container"></div><div id="container2"></div></div>
+    <div id="container2"></div>
     <script src="ext_lib/kinetic-v4.7.4.min.js"></script>
     <script src="block_lib/basic_blocks_func.js"></script>
     <script src="ta_lib/sprites.js"></script>
@@ -52,14 +52,12 @@
     <script defer="defer">
       var global_tracker = new GlobalVarsTracker();
       var block_tracker = new BlockTracker();
-      var block_stage = new BlockStage('container', 900, 350);
-      var draw_stage = new DrawStage('container2', 900, 500);
+      var draw_stage = new DrawStage('container2', $(window).width(), $(window).height());
 
       global_tracker.add_var('block_tracker', block_tracker);
-      global_tracker.add_var('block_stage', block_stage);
       global_tracker.add_var('draw_stage', draw_stage);
 
-      var basic1 = new BasicBlockPalette(475, 100, 'green', block_stage.layer, global_tracker);
+      var basic1 = new BasicBlockPalette(475, 100, 'green', draw_stage.layer, global_tracker);
     </script>
   </body>
 </html>
