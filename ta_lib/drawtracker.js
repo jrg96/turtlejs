@@ -27,5 +27,11 @@ DrawTracker.prototype = {
         this.points.push(this.turtle.get_xy()[0]);
         this.points.push(this.turtle.get_xy()[1]);
         this.line.setPoints(this.points);
+    },
+    check_repos: function(){
+        if (this.points.length == 2){
+            this.points[0] = this.turtle.get_xy()[0];
+            this.points[1] = this.turtle.get_xy()[1];
+        }
     }
 }

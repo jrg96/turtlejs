@@ -24,5 +24,8 @@ DrawStage.prototype = {
         this.anim.start();
         this.turtle = new Turtle([this.width/2, this.height/2], this.layer);
         this.draw_tracker = new DrawTracker(this.layer, this.turtle);
+        this.turtle.draw_tracker = this.draw_tracker;
+        //alert(this.draw_tracker);
+        //alert(this.turtle.draw_tracker);
     }
 }

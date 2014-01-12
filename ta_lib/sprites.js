@@ -1,6 +1,9 @@
-function Sprite(image, layer, is_block){
+function Sprite(image, layer, is_block, is_turtle, callback_func, turtle){
     this.img = null;
     this.group = null;
+    this.is_turtle = is_turtle || false;
+    this.callback_func = callback_func || null;
+    this.turtle = turtle || null;
     this.layer = layer;
     this.is_in_block = is_block;
     this.create_group();
@@ -13,8 +16,9 @@ Sprite.prototype = {
     create_group: function(){
         // create group object, so the image and label objects that conforms the "sprite" 
         // can be treated as a whole object
+        var parent = this;
         var group = new Kinetic.Group({
-            draggable: false
+            draggable: this.is_turtle
         });
         // saves a reference of the object on sprite class
         this.group = group;
@@ -30,6 +34,11 @@ Sprite.prototype = {
         });
         group.on('mouseout', function() {
             document.body.style.cursor = 'default';
+        });
+        group.on('dragend', function(){
+            if (parent.is_turtle){
+                parent.callback_func(parent.turtle);
+            }
         });
     },
     set_image: function(image){
