@@ -1,6 +1,7 @@
 function BlockTracker(){
     this.blocks = [];
     this.id = 0;
+    this.hide = false;
 }
 
 BlockTracker.prototype = {
@@ -38,5 +39,20 @@ BlockTracker.prototype = {
             }
         }
         return starter_blocks;
+    },
+    are_blocks_visible: function(){
+        return this.hide;
+    },
+    hide_blocks: function(){
+        this.hide = true;
+        for (var i=0; i<this.blocks.length; i++){
+            this.blocks[i].hide();
+        }
+    },
+    show_blocks: function(){
+        this.hide = false;
+        for (var i=0; i<this.blocks.length; i++){
+            this.blocks[i].show();
+        }
     }
 }

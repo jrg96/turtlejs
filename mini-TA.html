@@ -31,6 +31,13 @@
           $("#clearbtn").click(function(){
               draw_stage.draw_tracker.clear_canvas();
           });
+          $("#showhidebtn").click(function(){
+              if (!block_tracker.are_blocks_visible()){
+                  block_tracker.hide_blocks();
+              }else{
+                  block_tracker.show_blocks();
+              }
+          });
       });
     </script>
   </head>
@@ -38,6 +45,7 @@
     <input type="submit" id="basicpal" value= "Basic Palette" />
     <input type="submit" id="runbtn" value= "Run" />
     <input type="submit" id="clearbtn" value= "Clear canvas" />
+    <input type="submit" id="showhidebtn" value= "Show/Hide blocks" />
     <div id="container2"></div>
     <script src="ext_lib/kinetic-v4.7.4.min.js"></script>
     <script src="block_lib/basic_blocks_func.js"></script>

@@ -355,5 +355,11 @@ TurtleBlock.prototype = {
     },
     fire: function(evt){
         this.group.fire(evt);
+    },
+    hide: function(){
+        this.group.remove();
+    },
+    show: function(){
+        this.layer.add(this.group);
     }
 }
