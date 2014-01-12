@@ -28,12 +28,16 @@
                   starter_blocks[i].chain_exec();
               }
           });
+          $("#clearbtn").click(function(){
+              draw_stage.draw_tracker.clear_canvas();
+          });
       });
     </script>
   </head>
   <body>
     <input type="submit" id="basicpal" value= "Basic Palette" />
     <input type="submit" id="runbtn" value= "Run" />
+    <input type="submit" id="clearbtn" value= "Clear canvas" />
     <div id="container2"></div>
     <script src="ext_lib/kinetic-v4.7.4.min.js"></script>
     <script src="block_lib/basic_blocks_func.js"></script>

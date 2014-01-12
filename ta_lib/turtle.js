@@ -5,6 +5,7 @@ function Turtle(startpos, layer){
     this.img.group.setY(startpos[1]);
     this.img.group.setOffset(27, 27);
     this.rotation = 0;
+    this.start_pos = startpos;
 }
 
 Turtle.prototype = {
@@ -81,5 +82,11 @@ Turtle.prototype = {
     },
     bring_front: function(){
         this.img.group.moveToTop();
+    },
+    reset_pos: function(){
+        this.img.group.setX(this.start_pos[0]);
+        this.img.group.setY(this.start_pos[1]);
+        this.img.group.rotateDeg(360 - this.rotation);
+        this.rotation = 0;
     }
 }
