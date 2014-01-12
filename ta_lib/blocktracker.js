@@ -2,6 +2,7 @@ function BlockTracker(){
     this.blocks = [];
     this.id = 0;
     this.hide = false;
+    this.palette_tracker = null;
 }
 
 BlockTracker.prototype = {
@@ -11,8 +12,17 @@ BlockTracker.prototype = {
         block.tracker = this;
     },
     get_collide_obj: function(caller){
-        var collide_obj = [];
         var points = caller.get_collide_points();
+        var collide_obj = [];
+        var palette = this.palette_tracker.get_visible_palette();
+        if (palette != null){
+            for (var s=0; s<points.length; s++){
+                if (palette.is_collide(points[s])){
+                    caller.chain_delete();
+                    return collide_obj;
+                }
+            }
+        }
         var can_continue = true;
         for (var i=0; i<this.blocks.length; i++){
             if (this.blocks[i] == caller){
@@ -54,5 +64,12 @@ BlockTracker.prototype = {
         for (var i=0; i<this.blocks.length; i++){
             this.blocks[i].show();
         }
+    },
+    set_palette_tracker: function(palette_tracker){
+        this.palette_tracker = palette_tracker;
+    },
+    remove_block: function(block){
+        var block_index = this.blocks.indexOf(block);
+        this.blocks.splice(block_index, 1);
     }
 }

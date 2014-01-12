@@ -19,6 +19,9 @@ BasicBlockPalette.prototype = {
     is_visible: function(){
         return this.container.is_visible();
     },
+    is_collide: function(point){
+        return this.container.is_collide(point);
+    },
     make_block_factories: function(){
         var sprit1 = new Sprite('block_res/basic1arg.svg', this.container.layer, true);
         sprit1.set_label('Forward', 5, 13, 19, 'Calibri', 'black');

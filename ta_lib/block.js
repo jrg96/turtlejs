@@ -347,6 +347,18 @@ TurtleBlock.prototype = {
             }
         }
     },
+    chain_delete: function(){
+        this.tracker.remove_block(this);
+        this.hide();
+        for (var i=0; i<this.receiver_slots.length; i++){
+            if (this.receiver_slots[i] != null){
+                this.receiver_slots[i].chain_delete();
+            }
+        }
+        if (this.lower_block.length > 0){
+            this.lower_block[0].chain_delete();
+        }
+    },
     is_attached_block: function(block){
         if (this.param_blocks.indexOf(block)){
             return true;
