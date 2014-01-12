@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <link rel="stylesheet" href="sugar_web/graphics/css/sugar-96dpi.css">
+    <link rel="stylesheet" href="ta_css/activity.css">
     <style>
       body {
         margin: 0px;
@@ -15,23 +17,23 @@
     <script src="ext_lib/jquery.js"></script>
     <script>
       $(document).ready(function() {
-          $("#basicpal").click(function(){
+          $("#basictb-bt").click(function(){
               if (basic1.is_visible()){
                   basic1.hide();
               }else{
                   basic1.show();
               }
           });
-          $("#runbtn").click(function(){
+          $("#run-bt").click(function(){
               var starter_blocks = block_tracker.get_starter_blocks();
               for (var i=0; i<starter_blocks.length; i++){
                   starter_blocks[i].chain_exec();
               }
           });
-          $("#clearbtn").click(function(){
+          $("#clear-bt").click(function(){
               draw_stage.draw_tracker.clear_canvas();
           });
-          $("#showhidebtn").click(function(){
+          $("#hideshow-bt").click(function(){
               if (!block_tracker.are_blocks_visible()){
                   block_tracker.hide_blocks();
               }else{
@@ -42,10 +44,15 @@
     </script>
   </head>
   <body>
-    <input type="submit" id="basicpal" value= "Basic Palette" />
-    <input type="submit" id="runbtn" value= "Run" />
-    <input type="submit" id="clearbtn" value= "Clear canvas" />
-    <input type="submit" id="showhidebtn" value= "Show/Hide blocks" />
+    <div id="main-toolbar" class="toolbar">
+        <button class="toolbutton" id="activity-button" title="Welcome Activity"></button>
+        <hr />
+        <button class="toolbutton" id="basictb-bt" title="Basic toolbar"></button>
+        <button class="toolbutton" id="run-bt" title="Run"></button>
+        <button class="toolbutton" id="clear-bt" title="Clear canvas"></button>
+        <button class="toolbutton" id="hideshow-bt" title="Clear canvas"></button>
+    </div>
+    <div id="canvas">
     <div id="container2"></div>
     <script src="ext_lib/kinetic-v4.7.4.min.js"></script>
     <script src="block_lib/basic_blocks_func.js"></script>
@@ -65,12 +72,13 @@
     <script defer="defer">
       var global_tracker = new GlobalVarsTracker();
       var block_tracker = new BlockTracker();
-      var draw_stage = new DrawStage('container2', $(window).width(), $(window).height());
+      var draw_stage = new DrawStage('container2', $(window).width() - 40, $(window).height());
 
       global_tracker.add_var('block_tracker', block_tracker);
       global_tracker.add_var('draw_stage', draw_stage);
 
       var basic1 = new BasicBlockPalette(475, 100, 'green', draw_stage.layer, global_tracker);
     </script>
+    </div>
   </body>
 </html>

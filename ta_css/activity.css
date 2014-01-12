@@ -1,0 +1,130 @@
+* {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+#main-toolbar #activity-button {
+  background-image: url(../activity/turtleart.svg);
+}
+
+#basictb-bt {
+  background-image: url(../ta_icons/turtleon.svg);
+}
+
+#run-bt {
+  background-image: url(../ta_icons/run-fastoff.svg);
+}
+
+#clear-bt {
+  background-image: url(../ta_icons/eraseroff.svg);
+}
+
+#hideshow-bt {
+  background-image: url(../ta_icons/hideshowon.svg);
+}
+
+
+#help {
+  height: 96%;
+}
+
+#canvas {
+  text-align: center;
+  background-color: white;
+}
+
+#points div {
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-left: 2px;
+}
+
+.current {
+  background-color: #eebb00;
+}
+
+.current-no {
+  background-color: #d5d5d5;
+}
+
+#fullscreen {
+  background-image: url(../icons/view-fullscreen.svg);
+}
+
+#unfullscreen {
+  background-image: url(../icons/view-return.svg);
+  border: 0;
+  border-radius: 0px;
+  margin: 1px;
+  width: 45px;
+  height: 45px;
+  top: 0;
+  left: 95%;
+  position: absolute;
+}
+
+#startrecord{
+  background-image: url(../icons/media-record-insensitive.svg);
+  border: 0;
+  border-radius: 0px;
+  margin: 1px;
+  width: 45px;
+  height: 45px;
+  top: 40%;
+  left: 80%;
+  position: absolute;  
+}
+
+#stoprecord{
+  background-image: url(../icons/media-playback-stop-insensitive.svg);
+  border: 0;
+  border-radius: 0px;
+  margin: 1px;
+  width: 45px;
+  height: 45px;
+  top: 40%;
+  left: 80%;
+  position: absolute;  
+}
+
+#takesnap{
+  background-image: url(../icons/media-photo.svg);
+  border: 0;
+  border-radius: 0px;
+  margin: 1px;
+  width: 45px;
+  height: 45px;
+  top: 40%;
+  left: 80%;
+  position: absolute;  
+}
+
+#video
+{
+  margin-top:10px;
+}
+
+#previews {
+    width: 99%;
+    height: 20%;
+    border: 1px solid black;
+    overflow:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+    background-color: black;
+}
+
+#previews img {
+    border: 2px solid red;
+    width: 15%;
+    margin: 1%;
+}
+#previews img:first-child {
+    margin-top: 0;
+}
+
+#previews img:last-child {
+    margin-top: 0;
+}
