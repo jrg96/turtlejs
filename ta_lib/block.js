@@ -34,7 +34,7 @@ TurtleBlock.prototype = {
             parent.start_drag_pos = parent.get_xy();
         });
         this.group.on('dragstart', function(){
-            parent.group.moveToTop();
+            parent.chain_bring_front();
         });
         this.group.on('dragmove', function(){
             if (parent.upper_block.length == 1){
@@ -357,6 +357,17 @@ TurtleBlock.prototype = {
         }
         if (this.lower_block.length > 0){
             this.lower_block[0].chain_delete();
+        }
+    },
+    chain_bring_front: function(){
+        this.group.moveToTop();
+        for (var i=0; i<this.receiver_slots.length; i++){
+            if (this.receiver_slots[i] != null){
+                this.receiver_slots[i].chain_bring_front();
+            }
+        }
+        if (this.lower_block.length > 0){
+            this.lower_block[0].chain_bring_front();
         }
     },
     is_attached_block: function(block){
