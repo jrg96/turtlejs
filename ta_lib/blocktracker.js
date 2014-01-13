@@ -54,12 +54,18 @@ BlockTracker.prototype = {
         return this.hide;
     },
     hide_blocks: function(){
+        if (this.blocks.length == 0){
+            return;
+        }
         this.hide = true;
         for (var i=0; i<this.blocks.length; i++){
             this.blocks[i].hide();
         }
     },
     show_blocks: function(){
+        if (this.blocks.length == 0){
+            return;
+        }
         this.hide = false;
         for (var i=0; i<this.blocks.length; i++){
             this.blocks[i].show();
