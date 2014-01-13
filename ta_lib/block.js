@@ -162,7 +162,7 @@ TurtleBlock.prototype = {
         this.layer.add(this.group);
     },
     exec_block: function(){
-        if (!this.has_giving_param() && this.has_receiver_param()){
+        if ((!this.has_giving_param() && this.has_receiver_param()) || (!this.has_giving_param() && !this.has_receiver_param())){
             this.func(this.params);
         }
     },
