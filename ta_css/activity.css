@@ -23,6 +23,10 @@
   background-image: url(../ta_icons/hideshowon.svg);
 }
 
+#pentb-bt {
+  background-image: url(../ta_icons/penon.svg);
+}
+
 
 #help {
   height: 96%;

@@ -17,5 +17,12 @@ PaletteTracker.prototype = {
             }
         }
         return palette;
+    },
+    show_palette: function(palette){
+        var visible_palette = this.get_visible_palette();
+        if (visible_palette != null){
+            visible_palette.hide();
+        }
+        palette.show();
     }
 }

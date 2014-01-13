@@ -17,7 +17,14 @@
               if (basic1.is_visible()){
                   basic1.hide();
               }else{
-                  basic1.show();
+                  palette_tracker.show_palette(basic1);
+              }
+          });
+          $("#pentb-bt").click(function(){
+              if (pen_palette.is_visible()){
+                  pen_palette.hide();
+              }else{
+                  palette_tracker.show_palette(pen_palette);
               }
           });
           $("#run-bt").click(function(){
@@ -44,6 +51,7 @@
         <button class="toolbutton" id="activity-button" title="Welcome Activity"></button>
         <hr />
         <button class="toolbutton" id="basictb-bt" title="Basic toolbar"></button>
+        <button class="toolbutton" id="pentb-bt" title="Pen Palette"></button>
         <button class="toolbutton" id="run-bt" title="Run"></button>
         <button class="toolbutton" id="clear-bt" title="Clear canvas"></button>
         <button class="toolbutton" id="hideshow-bt" title="Hide/Show blocks"></button>
@@ -52,6 +60,7 @@
     <div id="container2"></div>
     <script src="ext_lib/kinetic-v4.7.4.min.js"></script>
     <script src="block_lib/basic_blocks_func.js"></script>
+    <script src="block_lib/pen_palette_funcs.js"></script>
     <script src="ta_lib/sprites.js"></script>
     <script src="ta_lib/block.js"></script>
     <script src="ta_lib/turtle.js"></script>
@@ -65,6 +74,7 @@
     <script src="ta_lib/globalvarstracker.js"></script>
     <script src="ta_lib/palettetracker.js"></script>
     <script src="ta_pal/basicblockpalette.js"></script>
+    <script src="ta_pal/penpalette.js"></script>
 
     <script defer="defer">
       var global_tracker = new GlobalVarsTracker();
@@ -80,6 +90,8 @@
 
       var basic1 = new BasicBlockPalette(475, 100, 'green', draw_stage.layer, global_tracker);
       palette_tracker.add_palette(basic1);
+      var pen_palette = new PenPalette(475, 100, 'green', draw_stage.layer, global_tracker);
+      palette_tracker.add_palette(pen_palette);
     </script>
     </div>
   </body>
