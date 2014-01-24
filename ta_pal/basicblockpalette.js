@@ -53,11 +53,9 @@ BasicBlockPalette.prototype = {
 
         var draw_stage = block.palette.global_tracker.get_var('draw_stage');
         var block_tracker = block.palette.global_tracker.get_var('block_tracker');
+        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
 
-        var dock_descriptor = new DockDescriptor();
-        dock_descriptor.add_upper_dock([17, 1]);
-        dock_descriptor.add_lower_dock([17, 43]);
-        dock_descriptor.add_param_dock([115, 25]);
+        var dock_descriptor = dock_tracker.get_dock("basic1arg");
 
         var sprit1 = new Sprite('block_res/basic1arg.svg', block.palette.container.layer, true);
         sprit1.set_label('Forward', 5, 13, 19, 'Calibri', 'black');
@@ -74,11 +72,9 @@ BasicBlockPalette.prototype = {
 
         var draw_stage = block.palette.global_tracker.get_var('draw_stage');
         var block_tracker = block.palette.global_tracker.get_var('block_tracker');
+        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
 
-        var dock_descriptor = new DockDescriptor();
-        dock_descriptor.add_upper_dock([17, 1]);
-        dock_descriptor.add_lower_dock([17, 43]);
-        dock_descriptor.add_param_dock([115, 25]);
+        var dock_descriptor = dock_tracker.get_dock("basic1arg");
 
         var sprit2 = new Sprite('block_res/basic1arg.svg', draw_stage.layer, true);
         sprit2.set_label('Backward', 5, 13, 17, 'Calibri', 'black');
@@ -94,11 +90,9 @@ BasicBlockPalette.prototype = {
 
         var draw_stage = block.palette.global_tracker.get_var('draw_stage');
         var block_tracker = block.palette.global_tracker.get_var('block_tracker');
+        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
 
-        var dock_descriptor = new DockDescriptor();
-        dock_descriptor.add_upper_dock([17, 1]);
-        dock_descriptor.add_lower_dock([17, 43]);
-        dock_descriptor.add_param_dock([115, 25]);
+        var dock_descriptor = dock_tracker.get_dock("basic1arg");
 
         var sprit3 = new Sprite('block_res/basic1arg.svg', draw_stage.layer, true);
         sprit3.set_label('Right', 5, 13, 19, 'Calibri', 'black');
@@ -114,11 +108,9 @@ BasicBlockPalette.prototype = {
 
         var draw_stage = block.palette.global_tracker.get_var('draw_stage');
         var block_tracker = block.palette.global_tracker.get_var('block_tracker');
+        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
 
-        var dock_descriptor = new DockDescriptor();
-        dock_descriptor.add_upper_dock([17, 1]);
-        dock_descriptor.add_lower_dock([17, 43]);
-        dock_descriptor.add_param_dock([115, 25]);
+        var dock_descriptor = dock_tracker.get_dock("basic1arg");
 
         var sprit4 = new Sprite('block_res/basic1arg.svg', draw_stage.layer, true);
         sprit4.set_label('Left', 5, 13, 19, 'Calibri', 'black');
@@ -134,9 +126,9 @@ BasicBlockPalette.prototype = {
 
         var draw_stage = block.palette.global_tracker.get_var('draw_stage');
         var block_tracker = block.palette.global_tracker.get_var('block_tracker');
+        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
 
-        var dock_descriptor = new DockDescriptor();
-        dock_descriptor.add_param_dock([17, 25]);
+        var dock_descriptor = dock_tracker.get_dock("box");
 
         var sprit4 = new Sprite('block_res/box.svg', draw_stage.layer, true);
         sprit4.set_label('100', 25, 13, 19, 'Calibri', 'black');

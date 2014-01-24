@@ -72,6 +72,7 @@
     <script src="ta_lib/drawstage.js"></script>
     <script src="ta_lib/blockstage.js"></script>
     <script src="ta_lib/globalvarstracker.js"></script>
+    <script src="ta_lib/docktracker.js"></script>
     <script src="ta_lib/palettetracker.js"></script>
     <script src="ta_pal/basicblockpalette.js"></script>
     <script src="ta_pal/penpalette.js"></script>
@@ -80,6 +81,7 @@
       var global_tracker = new GlobalVarsTracker();
       var block_tracker = new BlockTracker();
       var palette_tracker = new PaletteTracker();
+      var dock_tracker = new DockTracker();
       var draw_stage = new DrawStage('container2', $(window).width() - 40, $(window).height());
 
       block_tracker.set_palette_tracker(palette_tracker);
@@ -87,6 +89,7 @@
       global_tracker.add_var('block_tracker', block_tracker);
       global_tracker.add_var('draw_stage', draw_stage);
       global_tracker.add_var('palette_tracker', palette_tracker);
+      global_tracker.add_var('dock_tracker', dock_tracker);
 
       var basic1 = new BasicBlockPalette(475, 100, 'green', draw_stage.layer, global_tracker);
       palette_tracker.add_palette(basic1);
