@@ -7,6 +7,7 @@ function DrawStage(container, width, height){
     this.anim = null;
     this.turtle = null;
     this.draw_tracker = null;
+    this.bg = null;
     this.init_stage();
 }
 
@@ -22,10 +23,16 @@ DrawStage.prototype = {
         this.stage.add(this.layer);
         this.anim = new Kinetic.Animation(function(frame) {}, this.layer);
         this.anim.start();
+        this.bg = new Kinetic.Rect({
+            x: 0,
+            y: 0,
+            width: this.width,
+            height: this.height,
+            fill: 'white'
+        });
+        this.layer.add(this.bg);
         this.turtle = new Turtle([this.width/2, this.height/2], this.layer);
         this.draw_tracker = new DrawTracker(this.layer, this.turtle);
         this.turtle.draw_tracker = this.draw_tracker;
-        //alert(this.draw_tracker);
-        //alert(this.turtle.draw_tracker);
     }
 }
