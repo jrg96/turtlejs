@@ -58,15 +58,19 @@
     </div>
     <div id="canvas">
     <div id="container2"></div>
+
     <script src="ext_lib/kinetic-v4.7.4.min.js"></script>
+
     <script src="block_lib/basic_blocks_func.js"></script>
     <script src="block_lib/pen_palette_funcs.js"></script>
+
     <script src="ta_lib/sprites.js"></script>
     <script src="ta_lib/block.js"></script>
     <script src="ta_lib/turtle.js"></script>
     <script src="ta_lib/blocktracker.js"></script>
     <script src="ta_lib/drawtracker.js"></script>
     <script src="ta_lib/dockdescriptor.js"></script>
+    <script src="ta_lib/blockdescriptor.js"></script>
     <script src="ta_lib/palettecontainer.js"></script>
     <script src="ta_lib/blockfactory.js"></script>
     <script src="ta_lib/drawstage.js"></script>
@@ -74,8 +78,11 @@
     <script src="ta_lib/globalvarstracker.js"></script>
     <script src="ta_lib/docktracker.js"></script>
     <script src="ta_lib/palettetracker.js"></script>
+
     <script src="ta_pal/basicblockpalette.js"></script>
     <script src="ta_pal/penpalette.js"></script>
+
+    <script src="ta_pal_desc/basic_block_palette_descriptor.js"></script>
 
     <script defer="defer">
       var global_tracker = new GlobalVarsTracker();
@@ -91,7 +98,7 @@
       global_tracker.add_var('palette_tracker', palette_tracker);
       global_tracker.add_var('dock_tracker', dock_tracker);
 
-      var basic1 = new BasicBlockPalette(475, 100, 'green', draw_stage.layer, global_tracker);
+      var basic1 = new BasicBlockPalette(475, 100, 'green', draw_stage.layer, new BasicBlockDesc, global_tracker);
       palette_tracker.add_palette(basic1);
       var pen_palette = new PenPalette(475, 100, 'green', draw_stage.layer, global_tracker);
       palette_tracker.add_palette(pen_palette);

@@ -1,6 +1,7 @@
-function BasicBlockPalette(width, height, fill_color, layer, global_tracker){
+function BasicBlockPalette(width, height, fill_color, layer, pal_desc, global_tracker){
     this.container = null;
     this.global_tracker = global_tracker;
+    this.pal_desc = pal_desc;
     this.init_palette(width, height, fill_color, layer);
 }
 
@@ -49,94 +50,18 @@ BasicBlockPalette.prototype = {
         this.container.add_block_factory(block_factory1);
     },
     create_forward_block: function(block){
-        block.end_event();
-
-        var draw_stage = block.palette.global_tracker.get_var('draw_stage');
-        var block_tracker = block.palette.global_tracker.get_var('block_tracker');
-        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
-
-        var dock_descriptor = dock_tracker.get_dock("basic1arg");
-
-        var sprit1 = new Sprite('block_res/basic1arg.svg', block.palette.container.layer, true);
-        sprit1.set_label('Forward', 5, 13, 19, 'Calibri', 'black');
-
-        var block1 = new TurtleBlock(sprit1, draw_stage.layer, dock_descriptor, forward_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-        block1.params[2] = block1;
-        block_tracker.add_block(block1);
-        block1.block_id = block_tracker.get_next_id();
-        block1.set_xy(block.get_pos());
-        block1.fire('mousedown');
+        block.make_block('forward_block');
     },
     create_backward_block: function(block){
-        block.end_event();
-
-        var draw_stage = block.palette.global_tracker.get_var('draw_stage');
-        var block_tracker = block.palette.global_tracker.get_var('block_tracker');
-        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
-
-        var dock_descriptor = dock_tracker.get_dock("basic1arg");
-
-        var sprit2 = new Sprite('block_res/basic1arg.svg', draw_stage.layer, true);
-        sprit2.set_label('Backward', 5, 13, 17, 'Calibri', 'black');
-        var block2 = new TurtleBlock(sprit2, draw_stage.layer, dock_descriptor, backward_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-        block2.params[2] = block2;
-        block_tracker.add_block(block2);
-        block2.block_id = block_tracker.get_next_id();
-        block2.set_xy(block.get_pos());
-        block2.fire('mousedown');
+        block.make_block('backward_block');
     },
     create_right_block: function(block){
-        block.end_event();
-
-        var draw_stage = block.palette.global_tracker.get_var('draw_stage');
-        var block_tracker = block.palette.global_tracker.get_var('block_tracker');
-        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
-
-        var dock_descriptor = dock_tracker.get_dock("basic1arg");
-
-        var sprit3 = new Sprite('block_res/basic1arg.svg', draw_stage.layer, true);
-        sprit3.set_label('Right', 5, 13, 19, 'Calibri', 'black');
-        var block3 = new TurtleBlock(sprit3, draw_stage.layer, dock_descriptor, right_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-        block3.params[2] = block3;
-        block_tracker.add_block(block3);
-        block3.block_id = block_tracker.get_next_id();
-        block3.set_xy(block.get_pos());
-        block3.fire('mousedown');
+        block.make_block('right_block');
     },
     create_left_block: function(block){
-        block.end_event();
-
-        var draw_stage = block.palette.global_tracker.get_var('draw_stage');
-        var block_tracker = block.palette.global_tracker.get_var('block_tracker');
-        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
-
-        var dock_descriptor = dock_tracker.get_dock("basic1arg");
-
-        var sprit4 = new Sprite('block_res/basic1arg.svg', draw_stage.layer, true);
-        sprit4.set_label('Left', 5, 13, 19, 'Calibri', 'black');
-        var block4 = new TurtleBlock(sprit4, draw_stage.layer, dock_descriptor, left_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-        block4.params[2] = block4;
-        block_tracker.add_block(block4);
-        block4.block_id = block_tracker.get_next_id();
-        block4.set_xy(block.get_pos());
-        block4.fire('mousedown');
+        block.make_block('left_block');
     },
     create_box_block: function(block){
-        block.end_event();
-
-        var draw_stage = block.palette.global_tracker.get_var('draw_stage');
-        var block_tracker = block.palette.global_tracker.get_var('block_tracker');
-        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
-
-        var dock_descriptor = dock_tracker.get_dock("box");
-
-        var sprit4 = new Sprite('block_res/box.svg', draw_stage.layer, true);
-        sprit4.set_label('100', 25, 13, 19, 'Calibri', 'black');
-        var block4 = new TurtleBlock(sprit4, draw_stage.layer, dock_descriptor, text_block, get_number, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-        block4.params[2] = block4;
-        block_tracker.add_block(block4);
-        block4.block_id = block_tracker.get_next_id();
-        block4.set_xy(block.get_pos());
-        block4.fire('mousedown');
+        block.make_block('box_block');
     }
 }
