@@ -1,6 +1,7 @@
-function PenPalette(width, height, fill_color, layer, global_tracker){
+function PenPalette(width, height, fill_color, layer, pal_desc, global_tracker){
     this.container = null;
     this.global_tracker = global_tracker;
+    this.pal_desc = pal_desc;
     this.init_palette(width, height, fill_color, layer);
 }
 PenPalette.prototype = {
@@ -43,78 +44,16 @@ PenPalette.prototype = {
         this.container.add_block_factory(block_factory1);
     },
     create_penup_block: function(block){
-        block.end_event();
-        
-        var draw_stage = block.palette.global_tracker.get_var('draw_stage');
-        var block_tracker = block.palette.global_tracker.get_var('block_tracker');
-        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
-
-        var dock_descriptor = dock_tracker.get_dock("basic");
-        var sprit1 = new Sprite('block_res/basic.svg', block.palette.container.layer, true);
-        sprit1.set_label('Pen up', 5, 13, 19, 'Calibri', 'black');
-
-        var block1 = new TurtleBlock(sprit1, draw_stage.layer, dock_descriptor, penup_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-        block1.params[2] = block1;
-        block_tracker.add_block(block1);
-        block1.block_id = block_tracker.get_next_id();
-        block1.set_xy(block.get_pos());
-        block1.fire('mousedown');
+        block.make_block('penup_block');
     },
     create_pendownd_block: function(block){
-        block.end_event();
-        
-        var draw_stage = block.palette.global_tracker.get_var('draw_stage');
-        var block_tracker = block.palette.global_tracker.get_var('block_tracker');
-        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
-
-        var dock_descriptor = dock_tracker.get_dock("basic");
-
-        var sprit1 = new Sprite('block_res/basic.svg', block.palette.container.layer, true);
-        sprit1.set_label('Pen Down', 5, 13, 18, 'Calibri', 'black');
-
-        var block1 = new TurtleBlock(sprit1, draw_stage.layer, dock_descriptor, pendown_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-        block1.params[2] = block1;
-        block_tracker.add_block(block1);
-        block1.block_id = block_tracker.get_next_id();
-        block1.set_xy(block.get_pos());
-        block1.fire('mousedown');
+        block.make_block('pendown_block');
     },
     create_spen_size: function(block){
-        block.end_event();
-        
-        var draw_stage = block.palette.global_tracker.get_var('draw_stage');
-        var block_tracker = block.palette.global_tracker.get_var('block_tracker');
-        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
-
-        var dock_descriptor = dock_tracker.get_dock("basic1arg");
-
-        var sprit1 = new Sprite('block_res/basic1arg.svg', block.palette.container.layer, true);
-        sprit1.set_label('Set pen size', 5, 13, 14, 'Calibri', 'black');
-
-        var block1 = new TurtleBlock(sprit1, draw_stage.layer, dock_descriptor, set_pen_size_block, null, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-        block1.params[2] = block1;
-        block_tracker.add_block(block1);
-        block1.block_id = block_tracker.get_next_id();
-        block1.set_xy(block.get_pos());
-        block1.fire('mousedown');
+        block.make_block('set_pen_size_block');
     },
     create_psize_val: function(block){
-        block.end_event();
-
-        var draw_stage = block.palette.global_tracker.get_var('draw_stage');
-        var block_tracker = block.palette.global_tracker.get_var('block_tracker');
-        var dock_tracker = block.palette.global_tracker.get_var('dock_tracker');
-
-        var dock_descriptor = dock_tracker.get_dock("box");
-
-        var sprit4 = new Sprite('block_res/box.svg', draw_stage.layer, true);
-        sprit4.set_label('3', 25, 13, 19, 'Calibri', 'black');
-        var block4 = new TurtleBlock(sprit4, draw_stage.layer, dock_descriptor, text_block, get_number, [draw_stage.turtle, draw_stage.draw_tracker, null]);
-        block4.params[2] = block4;
-        block_tracker.add_block(block4);
-        block4.block_id = block_tracker.get_next_id();
-        block4.set_xy(block.get_pos());
-        block4.fire('mousedown');
+        block.make_block('box_block');
     }
 }
 

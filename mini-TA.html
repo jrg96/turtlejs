@@ -83,6 +83,7 @@
     <script src="ta_pal/penpalette.js"></script>
 
     <script src="ta_pal_desc/basic_block_palette_descriptor.js"></script>
+    <script src="ta_pal_desc/pen_palette_descriptor.js"></script>
 
     <script defer="defer">
       var global_tracker = new GlobalVarsTracker();
@@ -98,9 +99,9 @@
       global_tracker.add_var('palette_tracker', palette_tracker);
       global_tracker.add_var('dock_tracker', dock_tracker);
 
-      var basic1 = new BasicBlockPalette(475, 100, 'green', draw_stage.layer, new BasicBlockDesc, global_tracker);
+      var basic1 = new BasicBlockPalette(475, 100, 'green', draw_stage.layer, new BasicBlockDesc(), global_tracker);
       palette_tracker.add_palette(basic1);
-      var pen_palette = new PenPalette(475, 100, 'green', draw_stage.layer, global_tracker);
+      var pen_palette = new PenPalette(475, 100, 'green', draw_stage.layer, new PenPaletteDesc(), global_tracker);
       palette_tracker.add_palette(pen_palette);
     </script>
     </div>
