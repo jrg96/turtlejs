@@ -27,6 +27,13 @@
                   palette_tracker.show_palette(pen_palette);
               }
           });
+          $("#colortb-bt").click(function(){
+              if (colors_palette.is_visible()){
+                  colors_palette.hide();
+              }else{
+                  palette_tracker.show_palette(colors_palette);
+              }
+          });
           $("#run-bt").click(function(){
               var starter_blocks = block_tracker.get_starter_blocks();
               for (var i=0; i<starter_blocks.length; i++){
@@ -82,6 +89,7 @@
 
     <script src="ta_pal/basicblockpalette.js"></script>
     <script src="ta_pal/penpalette.js"></script>
+    <script src="ta_pal/colorspalette.js"></script>
 
     <script src="ta_pal_desc/basic_block_palette_descriptor.js"></script>
     <script src="ta_pal_desc/pen_palette_descriptor.js"></script>
@@ -104,6 +112,8 @@
       palette_tracker.add_palette(basic1);
       var pen_palette = new PenPalette(475, 100, 'green', draw_stage.layer, new PenPaletteDesc(), global_tracker);
       palette_tracker.add_palette(pen_palette);
+      var colors_palette = new ColorsPalette(475, 100, 'green', draw_stage.layer, null, global_tracker);
+      palette_tracker.add_palette(colors_palette);
     </script>
     </div>
   </body>
