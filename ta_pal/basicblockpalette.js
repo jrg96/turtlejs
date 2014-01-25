@@ -48,6 +48,11 @@ BasicBlockPalette.prototype = {
         sprit1.set_label('100', 25, 13, 19, 'Calibri', 'black');
         block_factory1 = new BlockFactory([5, 55], sprit1, this.create_box_block, this);
         this.container.add_block_factory(block_factory1);
+
+        sprit1 = new Sprite('block_res/basic.svg', this.container.layer, true);
+        sprit1.set_label('Clean', 5, 13, 18, 'Calibri', 'black');
+        block_factory1 = new BlockFactory([120, 55], sprit1, this.create_clean_block, this);
+        this.container.add_block_factory(block_factory1);
     },
     create_forward_block: function(block){
         block.make_block('forward_block');
@@ -63,5 +68,8 @@ BasicBlockPalette.prototype = {
     },
     create_box_block: function(block){
         block.make_block('box_block');
+    },
+    create_clean_block: function(block){
+        block.make_block('clean_block');
     }
 }

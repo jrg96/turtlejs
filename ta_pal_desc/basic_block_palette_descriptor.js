@@ -26,6 +26,10 @@ BasicBlockDesc.prototype = {
         var block_descriptor = new BlockDescriptor('block_res/box.svg', 'box', text_block, get_number);
         block_descriptor.add_label('100', 25, 13, 19, 'Calibri', 'black');
         this.descriptors['box_block'] = block_descriptor;
+
+        var block_descriptor = new BlockDescriptor('block_res/basic.svg', 'basic', clean_block, null);
+        block_descriptor.add_label('Clean', 5, 13, 18, 'Calibri', 'black');
+        this.descriptors['clean_block'] = block_descriptor;
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

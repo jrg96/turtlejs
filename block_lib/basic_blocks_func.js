@@ -52,3 +52,7 @@ function text_block(params) {
     params[2].sprite.labels[0].setText(prompt('Set value:'));
 }
 
+function clean_block(params) {
+    params[1].clear_canvas();
+}
+

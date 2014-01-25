@@ -7,14 +7,7 @@ function DrawTracker(layer, turtle){
     this.points = [];
     this.points.push(turtle.get_xy()[0]);
     this.points.push(turtle.get_xy()[1]);
-    this.line = new Kinetic.Line({
-        points: this.points,
-        strokeWidth: this.pen_size,
-        lineCap: 'round',
-        lineJoin: 'round',
-        stroke: 'red',
-    });
-    this.layer.add(this.line);
+    this.make_base_line();
 }
 
 DrawTracker.prototype = {
@@ -27,14 +20,7 @@ DrawTracker.prototype = {
         }else{
             this.lines.push(this.line);
             this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
-            this.line = new Kinetic.Line({
-                points: this.points,
-                strokeWidth: this.pen_size,
-                lineCap: 'round',
-                lineJoin: 'round',
-                stroke: 'red',
-            });
-            this.layer.add(this.line);
+            this.make_base_line();
         }
     },
     clear_canvas: function(){
@@ -45,14 +31,7 @@ DrawTracker.prototype = {
         this.line.remove();
         this.lines = [];
         this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
-        this.line = new Kinetic.Line({
-            points: this.points,
-            strokeWidth: this.pen_size,
-            lineCap: 'round',
-            lineJoin: 'round',
-            stroke: 'red',
-        });
-        this.layer.add(this.line);
+        this.make_base_line();
     },
     check_repos: function(){
         if (this.points.length == 2){
@@ -66,19 +45,22 @@ DrawTracker.prototype = {
     pen_down_action: function(){
         this.pen_down = true;
     },
+    make_base_line: function(){
+        this.line = new Kinetic.Line({
+            points: this.points,
+            strokeWidth: this.pen_size,
+            lineCap: 'round',
+            lineJoin: 'round',
+            stroke: 'red',
+        });
+        this.layer.add(this.line);
+    },
     set_pen_size: function(value){
         if (this.pen_size != value){
             this.pen_size = value;
             this.lines.push(this.line);
             this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
-            this.line = new Kinetic.Line({
-                points: this.points,
-                strokeWidth: this.pen_size,
-                lineCap: 'round',
-                lineJoin: 'round',
-                stroke: 'red',
-            });
-            this.layer.add(this.line);
+            this.make_base_line();
         }
     }
 }
