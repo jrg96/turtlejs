@@ -26,22 +26,22 @@ PenPalette.prototype = {
         var sprit1 = new Sprite('block_res/basic.svg', this.container.layer, true);
         sprit1.set_label('Pen up', 5, 13, 19, 'Calibri', 'black');
         var block_factory1 = new BlockFactory([5, 5], sprit1, this.create_penup_block, this);
-        this.container.add_block_factory(block_factory1);
+        this.container.add_block_factory("penup", block_factory1);
 
         sprit1 = new Sprite('block_res/basic.svg', this.container.layer, true);
         sprit1.set_label('Pen Down', 5, 13, 18, 'Calibri', 'black');
         block_factory1 = new BlockFactory([120, 5], sprit1, this.create_pendownd_block, this);
-        this.container.add_block_factory(block_factory1);
+        this.container.add_block_factory("pendown", block_factory1);
 
         sprit1 = new Sprite('block_res/basic1arg.svg', this.container.layer, true);
         sprit1.set_label('Set pen size', 5, 13, 14, 'Calibri', 'black');
         block_factory1 = new BlockFactory([235, 5], sprit1, this.create_spen_size, this);
-        this.container.add_block_factory(block_factory1);
+        this.container.add_block_factory("setpensize", block_factory1);
 
         sprit1 = new Sprite('block_res/box.svg', this.container.layer, true);
         sprit1.set_label('pen s', 25, 13, 19, 'Calibri', 'black');
         block_factory1 = new BlockFactory([5, 55], sprit1, this.create_psize_val, this);
-        this.container.add_block_factory(block_factory1);
+        this.container.add_block_factory("pensize", block_factory1);
     },
     create_penup_block: function(block){
         block.make_block('penup_block');

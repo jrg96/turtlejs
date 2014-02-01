@@ -24,8 +24,8 @@ PaletteContainer.prototype = {
         });
         this.group.add(this.rect);
     },
-    add_block_factory: function(block){
-        this.elements.push(block.group);
+    add_block_factory: function(key, block){
+        this.elements[key] = block;
         this.group.add(block.group);
     },
     show: function(){
