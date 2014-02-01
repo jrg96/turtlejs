@@ -50,6 +50,9 @@
                   block_tracker.show_blocks();
               }
           });
+          $("#open-bt").click(function(){
+              $("#input-file").focus().click();
+          });
       });
     </script>
   </head>
@@ -66,6 +69,7 @@
         <button class="toolbutton" id="open-bt" title="Open file"></button>
     </div>
     <div id="canvas">
+    <input type="file" id="input-file" name="files[]" />
     <div id="container2"></div>
 
     <script src="ext_lib/kinetic-v4.7.4.min.js"></script>
