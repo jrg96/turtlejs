@@ -1,4 +1,9 @@
 function onFileSelect(evt) {
-    var files = evt.target.files;
-    alert(files[0].name);
+    var file = evt.target.files[0];
+
+    if (file.name.match(".ta$")){
+        alert("es archivo ta");
+    }else {
+        alert("no es archivo ta");
+    }
 }
