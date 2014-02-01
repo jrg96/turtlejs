@@ -40,6 +40,6 @@ $(document).ready(function() {
         $("#input-file").focus().click();
     });
     $("#input-file").change(function(evt){
-        onFileSelect(evt);
+        onFileSelect(evt, palette_tracker);
     });
 });

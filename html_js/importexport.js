@@ -1,10 +1,11 @@
-function onFileSelect(evt) {
+function onFileSelect(evt, palette_tracker) {
     var file = evt.target.files[0];
     var reader = new FileReader();
 
     reader.onload = (function(theFile) {
         return function(e) {
-            alert(e.target.result);
+            var json_obj = JSON.parse(e.target.result);
+            parseTAFile(json_obj, palette_tracker);
         };
     })(file);
 
@@ -12,5 +13,11 @@ function onFileSelect(evt) {
         reader.readAsText(file);
     }else {
         alert("no es archivo ta");
+    }
+}
+
+function parseTAFile(json, palette_tracker) {
+    for (var i=0; i<json.length; i++) {
+        
     }
 }
