@@ -39,4 +39,7 @@ $(document).ready(function() {
     $("#open-bt").click(function(){
         $("#input-file").focus().click();
     });
+    $("#input-file").change(function(evt){
+        onFileSelect(evt);
+    });
 });
