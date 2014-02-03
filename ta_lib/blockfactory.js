@@ -1,8 +1,8 @@
-function BlockFactory(pos, sprite, callback_func, palette){
+function BlockFactory(pos, sprite, block_name, palette){
     this.pos = pos;
     this.group = null;
     this.sprite = sprite;
-    this.callback_func = callback_func;
+    this.block_name = block_name;
     this.palette = palette;
     this.init_factory();
 }
@@ -18,7 +18,7 @@ BlockFactory.prototype = {
         });
         this.group.add(this.sprite.group);
         this.group.on('mousedown', function(){
-            parent.callback_func(parent);
+            parent.make_block(parent.block_name);
         });
     },
     get_sprite: function(){
