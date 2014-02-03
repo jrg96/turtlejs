@@ -53,5 +53,8 @@ PaletteContainer.prototype = {
         }else{
             return false;
         }
+    },
+    get_factory: function(name){
+        return this.elements[name];
     }
 }

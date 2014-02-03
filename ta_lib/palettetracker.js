@@ -24,5 +24,15 @@ PaletteTracker.prototype = {
             visible_palette.hide();
         }
         palette.show();
+    },
+    search_factory: function(name){
+        var factory = null;
+        for (var i=0; i<this.palettes.length; i++){
+            factory = this.palettes[i].container.get_factory(name);
+            if (factory != null){
+                break;
+            }
+        }
+        return factory;
     }
 }
