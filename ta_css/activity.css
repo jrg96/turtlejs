@@ -27,6 +27,10 @@
   background-image: url(../ta_icons/ta-open.svg);
 }
 
+#save-bt {
+  background-image: url(../ta_icons/filesaveoff.svg);
+}
+
 #input-file {
   position: absolute;
   left: -9999px;
