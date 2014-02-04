@@ -17,6 +17,8 @@ function onFileSelect(evt, palette_tracker, block_tracker) {
 }
 
 function parseTAFile(json, palette_tracker, block_tracker) {
+    block_tracker.hide_blocks();
+    block_tracker.blocks = [];
     block_tracker.id = 0;
     for (var i=0; i<json.length; i++) {
         var index = parseInt(json[i][0]);
@@ -51,6 +53,20 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             if (lower_block != null){
                 makeLowerLink(block, lower_block);
             }
+
+            for (var i2=1; i2<link_data.length-1; i2++){
+                var param_block = block_tracker.get_block(link_data[i2]);
+                if (param_block != null){
+                    makeReceiverGivingLink(block, param_block, i2-1);
+                }
+            }
+        } else{
+            var receiver_block = block_tracker.get_block(link_data[0]);
+
+            if (receiver_block != null){
+                var block_json = getBlockJSON(json, link_data[0]);
+                makeGivingReceiverLink(block, receiver_block, block_json[4].indexOf(index)-1);
+            }
         }
     }
 }
@@ -79,4 +95,29 @@ function makeLowerLink(caller, receiver){
         caller.lower_block.push(receiver);
         receiver.upper_block.push(caller);
     }
+}
+
+function makeReceiverGivingLink(caller, receiver, index){
+    if (caller.receiver_slots.indexOf(receiver) == -1){
+        caller.receiver_slots[index] = receiver;
+        receiver.param_blocks[0] = caller;
+    }
+}
+
+function makeGivingReceiverLink(caller, receiver, index){
+    if (caller.param_blocks.indexOf(receiver) == -1){
+        caller.param_blocks[0] = receiver;
+        receiver.receiver_slots[index] = caller;
+    }
+}
+
+function getBlockJSON(json, id){
+    var data = null;
+
+    for (var i=0; i<json.length; i++){
+        if (json[i][0] == id){
+            data = json[i];
+        }
+    }
+    return data;
 }
