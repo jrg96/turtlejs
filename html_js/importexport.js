@@ -19,9 +19,17 @@ function onFileSelect(evt, palette_tracker) {
 function parseTAFile(json, palette_tracker) {
     for (var i=0; i<json.length; i++) {
         var index = parseInt(json[i][0]);
+        var factory = null;
+        var block = null;
 
-        // test
         if (json[i][1] instanceof Array){
+            factory = palette_tracker.search_factory(json[i][1][0]);
+        } else{
+            factory = palette_tracker.search_factory(json[i][1]);
         }
+
+        block = factory.make_block(factory.block_name, false);
+
+        alert(block);
     }
 }

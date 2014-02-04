@@ -18,7 +18,7 @@ BlockFactory.prototype = {
         });
         this.group.add(this.sprite.group);
         this.group.on('mousedown', function(){
-            parent.make_block(parent.block_name);
+            parent.make_block(parent.block_name, true);
         });
     },
     get_sprite: function(){
@@ -33,8 +33,11 @@ BlockFactory.prototype = {
     get_pos: function(){
         return this.pos;
     },
-    make_block: function(name){
-        this.end_event();
+    make_block: function(name, user_action){
+        if (user_action){
+            this.end_event();
+        }
+
         var draw_stage = this.palette.global_tracker.get_var('draw_stage');
         var block_tracker = this.palette.global_tracker.get_var('block_tracker');
         var dock_tracker = this.palette.global_tracker.get_var('dock_tracker');
@@ -51,7 +54,12 @@ BlockFactory.prototype = {
         block_tracker.add_block(block1);
         block1.block_id = block_tracker.get_next_id();
         block1.set_xy(this.get_pos());
-        block1.fire('mousedown');
+
+        if (user_action){
+            block1.fire('mousedown');
+        }
+
+        return block1;
     },
     make_label: function(sprit, label){
         sprit.set_label(label['value'], label['x'], label['y'], label['font_size'], label['font_type'], label['font_color']);
