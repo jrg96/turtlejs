@@ -34,6 +34,10 @@ function parseTAFile(json, palette_tracker, block_tracker) {
         block = factory.make_block(factory.block_name, false);
         block.block_id = index;
         block.set_xy([json[i][2], json[i][3]]);
+
+        if (json[i][1] instanceof Array){
+            block.func(block.params, true, json[i][1][1]);
+        }
     }
 }
 
