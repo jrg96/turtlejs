@@ -20,6 +20,7 @@ function parseTAFile(json, palette_tracker) {
     for (var i=0; i<json.length; i++) {
         var index = parseInt(json[i][0]);
 
+        // test
         if (json[i][1] instanceof Array){
         }
     }
