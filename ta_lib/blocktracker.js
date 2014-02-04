@@ -77,5 +77,15 @@ BlockTracker.prototype = {
     remove_block: function(block){
         var block_index = this.blocks.indexOf(block);
         this.blocks.splice(block_index, 1);
+    },
+    get_block: function(id){
+        var block = null;
+        for (var i=0; i<this.blocks.length; i++){
+            if (this.blocks[i].block_id == id){
+                block = this.blocks[i];
+                break;
+            }
+        }
+        return block;
     }
 }
