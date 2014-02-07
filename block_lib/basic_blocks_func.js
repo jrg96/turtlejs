@@ -61,3 +61,17 @@ function clean_block(params) {
     params[1].clear_canvas();
 }
 
+function setxy_block(params){
+    var zero_coord = params[0].start_pos;
+
+    if (params[2].has_all_slots()){
+        var values = params[2].get_slot_values();
+        var pos = [];
+        pos[0] = zero_coord[0] - values[0];
+        pos[1] = zero_coord[1] - values[1];
+        alert(pos);
+        params[0].set_xy(pos);
+    }else{
+        alert('Missing value from set xy block');
+    }
+}

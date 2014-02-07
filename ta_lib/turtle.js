@@ -85,13 +85,16 @@ Turtle.prototype = {
         this.img.group.moveToTop();
     },
     reset_pos: function(){
-        this.img.group.setX(this.start_pos[0]);
-        this.img.group.setY(this.start_pos[1]);
+        this.set_xy(this.start_pos);
         this.img.group.rotateDeg(360 - this.rotation);
         this.rotation = 0;
     },
     turtle_drag: function(turtle){
         //alert(turtle.draw_tracker);
         turtle.draw_tracker.check_repos();
+    },
+    set_xy: function(pos){
+        this.img.group.setX(pos[0]);
+        this.img.group.setY(pos[1]);
     }
 }
