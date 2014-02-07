@@ -51,7 +51,7 @@ DrawTracker.prototype = {
             strokeWidth: this.pen_size,
             lineCap: 'round',
             lineJoin: 'round',
-            stroke: 'rgba(0,255,0,50.0)'
+            stroke: 'red'
         });
         //this.line.opacity(1.0);
         this.layer.add(this.line);
