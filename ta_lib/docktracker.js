@@ -15,6 +15,13 @@ function DockTracker(){
     dock_descriptor.add_upper_dock([17, 1]);
     dock_descriptor.add_lower_dock([17, 35]);
     this.add_dock("basic", dock_descriptor);
+
+    var dock_descriptor = new DockDescriptor();
+    dock_descriptor.add_upper_dock([17, 1]);
+    dock_descriptor.add_lower_dock([17, 85]);
+    dock_descriptor.add_param_dock([115, 25]);
+    dock_descriptor.add_param_dock([115, 67]);
+    this.add_dock("basic2arg", dock_descriptor);
 }
 
 DockTracker.prototype = {

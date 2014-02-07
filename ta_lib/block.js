@@ -114,7 +114,12 @@ TurtleBlock.prototype = {
                     var align_point = receiver_points[i];
                     var point = [0, 0];
                     point[0] = collide.get_xy()[0] + align_point[0] - 17;
-                    point[1] = collide.get_xy()[1];
+
+                    if (align_point[1] <= 25){
+                        point[1] = collide.get_xy()[1];
+                    } else {
+                        point[1] = collide.get_xy()[1] + align_point[1] - 25;
+                    }
                     parent.set_xy(point);
                     collide.receiver_slots[i] = parent;
                     parent.param_blocks[0] = collide;
