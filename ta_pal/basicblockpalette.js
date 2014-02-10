@@ -71,5 +71,12 @@ BasicBlockPalette.prototype = {
         block_factory1 = new BlockFactory([125, 145], sprit1, 'box_block', this);
         this.container.add_block_factory('number', block_factory1);
 
+        sprit1 = new Sprite('block_res/basic2arg.svg', this.container.layer, true);
+        sprit1.set_label('arc', 18, 30, 24, 'Calibri', 'black');
+        sprit1.set_label('angle', 48, 10, 20, 'Calibri', 'black');
+        sprit1.set_label('radius', 43, 50, 20, 'Calibri', 'black');
+        block_factory1 = new BlockFactory([215, 100], sprit1, 'setxy_block', this);
+        this.container.add_block_factory('setxy', block_factory1);
+
     }
 }
