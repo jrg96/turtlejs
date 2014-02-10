@@ -60,5 +60,16 @@ BasicBlockPalette.prototype = {
         sprit1.set_label('y', 79, 50, 20, 'Calibri', 'black');
         block_factory1 = new BlockFactory([5, 100], sprit1, 'setxy_block', this);
         this.container.add_block_factory('setxy', block_factory1);
+
+        sprit1 = new Sprite('block_res/box.svg', this.container.layer, true);
+        sprit1.set_label('x', 40, 13, 19, 'Calibri', 'black');
+        block_factory1 = new BlockFactory([125, 100], sprit1, 'box_block', this);
+        this.container.add_block_factory('number', block_factory1);
+
+        sprit1 = new Sprite('block_res/box.svg', this.container.layer, true);
+        sprit1.set_label('y', 40, 13, 19, 'Calibri', 'black');
+        block_factory1 = new BlockFactory([125, 145], sprit1, 'box_block', this);
+        this.container.add_block_factory('number', block_factory1);
+
     }
 }
