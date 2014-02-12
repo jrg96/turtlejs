@@ -7,6 +7,8 @@ function ArcShape(pos, radio, startAng, endAng, stroke, line){
     this.line = line;
     this.group = null;
     this.arc = null;
+    this.start_point = null;
+    this.end_point = null;
     this.init();
 }
 
@@ -31,5 +33,28 @@ ArcShape.prototype = {
             draggable: false
         });
         this.group.add(this.arc);
+
+        this.start_point = new Kinetic.Circle({
+            x: parent.radio,
+            y: 0,
+            radius: 5,
+            fill: 'red',
+            stroke: 'black',
+            strokeWidth: 0
+        });
+        this.group.add(this.start_point);
+
+        var end_x = Math.round(Math.cos(parent.endAng) * parent.radio);
+        var end_y = Math.round(Math.sin(parent.endAng) * parent.radio);
+
+        this.end_point = new Kinetic.Circle({
+            x: end_x,
+            y: end_y,
+            radius: 5,
+            fill: 'red',
+            stroke: 'black',
+            strokeWidth: 0
+        });
+        this.group.add(this.end_point);
     }
 }

@@ -40,7 +40,7 @@ $(document).ready(function() {
         $("#input-file").focus().click();
     });
     $("#save-bt").click(function(){
-        arcs.group.rotate((1 * Math.PI) / 180);
+        arcs.group.rotate((-10 * Math.PI) / 180);
     });
     $("#input-file").change(function(evt){
         onFileSelect(evt, palette_tracker, block_tracker);
