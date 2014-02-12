@@ -37,9 +37,9 @@ ArcShape.prototype = {
         this.start_point = new Kinetic.Circle({
             x: parent.radio,
             y: 0,
-            radius: 5,
-            fill: 'red',
-            stroke: 'black',
+            radius: 0.01,
+            fill: parent.stroke,
+            stroke: parent.stroke,
             strokeWidth: 0
         });
         this.group.add(this.start_point);
@@ -50,7 +50,7 @@ ArcShape.prototype = {
         this.end_point = new Kinetic.Circle({
             x: end_x,
             y: end_y,
-            radius: 5,
+            radius: 0.01,
             fill: 'red',
             stroke: 'black',
             strokeWidth: 0
@@ -62,5 +62,12 @@ ArcShape.prototype = {
     },
     rotate: function(deg){
         this.group.rotate((deg * Math.PI) / 180);
+    },
+    set_start_offset: function(){
+        this.group.setOffset([this.start_point.getX(), this.start_point.getY()]);
+    },
+    set_xy: function(point){
+        this.group.setX(point[0]);
+        this.group.setY(point[1]);
     }
 }
