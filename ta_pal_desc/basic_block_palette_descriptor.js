@@ -37,7 +37,7 @@ BasicBlockDesc.prototype = {
         block_descriptor.add_label('y', 79, 50, 20, 'Calibri', 'black');
         this.descriptors['setxy_block'] = block_descriptor;
 
-        var block_descriptor = new BlockDescriptor('block_res/basic2arg.svg', 'basic2arg', setxy_block, null);
+        var block_descriptor = new BlockDescriptor('block_res/basic2arg.svg', 'basic2arg', arc_block, null);
         block_descriptor.add_label('arc', 18, 30, 24, 'Calibri', 'black');
         block_descriptor.add_label('angle', 48, 10, 20, 'Calibri', 'black');
         block_descriptor.add_label('radius', 43, 50, 20, 'Calibri', 'black');

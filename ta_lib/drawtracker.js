@@ -2,6 +2,7 @@ function DrawTracker(layer, turtle){
     this.lines = [];
     this.pen_down = true;
     this.pen_size = 3;
+    this.stroke_line = 'red';
     this.layer = layer;
     this.turtle = turtle;
     this.points = [];

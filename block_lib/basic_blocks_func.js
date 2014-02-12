@@ -74,3 +74,13 @@ function setxy_block(params){
         alert('Missing value from set xy block');
     }
 }
+
+function arc_block(params){
+    if (params[2].has_all_slots()){
+        var values = params[2].get_slot_values();
+        var arc = new ArcShape(params[0].get_xy(), values[1], 0, values[0], params[1].stroke_line, params[1].pen_size);
+        params[0].layer.add(arc.group);
+    }else{
+        alert('Missing value from arc block');
+    }
+}
