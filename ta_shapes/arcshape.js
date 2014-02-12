@@ -59,5 +59,8 @@ ArcShape.prototype = {
     },
     remove: function(){
         this.group.remove();
+    },
+    rotate: function(deg){
+        this.group.rotate((deg * Math.PI) / 180);
     }
 }
