@@ -56,5 +56,8 @@ ArcShape.prototype = {
             strokeWidth: 0
         });
         this.group.add(this.end_point);
+    },
+    remove: function(){
+        this.group.remove();
     }
 }

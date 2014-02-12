@@ -1,5 +1,6 @@
 function DrawTracker(layer, turtle){
     this.lines = [];
+    this.shapes = [];
     this.pen_down = true;
     this.pen_size = 3;
     this.stroke_line = 'red';
@@ -29,8 +30,12 @@ DrawTracker.prototype = {
         for (var i=0; i<this.lines.length; i++){
             this.lines[i].remove();
         }
+        for (var i=0; i<this.shapes.length; i++){
+            this.shapes[i].remove();
+        }
         this.line.remove();
         this.lines = [];
+        this.shapes = [];
         this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
         this.make_base_line();
     },
@@ -64,5 +69,8 @@ DrawTracker.prototype = {
             this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
             this.make_base_line();
         }
+    },
+    add_shape: function(shape){
+        this.shapes.push(shape);
     }
 }
