@@ -19,3 +19,6 @@ palette_tracker.add_palette(pen_palette);
 
 var colors_palette = new ColorsPalette(475, 100, 'green', draw_stage.layer, new ColorsPaletteDesc(), global_tracker);
 palette_tracker.add_palette(colors_palette);
+
+var arcs = new ArcShape([150, 150], 75, 0, 290, 'green', 6);
+draw_stage.layer.add(arcs.group);
