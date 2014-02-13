@@ -37,7 +37,7 @@ ArcShape.prototype = {
         this.start_point = new Kinetic.Circle({
             x: parent.radio,
             y: 0,
-            radius: 0.01,
+            radius: 0.0001,
             fill: parent.stroke,
             stroke: parent.stroke,
             strokeWidth: 0
@@ -50,9 +50,9 @@ ArcShape.prototype = {
         this.end_point = new Kinetic.Circle({
             x: end_x,
             y: end_y,
-            radius: 0.01,
-            fill: 'red',
-            stroke: 'black',
+            radius: 0.0001,
+            fill: parent.stroke,
+            stroke: parent.stroke,
             strokeWidth: 0
         });
         this.group.add(this.end_point);
@@ -66,8 +66,23 @@ ArcShape.prototype = {
     set_start_offset: function(){
         this.group.setOffset([this.start_point.getX(), this.start_point.getY()]);
     },
+    set_normal_offset: function(){
+        this.group.setOffset([this.get_xy()[0] + this.radio, this.get_xy()[1] + this.radio]);
+    },
     set_xy: function(point){
         this.group.setX(point[0]);
         this.group.setY(point[1]);
+    },
+    get_end_point: function(){
+        var pos = [];
+        pos[0] = this.group.getX() - this.end_point.getX();
+        pos[1] = this.group.getY() - this.end_point.getY();
+        return pos;
+    },
+    get_xy: function(){
+        var pos = [];
+        pos[0] = this.group.getX();
+        pos[1] = this.group.getY();
+        return pos;
     }
 }

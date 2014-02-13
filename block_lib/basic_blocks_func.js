@@ -82,8 +82,13 @@ function arc_block(params){
         params[0].layer.add(arc.group);
         params[1].add_shape(arc);
         arc.rotate(-180 + params[0].rotation);
+
         arc.set_start_offset();
         arc.set_xy(params[0].get_xy());
+
+        var final_pos = [arc.end_point.getAbsolutePosition().x, arc.end_point.getAbsolutePosition().y];
+        params[0].set_xy(final_pos);
+        params[0].rotate(values[0]);
     }else{
         alert('Missing value from arc block');
     }
