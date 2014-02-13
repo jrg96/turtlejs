@@ -78,9 +78,10 @@ function setxy_block(params){
 function arc_block(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();
+
         var arc = new ArcShape(params[0].get_xy(), values[1], 0, values[0], params[1].stroke_line, params[1].pen_size);
+
         params[0].layer.add(arc.group);
-        params[1].add_shape(arc);
         arc.rotate(-180 + params[0].rotation);
 
         arc.set_start_offset();
@@ -89,6 +90,7 @@ function arc_block(params){
         var final_pos = [arc.end_point.getAbsolutePosition().x, arc.end_point.getAbsolutePosition().y];
         params[0].set_xy(final_pos);
         params[0].rotate(values[0]);
+        params[1].add_shape(arc);
     }else{
         alert('Missing value from arc block');
     }

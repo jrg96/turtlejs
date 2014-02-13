@@ -72,5 +72,13 @@ DrawTracker.prototype = {
     },
     add_shape: function(shape){
         this.shapes.push(shape);
+        this.end_line();
+    },
+    end_line: function(){
+        if (this.points.length > 2){
+            this.lines.push(this.line);
+        }
+        this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
+        this.make_base_line();
     }
 }
