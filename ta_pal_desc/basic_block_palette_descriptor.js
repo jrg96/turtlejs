@@ -39,9 +39,17 @@ BasicBlockDesc.prototype = {
 
         var block_descriptor = new BlockDescriptor('block_res/basic2arg.svg', 'basic2arg', arc_block, null);
         block_descriptor.add_label('arc', 18, 30, 24, 'Calibri', 'black');
-        block_descriptor.add_label('angle', 48, 10, 20, 'Calibri', 'black');
-        block_descriptor.add_label('radius', 43, 50, 20, 'Calibri', 'black');
+        block_descriptor.add_label('angle', 40, 10, 20, 'Calibri', 'black');
+        block_descriptor.add_label('radius', 32, 56, 20, 'Calibri', 'black');
         this.descriptors['arc_block'] = block_descriptor;
+
+        var block_descriptor = new BlockDescriptor('block_res/basic1arg.svg', 'basic1arg', set_heading_block, null);
+        block_descriptor.add_label('Set heading', 5, 15, 14, 'Calibri', 'black');
+        this.descriptors['set_heading_block'] = block_descriptor;
+
+        var block_descriptor = new BlockDescriptor('block_res/box.svg', 'box', text_block, get_number);
+        block_descriptor.add_label('0', 35, 13, 19, 'Calibri', 'black');
+        this.descriptors['heading_block'] = block_descriptor;
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

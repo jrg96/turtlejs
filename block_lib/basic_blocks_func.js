@@ -95,3 +95,13 @@ function arc_block(params){
         alert('Missing value from arc block');
     }
 }
+
+function set_heading_block(params) {
+    if (params[2].has_all_slots()){
+        var values = params[2].get_slot_values();
+        params[0].reset_rotation();
+        params[0].rotate(values[0]);
+    }else{
+        alert('Missing value from set heading block');
+    }
+}

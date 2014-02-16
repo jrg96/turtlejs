@@ -73,10 +73,19 @@ BasicBlockPalette.prototype = {
 
         sprit1 = new Sprite('block_res/basic2arg.svg', this.container.layer, true);
         sprit1.set_label('arc', 18, 30, 24, 'Calibri', 'black');
-        sprit1.set_label('angle', 48, 10, 20, 'Calibri', 'black');
-        sprit1.set_label('radius', 43, 50, 20, 'Calibri', 'black');
+        sprit1.set_label('angle', 40, 10, 20, 'Calibri', 'black');
+        sprit1.set_label('radius', 32, 56, 20, 'Calibri', 'black');
         block_factory1 = new BlockFactory([215, 100], sprit1, 'arc_block', this);
         this.container.add_block_factory('arc', block_factory1);
 
+        sprit1 = new Sprite('block_res/basic1arg.svg', this.container.layer, true);
+        sprit1.set_label('Set heading', 5, 15, 14, 'Calibri', 'black');
+        block_factory1 = new BlockFactory([235, 53], sprit1, 'set_heading_block', this);
+        this.container.add_block_factory('heading', block_factory1);
+
+        sprit1 = new Sprite('block_res/box.svg', this.container.layer, true);
+        sprit1.set_label('h', 35, 13, 19, 'Calibri', 'black');
+        block_factory1 = new BlockFactory([350, 55], sprit1, 'heading_block', this);
+        this.container.add_block_factory('number', block_factory1);
     }
 }
