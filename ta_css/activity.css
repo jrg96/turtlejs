@@ -44,6 +44,10 @@
   background-image: url(../ta_icons/colorson.svg);
 }
 
+#flowtb-bt {
+  background-image: url(../ta_icons/flowon.svg);
+}
+
 #canvas {
   text-align: center;
   background-color: white;

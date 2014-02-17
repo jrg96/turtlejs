@@ -20,6 +20,13 @@ $(document).ready(function() {
             palette_tracker.show_palette(colors_palette);
         }
     });
+    $("#flowtb-bt").click(function(){
+        if (colors_palette.is_visible()){
+            colors_palette.hide();
+        }else{
+            palette_tracker.show_palette(colors_palette);
+        }
+    });
     $("#run-bt").click(function(){
         var starter_blocks = block_tracker.get_starter_blocks();
         for (var i=0; i<starter_blocks.length; i++){
