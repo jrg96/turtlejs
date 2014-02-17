@@ -70,6 +70,7 @@ function setxy_block(params){
         pos[0] = zero_coord[0] + values[0];
         pos[1] = zero_coord[1] - values[1];
         params[0].set_xy(pos);
+        params[1].end_line();
     }else{
         alert('Missing value from set xy block');
     }
