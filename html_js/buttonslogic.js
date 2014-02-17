@@ -21,10 +21,10 @@ $(document).ready(function() {
         }
     });
     $("#flowtb-bt").click(function(){
-        if (colors_palette.is_visible()){
-            colors_palette.hide();
+        if (flow_palette.is_visible()){
+            flow_palette.hide();
         }else{
-            palette_tracker.show_palette(colors_palette);
+            palette_tracker.show_palette(flow_palette);
         }
     });
     $("#run-bt").click(function(){
