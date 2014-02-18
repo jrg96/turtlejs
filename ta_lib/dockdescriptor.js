@@ -2,6 +2,7 @@ function DockDescriptor(){
     this.upper_dock = [];
     this.lower_dock = [];
     this.param_dock = [];
+    this.stack_dock = [];
 }
 
 DockDescriptor.prototype = {
@@ -14,6 +15,9 @@ DockDescriptor.prototype = {
     },
     add_param_dock: function(point){
         this.param_dock.push(point);
+    },
+    add_stack_dock: function(point){
+        this.stack_dock.push(point);
     },
     has_upper_dock: function(){
         if (this.upper_dock.length > 0){
@@ -31,6 +35,13 @@ DockDescriptor.prototype = {
     },
     has_param_dock: function(){
         if (this.param_dock.length > 0){
+            return true;
+        }else{
+            return false;
+        }
+    },
+    has_stack_dock: function(){
+        if (this.stack_dock.length > 0){
             return true;
         }else{
             return false;
@@ -80,5 +91,8 @@ DockDescriptor.prototype = {
             }
         }
         return point_array;
-    }
+    },
+    get_stack_points: function(){
+        return this.stack_dock;
+    },
 }
