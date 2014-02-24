@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Jorge Alberto Gómez López <gomezlopez.jorge96@gmail.com>
+/* Copyright (c) 2014 Jorge Alberto Gómez López <gomezlopez.jorge96@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
+# along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 var global_tracker = new GlobalVarsTracker();
 var block_tracker = new BlockTracker();
