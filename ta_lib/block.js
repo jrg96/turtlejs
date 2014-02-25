@@ -142,6 +142,9 @@ TurtleBlock.prototype = {
                 }
             }
         }
+        if (parent.has_upper_dock() && collide.has_stack_dock()){
+            alert("se ha detectado una union a stack");
+        }
         if(upper_distance > -1){
             if (upper_distance < 13.0 && upper_distance > 0){
                 var point = [];
@@ -279,6 +282,9 @@ TurtleBlock.prototype = {
     },
     has_receiver_param: function(){
         return this.descriptor.has_receiver_param();
+    },
+    has_stack_dock: function(){
+        return this.descriptor.has_stack_dock();
     },
     has_upper_block: function(){
         if (this.upper_block.length > 0){

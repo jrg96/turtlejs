@@ -109,5 +109,5 @@ DockDescriptor.prototype = {
     },
     get_stack_points: function(){
         return this.stack_dock;
-    },
+    }
 }
