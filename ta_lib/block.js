@@ -143,7 +143,28 @@ TurtleBlock.prototype = {
             }
         }
         if (parent.has_upper_dock() && collide.has_stack_dock()){
-            alert("se ha detectado una union a stack");
+            var stack_points = collide.get_stack_points();
+            var upper_point = parent.get_upper_dock();
+            var point_distances = [];
+            for (var i=0; i<stack_points.length; i++){
+                op1 = (upper_point[0] + parent.get_xy()[0]);
+                op1 -= (stack_points[i][0] + collide.get_xy()[0]);
+                op2 = (upper_point[1] + parent.get_xy()[1]);
+                op2 -= (stack_points[i][1] + collide.get_xy()[1]);
+                point_distances.push(Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2)));
+            }
+            for (var i=0; i< point_distances.length; i++){
+                if (point_distances[i] < 25.0){
+                    var align_point = stack_points[i];
+                    var point = [0, 0];
+                    point[0] = collide.get_xy()[0] + align_point[0];
+                    point[1] = collide.get_xy()[1] + align_point[1];
+                    parent.set_xy(point);
+                    //collide.receiver_slots[i] = parent;
+                    //parent.param_blocks[0] = collide;
+                    break;
+                }
+            }
         }
         if(upper_distance > -1){
             if (upper_distance < 13.0 && upper_distance > 0){
@@ -328,6 +349,9 @@ TurtleBlock.prototype = {
     },
     get_receiver_points: function(){
         return this.descriptor.get_receiver_points();
+    },
+    get_stack_points: function(){
+        return this.descriptor.get_stack_points();
     },
     configure_receiver_slots: function(){
         var slots = this.descriptor.get_receiver_points();
