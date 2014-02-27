@@ -33,6 +33,7 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     this.upper_block = [];
     this.lower_block = [];
     this.param_blocks = [];
+    this.stack_slots = [null, null];
     // variable that stores tart point of drag
     this.start_drag_pos = this.get_xy();
     this.configure_receiver_slots();
@@ -160,8 +161,8 @@ TurtleBlock.prototype = {
                     point[0] = collide.get_xy()[0] + align_point[0];
                     point[1] = collide.get_xy()[1] + align_point[1];
                     parent.set_xy(point);
-                    //collide.receiver_slots[i] = parent;
-                    //parent.param_blocks[0] = collide;
+                    collide.stack_slots[i] = parent;
+                    parent.upper_block[0] = collide;
                     break;
                 }
             }
