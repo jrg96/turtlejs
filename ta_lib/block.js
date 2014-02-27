@@ -402,6 +402,13 @@ TurtleBlock.prototype = {
                 }
             }
         }
+		if (this.stack_slots.length > 0){
+            for (var i=0; i<this.stack_slots.length; i++){
+                if (this.stack_slots[i] != null && this.stack_slots[i] != caller){
+                    this.stack_slots[i].group_movement(this, movement, false);
+                }
+            }
+        }
     },
     chain_delete: function(){
         this.tracker.remove_block(this);
