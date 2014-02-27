@@ -57,7 +57,7 @@ TurtleBlock.prototype = {
                 if (parent.upper_block[0].has_stack_dock()){
                     var index = parent.uppper_block.stack_slots.indexOf(parent);
                     parent.upper_block.stack_slots[index] = null;
-				} else{
+                } else{
                     parent.upper_block[0].lower_block = [];
                 }
                 parent.upper_block = [];
