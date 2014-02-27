@@ -54,7 +54,12 @@ TurtleBlock.prototype = {
         });
         this.group.on('dragmove', function(){
             if (parent.upper_block.length == 1){
-                parent.upper_block[0].lower_block = [];
+                if (parent.upper_block[0].has_stack_dock()){
+                    var index = parent.uppper_block.stack_slots.indexOf(parent);
+                    parent.upper_block.stack_slots[index] = null;
+				} else{
+                    parent.upper_block[0].lower_block = [];
+                }
                 parent.upper_block = [];
             }
             if (parent.has_giving_param()){
