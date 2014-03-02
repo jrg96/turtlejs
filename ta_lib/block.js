@@ -429,6 +429,11 @@ TurtleBlock.prototype = {
         if (this.lower_block.length > 0){
             this.lower_block[0].chain_delete();
         }
+        for (var i=0; i<this.stack_slots.length; i++){
+            if (this.stack_slots[i] != null){
+                this.stack_slots[i].chain_delete();
+            }
+        }
     },
     chain_bring_front: function(){
         this.group.moveToTop();
@@ -439,6 +444,11 @@ TurtleBlock.prototype = {
         }
         if (this.lower_block.length > 0){
             this.lower_block[0].chain_bring_front();
+        }
+        for (var i=0; i<this.stack_slots.length; i++){
+            if (this.stack_slots[i] != null){
+                this.stack_slots[i].chain_bring_front();
+            }
         }
     },
     is_attached_block: function(block){
