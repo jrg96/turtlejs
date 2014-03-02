@@ -173,6 +173,10 @@ TurtleBlock.prototype = {
                     point[0] = collide.get_xy()[0] + align_point[0];
                     point[1] = collide.get_xy()[1] + align_point[1];
                     parent.set_xy(point);
+                    var movement = [0, 0];
+                    movement[0] = point[0] - parent.start_drag_pos[0];
+                    movement[1] = point[1] - parent.start_drag_pos[1];
+                    parent.group_movement(parent, movement, true);
                     collide.stack_slots[i] = parent;
                     //alert(collide.stack_slots[i]);
                     parent.upper_block[0] = collide;
