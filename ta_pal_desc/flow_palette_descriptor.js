@@ -21,7 +21,7 @@ function FlowPaletteDesc(){
 FlowPaletteDesc.prototype = {
     constructor: FlowPaletteDesc,
     init_descriptor: function(){
-        var block_descriptor = new BlockDescriptor('block_res/clampn.svg', 'clampn', repeat_block, null);
+        var block_descriptor = new BlockDescriptor(['block_res/clampn.svg'], 'clampn', repeat_block, null);
         block_descriptor.add_label('Repeat', 5, 13, 19, 'Calibri', 'black');
         this.descriptors['repeat_block'] = block_descriptor;
     },

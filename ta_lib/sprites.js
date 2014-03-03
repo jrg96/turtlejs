@@ -82,7 +82,10 @@ Sprite.prototype = {
             parent.redraw_labels();
         };
         // start to load the img
-        imageObj.src = image;
+
+        if (image.length == 1){
+            imageObj.src = image[0];
+        }
     },
     set_label: function(txt, x, y, font_size, font_family, fill_color){
         // in order to preserve alignment with the image, it calculates the final coordinates
