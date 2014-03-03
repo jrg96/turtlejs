@@ -14,6 +14,8 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 function Sprite(image, layer, is_block, is_turtle, callback_func, turtle){
+    this.labels = [];
+    this.load_counter = 0;
     this.img = null;
     this.group = null;
     this.is_turtle = is_turtle || false;
@@ -23,7 +25,6 @@ function Sprite(image, layer, is_block, is_turtle, callback_func, turtle){
     this.is_in_block = is_block;
     this.create_group();
     this.set_image(image);
-    this.labels = [];
 }
 
 Sprite.prototype = {
@@ -66,21 +67,7 @@ Sprite.prototype = {
         // saves a refence of self, so it can be used in onload function of imageObj
         var parent = this;
         // create callback function when image it's laded completely
-        imageObj.onload = function() {
-            // when image it's completely loaded, create the corresponding Kinetic image
-            var img = new Kinetic.Image({
-                image: imageObj,
-                width: imageObj.width,
-                height: imageObj.height
-            });
-            // saves a reference for the Kinetic image object
-            parent.img = img;
-            // add the image again to the group
-            parent.group.add(img);
-            // the image covers the text, so, we need to re-display it in front of the image
-            // again
-            parent.redraw_labels();
-        };
+        imageObj.onload = parent.image_on_load(imageObj, parent);
         // start to load the img
 
         if (image.length == 1){
@@ -115,6 +102,21 @@ Sprite.prototype = {
         if (index > -1 && index < this.labels.length){
             this.labels[index].setText(txt);
         }
+    },
+    image_on_load: function(imageObj, parent){
+        // when image it's completely loaded, create the corresponding Kinetic image
+        var img = new Kinetic.Image({
+            image: imageObj,
+            width: imageObj.width,
+            height: imageObj.height
+        });
+        // saves a reference for the Kinetic image object
+        parent.img = img;
+        // add the image again to the group
+        parent.group.add(img);
+        // the image covers the text, so, we need to re-display it in front of the image
+        // again
+        parent.redraw_labels();
     },
     redraw_labels: function(){
         for (index=0; index<this.labels.length; index++){
