@@ -16,7 +16,7 @@
 function Sprite(image, layer, is_block, is_turtle, callback_func, turtle){
     this.labels = [];
     this.load_counter = 0;
-    this.img = null;
+    this.img = [];
     this.group = null;
     this.is_turtle = is_turtle || false;
     this.callback_func = callback_func || null;
@@ -58,10 +58,6 @@ Sprite.prototype = {
         });
     },
     set_image: function(image){
-        // remove the last image set
-        if(this.img != null){
-            this.img.remove();
-        }
         // create a new IMG DOM object for loading the image
         var imageObj = new Image();
         // saves a refence of self, so it can be used in onload function of imageObj
@@ -69,19 +65,17 @@ Sprite.prototype = {
         // create callback function when image it's laded completely
         imageObj.onload = parent.image_on_load(imageObj, parent);
         // start to load the img
-
-        if (image.length == 1){
-            imageObj.src = image[0];
-        }
+        imageObj.src = image[0];
     },
-    set_label: function(txt, x, y, font_size, font_family, fill_color){
+    set_label: function(txt, x, y, font_size, font_family, fill_color, block_part){
         // in order to preserve alignment with the image, it calculates the final coordinates
         // of the text, based that image x and y are or zero point.
         final_x = x;
         final_y = y;
-        if (this.img != null){
-            final_x = this.img.getX() + x;
-            final_y = this.img.getY() + y;
+        block_part = block_part || 0;
+        if (this.img[block_part] != null){
+            final_x = this.img[block_part].getX() + x;
+            final_y = this.img[block_part].getY() + y;
         }
         
         // create a new Kinetic.Text object
@@ -111,7 +105,7 @@ Sprite.prototype = {
             height: imageObj.height
         });
         // saves a reference for the Kinetic image object
-        parent.img = img;
+        parent.img.push(img);
         // add the image again to the group
         parent.group.add(img);
         // the image covers the text, so, we need to re-display it in front of the image
@@ -166,9 +160,13 @@ Sprite.prototype = {
         return w;
     },
     safe_width: function(){
-        return this.img.getWidth();
+        return this.img[0].getWidth();
     },
     safe_height: function(){
-        return this.img.getHeight();
+        var overall_height = 0;
+        for (var i=0; i<this.img.length; i++){
+            overall_height += this.img[i].getHeight();
+        }
+        return overall_height;
     }
 }
