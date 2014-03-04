@@ -15,6 +15,7 @@
 
 function Sprite(image, layer, is_block, is_turtle, callback_func, turtle){
     this.labels = [];
+    this.img_refs = image;
     this.load_counter = 0;
     this.img = [];
     this.group = null;
@@ -111,6 +112,12 @@ Sprite.prototype = {
         // the image covers the text, so, we need to re-display it in front of the image
         // again
         parent.redraw_labels();
+
+        if (parent.img.length != parent.img_refs.length){
+            var imageObj = new Image();
+            imageObj.onload = parent.image_on_load(imageObj, parent);
+            imgObj.src = parent.img_refs[parent.img.length];
+        }
     },
     redraw_labels: function(){
         for (index=0; index<this.labels.length; index++){
