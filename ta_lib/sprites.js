@@ -64,7 +64,7 @@ Sprite.prototype = {
         // saves a refence of self, so it can be used in onload function of imageObj
         var parent = this;
         // create callback function when image it's laded completely
-        imageObj.onload = parent.image_on_load(imageObj, parent);
+        imageObj.onload = parent.image_on_load(imageObj, parent, [0, 0]);
         // start to load the img
         imageObj.src = image[0];
     },
@@ -98,12 +98,14 @@ Sprite.prototype = {
             this.labels[index].setText(txt);
         }
     },
-    image_on_load: function(imageObj, parent){
+    image_on_load: function(imageObj, parent, position){
         // when image it's completely loaded, create the corresponding Kinetic image
         var img = new Kinetic.Image({
             image: imageObj,
             width: imageObj.width,
-            height: imageObj.height
+            height: imageObj.height,
+            x: position[0],
+            y: position[1]
         });
         // saves a reference for the Kinetic image object
         parent.img.push(img);
@@ -114,8 +116,11 @@ Sprite.prototype = {
         parent.redraw_labels();
 
         if (parent.img.length != parent.img_refs.length){
+            var next_pos = [];
+            next_pos[0] = position[0] + x;
+            next_pos[1] = position[1] + y;
             var imageObj = new Image();
-            imageObj.onload = parent.image_on_load(imageObj, parent);
+            imageObj.onload = parent.image_on_load(imageObj, parent, next_pos);
             imgObj.src = parent.img_refs[parent.img.length];
         }
     },
