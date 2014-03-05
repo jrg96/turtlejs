@@ -117,7 +117,7 @@ Sprite.prototype = {
 
         if (parent.img.length != parent.img_refs.length){
             var next_pos = [];
-            next_pos[0] = position[0] + img.getWidth();
+            next_pos[0] = 0;
             next_pos[1] = position[1] + img.getHeight();
             var imageObj = new Image();
             imageObj.onload = parent.image_on_load(imageObj, parent, next_pos);
