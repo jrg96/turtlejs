@@ -28,6 +28,9 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     this.set_events();
     this.display_block();
 
+    this.base_clamp_height = 34;
+    this.joint_height = 5;
+
     // set joined blocks
     this.receiver_slots = [];
     this.upper_block = [];
@@ -355,6 +358,13 @@ TurtleBlock.prototype = {
         if (this.lower_block.length > 0){
             this.lower_block[0].chain_exec();
         }
+    },
+    chain_height: function(){
+        var total_height = this.get_height;
+        if (this.lower_block.length > 0){
+            total_height += this.lower_block[0].chain_height() - this.joint_height;
+        }
+        return total_height;
     },
     get_upper_dock: function(){
         return this.descriptor.get_upper_dock();
