@@ -181,8 +181,9 @@ TurtleBlock.prototype = {
                     movement[1] = point[1] - parent.start_drag_pos[1];
                     parent.group_movement(parent, movement, true);
                     collide.stack_slots[i] = parent;
-                    //alert(collide.stack_slots[i]);
                     parent.upper_block[0] = collide;
+                    var total_height = parent.chain_height();
+                    alert(total_height);
                     break;
                 }
             }
@@ -360,7 +361,7 @@ TurtleBlock.prototype = {
         }
     },
     chain_height: function(){
-        var total_height = this.get_height;
+        var total_height = this.get_height();
         if (this.lower_block.length > 0){
             total_height += this.lower_block[0].chain_height() - this.joint_height;
         }
