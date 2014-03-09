@@ -79,25 +79,25 @@ TurtleBlock.prototype = {
             movement[0] = actual_pos[0] - parent.start_drag_pos[0];
             movement[1] = actual_pos[1] - parent.start_drag_pos[1];
             if (parent.upper_block.length > 0){
-                parent.upper_block[0].group_movement(parent, movement, false);
+                parent.upper_block[0].group_movement(parent, movement, false, true);
             }
             if (parent.lower_block.length > 0){
-                parent.lower_block[0].group_movement(parent, movement, false);
+                parent.lower_block[0].group_movement(parent, movement, false, true);
             }
             if (parent.param_blocks.length > 0){
-                parent.param_blocks[0].group_movement(parent, movement, false);
+                parent.param_blocks[0].group_movement(parent, movement, false, true);
             }
             if (parent.receiver_slots.length > 0){
                 for (var i=0; i<parent.receiver_slots.length; i++){
                     if (parent.receiver_slots[i] != null){
-                        parent.receiver_slots[i].group_movement(parent, movement, false);
+                        parent.receiver_slots[i].group_movement(parent, movement, false, true);
                     }
                 }
             }
             if (parent.stack_slots.length > 0){
                 for (var i=0; i<parent.stack_slots.length; i++){
                     if (parent.stack_slots[i] != null){
-                        parent.stack_slots[i].group_movement(parent, movement, false);
+                        parent.stack_slots[i].group_movement(parent, movement, false, true);
                     }
                 }
             }
@@ -180,7 +180,7 @@ TurtleBlock.prototype = {
                     var movement = [0, 0];
                     movement[0] = point[0] - parent.start_drag_pos[0];
                     movement[1] = point[1] - parent.start_drag_pos[1];
-                    parent.group_movement(parent, movement, true);
+                    parent.group_movement(parent, movement, true, false);
                     collide.stack_slots[i] = parent;
                     parent.upper_block[0] = collide;
                     collide.calc_clamp_height(true, parent.chain_height(), collide);
@@ -197,7 +197,7 @@ TurtleBlock.prototype = {
                 var movement = [0, 0];
                 movement[0] = point[0] - parent.start_drag_pos[0];
                 movement[1] = point[1] - parent.start_drag_pos[1];
-                parent.group_movement(parent, movement, true);
+                parent.group_movement(parent, movement, true, false);
                 // make the respective joints
                 if (parent.upper_block.indexOf(collide) == -1){
                     parent.upper_block.push(collide);
@@ -218,7 +218,7 @@ TurtleBlock.prototype = {
                 var movement = [0, 0];
                 movement[0] = point[0] - parent.start_drag_pos[0];
                 movement[1] = point[1] - parent.start_drag_pos[1];
-                parent.group_movement(parent, movement, true);
+                parent.group_movement(parent, movement, true, false);
                 // make the respective joints
                 if (parent.lower_block.indexOf(collide) == -1){
                     parent.lower_block.push(collide);
@@ -232,12 +232,13 @@ TurtleBlock.prototype = {
         if (is_stack_joint){
             added_height = height - clamp.base_clamp_height;
         } else{
-            added_height = height - 4;
+            added_height = height - clamp.joint_height;
         }
         this.actual_clamp_height += added_height;
         clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
         clamp.sprite.img[1].setHeight(clamp.sprite.img[1].getHeight() + added_height);
         clamp.calc_lower_dock(clamp, added_height);
+        clamp.group_movement(clamp, [0, added_height], true, false);
     },
     calc_lower_dock: function(clamp, vertical_movement){
         clamp.descriptor.lower_dock[0][1] += vertical_movement;
@@ -435,32 +436,32 @@ TurtleBlock.prototype = {
         }
         return values;
     },
-    group_movement: function(caller, movement, moved){
+    group_movement: function(caller, movement, moved, move_stack){
         if (!moved){
             this.move_relative(movement);
             this.already_moved = false;
         }
 
         if (this.lower_block.length > 0 && this.lower_block[0] != caller){
-            this.lower_block[0].group_movement(this, movement, false);
+            this.lower_block[0].group_movement(this, movement, false, true);
         }
         if (this.upper_block.length > 0 && this.upper_block[0] != caller){
-            this.upper_block[0].group_movement(this, movement, false);
+            this.upper_block[0].group_movement(this, movement, false, true);
         }
         if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
-            this.param_blocks[i].group_movement(this, movement, false);
+            this.param_blocks[i].group_movement(this, movement, false, true);
         }
         if (this.receiver_slots.length > 0){
             for (var i=0; i<this.receiver_slots.length; i++){
                 if (this.receiver_slots[i] != null && this.receiver_slots[i] != caller){
-                    this.receiver_slots[i].group_movement(this, movement, false);
+                    this.receiver_slots[i].group_movement(this, movement, false, true);
                 }
             }
         }
-        if (this.stack_slots.length > 0){
+        if (this.stack_slots.length > 0 && move_stack){
             for (var i=0; i<this.stack_slots.length; i++){
                 if (this.stack_slots[i] != null && this.stack_slots[i] != caller){
-                    this.stack_slots[i].group_movement(this, movement, false);
+                    this.stack_slots[i].group_movement(this, movement, false, true);
                 }
             }
         }
