@@ -232,7 +232,7 @@ TurtleBlock.prototype = {
         if (is_stack_joint){
             added_height = height - clamp.base_clamp_height;
         } else{
-            added_height = height;
+            added_height = height - 4;
         }
         this.actual_clamp_height += added_height;
         clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
