@@ -64,6 +64,10 @@ TurtleBlock.prototype = {
                 } else{
                     parent.upper_block[0].lower_block = [];
                 }
+                var stack_parent = parent.get_stack_top_block(parent);
+                if (stack_parent != null){
+                    stack_parent.upper_block[0].calc_clamp_height(false, -(parent.chain_height() - parent.joint_height * 2), stack_parent.upper_block[0]);
+                }
                 parent.upper_block = [];
             }
             if (parent.has_giving_param()){
@@ -234,6 +238,7 @@ TurtleBlock.prototype = {
         } else{
             added_height = height - clamp.joint_height;
         }
+        alert("added_height: " + added_height);
         this.actual_clamp_height += added_height;
         clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
         clamp.sprite.img[1].setHeight(clamp.sprite.img[1].getHeight() + added_height);
