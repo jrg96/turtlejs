@@ -58,14 +58,22 @@ TurtleBlock.prototype = {
         });
         this.group.on('dragmove', function(){
             if (parent.upper_block.length == 1){
+                var already_resized = false;
+
                 if (parent.upper_block[0].has_stack_dock()){
+                    already_resized = true;
                     var index = parent.upper_block[0].stack_slots.indexOf(parent);
                     parent.upper_block[0].stack_slots[index] = null;
+
+                    parent.upper_block[0].base_clamp_height *= -1;
+                    parent.upper_block[0].calc_clamp_height(true, -parent.chain_height(), parent.upper_block[0]);
+                    parent.upper_block[0].base_clamp_height *= -1;
                 } else{
                     parent.upper_block[0].lower_block = [];
                 }
+
                 var stack_parent = parent.get_stack_top_block(parent);
-                if (stack_parent != null){
+                if (stack_parent != null && !already_resized){
                     stack_parent.upper_block[0].calc_clamp_height(false, -(parent.chain_height() - parent.joint_height * 2), stack_parent.upper_block[0]);
                 }
                 parent.upper_block = [];
@@ -238,7 +246,7 @@ TurtleBlock.prototype = {
         } else{
             added_height = height - clamp.joint_height;
         }
-        alert("added_height: " + added_height);
+        //alert("added_height: " + added_height);
         this.actual_clamp_height += added_height;
         clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
         clamp.sprite.img[1].setHeight(clamp.sprite.img[1].getHeight() + added_height);
