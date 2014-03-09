@@ -45,7 +45,8 @@ FlowPalette.prototype = {
         this.container.add_block_factory('repeat', block_factory1);
 
         var sprit1 = new Sprite(['block_res/clamp-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], this.container.layer, true, false, null, null, [0, 44, 18]);
-        var block_factory1 = new BlockFactory([135, 5], sprit1, 'forever_block', this);
+        sprit1.set_label('Forever', 5, 13, 19, 'Calibri', 'black');
+        var block_factory1 = new BlockFactory([145, 5], sprit1, 'forever_block', this);
         this.container.add_block_factory('repeat', block_factory1);
     }
 }

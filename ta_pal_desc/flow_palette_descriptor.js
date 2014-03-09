@@ -27,7 +27,7 @@ FlowPaletteDesc.prototype = {
 
         var block_descriptor = new BlockDescriptor(['block_res/clamp-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], 'clampn', repeat_block, null);
         block_descriptor.component_positions = [0, 44, 18];
-        block_descriptor.add_label('Repeat', 5, 13, 19, 'Calibri', 'black');
+        block_descriptor.add_label('Forever', 5, 13, 19, 'Calibri', 'black');
         this.descriptors['forever_block'] = block_descriptor;
     },
     get_block_descriptor: function(name){
