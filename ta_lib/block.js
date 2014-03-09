@@ -250,6 +250,14 @@ TurtleBlock.prototype = {
         }
         //alert("added_height: " + added_height);
         this.actual_clamp_height += added_height;
+        if (clamp.has_upper_block()){
+            if (clamp.upper_block[0].has_stack_dock()){
+                var index = clamp.upper_block[0].stack_slots.indexOf(clamp);
+                if (index != -1){
+                    clamp.upper_block[0].calc_clamp_height(false, height, clamp.upper_block[0]);
+                }
+            }
+        }
         clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
         clamp.sprite.img[1].setHeight(clamp.sprite.img[1].getHeight() + added_height);
         clamp.calc_lower_dock(clamp, added_height);
@@ -461,7 +469,9 @@ TurtleBlock.prototype = {
             this.lower_block[0].group_movement(this, movement, false, true);
         }
         if (this.upper_block.length > 0 && this.upper_block[0] != caller){
-            this.upper_block[0].group_movement(this, movement, false, true);
+            if (!this.upper_block[0].has_stack_dock() || move_stack){
+                this.upper_block[0].group_movement(this, movement, false, true);
+            }
         }
         if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
             this.param_blocks[i].group_movement(this, movement, false, true);
