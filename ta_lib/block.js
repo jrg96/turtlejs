@@ -183,8 +183,7 @@ TurtleBlock.prototype = {
                     parent.group_movement(parent, movement, true);
                     collide.stack_slots[i] = parent;
                     parent.upper_block[0] = collide;
-                    var total_height = parent.chain_height();
-                    collide.calc_clamp_height(true, total_height, collide);
+                    collide.calc_clamp_height(true, parent.chain_height(), collide);
                     break;
                 }
             }
@@ -203,6 +202,10 @@ TurtleBlock.prototype = {
                 if (parent.upper_block.indexOf(collide) == -1){
                     parent.upper_block.push(collide);
                     collide.lower_block.push(parent);
+                    var stack_parent = collide.get_stack_top_block(parent);
+                    if (stack_parent != null){
+                        stack_parent.upper_block[0].calc_clamp_height(false, parent.chain_height(), stack_parent.upper_block[0]);
+                    }
                 }
             }
         }
@@ -225,16 +228,32 @@ TurtleBlock.prototype = {
         }
     },
     calc_clamp_height: function(is_stack_joint, height, clamp){
+        var added_height = 0;
         if (is_stack_joint){
-            var added_height = height - clamp.base_clamp_height;
-            this.actual_clamp_height += added_height;
-            clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
-            clamp.sprite.img[1].setHeight(clamp.sprite.img[1].getHeight() + added_height);
-            clamp.calc_lower_dock(clamp, added_height);
+            added_height = height - clamp.base_clamp_height;
+        } else{
+            added_height = height;
         }
+        this.actual_clamp_height += added_height;
+        clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
+        clamp.sprite.img[1].setHeight(clamp.sprite.img[1].getHeight() + added_height);
+        clamp.calc_lower_dock(clamp, added_height);
     },
     calc_lower_dock: function(clamp, vertical_movement){
         clamp.descriptor.lower_dock[0][1] += vertical_movement;
+    },
+    get_stack_top_block: function(block){
+        var top_block = null;
+        if (block.has_upper_block()){
+            if (block.upper_block[0].has_stack_dock()){
+                if (block.upper_block[0].stack_slots.indexOf(block) != -1){
+                    top_block = block;
+                }
+            } else {
+                top_block = block.upper_block[0].get_stack_top_block(block.upper_block[0]);
+            }
+        }
+        return top_block;
     },
     display_block: function(){
         this.group.add(this.sprite.group);
