@@ -19,6 +19,7 @@ function BlockDescriptor(block_img, dock_desc, callback_func, value_func){
     this.callback_func = callback_func;
     this.value_func = value_func;
     this.labels = [];
+    this.component_positions = null;
 }
 
 BlockDescriptor.prototype = {

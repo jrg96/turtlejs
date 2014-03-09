@@ -13,7 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-function Sprite(image, layer, is_block, is_turtle, callback_func, turtle){
+function Sprite(image, layer, is_block, is_turtle, callback_func, turtle, cmp_pos){
+    this.component_positions = cmp_pos;
     this.labels = [];
     this.img_refs_pos = 0;
     this.img_refs = image;
@@ -117,14 +118,10 @@ Sprite.prototype = {
         parent.redraw_labels();
 
         if (parent.img.length != parent.img_refs.length){
-            var next_pos = [];
-            next_pos[0] = 0;
-            next_pos[1] = position[1] + img.getHeight();
             var imageObj2 = new Image();
-            imageObj2.onload = parent.image_on_load(imageObj2, parent, next_pos);
+            imageObj2.src = parent.img_refs[parent.img_refs_pos+1];
             parent.img_refs_pos += 1;
-            alert(parent.img_refs[parent.img_refs_pos]);
-            imageObj2.src = parent.img_refs[parent.img_refs_pos];
+            imageObj2.onload = parent.image_on_load(imageObj2, parent, [0, position[1] + parent.component_positions[parent.img_refs_pos]]);
         }
     },
     redraw_labels: function(){

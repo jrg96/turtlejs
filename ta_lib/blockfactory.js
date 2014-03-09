@@ -60,7 +60,7 @@ BlockFactory.prototype = {
 
         var dock_descriptor = dock_tracker.get_dock(block_descriptor.dock_desc);
 
-        var sprit1 = new Sprite(block_descriptor.block_img, this.palette.container.layer, true);
+        var sprit1 = new Sprite(block_descriptor.block_img, this.palette.container.layer, true, false, null, null, block_descriptor.component_positions);
         for (var i=0; i<block_descriptor.labels.length; i++){
             this.make_label(sprit1, block_descriptor.labels[i]);
         }
