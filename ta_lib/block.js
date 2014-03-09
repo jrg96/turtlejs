@@ -59,23 +59,34 @@ TurtleBlock.prototype = {
         this.group.on('dragmove', function(){
             if (parent.upper_block.length == 1){
                 var already_resized = false;
+                var stack_parent = parent.get_stack_top_block(parent);
 
-                if (parent.upper_block[0].has_stack_dock()){
+                if (stack_parent != null && stack_parent.upper_block[0].block_id != parent.upper_block[0].block_id){
                     already_resized = true;
-                    var index = parent.upper_block[0].stack_slots.indexOf(parent);
-                    if (index != -1){
-                        parent.upper_block[0].stack_slots[index] = null;
+                    stack_parent.upper_block[0].base_clamp_height *= -1;
+                    stack_parent.upper_block[0].calc_clamp_height(false, -(parent.chain_height() - parent.joint_height * 2), stack_parent.upper_block[0]);
+                    stack_parent.upper_block[0].base_clamp_height *= -1;
+                }
 
-                        parent.upper_block[0].base_clamp_height *= -1;
-                        parent.upper_block[0].calc_clamp_height(true, -parent.chain_height(), parent.upper_block[0]);
-                        parent.upper_block[0].base_clamp_height *= -1;
+                if (!already_resized){
+                    if (parent.upper_block[0].has_stack_dock()){
+                        already_resized = true;
+                        var index = parent.upper_block[0].stack_slots.indexOf(parent);
+                        if (index != -1){
+                            parent.upper_block[0].stack_slots[index] = null;
+
+                            parent.upper_block[0].base_clamp_height *= -1;
+                            parent.upper_block[0].calc_clamp_height(true, -parent.chain_height(), parent.upper_block[0]);
+                            parent.upper_block[0].base_clamp_height *= -1;
+                        }
+                    } else{
+                        parent.upper_block[0].lower_block = [];
                     }
-                } else{
-                    parent.upper_block[0].lower_block = [];
                 }
 
                 var stack_parent = parent.get_stack_top_block(parent);
                 if (stack_parent != null && (!already_resized)){
+                    //alert("no lo logramos a la primera");
                     stack_parent.upper_block[0].calc_clamp_height(false, -(parent.chain_height() - parent.joint_height * 2), stack_parent.upper_block[0]);
                 }
                 parent.upper_block = [];
@@ -197,6 +208,7 @@ TurtleBlock.prototype = {
                     parent.group_movement(parent, movement, true, false);
                     collide.stack_slots[i] = parent;
                     parent.upper_block[0] = collide;
+                    //alert(collide.block_id);
                     collide.calc_clamp_height(true, parent.chain_height(), collide);
                     break;
                 }
