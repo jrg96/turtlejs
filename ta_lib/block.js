@@ -254,7 +254,7 @@ TurtleBlock.prototype = {
             if (clamp.upper_block[0].has_stack_dock()){
                 var index = clamp.upper_block[0].stack_slots.indexOf(clamp);
                 if (index != -1){
-                    clamp.upper_block[0].calc_clamp_height(false, height, clamp.upper_block[0]);
+                    clamp.upper_block[0].calc_clamp_height(false, added_height+clamp.joint_height, clamp.upper_block[0]);
                 }
             }
         }
@@ -272,6 +272,8 @@ TurtleBlock.prototype = {
             if (block.upper_block[0].has_stack_dock()){
                 if (block.upper_block[0].stack_slots.indexOf(block) != -1){
                     top_block = block;
+                } else {
+                    top_block = block.upper_block[0].get_stack_top_block(block.upper_block[0]);
                 }
             } else {
                 top_block = block.upper_block[0].get_stack_top_block(block.upper_block[0]);
