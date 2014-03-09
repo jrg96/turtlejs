@@ -28,8 +28,9 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     this.set_events();
     this.display_block();
 
-    this.base_clamp_height = 34;
-    this.joint_height = 5;
+    this.base_clamp_height = 45;
+    this.actual_clamp_height = 46;
+    this.joint_height = 4;
 
     // set joined blocks
     this.receiver_slots = [];
@@ -183,7 +184,7 @@ TurtleBlock.prototype = {
                     collide.stack_slots[i] = parent;
                     parent.upper_block[0] = collide;
                     var total_height = parent.chain_height();
-                    alert(total_height);
+                    collide.calc_clamp_height(true, total_height, collide);
                     break;
                 }
             }
@@ -221,6 +222,13 @@ TurtleBlock.prototype = {
                     collide.upper_block.push(parent);
                 }
              }
+        }
+    },
+    calc_clamp_height: function(is_stack_joint, height, clamp){
+        if (is_stack_joint){
+            var added_height = height - clamp.base_clamp_height;
+            clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
+            clamp.sprite.img[1].setHeight(clamp.sprite.img[1].getHeight() + added_height); 
         }
     },
     display_block: function(){
