@@ -261,19 +261,17 @@ TurtleBlock.prototype = {
             added_height = height - clamp.joint_height;
         }
         //alert("added_height: " + added_height);
-        this.actual_clamp_height += added_height;
-        if (clamp.has_upper_block()){
-            if (clamp.upper_block[0].has_stack_dock()){
-                var index = clamp.upper_block[0].stack_slots.indexOf(clamp);
-                if (index != -1){
-                    clamp.upper_block[0].calc_clamp_height(false, added_height+clamp.joint_height, clamp.upper_block[0]);
-                }
-            }
-        }
+        clamp.actual_clamp_height += added_height;
         clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
         clamp.sprite.img[1].setHeight(clamp.sprite.img[1].getHeight() + added_height);
         clamp.calc_lower_dock(clamp, added_height);
         clamp.group_movement(clamp, [0, added_height], true, false);
+        if (clamp.has_upper_block()){
+            var parent_stack = clamp.get_stack_top_block(clamp);
+            if (parent_stack != null){
+                parent_stack.upper_block[0].calc_clamp_height(false, added_height+clamp.joint_height, parent_stack.upper_block[0]);
+            }
+        }
     },
     calc_lower_dock: function(clamp, vertical_movement){
         clamp.descriptor.lower_dock[0][1] += vertical_movement;
@@ -482,11 +480,11 @@ TurtleBlock.prototype = {
         if (this.lower_block.length > 0 && this.lower_block[0] != caller){
             this.lower_block[0].group_movement(this, movement, false, true);
         }
-        if (this.upper_block.length > 0 && this.upper_block[0] != caller){
+        /*if (this.upper_block.length > 0 && this.upper_block[0] != caller){
             if (!this.upper_block[0].has_stack_dock() || move_stack){
                 this.upper_block[0].group_movement(this, movement, false, true);
             }
-        }
+        }*/
         if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
             this.param_blocks[i].group_movement(this, movement, false, true);
         }
