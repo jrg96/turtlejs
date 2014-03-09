@@ -15,6 +15,7 @@
 
 function Sprite(image, layer, is_block, is_turtle, callback_func, turtle){
     this.labels = [];
+    this.img_refs_pos = 0;
     this.img_refs = image;
     this.load_counter = 0;
     this.img = [];
@@ -119,9 +120,11 @@ Sprite.prototype = {
             var next_pos = [];
             next_pos[0] = 0;
             next_pos[1] = position[1] + img.getHeight();
-            var imageObj = new Image();
-            imageObj.onload = parent.image_on_load(imageObj, parent, next_pos);
-            imgObj.src = parent.img_refs[parent.img.length];
+            var imageObj2 = new Image();
+            imageObj2.onload = parent.image_on_load(imageObj2, parent, next_pos);
+            parent.img_refs_pos += 1;
+            alert(parent.img_refs[parent.img_refs_pos]);
+            imageObj2.src = parent.img_refs[parent.img_refs_pos];
         }
     },
     redraw_labels: function(){
