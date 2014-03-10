@@ -226,7 +226,7 @@ TurtleBlock.prototype = {
                 var movement = [0, 0];
                 movement[0] = point[0] - parent.start_drag_pos[0];
                 movement[1] = point[1] - parent.start_drag_pos[1];
-                parent.group_movement(parent, movement, true, false);
+                parent.group_movement(parent, movement, true, true);
                 // make the respective joints
                 if (parent.upper_block.indexOf(collide) == -1){
                     parent.upper_block.push(collide);
