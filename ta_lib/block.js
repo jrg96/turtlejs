@@ -66,6 +66,7 @@ TurtleBlock.prototype = {
                     stack_parent.upper_block[0].base_clamp_height *= -1;
                     stack_parent.upper_block[0].calc_clamp_height(false, -(parent.chain_height() - parent.joint_height * 2), stack_parent.upper_block[0]);
                     stack_parent.upper_block[0].base_clamp_height *= -1;
+                    parent.upper_block[0].lower_block = [];
                 }
 
                 if (!already_resized){
@@ -78,6 +79,8 @@ TurtleBlock.prototype = {
                             parent.upper_block[0].base_clamp_height *= -1;
                             parent.upper_block[0].calc_clamp_height(true, -parent.chain_height(), parent.upper_block[0]);
                             parent.upper_block[0].base_clamp_height *= -1;
+                        } else{
+                            parent.upper_block[0].lower_block = [];
                         }
                     } else{
                         parent.upper_block[0].lower_block = [];
@@ -205,7 +208,7 @@ TurtleBlock.prototype = {
                     var movement = [0, 0];
                     movement[0] = point[0] - parent.start_drag_pos[0];
                     movement[1] = point[1] - parent.start_drag_pos[1];
-                    parent.group_movement(parent, movement, true, false);
+                    parent.group_movement(parent, movement, true, true);
                     collide.stack_slots[i] = parent;
                     parent.upper_block[0] = collide;
                     //alert(collide.block_id);
