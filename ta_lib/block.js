@@ -151,13 +151,6 @@ TurtleBlock.prototype = {
             op2 -= (collide.get_lower_dock()[1] + collide.get_xy()[1]);
             upper_distance = Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2));
         }
-        if (parent.has_lower_dock() && collide.has_upper_dock()){
-            op1 = (parent.get_lower_dock()[0] + parent.get_xy()[0]); 
-            op1 -= (collide.get_upper_dock()[0] + collide.get_xy()[0]);
-            op2 = (parent.get_lower_dock()[1] + parent.get_xy()[1]);
-            op2 -= (collide.get_upper_dock()[1] + collide.get_xy()[1]);
-            lower_distance = Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2));
-        }
         if (parent.has_giving_param() && collide.has_receiver_param()){
             var giving_point = parent.get_giving_point();
             var receiver_points = collide.get_receiver_points();
@@ -246,29 +239,13 @@ TurtleBlock.prototype = {
                         collide.lower_block.push(parent);
                         total_height = parent.chain_height();
                     }
+                    alert(total_height);
                     var stack_parent = collide.get_stack_top_block(parent);
                     if (stack_parent != null){
                         stack_parent.upper_block[0].calc_clamp_height(false, total_height, stack_parent.upper_block[0]);
                     }
                 }
             }
-        }
-        if (lower_distance > -1){
-            if (lower_distance < 13.0 && lower_distance > 0){
-                var point = [];
-                point.push(collide.get_xy()[0]);
-                point.push(collide.get_xy()[1] - collide.get_height() + 5);
-                parent.set_xy(point);
-                var movement = [0, 0];
-                movement[0] = point[0] - parent.start_drag_pos[0];
-                movement[1] = point[1] - parent.start_drag_pos[1];
-                parent.group_movement(parent, movement, true, false);
-                // make the respective joints
-                if (parent.lower_block.indexOf(collide) == -1){
-                    parent.lower_block.push(collide);
-                    collide.upper_block.push(parent);
-                }
-             }
         }
     },
     calc_clamp_height: function(is_stack_joint, height, clamp){
@@ -513,11 +490,6 @@ TurtleBlock.prototype = {
         if (this.lower_block.length > 0 && this.lower_block[0] != caller){
             this.lower_block[0].group_movement(this, movement, false, true);
         }
-        /*if (this.upper_block.length > 0 && this.upper_block[0] != caller){
-            if (!this.upper_block[0].has_stack_dock() || move_stack){
-                this.upper_block[0].group_movement(this, movement, false, true);
-            }
-        }*/
         if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
             this.param_blocks[i].group_movement(this, movement, false, true);
         }
