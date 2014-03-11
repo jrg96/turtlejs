@@ -229,11 +229,26 @@ TurtleBlock.prototype = {
                 parent.group_movement(parent, movement, true, true);
                 // make the respective joints
                 if (parent.upper_block.indexOf(collide) == -1){
-                    parent.upper_block.push(collide);
-                    collide.lower_block.push(parent);
+                    var total_height = 0;
+                    // special case: add block in the middle of a flow
+                    if (collide.has_lower_block()){
+                        var flow_bottom_block = parent.get_flow_bottom_block(parent);
+                        total_height = parent.chain_height();
+                        flow_bottom_block.lower_block[0] = collide.lower_block[0];
+                        parent.upper_block[0] = collide;
+                        collide.lower_block[0] = parent;
+                        flow_bottom_block.lower_block[0].upper_block[0] = flow_bottom_block;
+                        total_height -= parent.joint_height; 
+                        flow_bottom_block.lower_block[0].group_movement(flow_bottom_block.lower_block[0], [0, total_height], false, true);
+                        total_height += parent.joint_height;
+                    } else{
+                        parent.upper_block.push(collide);
+                        collide.lower_block.push(parent);
+                        total_height = parent.chain_height();
+                    }
                     var stack_parent = collide.get_stack_top_block(parent);
                     if (stack_parent != null){
-                        stack_parent.upper_block[0].calc_clamp_height(false, parent.chain_height(), stack_parent.upper_block[0]);
+                        stack_parent.upper_block[0].calc_clamp_height(false, total_height, stack_parent.upper_block[0]);
                     }
                 }
             }
@@ -293,6 +308,15 @@ TurtleBlock.prototype = {
             }
         }
         return top_block;
+    },
+    get_flow_bottom_block: function(block){
+        var bottom_block = null;
+        if (block.has_lower_block()){
+            bottom_block = block.lower_block[0].get_flow_bottom_block(block.lower_block[0]);
+        } else{
+            bottom_block = block;
+        }
+        return bottom_block;
     },
     display_block: function(){
         this.group.add(this.sprite.group);
@@ -402,6 +426,12 @@ TurtleBlock.prototype = {
     },
     has_upper_block: function(){
         if (this.upper_block.length > 0){
+            return true;
+        }
+        return false;
+    },
+    has_lower_block: function(){
+        if (this.lower_block.length > 0){
             return true;
         }
         return false;
