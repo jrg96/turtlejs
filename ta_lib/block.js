@@ -202,10 +202,27 @@ TurtleBlock.prototype = {
                     movement[0] = point[0] - parent.start_drag_pos[0];
                     movement[1] = point[1] - parent.start_drag_pos[1];
                     parent.group_movement(parent, movement, true, true);
-                    collide.stack_slots[i] = parent;
-                    parent.upper_block[0] = collide;
+                    //special case: add a block in the start of the stack of a flow block
+                    var total_height = 0;
+                    var stack_start = true;
+                    if (collide.stack_slots[i] != null){
+                        var flow_bottom_block = parent.get_flow_bottom_block(parent);
+                        total_height = parent.chain_height();
+                        flow_bottom_block.lower_block[0] = collide.stack_slots[i];
+                        parent.upper_block[0] = collide;
+                        collide.stack_slots[i] = parent;
+                        flow_bottom_block.lower_block[0].upper_block[0] = flow_bottom_block;
+                        total_height -= parent.joint_height; 
+                        flow_bottom_block.lower_block[0].group_movement(flow_bottom_block.lower_block[0], [0, total_height], false, true);
+                        total_height += parent.joint_height;
+                        stack_start = false;
+                    } else {
+                        collide.stack_slots[i] = parent;
+                        parent.upper_block[0] = collide;
+                        total_height = parent.chain_height();
+                    }
                     //alert(collide.block_id);
-                    collide.calc_clamp_height(true, parent.chain_height(), collide);
+                    collide.calc_clamp_height(stack_start, total_height, collide);
                     break;
                 }
             }
