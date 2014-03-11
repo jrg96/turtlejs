@@ -239,7 +239,6 @@ TurtleBlock.prototype = {
                         collide.lower_block.push(parent);
                         total_height = parent.chain_height();
                     }
-                    alert(total_height);
                     var stack_parent = collide.get_stack_top_block(parent);
                     if (stack_parent != null){
                         stack_parent.upper_block[0].calc_clamp_height(false, total_height, stack_parent.upper_block[0]);
