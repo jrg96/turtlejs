@@ -31,7 +31,7 @@ var repeat_block = function(params){
 function forever_exec(params){
     if (params[2].stack_slots[0] != null && params[3].on_infinite_loop){
         params[2].stack_slots[0].chain_exec();
-        var myVar = setTimeout(function(){forever_exec(params)}, 2000);
+        var myVar = setTimeout(function(){forever_exec(params)}, 500);
     }
 }
 

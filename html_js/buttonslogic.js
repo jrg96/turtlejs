@@ -54,6 +54,7 @@ $(document).ready(function() {
     });
     $("#clear-bt").click(function(){
         draw_stage.draw_tracker.clear_canvas();
+        block_tracker.on_infinite_loop = false;
     });
     $("#hideshow-bt").click(function(){
         if (!block_tracker.are_blocks_visible()){
