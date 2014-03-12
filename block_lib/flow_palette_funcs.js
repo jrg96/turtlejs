@@ -25,3 +25,16 @@ var repeat_block = function(params){
         alert('Missing value from repeat block');
     }
 }
+
+function forever_exec(params){
+    if (params[2].stack_slots[0] != null){
+        params[2].stack_slots[0].chain_exec();
+        var myVar = setTimeout(function(){forever_exec(params)}, 2000);
+    }
+}
+
+var forever_block = function(params){
+    forever_exec(params);
+}
+
+
