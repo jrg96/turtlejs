@@ -44,8 +44,12 @@ $(document).ready(function() {
     });
     $("#run-bt").click(function(){
         var starter_blocks = block_tracker.get_starter_blocks();
+        var can_continue = true;
         for (var i=0; i<starter_blocks.length; i++){
-             starter_blocks[i].chain_exec();
+            can_continue = starter_blocks[i].chain_exec();
+            if (!can_continue || block_tracker.on_infinite_loop){
+                break;
+            }
         }
     });
     $("#clear-bt").click(function(){

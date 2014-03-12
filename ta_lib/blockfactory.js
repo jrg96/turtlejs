@@ -64,7 +64,7 @@ BlockFactory.prototype = {
         for (var i=0; i<block_descriptor.labels.length; i++){
             this.make_label(sprit1, block_descriptor.labels[i]);
         }
-        var block1 = new TurtleBlock(sprit1, draw_stage.layer, dock_descriptor, block_descriptor.callback_func, block_descriptor.value_func, [draw_stage.turtle, draw_stage.draw_tracker, null]);
+        var block1 = new TurtleBlock(sprit1, draw_stage.layer, dock_descriptor, block_descriptor.callback_func, block_descriptor.value_func, [draw_stage.turtle, draw_stage.draw_tracker, null, block_tracker]);
         block1.params[2] = block1;
         block_tracker.add_block(block1);
         block1.block_id = block_tracker.get_next_id();

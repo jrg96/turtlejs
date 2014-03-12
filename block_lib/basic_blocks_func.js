@@ -21,8 +21,10 @@ var forward_block = function(params){
         y_pos = params[0].get_xy()[1];
         params[1].add_point([x_pos, y_pos]);
         params[0].bring_front();
+        return true;
     }else{
         alert('Missing value from forward block');
+        return false;
     }
 }
 
@@ -34,8 +36,10 @@ function backward_block(params){
         y_pos = params[0].get_xy()[1];
         params[1].add_point([x_pos, y_pos]);
         params[0].bring_front();
+        return true;
     }else{
        alert('Missing value from backward block');
+       return false;
     }
 }
 
@@ -43,8 +47,10 @@ function right_block(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();
         params[0].rotate(values[0]);
+        return true;
     }else{
         alert('Missing value from right block');
+        return false;
     }
 }
 
@@ -52,8 +58,10 @@ function left_block(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();
         params[0].rotate(-values[0]);
+        return true;
     }else{
         alert('Missing value from right block');
+        return false;
     }
 }
 
@@ -74,6 +82,7 @@ function text_block(params, import_action, value) {
 
 function clean_block(params) {
     params[1].clear_canvas();
+    return true;
 }
 
 function setxy_block(params){
@@ -90,8 +99,10 @@ function setxy_block(params){
         y_pos = params[0].get_xy()[1];
         params[1].add_point([x_pos, y_pos]);
         params[0].bring_front();
+        return true;
     }else{
         alert('Missing value from set xy block');
+        return false;
     }
 }
 
@@ -111,8 +122,10 @@ function arc_block(params){
         params[0].set_xy(final_pos);
         params[0].rotate(values[0]);
         params[1].add_shape(arc);
+        return true;
     }else{
         alert('Missing value from arc block');
+        return false;
     }
 }
 
@@ -121,7 +134,9 @@ function set_heading_block(params) {
         var values = params[2].get_slot_values();
         params[0].reset_rotation();
         params[0].rotate(values[0]);
+        return true;
     }else{
         alert('Missing value from set heading block');
+        return false;
     }
 }

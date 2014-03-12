@@ -21,20 +21,24 @@ var repeat_block = function(params){
                 params[2].stack_slots[0].chain_exec();
             }
         }
+        return true;
     }else{
         alert('Missing value from repeat block');
+        return false;
     }
 }
 
 function forever_exec(params){
-    if (params[2].stack_slots[0] != null){
+    if (params[2].stack_slots[0] != null && params[3].on_infinite_loop){
         params[2].stack_slots[0].chain_exec();
         var myVar = setTimeout(function(){forever_exec(params)}, 2000);
     }
 }
 
 var forever_block = function(params){
+    params[3].on_infinite_loop = true;
     forever_exec(params);
+    return false;
 }
 
 

@@ -18,6 +18,7 @@ function BlockTracker(){
     this.id = 0;
     this.hide = false;
     this.palette_tracker = null;
+    this.on_infinite_loop = false;
 }
 
 BlockTracker.prototype = {

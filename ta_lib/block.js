@@ -316,9 +316,11 @@ TurtleBlock.prototype = {
         this.layer.add(this.group);
     },
     exec_block: function(){
+        var can_continue = true;
         if ((!this.has_giving_param() && this.has_receiver_param()) || (!this.has_giving_param() && !this.has_receiver_param())){
-            this.func(this.params);
+            can_continue = this.func(this.params);
         }
+        return can_continue;
     },
     get_value: function(){
         return this.value_func(this.params);
@@ -442,17 +444,18 @@ TurtleBlock.prototype = {
         return false;
     },
     chain_exec: function(){
-        this.exec_block();
-        if (this.receiver_slots.length > 0){
+        var can_continue = this.exec_block();
+        if (this.receiver_slots.length > 0 && can_continue){
             for (var i=0; i<this.receiver_slots.length; i++){
                 if (this.receiver_slots[i] != null){
                     this.receiver_slots[i].chain_exec();
                 }
             }
         }
-        if (this.lower_block.length > 0){
+        if (this.lower_block.length > 0 && can_continue){
             this.lower_block[0].chain_exec();
         }
+        return can_continue;
     },
     chain_height: function(){
         var total_height = this.get_height();
