@@ -33,7 +33,7 @@ DockTracker.prototype = {
             if (name == "clampn"){
                 return this.make_dock_descriptor([17, 1], [17, 95], [[133, 25]], [[18, 42]]);
             } else if (name == "clamp"){
-                return this.make_dock_descriptor([17, 1], [17, 90], [[133, 25]], [[18, 33]]);
+                return this.make_dock_descriptor([17, 1], [17, 90], null, [[18, 34]]);
             }
         }
         return this.dic[name];
