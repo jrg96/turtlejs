@@ -22,6 +22,7 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     this.func = func;
     this.value_func = value_func;
     this.params = params;
+    this.move_params = true;
     this.group = new Kinetic.Group({
         draggable: true
     });
@@ -276,7 +277,9 @@ TurtleBlock.prototype = {
         clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
         clamp.sprite.img[1].setHeight(clamp.sprite.img[1].getHeight() + added_height);
         clamp.calc_lower_dock(clamp, added_height);
+        clamp.move_params = false;
         clamp.group_movement(clamp, [0, added_height], true, false);
+        //alert("A punto de mover param");
         if (clamp.has_upper_block()){
             var parent_stack = clamp.get_stack_top_block(clamp);
             if (parent_stack != null){
@@ -510,13 +513,21 @@ TurtleBlock.prototype = {
             this.lower_block[0].group_movement(this, movement, false, true);
         }
         if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
-            this.param_blocks[i].group_movement(this, movement, false, true);
+            if (caller.move_params){
+                this.param_blocks[i].group_movement(this, movement, false, true);
+            } else{
+                caller.move_params = true;
+            }
         }
         if (this.receiver_slots.length > 0){
-            for (var i=0; i<this.receiver_slots.length; i++){
-                if (this.receiver_slots[i] != null && this.receiver_slots[i] != caller){
-                    this.receiver_slots[i].group_movement(this, movement, false, true);
+            if (caller.move_params){
+                for (var i=0; i<this.receiver_slots.length; i++){
+                    if (this.receiver_slots[i] != null && this.receiver_slots[i] != caller){
+                        this.receiver_slots[i].group_movement(this, movement, false, true);
+                    }
                 }
+            } else{
+                caller.move_params = true;
             }
         }
         if (this.stack_slots.length > 0 && move_stack){
