@@ -513,11 +513,7 @@ TurtleBlock.prototype = {
             this.lower_block[0].group_movement(this, movement, false, true);
         }
         if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
-            if (caller.move_params){
-                this.param_blocks[i].group_movement(this, movement, false, true);
-            } else{
-                caller.move_params = true;
-            }
+            this.param_blocks[i].group_movement(this, movement, false, true);
         }
         if (this.receiver_slots.length > 0){
             if (caller.move_params){
