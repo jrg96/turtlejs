@@ -31,7 +31,7 @@ DockTracker.prototype = {
     get_dock: function(name){
         if (this.special_types.indexOf(name) > -1){
             if (name == "clampn"){
-                return this.make_dock_descriptor([17, 1], [17, 95], [[133, 25]], [[18, 42]]);
+                return this.make_dock_descriptor([17, 1], [17, 99], [[133, 25]], [[18, 42]]);
             } else if (name == "clamp"){
                 return this.make_dock_descriptor([17, 1], [17, 90], null, [[18, 34]]);
             }
