@@ -32,6 +32,13 @@ FlowPaletteDesc.prototype = {
         block_descriptor.base_clamp_height = 42;
         block_descriptor.add_label('Forever', 5, 13, 19, 'Calibri', 'black');
         this.descriptors['forever_block'] = block_descriptor;
+		
+        var block_descriptor = new BlockDescriptor(['block_res/clampboolean.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], 'clamp', forever_block, null);
+        block_descriptor.component_positions = [0, 76, 18];
+        block_descriptor.base_clamp_height = 42;
+        block_descriptor.add_label('If', 42, 18, 19, 'Calibri', 'black');
+		block_descriptor.add_label('then', 35, 50, 15, 'Calibri', 'black');
+        this.descriptors['ifthen_block'] = block_descriptor;
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];
