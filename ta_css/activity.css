@@ -48,6 +48,10 @@
   background-image: url(../ta_icons/flowon.svg);
 }
 
+#numberstb-bt{
+  background-image: url(../ta_icons/numberson.svg);
+}
+
 #canvas {
   text-align: center;
   background-color: white;
