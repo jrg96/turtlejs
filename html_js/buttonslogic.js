@@ -42,6 +42,13 @@ $(document).ready(function() {
             palette_tracker.show_palette(flow_palette);
         }
     });
+    $("#numberstb-bt").click(function(){
+        if (numbers_palette.is_visible()){
+            numbers_palette.hide();
+        }else{
+            palette_tracker.show_palette(numbers_palette);
+        }
+    });
     $("#run-bt").click(function(){
         var starter_blocks = block_tracker.get_starter_blocks();
         var can_continue = true;
