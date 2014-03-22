@@ -164,7 +164,7 @@ TurtleBlock.prototype = {
                 point_distances.push(Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2)));
             }
             for (var i=0; i< point_distances.length; i++){
-                if (point_distances[i] < 13.0){
+                if (point_distances[i] < 23.0){
                     var align_point = receiver_points[i];
                     if (giving_point[2] == align_point[2]){
                         var point = [0, 0];
@@ -174,6 +174,11 @@ TurtleBlock.prototype = {
                             point[1] = collide.get_xy()[1];
                         } else {
                             point[1] = collide.get_xy()[1] + align_point[1] - 25;
+                        }
+
+                        if (giving_point[2] == ROUND_DOCK){
+                            point[0] += 17;
+                            point[1] = point[1] - giving_point[1] + 25;
                         }
                         parent.set_xy(point);
                         collide.receiver_slots[i] = parent;
