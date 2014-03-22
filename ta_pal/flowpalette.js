@@ -50,8 +50,8 @@ FlowPalette.prototype = {
         this.container.add_block_factory('forever', block_factory1);
 		
         var sprit1 = new Sprite(['block_res/clampboolean.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], this.container.layer, true, false, null, null, [0, 76, 18]);
-        sprit1.set_label('If', 42, 18, 19, 'Calibri', 'black');
-		sprit1.set_label('then', 35, 50, 15, 'Calibri', 'black');
+        sprit1.set_label('If', 40, 18, 19, 'Calibri', 'black');
+	sprit1.set_label('then', 33, 50, 15, 'Calibri', 'black');
         var block_factory1 = new BlockFactory([280, 5], sprit1, 'ifthen_block', this);
         this.container.add_block_factory('ifthen', block_factory1);
     }
