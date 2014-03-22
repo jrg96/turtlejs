@@ -21,7 +21,7 @@ function NumbersPaletteDesc(){
 NumbersPaletteDesc.prototype = {
     constructor: NumbersPaletteDesc,
     init_descriptor: function(){
-        var block_descriptor = new BlockDescriptor(['block_res/compare.svg'], 'bool2arg', forward_block, null);
+        var block_descriptor = new BlockDescriptor(['block_res/compare.svg'], 'bool2arg', null, greaterthan_block);
         block_descriptor.add_label('>', 65, 35, 19, 'Calibri', 'black');
         this.descriptors['greaterthan_block'] = block_descriptor;
     },

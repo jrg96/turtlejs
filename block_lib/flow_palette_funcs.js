@@ -28,6 +28,23 @@ var repeat_block = function(params){
     }
 }
 
+var ifthen_block = function(params){
+    if (params[2].has_all_slots()){
+        var values = params[2].get_slot_values();
+        if (values[0][0]){
+            if (values[0][1] && params[2].stack_slots[0] != null){
+                params[2].stack_slots[0].chain_exec();
+            }
+            return true;
+        } else{
+            return false;
+        }
+    }else{
+        alert('Missing value from If/then block');
+        return false;
+    }
+}
+
 function forever_exec(params){
     if (params[2].stack_slots[0] != null && params[3].on_infinite_loop){
         params[2].stack_slots[0].chain_exec();
