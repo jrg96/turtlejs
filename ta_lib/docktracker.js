@@ -17,10 +17,10 @@ function DockTracker(){
     this.dic = {};
     this.special_types = ["clampn", "clamp", "clamp_bool"];
 
-    this.add_dock("basic1arg", this.make_dock_descriptor([17, 1], [17, 43], [[115, 25]], null));
-    this.add_dock("box", this.make_dock_descriptor(null, null, [[17, 25]], null));
+    this.add_dock("basic1arg", this.make_dock_descriptor([17, 1], [17, 43], [[115, 25, SQUARE_DOCK]], null));
+    this.add_dock("box", this.make_dock_descriptor(null, null, [[17, 25, SQUARE_DOCK]], null));
     this.add_dock("basic", this.make_dock_descriptor([17, 1], [17, 35], null, null));
-    this.add_dock("basic2arg", this.make_dock_descriptor([17, 1], [17, 85], [[115, 25], [115, 67]], null));
+    this.add_dock("basic2arg", this.make_dock_descriptor([17, 1], [17, 85], [[115, 25, SQUARE_DOCK], [115, 67, SQUARE_DOCK]], null));
 }
 
 DockTracker.prototype = {
@@ -31,7 +31,7 @@ DockTracker.prototype = {
     get_dock: function(name){
         if (this.special_types.indexOf(name) > -1){
             if (name == "clampn"){
-                return this.make_dock_descriptor([17, 1], [17, 99], [[133, 25]], [[18, 42]]);
+                return this.make_dock_descriptor([17, 1], [17, 99], [[133, 25, SQUARE_DOCK]], [[18, 42]]);
             } else if (name == "clamp"){
                 return this.make_dock_descriptor([17, 1], [17, 90], null, [[18, 34]]);
             } else if (name == "clamp_bool"){
