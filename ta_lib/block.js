@@ -166,17 +166,19 @@ TurtleBlock.prototype = {
             for (var i=0; i< point_distances.length; i++){
                 if (point_distances[i] < 13.0){
                     var align_point = receiver_points[i];
-                    var point = [0, 0];
-                    point[0] = collide.get_xy()[0] + align_point[0] - 17;
+                    if (giving_point[2] == align_point[2]){
+                        var point = [0, 0];
+                        point[0] = collide.get_xy()[0] + align_point[0] - 17;
 
-                    if (align_point[1] <= 25){
-                        point[1] = collide.get_xy()[1];
-                    } else {
-                        point[1] = collide.get_xy()[1] + align_point[1] - 25;
+                        if (align_point[1] <= 25){
+                            point[1] = collide.get_xy()[1];
+                        } else {
+                            point[1] = collide.get_xy()[1] + align_point[1] - 25;
+                        }
+                        parent.set_xy(point);
+                        collide.receiver_slots[i] = parent;
+                        parent.param_blocks[0] = collide;
                     }
-                    parent.set_xy(point);
-                    collide.receiver_slots[i] = parent;
-                    parent.param_blocks[0] = collide;
                     break;
                 }
             }
