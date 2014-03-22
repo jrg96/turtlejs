@@ -39,5 +39,9 @@ NumbersPalette.prototype = {
         return this.container.is_collide(point);
     },
     make_block_factories: function(){
+        var sprit1 = new Sprite(['block_res/compare.svg'], this.container.layer, true);
+        sprit1.set_label('>', 65, 35, 19, 'Calibri', 'black');
+        var block_factory1 = new BlockFactory([5, 5], sprit1, 'forward_block', this);
+        this.container.add_block_factory('forward', block_factory1);
     }
 }
