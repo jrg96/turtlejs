@@ -13,6 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
+var i18n_tracker = new I18n();
 var global_tracker = new GlobalVarsTracker();
 var block_tracker = new BlockTracker();
 var palette_tracker = new PaletteTracker();
@@ -25,6 +26,7 @@ global_tracker.add_var('block_tracker', block_tracker);
 global_tracker.add_var('draw_stage', draw_stage);
 global_tracker.add_var('palette_tracker', palette_tracker);
 global_tracker.add_var('dock_tracker', dock_tracker);
+global_tracker.add_var('i18n_tracker', i18n_tracker);
 
 var basic1 = new BasicBlockPalette(475, 200, 'green', draw_stage.layer, new BasicBlockDesc(), global_tracker);
 palette_tracker.add_palette(basic1);

@@ -23,6 +23,6 @@ I18n.prototype = {
         this.words[block_name][lang].push(properties);
     },
     get_labels: function(block_name, lang){
-        return this.[block_name][lang];
+        return this.words[block_name][lang];
     }
 }
