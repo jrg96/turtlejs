@@ -13,9 +13,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-i18n_tracker.add_label('repeat_block', 'en_US', ['Repeat', 5, 13, 19, 'Calibri', 'black']);
-i18n_tracker.add_label('forever_block', 'en_US', ['Forever', 5, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('repeat_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Repeat', 5, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('forever_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Forever', 5, 13, 19, 'Calibri', 'black']);
 
-i18n_tracker.add_label('ifthen_block', 'en_US', ['If', 40, 18, 19, 'Calibri', 'black']);
-i18n_tracker.add_label('ifthen_block', 'en_US', ['then', 33, 50, 15, 'Calibri', 'black']);
+i18n_tracker.add_label('ifthen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['If', 40, 18, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('ifthen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['then', 33, 50, 15, 'Calibri', 'black']);
 

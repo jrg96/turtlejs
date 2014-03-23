@@ -22,8 +22,8 @@ function BlockDescriptor(block_img, dock_desc, callback_func, value_func, proper
     this.labels = [];
     this.component_positions = null;
     this.base_clamp_height = 0;
-    this.add_labels(this.block_name, properties[1]);
-    properties[2][this.block_name] = this;
+    this.add_labels(this.block_name, properties[1], properties[2]);
+    properties[3][this.block_name] = this;
 }
 
 BlockDescriptor.prototype = {
@@ -38,8 +38,8 @@ BlockDescriptor.prototype = {
         label["font_color"] = font_color;
         this.labels.push(label);
     },
-    add_labels: function(block_name, lang){
-        var labels = i18n_tracker.get_labels(block_name, lang);
+    add_labels: function(block_name, lang, type){
+        var labels = i18n_tracker.get_labels(block_name, lang, type);
         for(var i=0; i<labels.length; i++){
             var lbl = labels[i];
             this.add_label(lbl[0], lbl[1], lbl[2], lbl[3], lbl[4], lbl[5]);

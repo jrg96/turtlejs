@@ -19,17 +19,22 @@ function I18n(){
 
 I18n.prototype = {
     constructor: I18n,
-    add_label: function(block_name, lang, properties){
+    add_label: function(block_name, lang, type, properties){
         if(!this.words[block_name]){
             this.words[block_name] = {};
         }
         if (!this.words[block_name][lang]){
-            this.words[block_name][lang] = [];
+            this.words[block_name][lang] = {};
         }
-        this.words[block_name][lang].push(properties);
+        for(var i=0; i<type.length; i++){
+           if (!this.words[block_name][lang][type[i]]){
+               this.words[block_name][lang][type[i]] = [];
+           }
+           this.words[block_name][lang][type[i]].push(properties);
+        }
     },
-    get_labels: function(block_name, lang){
-        return this.words[block_name][lang];
+    get_labels: function(block_name, lang, type){
+        return this.words[block_name][lang][type];
     }
 }
 

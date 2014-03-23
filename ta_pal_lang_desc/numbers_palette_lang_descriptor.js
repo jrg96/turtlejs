@@ -13,4 +13,4 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-i18n_tracker.add_label('greaterthan_block', 'en_US', ['>', 65, 35, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('greaterthan_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['>', 65, 35, 19, 'Calibri', 'black']);

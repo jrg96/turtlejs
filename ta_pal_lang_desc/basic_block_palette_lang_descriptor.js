@@ -13,21 +13,21 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-i18n_tracker.add_label('forward_block', 'en_US', ['Forward', 5, 13, 19, 'Calibri', 'black']);
-i18n_tracker.add_label('backward_block', 'en_US', ['Backward', 5, 13, 17, 'Calibri', 'black']);
-i18n_tracker.add_label('right_block', 'en_US', ['Right', 5, 13, 19, 'Calibri', 'black']);
-i18n_tracker.add_label('left_block', 'en_US', ['Left', 5, 13, 19, 'Calibri', 'black']);
-i18n_tracker.add_label('clean_block', 'en_US', ['Clean', 5, 13, 18, 'Calibri', 'black']);
+i18n_tracker.add_label('forward_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Forward', 5, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('backward_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Backward', 5, 13, 17, 'Calibri', 'black']);
+i18n_tracker.add_label('right_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Right', 5, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('left_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Left', 5, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('clean_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Clean', 5, 13, 18, 'Calibri', 'black']);
 
-i18n_tracker.add_label('setxy_block', 'en_US', ['set xy', 18, 30, 24, 'Calibri', 'black']);
-i18n_tracker.add_label('setxy_block', 'en_US', ['x', 79, 10, 20, 'Calibri', 'black']);
-i18n_tracker.add_label('setxy_block', 'en_US', ['y', 79, 50, 20, 'Calibri', 'black']);
+i18n_tracker.add_label('setxy_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['set xy', 18, 30, 24, 'Calibri', 'black']);
+i18n_tracker.add_label('setxy_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['x', 79, 10, 20, 'Calibri', 'black']);
+i18n_tracker.add_label('setxy_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['y', 79, 50, 20, 'Calibri', 'black']);
 
-i18n_tracker.add_label('arc_block', 'en_US', ['arc', 18, 30, 24, 'Calibri', 'black']);
-i18n_tracker.add_label('arc_block', 'en_US', ['angle', 40, 10, 20, 'Calibri', 'black']);
-i18n_tracker.add_label('arc_block', 'en_US', ['radius', 32, 56, 20, 'Calibri', 'black']);
+i18n_tracker.add_label('arc_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['arc', 18, 30, 24, 'Calibri', 'black']);
+i18n_tracker.add_label('arc_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['angle', 40, 10, 20, 'Calibri', 'black']);
+i18n_tracker.add_label('arc_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['radius', 32, 56, 20, 'Calibri', 'black']);
 
-i18n_tracker.add_label('set_heading_block', 'en_US', ['Set heading', 5, 15, 14, 'Calibri', 'black']);
-i18n_tracker.add_label('box_block', 'en_US', ['100', 25, 13, 19, 'Calibri', 'black']);
-i18n_tracker.add_label('heading_block', 'en_US', ['0', 25, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('set_heading_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Set heading', 5, 15, 14, 'Calibri', 'black']);
+i18n_tracker.add_label('box_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['100', 25, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('heading_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['0', 25, 13, 19, 'Calibri', 'black']);
 
