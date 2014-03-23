@@ -13,7 +13,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-var i18n_tracker = new I18n();
 var global_tracker = new GlobalVarsTracker();
 var block_tracker = new BlockTracker();
 var palette_tracker = new PaletteTracker();

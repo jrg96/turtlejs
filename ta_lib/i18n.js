@@ -14,15 +14,23 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 function I18n(){
-    this.words = [];
+    this.words = {};
 }
 
 I18n.prototype = {
     constructor: I18n,
     add_label: function(block_name, lang, properties){
+        if(!this.words[block_name]){
+            this.words[block_name] = {};
+        }
+        if (!this.words[block_name][lang]){
+            this.words[block_name][lang] = [];
+        }
         this.words[block_name][lang].push(properties);
     },
     get_labels: function(block_name, lang){
         return this.words[block_name][lang];
     }
 }
+
+var i18n_tracker = new I18n();

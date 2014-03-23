@@ -34,5 +34,12 @@ BlockDescriptor.prototype = {
         label["font_type"] = font_type;
         label["font_color"] = font_color;
         this.labels.push(label);
+    },
+    add_labels: function(block_name, lang){
+        var labels = i18n_tracker.get_labels(block_name, lang);
+        for(var i=0; i<labels.length; i++){
+            var lbl = labels[i];
+            this.add_label(lbl[0], lbl[1], lbl[2], lbl[3], lbl[4], lbl[5]);
+        }
     }
 }

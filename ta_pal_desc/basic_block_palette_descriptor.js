@@ -23,47 +23,43 @@ BasicBlockDesc.prototype = {
     init_descriptor: function(){
 
         var block_descriptor = new BlockDescriptor(['block_res/basic1arg.svg'], 'basic1arg', forward_block, null);
-        block_descriptor.add_label('Forward', 5, 13, 19, 'Calibri', 'black');
+        block_descriptor.add_labels('forward_block', DEFAULT_LANG);
         this.descriptors['forward_block'] = block_descriptor;
 
         var block_descriptor = new BlockDescriptor(['block_res/basic1arg.svg'], 'basic1arg', backward_block, null);
-        block_descriptor.add_label('Backward', 5, 13, 17, 'Calibri', 'black');
+        block_descriptor.add_labels('backward_block', DEFAULT_LANG);
         this.descriptors['backward_block'] = block_descriptor;
 
         var block_descriptor = new BlockDescriptor(['block_res/basic1arg.svg'], 'basic1arg', right_block, null);
-        block_descriptor.add_label('Right', 5, 13, 19, 'Calibri', 'black');
+        block_descriptor.add_labels('right_block', DEFAULT_LANG);
         this.descriptors['right_block'] = block_descriptor;
 
         var block_descriptor = new BlockDescriptor(['block_res/basic1arg.svg'], 'basic1arg', left_block, null);
-        block_descriptor.add_label('Left', 5, 13, 19, 'Calibri', 'black');
+        block_descriptor.add_labels('left_block', DEFAULT_LANG);
         this.descriptors['left_block'] = block_descriptor;
 
         var block_descriptor = new BlockDescriptor(['block_res/box.svg'], 'box', text_block, get_number);
-        block_descriptor.add_label('100', 25, 13, 19, 'Calibri', 'black');
+        block_descriptor.add_labels('box_block', DEFAULT_LANG);
         this.descriptors['box_block'] = block_descriptor;
 
         var block_descriptor = new BlockDescriptor(['block_res/basic.svg'], 'basic', clean_block, null);
-        block_descriptor.add_label('Clean', 5, 13, 18, 'Calibri', 'black');
+        block_descriptor.add_labels('clean_block', DEFAULT_LANG);
         this.descriptors['clean_block'] = block_descriptor;
 
         var block_descriptor = new BlockDescriptor(['block_res/basic2arg.svg'], 'basic2arg', setxy_block, null);
-        block_descriptor.add_label('set xy', 18, 30, 24, 'Calibri', 'black');
-        block_descriptor.add_label('x', 79, 10, 20, 'Calibri', 'black');
-        block_descriptor.add_label('y', 79, 50, 20, 'Calibri', 'black');
+        block_descriptor.add_labels('setxy_block', DEFAULT_LANG);
         this.descriptors['setxy_block'] = block_descriptor;
 
         var block_descriptor = new BlockDescriptor(['block_res/basic2arg.svg'], 'basic2arg', arc_block, null);
-        block_descriptor.add_label('arc', 18, 30, 24, 'Calibri', 'black');
-        block_descriptor.add_label('angle', 40, 10, 20, 'Calibri', 'black');
-        block_descriptor.add_label('radius', 32, 56, 20, 'Calibri', 'black');
+        block_descriptor.add_labels('arc_block', DEFAULT_LANG);
         this.descriptors['arc_block'] = block_descriptor;
 
         var block_descriptor = new BlockDescriptor(['block_res/basic1arg.svg'], 'basic1arg', set_heading_block, null);
-        block_descriptor.add_label('Set heading', 5, 15, 14, 'Calibri', 'black');
+        block_descriptor.add_labels('set_heading_block', DEFAULT_LANG);
         this.descriptors['set_heading_block'] = block_descriptor;
 
         var block_descriptor = new BlockDescriptor(['block_res/box.svg'], 'box', text_block, get_number);
-        block_descriptor.add_label('0', 35, 13, 19, 'Calibri', 'black');
+        block_descriptor.add_labels('heading_block', DEFAULT_LANG);
         this.descriptors['heading_block'] = block_descriptor;
     },
     get_block_descriptor: function(name){
