@@ -13,8 +13,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-//alert("empezamos la carga");
-
 i18n_tracker.add_label('forward_block', 'en_US', ['Forward', 5, 13, 19, 'Calibri', 'black']);
 i18n_tracker.add_label('backward_block', 'en_US', ['Backward', 5, 13, 17, 'Calibri', 'black']);
 i18n_tracker.add_label('right_block', 'en_US', ['Right', 5, 13, 19, 'Calibri', 'black']);

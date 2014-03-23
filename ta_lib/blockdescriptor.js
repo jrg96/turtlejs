@@ -13,7 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-function BlockDescriptor(block_img, dock_desc, callback_func, value_func){
+function BlockDescriptor(block_img, dock_desc, callback_func, value_func, properties){
+    this.block_name = properties[0];
     this.block_img = block_img;
     this.dock_desc = dock_desc;
     this.callback_func = callback_func;
@@ -21,6 +22,8 @@ function BlockDescriptor(block_img, dock_desc, callback_func, value_func){
     this.labels = [];
     this.component_positions = null;
     this.base_clamp_height = 0;
+    this.add_labels(this.block_name, properties[1]);
+    properties[2][this.block_name] = this;
 }
 
 BlockDescriptor.prototype = {

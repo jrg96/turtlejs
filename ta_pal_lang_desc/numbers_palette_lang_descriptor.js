@@ -13,17 +13,5 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-function NumbersPaletteDesc(){
-    this.descriptors = [];
-    this.init_descriptor();
-}
-
-NumbersPaletteDesc.prototype = {
-    constructor: NumbersPaletteDesc,
-    init_descriptor: function(){
-        var block_descriptor = new BlockDescriptor(['block_res/compare.svg'], 'bool2arg', null, greaterthan_block, ['greaterthan_block', DEFAULT_LANG, this.descriptors]);
-    },
-    get_block_descriptor: function(name){
-        return this.descriptors[name];
-    }
-}
+i18n_tracker.add_label('greaterthan_block', 'en_US', ['>', 65, 35, 19, 'Calibri', 'black']);
+alert("terminamos");

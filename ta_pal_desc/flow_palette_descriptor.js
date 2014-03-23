@@ -21,24 +21,17 @@ function FlowPaletteDesc(){
 FlowPaletteDesc.prototype = {
     constructor: FlowPaletteDesc,
     init_descriptor: function(){
-        var block_descriptor = new BlockDescriptor(['block_res/repeat-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], 'clampn', repeat_block, null);
+        var block_descriptor = new BlockDescriptor(['block_res/repeat-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], 'clampn', repeat_block, null, ['repeat_block', DEFAULT_LANG, this.descriptors]);
         block_descriptor.component_positions = [0, 52, 18];
         block_descriptor.base_clamp_height = 42;
-        block_descriptor.add_label('Repeat', 5, 13, 19, 'Calibri', 'black');
-        this.descriptors['repeat_block'] = block_descriptor;
 
-        var block_descriptor = new BlockDescriptor(['block_res/clamp-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], 'clamp', forever_block, null);
+        var block_descriptor = new BlockDescriptor(['block_res/clamp-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], 'clamp', forever_block, null, ['forever_block', DEFAULT_LANG, this.descriptors]);
         block_descriptor.component_positions = [0, 44, 18];
         block_descriptor.base_clamp_height = 42;
-        block_descriptor.add_label('Forever', 5, 13, 19, 'Calibri', 'black');
-        this.descriptors['forever_block'] = block_descriptor;
 		
-        var block_descriptor = new BlockDescriptor(['block_res/clampboolean.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], 'clamp_bool', ifthen_block, null);
+        var block_descriptor = new BlockDescriptor(['block_res/clampboolean.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], 'clamp_bool', ifthen_block, null, ['ifthen_block', DEFAULT_LANG, this.descriptors]);
         block_descriptor.component_positions = [0, 76, 18];
         block_descriptor.base_clamp_height = 42;
-        block_descriptor.add_label('If', 40, 18, 19, 'Calibri', 'black');
-        block_descriptor.add_label('then', 33, 50, 15, 'Calibri', 'black');
-        this.descriptors['ifthen_block'] = block_descriptor;
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

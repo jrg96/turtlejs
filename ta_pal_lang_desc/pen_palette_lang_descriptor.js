@@ -13,17 +13,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-function NumbersPaletteDesc(){
-    this.descriptors = [];
-    this.init_descriptor();
-}
-
-NumbersPaletteDesc.prototype = {
-    constructor: NumbersPaletteDesc,
-    init_descriptor: function(){
-        var block_descriptor = new BlockDescriptor(['block_res/compare.svg'], 'bool2arg', null, greaterthan_block, ['greaterthan_block', DEFAULT_LANG, this.descriptors]);
-    },
-    get_block_descriptor: function(name){
-        return this.descriptors[name];
-    }
-}
+i18n_tracker.add_label('penup_block', 'en_US', ['Pen up', 5, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('pendown_block', 'en_US', ['Pen Down', 5, 13, 18, 'Calibri', 'black']);
+i18n_tracker.add_label('set_pen_size_block', 'en_US', ['Set pen size', 5, 13, 14, 'Calibri', 'black']);
