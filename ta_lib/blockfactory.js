@@ -13,12 +13,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-function BlockFactory(pos, sprite, block_name, palette){
+function BlockFactory(pos, sprite, block_name, palette, properties){
     this.pos = pos;
     this.group = null;
     this.sprite = sprite;
     this.block_name = block_name;
     this.palette = palette;
+    if(properties != null){
+        this.add_labels(block_name, properties[0], properties[1]);
+    }
     this.init_factory();
 }
 
@@ -47,6 +50,13 @@ BlockFactory.prototype = {
     },
     get_pos: function(){
         return this.pos;
+    },
+    add_labels: function(block_name, lang, type){
+        var labels = i18n_tracker.get_labels(block_name, lang, type);
+        for(var i=0; i<labels.length; i++){
+            var lbl = labels[i];
+            this.sprite.set_label(lbl[0], lbl[1], lbl[2], lbl[3], lbl[4], lbl[5]);
+        }
     },
     make_block: function(name, user_action){
         if (user_action){

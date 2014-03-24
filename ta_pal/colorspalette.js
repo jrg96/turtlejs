@@ -39,48 +39,39 @@ ColorsPalette.prototype = {
     },
     make_block_factories: function(){
         sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
-        sprit1.set_label('red', 25, 13, 19, 'Calibri', 'black');
-        block_factory1 = new BlockFactory([5, 5], sprit1, 'red_block', this);
+        block_factory1 = new BlockFactory([5, 5], sprit1, 'red_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
         this.container.add_block_factory('red', block_factory1);
 
         sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
-        sprit1.set_label('green', 25, 13, 17, 'Calibri', 'black');
-        block_factory1 = new BlockFactory([90, 5], sprit1, 'green_block', this);
+        block_factory1 = new BlockFactory([90, 5], sprit1, 'green_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
         this.container.add_block_factory('green', block_factory1);
 
         sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
-        sprit1.set_label('purple', 25, 13, 15, 'Calibri', 'black');
-        block_factory1 = new BlockFactory([175, 5], sprit1, 'purple_block', this);
+        block_factory1 = new BlockFactory([175, 5], sprit1, 'purple_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
         this.container.add_block_factory('purple', block_factory1);
 
         sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
-        sprit1.set_label('orange', 22, 13, 15, 'Calibri', 'black');
-        block_factory1 = new BlockFactory([260, 5], sprit1, 'orange_block', this);
+        block_factory1 = new BlockFactory([260, 5], sprit1, 'orange_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
         this.container.add_block_factory('orange', block_factory1);
 
         sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
-        sprit1.set_label('cyan', 25, 13, 19, 'Calibri', 'black');
-        block_factory1 = new BlockFactory([345, 5], sprit1, 'cyan_block', this);
+        block_factory1 = new BlockFactory([345, 5], sprit1, 'cyan_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
         this.container.add_block_factory('cyan', block_factory1);
 
         sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
-        sprit1.set_label('white', 25, 13, 17, 'Calibri', 'black');
-        block_factory1 = new BlockFactory([5, 55], sprit1, 'white_block', this);
+        block_factory1 = new BlockFactory([5, 55], sprit1, 'white_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
         this.container.add_block_factory('white', block_factory1);
 
         sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
-        sprit1.set_label('yellow', 21, 13, 17, 'Calibri', 'black');
-        block_factory1 = new BlockFactory([90, 55], sprit1, 'yellow_block', this);
+        block_factory1 = new BlockFactory([90, 55], sprit1, 'yellow_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
         this.container.add_block_factory('yellow', block_factory1);
 
         sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
-        sprit1.set_label('blue', 25, 13, 17, 'Calibri', 'black');
-        block_factory1 = new BlockFactory([175, 55], sprit1, 'blue_block', this);
+        block_factory1 = new BlockFactory([175, 55], sprit1, 'blue_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
         this.container.add_block_factory('blue', block_factory1);
 
         sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
-        sprit1.set_label('black', 25, 13, 17, 'Calibri', 'black');
-        block_factory1 = new BlockFactory([260, 55], sprit1, 'black_block', this);
+        block_factory1 = new BlockFactory([260, 55], sprit1, 'black_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
         this.container.add_block_factory('black', block_factory1);
     }
 }
