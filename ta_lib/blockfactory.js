@@ -23,6 +23,9 @@ function BlockFactory(pos, sprite, block_name, palette, properties){
         this.add_labels(block_name, properties[0], properties[1]);
     }
     this.init_factory();
+    if(properties != null){
+        this.palette.container.add_block_factory(properties[2], this);
+    }
 }
 
 BlockFactory.prototype = {

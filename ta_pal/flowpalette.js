@@ -40,16 +40,13 @@ FlowPalette.prototype = {
     },
     make_block_factories: function(){
         var sprit1 = new Sprite(['block_res/repeat-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], this.container.layer, true, false, null, null, [0, 52, 18]);
-        var block_factory1 = new BlockFactory([5, 5], sprit1, 'repeat_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
-        this.container.add_block_factory('repeat', block_factory1);
+        new BlockFactory([5, 5], sprit1, 'repeat_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'repeat']);
 
         var sprit1 = new Sprite(['block_res/clamp-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], this.container.layer, true, false, null, null, [0, 44, 18]);
-        var block_factory1 = new BlockFactory([145, 5], sprit1, 'forever_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
-        this.container.add_block_factory('forever', block_factory1);
+        new BlockFactory([145, 5], sprit1, 'forever_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'forever']);
 		
         var sprit1 = new Sprite(['block_res/clampboolean.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], this.container.layer, true, false, null, null, [0, 76, 18]);
-        var block_factory1 = new BlockFactory([280, 5], sprit1, 'ifthen_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
-        this.container.add_block_factory('ifthen', block_factory1);
+        new BlockFactory([280, 5], sprit1, 'ifthen_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'ifthen']);
     }
 }
 

@@ -40,7 +40,6 @@ NumbersPalette.prototype = {
     },
     make_block_factories: function(){
         var sprit1 = new Sprite(['block_res/compare.svg'], this.container.layer, true);
-        var block_factory1 = new BlockFactory([5, 5], sprit1, 'greaterthan_block', this, [DEFAULT_LANG, BLOCK_SIDE]);
-        this.container.add_block_factory('greaterthan', block_factory1);
+        new BlockFactory([5, 5], sprit1, 'greaterthan_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'greaterthan']);
     }
 }
