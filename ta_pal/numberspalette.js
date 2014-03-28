@@ -39,7 +39,7 @@ NumbersPalette.prototype = {
         return this.container.is_collide(point);
     },
     make_block_factories: function(){
-        var sprit1 = new Sprite(['block_res/compare.svg'], this.container.layer, true);
+        var sprit1 = new Sprite([NA_ARRANGE, 'block_res/compare.svg'], this.container.layer, true);
         new BlockFactory([5, 5], sprit1, 'greaterthan_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'greaterthan']);
     }
 }

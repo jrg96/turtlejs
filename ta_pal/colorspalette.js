@@ -38,31 +38,31 @@ ColorsPalette.prototype = {
         return this.container.is_collide(point);
     },
     make_block_factories: function(){
-        sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
+        sprit1 = new Sprite([NA_ARRANGE, 'block_res/box.svg'], this.container.layer, true);
         new BlockFactory([5, 5], sprit1, 'red_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'red']);
 
-        sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
+        sprit1 = new Sprite([NA_ARRANGE, 'block_res/box.svg'], this.container.layer, true);
         new BlockFactory([90, 5], sprit1, 'green_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'green']);
 
-        sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
+        sprit1 = new Sprite([NA_ARRANGE, 'block_res/box.svg'], this.container.layer, true);
         new BlockFactory([175, 5], sprit1, 'purple_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'purple']);
 
-        sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
+        sprit1 = new Sprite([NA_ARRANGE, 'block_res/box.svg'], this.container.layer, true);
         new BlockFactory([260, 5], sprit1, 'orange_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'orange']);
 
-        sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
+        sprit1 = new Sprite([NA_ARRANGE, 'block_res/box.svg'], this.container.layer, true);
         new BlockFactory([345, 5], sprit1, 'cyan_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'cyan']);
 
-        sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
+        sprit1 = new Sprite([NA_ARRANGE, 'block_res/box.svg'], this.container.layer, true);
         new BlockFactory([5, 55], sprit1, 'white_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'white']);
 
-        sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
+        sprit1 = new Sprite([NA_ARRANGE, 'block_res/box.svg'], this.container.layer, true);
         new BlockFactory([90, 55], sprit1, 'yellow_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'yellow']);
 
-        sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
+        sprit1 = new Sprite([NA_ARRANGE, 'block_res/box.svg'], this.container.layer, true);
         new BlockFactory([175, 55], sprit1, 'blue_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'blue']);
 
-        sprit1 = new Sprite(['block_res/box.svg'], this.container.layer, true);
+        sprit1 = new Sprite([NA_ARRANGE, 'block_res/box.svg'], this.container.layer, true);
         new BlockFactory([260, 55], sprit1, 'black_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'black']);
     }
 }

@@ -21,23 +21,23 @@ function ColorsPaletteDesc(){
 ColorsPaletteDesc.prototype = {
     constructor: ColorsPaletteDesc,
     init_descriptor: function(){
-        var block_descriptor = new BlockDescriptor(['block_res/box.svg'], 'box', null, get_color_value, ['red_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/box.svg'], 'box', null, get_color_value, ['red_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        var block_descriptor = new BlockDescriptor(['block_res/box.svg'], 'box', null, get_color_value, ['green_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/box.svg'], 'box', null, get_color_value, ['green_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        var block_descriptor = new BlockDescriptor(['block_res/box.svg'], 'box', null, get_color_value, ['purple_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/box.svg'], 'box', null, get_color_value, ['purple_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        var block_descriptor = new BlockDescriptor(['block_res/box.svg'], 'box', null, get_color_value, ['orange_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/box.svg'], 'box', null, get_color_value, ['orange_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        var block_descriptor = new BlockDescriptor(['block_res/box.svg'], 'box', null, get_color_value, ['cyan_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/box.svg'], 'box', null, get_color_value, ['cyan_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        var block_descriptor = new BlockDescriptor(['block_res/box.svg'], 'box', null, get_color_value, ['white_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/box.svg'], 'box', null, get_color_value, ['white_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        var block_descriptor = new BlockDescriptor(['block_res/box.svg'], 'box', null, get_color_value, ['yellow_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/box.svg'], 'box', null, get_color_value, ['yellow_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        var block_descriptor = new BlockDescriptor(['block_res/box.svg'], 'box', null, get_color_value, ['blue_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/box.svg'], 'box', null, get_color_value, ['blue_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        var block_descriptor = new BlockDescriptor(['block_res/box.svg'], 'box', null, get_color_value, ['black_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/box.svg'], 'box', null, get_color_value, ['black_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

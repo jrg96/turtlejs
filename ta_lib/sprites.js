@@ -17,7 +17,6 @@ function Sprite(image, layer, is_block, is_turtle, callback_func, turtle, cmp_po
     this.component_positions = cmp_pos;
     this.labels = [];
     this.img_refs_pos = 0;
-    this.img_refs = image;
     this.load_counter = 0;
     this.img = [];
     this.group = null;
@@ -27,7 +26,9 @@ function Sprite(image, layer, is_block, is_turtle, callback_func, turtle, cmp_po
     this.layer = layer;
     this.is_in_block = is_block;
     this.create_group();
-    this.set_image(image);
+    this.arrange_type = image[0];
+    this.img_refs = image.slice(1, image.length);
+    this.set_image(this.img_refs);
 }
 
 Sprite.prototype = {

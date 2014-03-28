@@ -7,3 +7,4 @@ BLOCK_SIDE = 'block';
 
 VERT_ARRANGE = 1;
 HORIZ_ARRANGE = 2;
+NA_ARRANGE = 3;
