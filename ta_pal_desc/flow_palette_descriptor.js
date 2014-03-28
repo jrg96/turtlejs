@@ -21,15 +21,15 @@ function FlowPaletteDesc(){
 FlowPaletteDesc.prototype = {
     constructor: FlowPaletteDesc,
     init_descriptor: function(){
-        var block_descriptor = new BlockDescriptor([VERT_ARRANGE, 'block_res/repeat-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], 'clampn', repeat_block, null, ['repeat_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor(image_tracker.get_resource('clampn'), 'clampn', repeat_block, null, ['repeat_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         block_descriptor.component_positions = [0, 52, 18];
         block_descriptor.base_clamp_height = 42;
 
-        var block_descriptor = new BlockDescriptor([VERT_ARRANGE, 'block_res/clamp-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], 'clamp', forever_block, null, ['forever_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor(image_tracker.get_resource('clamp'), 'clamp', forever_block, null, ['forever_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         block_descriptor.component_positions = [0, 44, 18];
         block_descriptor.base_clamp_height = 42;
 		
-        var block_descriptor = new BlockDescriptor([VERT_ARRANGE, 'block_res/clampboolean.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg'], 'clamp_bool', ifthen_block, null, ['ifthen_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor(image_tracker.get_resource('clampb'), 'clamp_bool', ifthen_block, null, ['ifthen_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         block_descriptor.component_positions = [0, 76, 18];
         block_descriptor.base_clamp_height = 42;
     },

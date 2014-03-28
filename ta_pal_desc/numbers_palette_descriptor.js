@@ -21,7 +21,7 @@ function NumbersPaletteDesc(){
 NumbersPaletteDesc.prototype = {
     constructor: NumbersPaletteDesc,
     init_descriptor: function(){
-        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/compare.svg'], 'bool2arg', null, greaterthan_block, ['greaterthan_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var block_descriptor = new BlockDescriptor(image_tracker.get_resource('compare'), 'bool2arg', null, greaterthan_block, ['greaterthan_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

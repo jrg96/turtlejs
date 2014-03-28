@@ -22,13 +22,13 @@ PenPaletteDesc.prototype = {
     constructor: PenPaletteDesc,
     init_descriptor: function(){
 
-        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/basic.svg'], 'basic', penup_block, null, ['penup_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        new BlockDescriptor(image_tracker.get_resource('basic'), 'basic', penup_block, null, ['penup_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/basic.svg'], 'basic', pendown_block, null, ['pendown_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        new BlockDescriptor(image_tracker.get_resource('basic'), 'basic', pendown_block, null, ['pendown_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/basic1arg.svg'], 'basic1arg', set_pen_size_block, null, ['set_pen_size_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_pen_size_block, null, ['set_pen_size_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        var block_descriptor = new BlockDescriptor([NA_ARRANGE, 'block_res/box.svg'], 'box', text_block, get_number, ['box_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        new BlockDescriptor(image_tracker.get_resource('box'), 'box', text_block, get_number, ['box_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];
