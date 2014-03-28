@@ -122,7 +122,13 @@ Sprite.prototype = {
             var imageObj2 = new Image();
             imageObj2.src = parent.img_refs[parent.img_refs_pos+1];
             parent.img_refs_pos += 1;
-            imageObj2.onload = parent.image_on_load(imageObj2, parent, [0, position[1] + parent.component_positions[parent.img_refs_pos]]);
+            var pos = [0, 0];
+            if (parent.arrange_type == VERT_ARRANGE){
+                pos[1] = position[1] + parent.component_positions[parent.img_refs_pos];
+            } else if (parent.arrange_type == HORIZ_ARRANGE){
+                pos[0] = position[0] + parent.component_positions[parent.img_refs_pos];
+            }
+            imageObj2.onload = parent.image_on_load(imageObj2, parent, pos);
         }
     },
     redraw_labels: function(){
