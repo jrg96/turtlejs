@@ -18,6 +18,7 @@ var block_tracker = new BlockTracker();
 var palette_tracker = new PaletteTracker();
 var dock_tracker = new DockTracker();
 var draw_stage = new DrawStage('container2', $(window).width() - 17, $(window).height());
+var block_image_tracker = new BlockImageTracker();
 
 block_tracker.set_palette_tracker(palette_tracker);
 
@@ -26,6 +27,7 @@ global_tracker.add_var('draw_stage', draw_stage);
 global_tracker.add_var('palette_tracker', palette_tracker);
 global_tracker.add_var('dock_tracker', dock_tracker);
 global_tracker.add_var('i18n_tracker', i18n_tracker);
+global_tracker.add_var('block_image_tracker', block_image_tracker);
 
 var basic1 = new BasicBlockPalette(475, 200, 'green', draw_stage.layer, new BasicBlockDesc(), global_tracker);
 palette_tracker.add_palette(basic1);
