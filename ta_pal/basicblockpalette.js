@@ -50,7 +50,7 @@ BasicBlockPalette.prototype = {
         sprit1 = new Sprite([NA_ARRANGE, 'block_res/basic1arg.svg'], this.container.layer, true);
         new BlockFactory([350, 5], sprit1, 'left_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'left']);
 
-        sprit1 = new Sprite([NA_ARRANGE, 'block_res/box.svg'], this.container.layer, true);
+        sprit1 = new Sprite([HORIZ_ARRANGE, 'block_res/box-left.svg', 'block_res/box-center.svg', 'block_res/box-right.svg'], this.container.layer, true, false, null, null, [0, 28, 12]);
         new BlockFactory([5, 55], sprit1, 'box_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'number']);
 
         sprit1 = new Sprite([NA_ARRANGE, 'block_res/basic.svg'], this.container.layer, true);
