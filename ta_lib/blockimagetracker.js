@@ -24,6 +24,7 @@ function BlockImageTracker(){
     this.add_resource('clampn', [VERT_ARRANGE, 'block_res/repeat-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg']);
     this.add_resource('clamp', [VERT_ARRANGE, 'block_res/clamp-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg']);
     this.add_resource('clampb', [VERT_ARRANGE, 'block_res/clampboolean.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg']);
+    this.add_resource('numbern', [NA_ARRANGE, 'block_res/numbern.svg']);
 }
 
 BlockImageTracker.prototype = {

@@ -22,6 +22,7 @@ function DockTracker(){
     this.add_dock("basic", this.make_dock_descriptor([17, 1], [17, 35], null, null));
     this.add_dock("basic2arg", this.make_dock_descriptor([17, 1], [17, 85], [[115, 25, SQUARE_DOCK], [115, 67, SQUARE_DOCK]], null));
     this.add_dock("bool2arg", this.make_dock_descriptor(null, null, [[0, 74, ROUND_DOCK], [103, 25, SQUARE_DOCK], [103, 67, SQUARE_DOCK]], null));
+    this.add_dock("numbern", this.make_dock_descriptor(null, null, [[17, 25, SQUARE_DOCK], [85, 25, SQUARE_DOCK], [85, 67, SQUARE_DOCK]], null));
 }
 
 DockTracker.prototype = {
