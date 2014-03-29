@@ -16,12 +16,15 @@
 var repeat_block = function(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();
-        if (params[2].stack_slots[0] != null){
-            for (var i=0; i<values[0]; i++){
-                params[2].stack_slots[0].chain_exec();
+        if (values[0][0]){
+            if (params[2].stack_slots[0] != null){
+                for (var i=0; i<values[0][1]; i++){
+                    params[2].stack_slots[0].chain_exec();
+                }
             }
+            return true;
         }
-        return true;
+        return false;
     }else{
         alert('Missing value from repeat block');
         return false;

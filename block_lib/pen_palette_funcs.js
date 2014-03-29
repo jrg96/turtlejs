@@ -26,8 +26,11 @@ function pendown_block(params){
 function set_pen_size_block(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();
-        params[1].set_pen_size(values[0]);
-        return true;
+        if (values[0][0]){
+            params[1].set_pen_size(values[0][1]);
+            return true;
+        }
+        return false;
     }else{
         alert('Missing value from set pen size block');
         return false;
