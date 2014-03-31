@@ -168,6 +168,8 @@ TurtleBlock.prototype = {
                     var align_point = receiver_points[i];
                     if (giving_point[2] == align_point[2]){
                         var point = [0, 0];
+                        var movement = parent.get_xy();
+
                         point[0] = collide.get_xy()[0] + align_point[0] - 17;
 
                         if (align_point[1] <= 25){
@@ -180,9 +182,15 @@ TurtleBlock.prototype = {
                             point[0] += 17;
                             point[1] = point[1] - giving_point[1] + 25;
                         }
+
+                        movement[0] = point[0] - movement[0];
+                        movement[1] = point[1] - movement[1];
+
                         parent.set_xy(point);
                         collide.receiver_slots[i] = parent;
                         parent.param_blocks[0] = collide;
+                        //alert("a punto de movernos");
+                        parent.group_movement(parent, movement, true, true);
                     }
                     break;
                 }
@@ -519,9 +527,6 @@ TurtleBlock.prototype = {
         if (this.lower_block.length > 0 && this.lower_block[0] != caller){
             this.lower_block[0].group_movement(this, movement, false, true);
         }
-        if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
-            this.param_blocks[i].group_movement(this, movement, false, true);
-        }
         if (this.receiver_slots.length > 0){
             if (caller.move_params){
                 for (var i=0; i<this.receiver_slots.length; i++){
@@ -532,6 +537,9 @@ TurtleBlock.prototype = {
             } else{
                 caller.move_params = true;
             }
+        }
+        if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
+            this.param_blocks[i].group_movement(this, movement, false, true);
         }
         if (this.stack_slots.length > 0 && move_stack){
             for (var i=0; i<this.stack_slots.length; i++){
