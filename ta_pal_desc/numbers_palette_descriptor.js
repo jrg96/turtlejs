@@ -24,6 +24,8 @@ NumbersPaletteDesc.prototype = {
         new BlockDescriptor(image_tracker.get_resource('compare'), 'bool2arg', null, greaterthan_block, ['greaterthan_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
         new BlockDescriptor(image_tracker.get_resource('numbern'), 'numbern', null, add_block, ['add_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+
+        new BlockDescriptor(image_tracker.get_resource('numbern'), 'numbern', null, multiply_block, ['multiply_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];
