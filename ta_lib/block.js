@@ -34,8 +34,11 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     this.joint_height = 4;
 
     this.block_value = 0;
-    this.base_center_width = 28;
+    this.base_center_width = 28 + 70;
     this.actual_center_width = 28 + 70;
+
+    this.box_start_pos = 20;
+    this.last_label_width = 0;
 
     // set joined blocks
     this.receiver_slots = [];
@@ -336,6 +339,26 @@ TurtleBlock.prototype = {
     box_block_normal_size: function(block){
 		block.sprite.img[2].setX(block.sprite.img[2].getX() + 70);
         block.sprite.img[1].setWidth(block.sprite.img[1].getWidth() + 70);
+    },
+    calc_box_size: function(){
+        
+    },
+    set_box_label: function(str){
+        if (str.length > 15){
+            this.sprite.set_label_text(0, str.substring(0, 12) + '...');
+        } else{
+            this.sprite.set_label_text(0, str);
+        }
+        var horizontal_movement = this.sprite.get_label(0).getWidth() - this.last_label_width;
+        var x_pos = this.sprite.get_label(0).getX() - horizontal_movement;
+		
+        if (x_pos < this.box_start_pos){
+            x_pos = this.box_start_pos;
+        } else{
+            x_pos = ((this.sprite.safe_width() - this.box_start_pos) / 2) - (this.sprite.get_label(0).getWidth() / 2) + this.box_start_pos;
+        }
+        this.sprite.get_label(0).setX(x_pos);
+        this.last_label_width = this.sprite.get_label(0).getWidth();
     },
     display_block: function(){
         this.group.add(this.sprite.group);

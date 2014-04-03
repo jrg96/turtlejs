@@ -95,6 +95,7 @@ BlockFactory.prototype = {
             } else{
                 block1.block_value = block1.sprite.get_label(0);
             }
+            block1.last_label_width = block1.sprite.get_label(0).getWidth();
         }
 
         if (user_action){

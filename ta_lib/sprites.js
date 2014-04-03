@@ -182,7 +182,11 @@ Sprite.prototype = {
         return w;
     },
     safe_width: function(){
-        return this.img[0].getWidth();
+        var overall_width = 0;
+        for (var i=0; i<this.img.length; i++){
+            overall_width += this.img[i].getWidth();
+        }
+        return overall_width;
     },
     safe_height: function(){
         var overall_height = 0;

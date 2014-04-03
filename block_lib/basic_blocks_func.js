@@ -88,7 +88,7 @@ function text_block(params, import_action, value) {
         do{
             number = parseInt(prompt('Set value:'));
 		} while(isNaN(number));
-        params[2].sprite.labels[0].setText('' + number);
+        params[2].set_box_label('' + number);
         params[2].block_value = number;
     } else{
         params[2].sprite.labels[0].setText(value + '');
