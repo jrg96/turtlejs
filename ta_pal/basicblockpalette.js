@@ -52,10 +52,11 @@ BasicBlockPalette.prototype = {
         new BlockFactory([350, 5], sprit1, 'left_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'left']);
 
         sprit1 = new Sprite(image_tracker.get_resource('box2'), this.container.layer, true, false, null, null, [0, 28, 12]);
-        new BlockFactory([5, 55], sprit1, 'box_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'number']);
+        var factory = new BlockFactory([5, 55], sprit1, 'box_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'number']);
+        factory.box_block_normal_size();
 
         sprit1 = new Sprite(image_tracker.get_resource('basic'), this.container.layer, true);
-        new BlockFactory([120, 55], sprit1, 'clean_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'clean']);
+        new BlockFactory([130, 55], sprit1, 'clean_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'clean']);
 
         sprit1 = new Sprite(image_tracker.get_resource('basic2arg'), this.container.layer, true);
         new BlockFactory([5, 100], sprit1, 'setxy_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'setxy']);
@@ -74,11 +75,11 @@ BasicBlockPalette.prototype = {
         new BlockFactory([215, 100], sprit1, 'arc_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'arc']);
 
         sprit1 = new Sprite(image_tracker.get_resource('basic1arg'), this.container.layer, true);
-        new BlockFactory([235, 53], sprit1, 'set_heading_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'heading']);
+        new BlockFactory([245, 53], sprit1, 'set_heading_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'heading']);
 
         sprit1 = new Sprite(image_tracker.get_resource('box'), this.container.layer, true);
         sprit1.set_label('h', 35, 13, 19, 'Calibri', 'black');
-        block_factory1 = new BlockFactory([350, 55], sprit1, 'heading_block', this, null);
+        block_factory1 = new BlockFactory([360, 55], sprit1, 'heading_block', this, null);
         this.container.add_block_factory('number', block_factory1);
     }
 }

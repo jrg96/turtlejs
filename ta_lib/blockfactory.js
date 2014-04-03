@@ -93,5 +93,9 @@ BlockFactory.prototype = {
     },
     make_label: function(sprit, label){
         sprit.set_label(label['value'], label['x'], label['y'], label['font_size'], label['font_type'], label['font_color']);
+    },
+    box_block_normal_size: function(){
+		this.sprite.img[2].setX(this.sprite.img[2].getX() + 70);
+        this.sprite.img[1].setWidth(this.sprite.img[1].getWidth() + 70);
     }
 }
