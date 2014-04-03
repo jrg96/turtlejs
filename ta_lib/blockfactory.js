@@ -62,6 +62,8 @@ BlockFactory.prototype = {
         }
     },
     make_block: function(name, user_action){
+        var box_types = ['box_block', 'number'];
+
         if (user_action){
             this.end_event();
         }
@@ -84,6 +86,10 @@ BlockFactory.prototype = {
         block_tracker.add_block(block1);
         block1.block_id = block_tracker.get_next_id();
         block1.set_xy(this.get_pos());
+
+        if (box_types.indexOf(name) != -1){
+            block1.box_block_normal_size(block1);
+        }
 
         if (user_action){
             block1.fire('mousedown');

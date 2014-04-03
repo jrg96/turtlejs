@@ -329,6 +329,10 @@ TurtleBlock.prototype = {
         }
         return bottom_block;
     },
+    box_block_normal_size: function(block){
+		block.sprite.img[2].setX(block.sprite.img[2].getX() + 70);
+        block.sprite.img[1].setWidth(block.sprite.img[1].getWidth() + 70);
+    },
     display_block: function(){
         this.group.add(this.sprite.group);
         this.layer.add(this.group);
