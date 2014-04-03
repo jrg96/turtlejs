@@ -33,6 +33,10 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     this.actual_clamp_height = 45;
     this.joint_height = 4;
 
+    this.block_value = 0;
+    this.base_center_width = 28;
+    this.actual_center_width = 28 + 70;
+
     // set joined blocks
     this.receiver_slots = [];
     this.upper_block = [];

@@ -101,6 +101,9 @@ Sprite.prototype = {
             this.labels[index].setText(txt);
         }
     },
+    get_label: function(index){
+        return this.labels[index];
+	},
     image_on_load: function(imageObj, parent, position){
         // when image it's completely loaded, create the corresponding Kinetic image
         var img = new Kinetic.Image({
