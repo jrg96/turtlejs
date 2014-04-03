@@ -78,15 +78,18 @@ function left_block(params){
 }
 
 function get_number(params){
-    var value = params[2].sprite.labels[0].getText();
-    value = parseInt(value);
-    return [true, value];
+    return [true, params[2].block_value];
 }
 
 function text_block(params, import_action, value) {
     import_action = import_action || false;
     if (!import_action){
-        params[2].sprite.labels[0].setText(prompt('Set value:'));
+        var number = 0;
+        do{
+            number = parseInt(prompt('Set value:'));
+		} while(isNaN(number));
+        params[2].sprite.labels[0].setText('' + number);
+        params[2].block_value = number;
     } else{
         params[2].sprite.labels[0].setText(value + '');
     }

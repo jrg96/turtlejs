@@ -89,7 +89,7 @@ BlockFactory.prototype = {
 
         if (box_types.indexOf(name) != -1){
             block1.box_block_normal_size(block1);
-            var block_value = parseInt(block1.sprite.get_label(0));
+            var block_value = parseInt(block1.sprite.get_label(0).getText());
             if (block_value >= 0 || block_value <= -1){
                 block1.block_value = block_value;
             } else{
