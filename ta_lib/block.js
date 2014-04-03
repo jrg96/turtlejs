@@ -341,7 +341,22 @@ TurtleBlock.prototype = {
         block.sprite.img[1].setWidth(block.sprite.img[1].getWidth() + 70);
     },
     calc_box_size: function(){
-        
+	    //alert(this.sprite.get_label(0).getWidth());
+		//alert(this.actual_center_width);
+        if (this.sprite.get_label(0).getWidth() > (this.actual_center_width)){
+            var added_width = this.sprite.get_label(0).getWidth() - (this.base_center_width);
+            this.sprite.img[2].setX(this.sprite.img[2].getX() + added_width);
+            this.actual_center_width = this.sprite.img[1].getWidth() + added_width;
+            this.sprite.img[1].setWidth(this.sprite.img[1].getWidth() + added_width);
+        } else if (this.sprite.get_label(0).getWidth() < (this.actual_center_width)){
+            var substracted_width = this.base_center_width - this.sprite.get_label(0).getWidth();
+            var width = this.sprite.img[1].getWidth() - substracted_width;
+            if (this.sprite.img[1].getWidth() -  substracted_width < this.base_center_width){
+                width = this.base_center_width;
+            }
+            //this.sprite.img[2].setX(this.sprite.img[2].getX() - substracted_width);
+            this.sprite.img[1].setWidth(width);
+        }
     },
     set_box_label: function(str){
         if (str.length > 15){
@@ -349,6 +364,7 @@ TurtleBlock.prototype = {
         } else{
             this.sprite.set_label_text(0, str);
         }
+        this.calc_box_size();
         var horizontal_movement = this.sprite.get_label(0).getWidth() - this.last_label_width;
         var x_pos = this.sprite.get_label(0).getX() - horizontal_movement;
 		
