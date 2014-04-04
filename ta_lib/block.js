@@ -97,7 +97,6 @@ TurtleBlock.prototype = {
 
                 var stack_parent = parent.get_stack_top_block(parent);
                 if (stack_parent != null && (!already_resized)){
-                    //alert("no lo logramos a la primera");
                     stack_parent.upper_block[0].calc_clamp_height(false, -(parent.chain_height() - parent.joint_height * 2), stack_parent.upper_block[0]);
                 }
                 parent.upper_block = [];
@@ -196,7 +195,6 @@ TurtleBlock.prototype = {
                         parent.set_xy(point);
                         collide.receiver_slots[i] = parent;
                         parent.param_blocks[0] = collide;
-                        //alert("a punto de movernos");
                         parent.group_movement(parent, movement, true, true);
                     }
                     break;
@@ -244,7 +242,6 @@ TurtleBlock.prototype = {
                         parent.upper_block[0] = collide;
                         total_height = parent.chain_height();
                     }
-                    //alert(collide.block_id);
                     collide.calc_clamp_height(stack_start, total_height, collide);
                     break;
                 }
@@ -294,14 +291,12 @@ TurtleBlock.prototype = {
         } else{
             added_height = height - clamp.joint_height;
         }
-        //alert("added_height: " + added_height);
         clamp.actual_clamp_height += added_height;
         clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
         clamp.sprite.img[1].setHeight(clamp.sprite.img[1].getHeight() + added_height);
         clamp.calc_lower_dock(clamp, added_height);
         clamp.move_params = false;
         clamp.group_movement(clamp, [0, added_height], true, false);
-        //alert("A punto de mover param");
         if (clamp.has_upper_block()){
             var parent_stack = clamp.get_stack_top_block(clamp);
             if (parent_stack != null){
@@ -341,8 +336,6 @@ TurtleBlock.prototype = {
         block.sprite.img[1].setWidth(block.sprite.img[1].getWidth() + 70);
     },
     calc_box_size: function(){
-	    //alert(this.sprite.get_label(0).getWidth());
-		//alert(this.actual_center_width);
         if (this.sprite.get_label(0).getWidth() > (this.actual_center_width)){
             var added_width = this.sprite.get_label(0).getWidth() - (this.base_center_width);
             this.sprite.img[2].setX(this.sprite.img[2].getX() + added_width);
