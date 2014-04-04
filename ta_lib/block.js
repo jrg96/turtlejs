@@ -355,7 +355,6 @@ TurtleBlock.prototype = {
                 this.actual_center_width = new_width;
                 this.sprite.img[1].setWidth(new_width);
             } else{
-				alert(this.actual_center_width - substracted_width);
                 this.sprite.img[2].setX(this.sprite.img[1].getX() + 70 + 12);
                 this.actual_center_width = 70 + 12;
                 this.sprite.img[1].setWidth(70 + 12);
