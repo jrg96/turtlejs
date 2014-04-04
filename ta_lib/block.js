@@ -348,14 +348,18 @@ TurtleBlock.prototype = {
             this.sprite.img[2].setX(this.sprite.img[2].getX() + added_width);
             this.actual_center_width = this.sprite.img[1].getWidth() + added_width;
             this.sprite.img[1].setWidth(this.sprite.img[1].getWidth() + added_width);
-        } else if (this.sprite.get_label(0).getWidth() < (this.actual_center_width)){
-            var substracted_width = this.base_center_width - this.sprite.get_label(0).getWidth();
-            var width = this.sprite.img[1].getWidth() - substracted_width;
-            if (this.sprite.img[1].getWidth() -  substracted_width < this.base_center_width){
-                width = this.base_center_width;
+        } else{
+            var substracted_width = (this.actual_center_width) - this.sprite.get_label(0).getWidth();
+            if ((this.actual_center_width - substracted_width) >= this.base_center_width){
+                var new_width = this.actual_center_width - substracted_width;
+                this.actual_center_width = new_width;
+                this.sprite.img[1].setWidth(new_width);
+            } else{
+				alert(this.actual_center_width - substracted_width);
+                this.sprite.img[2].setX(this.sprite.img[1].getX() + 70 + 12);
+                this.actual_center_width = 70 + 12;
+                this.sprite.img[1].setWidth(70 + 12);
             }
-            //this.sprite.img[2].setX(this.sprite.img[2].getX() - substracted_width);
-            this.sprite.img[1].setWidth(width);
         }
     },
     set_box_label: function(str){
