@@ -43,3 +43,6 @@ palette_tracker.add_palette(flow_palette);
 
 var numbers_palette = new NumbersPalette(475, 150, 'green', draw_stage.layer, new NumbersPaletteDesc(), global_tracker);
 palette_tracker.add_palette(numbers_palette);
+
+var blocks_palette = new BlocksPalette(475, 150, 'green', draw_stage.layer, new BlocksPaletteDesc(), global_tracker);
+palette_tracker.add_palette(blocks_palette);

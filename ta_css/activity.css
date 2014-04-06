@@ -52,6 +52,10 @@
   background-image: url(../ta_icons/numberson.svg);
 }
 
+#blockstb-bt{
+  background-image: url(../ta_icons/blockson.svg);
+}
+
 #canvas {
   text-align: center;
   background-color: white;
