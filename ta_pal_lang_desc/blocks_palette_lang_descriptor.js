@@ -13,5 +13,5 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-
+i18n_tracker.add_label('text_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['text', 48, 13, 19, 'Calibri', 'black']);
 

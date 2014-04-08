@@ -21,6 +21,8 @@ function BlocksPaletteDesc(){
 BlocksPaletteDesc.prototype = {
     constructor: BlocksPaletteDesc,
     init_descriptor: function(){
+        var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', string_block, get_number, ['text_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        descriptor.component_positions = [0, 28, 12];
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

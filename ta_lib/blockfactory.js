@@ -62,7 +62,7 @@ BlockFactory.prototype = {
         }
     },
     make_block: function(name, user_action){
-        var box_types = ['box_block', 'number', 'heading_block'];
+        var box_types = ['box_block', 'number', 'heading_block', 'text_block'];
 
         if (user_action){
             this.end_event();

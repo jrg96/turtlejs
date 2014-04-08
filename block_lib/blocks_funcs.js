@@ -13,3 +13,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
+function string_block(params, import_action, value) {
+    import_action = import_action || false;
+    if (!import_action){
+        var number = prompt('Set value:');
+        params[2].set_box_label('' + number);
+        params[2].block_value = number;
+    } else{
+        params[2].sprite.labels[0].setText(value + '');
+    }
+}

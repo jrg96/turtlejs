@@ -87,7 +87,7 @@ function text_block(params, import_action, value) {
         var number = 0;
         do{
             number = parseInt(prompt('Set value:'));
-		} while(isNaN(number));
+        } while(isNaN(number));
         params[2].set_box_label('' + number);
         params[2].block_value = number;
     } else{

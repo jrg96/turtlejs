@@ -39,5 +39,8 @@ BlocksPalette.prototype = {
         return this.container.is_collide(point);
     },
     make_block_factories: function(){
+        var sprit1 = new Sprite(image_tracker.get_resource('box2'), this.container.layer, true, false, null, null, [0, 28, 12]);
+        var factory = new BlockFactory([5, 5], sprit1, 'text_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'text']);
+        factory.box_block_normal_size();
     }
 }
