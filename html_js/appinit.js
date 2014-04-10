@@ -38,7 +38,7 @@ palette_tracker.add_palette(pen_palette);
 var colors_palette = new ColorsPalette(475, 100, 'green', draw_stage.layer, new ColorsPaletteDesc(), global_tracker);
 palette_tracker.add_palette(colors_palette);
 
-var flow_palette = new FlowPalette(475, 150, 'green', draw_stage.layer, new FlowPaletteDesc(), global_tracker);
+var flow_palette = new FlowPalette(575, 150, 'green', draw_stage.layer, new FlowPaletteDesc(), global_tracker);
 palette_tracker.add_palette(flow_palette);
 
 var numbers_palette = new NumbersPalette(475, 150, 'green', draw_stage.layer, new NumbersPaletteDesc(), global_tracker);
