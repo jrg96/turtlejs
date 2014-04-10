@@ -23,3 +23,12 @@ function string_block(params, import_action, value) {
         params[2].sprite.labels[0].setText(value + '');
     }
 }
+
+function show_block(params){
+    if (params[2].has_all_slots()){
+        var values = params[2].get_slot_values();
+        if (values[0][0]){
+            params[1].add_label(values[0][1], params[0]);
+        }
+    }
+}

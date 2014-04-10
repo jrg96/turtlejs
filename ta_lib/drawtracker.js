@@ -49,9 +49,13 @@ DrawTracker.prototype = {
         for (var i=0; i<this.shapes.length; i++){
             this.shapes[i].remove();
         }
+        for (var i=0; i<this.labels.length; i++){
+            this.labels[i].remove();
+        }
         this.line.remove();
         this.lines = [];
         this.shapes = [];
+        this.labels = [];
         this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
         this.make_base_line();
     },
