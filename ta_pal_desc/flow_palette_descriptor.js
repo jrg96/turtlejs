@@ -41,7 +41,7 @@ FlowPaletteDesc.prototype = {
         block_descriptor.component_positions = [0, 76, 18];
         block_descriptor.base_clamp_height = 42;
 
-        new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', forward_block, null, ['wait_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', wait_block, null, ['wait_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

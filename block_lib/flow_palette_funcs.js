@@ -93,3 +93,18 @@ var until_block = function(params){
         }
     }
 }
+
+function wait_exec(params){
+    params[2].lower_block[0].chain_exec();
+}
+
+var wait_block = function(params){
+    if (params[2].has_all_slots()){
+        var values = params[2].get_slot_values();
+        if (values[0][0]){
+            var myVar = setTimeout(function(){wait_exec(params)}, values[0][1]);
+            return false;
+        }
+        return true;
+    }
+}
