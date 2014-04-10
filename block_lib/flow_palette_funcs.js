@@ -62,14 +62,18 @@ var forever_block = function(params){
 }
 
 function while_exec(params){
-    if (params[2].get_slot_values()[0][0] && params[2].stack_slots[0] != null){
+    if (params[2].get_slot_values()[0][1] && params[2].stack_slots[0] != null && params[3].on_infinite_loop){
         params[2].stack_slots[0].chain_exec();
         var myVar = setTimeout(function(){while_exec(params)}, 500);
+    } else{
+        params[3].on_infinite_loop = false;
+        params[2].lower_block[0].chain_exec();
     }
 }
 
 var while_block = function(params){
     if (params[2].has_all_slots()){
+        params[3].on_infinite_loop = true;
         while_exec(params);
         return false;
     }
