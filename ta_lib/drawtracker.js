@@ -16,6 +16,7 @@
 function DrawTracker(layer, turtle){
     this.lines = [];
     this.shapes = [];
+    this.labels = [];
     this.pen_down = true;
     this.pen_size = 3;
     this.stroke_line = 'red';
@@ -90,6 +91,19 @@ DrawTracker.prototype = {
     add_shape: function(shape){
         this.shapes.push(shape);
         this.end_line();
+    },
+    add_label: function(str, turtle){
+        var pos = turtle.get_xy();
+        var lbl = new Kinetic.Text({
+            x: pos[0] + 27,
+            y: pos[1],
+            text: str,
+            fontSize: 19,
+            fontFamily: 'Calibri',
+            fill: 'black'
+        });
+        this.labels.push(lbl);
+        this.layer.add(lbl);
     },
     end_line: function(){
         if (this.points.length > 2){
