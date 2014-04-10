@@ -19,3 +19,4 @@ i18n_tracker.add_label('forever_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['F
 i18n_tracker.add_label('ifthen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['If', 40, 18, 19, 'Calibri', 'black']);
 i18n_tracker.add_label('ifthen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['then', 33, 50, 15, 'Calibri', 'black']);
 
+i18n_tracker.add_label('while_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['While', 7, 25, 19, 'Calibri', 'black']);
