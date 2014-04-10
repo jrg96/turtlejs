@@ -78,3 +78,18 @@ var while_block = function(params){
         return false;
     }
 }
+
+var until_block = function(params){
+    if (params[2].has_all_slots()){
+        params[3].on_infinite_loop = true;
+        if (params[2].stack_slots[0]){
+            params[3].on_infinite_loop = true;
+            params[2].stack_slots[0].chain_exec();
+            var myVar = setTimeout(function(){while_exec(params)}, 500);
+            return false;
+        } else{
+            params[3].on_infinite_loop = false;
+            return true;
+        }
+    }
+}
