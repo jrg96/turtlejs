@@ -22,3 +22,5 @@ i18n_tracker.add_label('ifthen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['th
 i18n_tracker.add_label('while_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['While', 7, 25, 19, 'Calibri', 'black']);
 
 i18n_tracker.add_label('until_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Until', 7, 25, 19, 'Calibri', 'black']);
+
+i18n_tracker.add_label('wait_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Wait', 15, 13, 19, 'Calibri', 'black']);

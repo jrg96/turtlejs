@@ -39,11 +39,14 @@ FlowPalette.prototype = {
         return this.container.is_collide(point);
     },
     make_block_factories: function(){
+        var sprit1 = new Sprite(image_tracker.get_resource('basic1arg'), this.container.layer, true);
+        new BlockFactory([5, 5], sprit1, 'wait_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'wait']);
+
         var sprit1 = new Sprite(image_tracker.get_resource('clampn'), this.container.layer, true, false, null, null, [0, 52, 18]);
-        new BlockFactory([5, 5], sprit1, 'repeat_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'repeat']);
+        new BlockFactory([145, 5], sprit1, 'repeat_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'repeat']);
 
         var sprit1 = new Sprite(image_tracker.get_resource('clamp'), this.container.layer, true, false, null, null, [0, 44, 18]);
-        new BlockFactory([145, 5], sprit1, 'forever_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'forever']);
+        new BlockFactory([5, 55], sprit1, 'forever_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'forever']);
 		
         var sprit1 = new Sprite(image_tracker.get_resource('clampb'), this.container.layer, true, false, null, null, [0, 76, 18]);
         new BlockFactory([280, 5], sprit1, 'ifthen_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'ifthen']);
