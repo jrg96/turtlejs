@@ -49,5 +49,7 @@ DrawStage.prototype = {
         this.turtle = new Turtle([this.width/2, this.height/2], this.layer);
         this.draw_tracker = new DrawTracker(this.layer, this.turtle);
         this.turtle.draw_tracker = this.draw_tracker;
+        //this.stage.setSize(this.width, 1000);
+        //window.scroll(500, 500);
     }
 }

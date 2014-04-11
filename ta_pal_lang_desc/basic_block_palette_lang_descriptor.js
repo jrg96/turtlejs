@@ -29,5 +29,7 @@ i18n_tracker.add_label('arc_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['radiu
 
 i18n_tracker.add_label('set_heading_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Set heading', 5, 15, 14, 'Calibri', 'black']);
 i18n_tracker.add_label('box_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['100', 52, 13, 19, 'Calibri', 'black']);
-i18n_tracker.add_label('heading_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['0', 63, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('heading_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['heading', 40, 13, 19, 'Calibri', 'black']);
 
+i18n_tracker.add_label('xcor_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['xcor', 50, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('ycor_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['ycor', 50, 13, 19, 'Calibri', 'black']);

@@ -62,7 +62,7 @@ BlockFactory.prototype = {
         }
     },
     make_block: function(name, user_action){
-        var box_types = ['box_block', 'number', 'heading_block', 'text_block', 'red_block', 'green_block', 'purple_block', 'orange_block', 'cyan_block', 'white_block', 'yellow_block', 'blue_block', 'black_block'];
+        var box_types = ['box_block', 'xcor_block', 'ycor_block', 'number', 'heading_block', 'text_block', 'red_block', 'green_block', 'purple_block', 'orange_block', 'cyan_block', 'white_block', 'yellow_block', 'blue_block', 'black_block'];
 
         if (user_action){
             this.end_event();
