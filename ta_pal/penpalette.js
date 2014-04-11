@@ -52,6 +52,9 @@ PenPalette.prototype = {
         block_factory1 = new BlockFactory([5, 55], sprit1, 'box_block', this, null);
         this.container.add_block_factory('pensize', block_factory1);
         block_factory1.box_block_normal_size();
+
+        sprit1 = new Sprite(image_tracker.get_resource('basic1arg'), this.container.layer, true);
+        new BlockFactory([135, 55], sprit1, 'set_color_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'setcolor']);
     }
 }
 

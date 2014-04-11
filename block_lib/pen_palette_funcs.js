@@ -40,3 +40,17 @@ function set_pen_size_block(params){
 function pen_size_value_block(){
     
 }
+
+function set_color_block(params){
+    if (params[2].has_all_slots()){
+        var values = params[2].get_slot_values();
+        if (values[0][0]){
+            params[1].set_pen_color(values[0][1]);
+            return true;
+        }
+        return false;
+    }else{
+        alert('Missing value from set color block');
+        return false;
+    }
+}

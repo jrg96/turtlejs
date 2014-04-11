@@ -79,7 +79,7 @@ DrawTracker.prototype = {
             strokeWidth: this.pen_size,
             lineCap: 'round',
             lineJoin: 'round',
-            stroke: 'red'
+            stroke: this.stroke_line
         });
         //this.line.opacity(1.0);
         this.layer.add(this.line);
@@ -87,6 +87,14 @@ DrawTracker.prototype = {
     set_pen_size: function(value){
         if (this.pen_size != value){
             this.pen_size = value;
+            this.lines.push(this.line);
+            this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
+            this.make_base_line();
+        }
+    },
+    set_pen_color: function(value){
+        if (this.stroke_line != value){
+            this.stroke_line = value;
             this.lines.push(this.line);
             this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
             this.make_base_line();
