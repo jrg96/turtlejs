@@ -112,7 +112,7 @@ DrawTracker.prototype = {
             text: str,
             fontSize: 19,
             fontFamily: 'Calibri',
-            fill: 'black'
+            fill: this.stroke_line
         });
         this.labels.push(lbl);
         this.layer.add(lbl);
