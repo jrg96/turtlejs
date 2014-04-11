@@ -163,3 +163,7 @@ function set_heading_block(params) {
         return false;
     }
 }
+
+function get_turtle_heading(params){
+    return [true, params[0].rotation];
+}
