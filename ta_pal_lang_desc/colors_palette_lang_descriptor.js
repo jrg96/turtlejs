@@ -13,12 +13,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-i18n_tracker.add_label('red_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['red', 25, 13, 19, 'Calibri', 'black']);
-i18n_tracker.add_label('green_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['green', 25, 13, 17, 'Calibri', 'black']);
-i18n_tracker.add_label('purple_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['purple', 25, 13, 15, 'Calibri', 'black']);
-i18n_tracker.add_label('orange_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['orange', 22, 13, 15, 'Calibri', 'black']);
-i18n_tracker.add_label('cyan_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['cyan', 25, 13, 19, 'Calibri', 'black']);
-i18n_tracker.add_label('white_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['white', 25, 13, 17, 'Calibri', 'black']);
-i18n_tracker.add_label('yellow_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['yellow', 21, 13, 17, 'Calibri', 'black']);
-i18n_tracker.add_label('blue_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['blue', 25, 13, 17, 'Calibri', 'black']);
-i18n_tracker.add_label('black_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['black', 25, 13, 17, 'Calibri', 'black']);
+i18n_tracker.add_label('red_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['red', 50, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('green_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['green', 45, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('purple_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['purple', 43, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('orange_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['orange', 40, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('cyan_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['cyan', 48, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('white_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['white', 45, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('yellow_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['yellow', 43, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('blue_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['blue', 50, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('black_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['black', 45, 13, 19, 'Calibri', 'black']);
