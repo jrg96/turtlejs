@@ -47,10 +47,11 @@ PenPalette.prototype = {
         sprit1 = new Sprite(image_tracker.get_resource('basic1arg'), this.container.layer, true);
         block_factory1 = new BlockFactory([235, 5], sprit1, 'set_pen_size_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'setpensize']);
 
-        sprit1 = new Sprite(image_tracker.get_resource('box'), this.container.layer, true);
-        sprit1.set_label('pen s', 25, 13, 19, 'Calibri', 'black');
+        sprit1 = new Sprite(image_tracker.get_resource('box2'), this.container.layer, true, false, null, null, [0, 28, 12]);
+        sprit1.set_label('pen size', 38, 13, 19, 'Calibri', 'black');
         block_factory1 = new BlockFactory([5, 55], sprit1, 'box_block', this, null);
         this.container.add_block_factory('pensize', block_factory1);
+        block_factory1.box_block_normal_size();
     }
 }
 
