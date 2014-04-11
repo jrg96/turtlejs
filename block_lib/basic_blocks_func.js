@@ -167,3 +167,11 @@ function set_heading_block(params) {
 function get_turtle_heading(params){
     return [true, params[0].rotation];
 }
+
+function get_turtle_x(params){
+    return [true, params[0].get_xy()[0] - params[0].start_pos[0]];
+}
+
+function get_turtle_y(params){
+    return [true, params[0].get_xy()[1] - params[0].start_pos[1]];
+}

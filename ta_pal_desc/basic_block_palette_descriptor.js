@@ -44,10 +44,10 @@ BasicBlockDesc.prototype = {
         var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', null, get_turtle_heading, ['heading_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         descriptor.component_positions = [0, 28, 12];
 
-        var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', text_block, get_number, ['xcor_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', null, get_turtle_x, ['xcor_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         descriptor.component_positions = [0, 28, 12];
 
-        var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', text_block, get_number, ['ycor_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', null, get_turtle_y, ['ycor_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         descriptor.component_positions = [0, 28, 12];
     },
     get_block_descriptor: function(name){
