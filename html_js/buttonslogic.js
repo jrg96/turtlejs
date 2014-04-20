@@ -82,8 +82,8 @@ $(document).ready(function() {
     });
     $("#save-bt").click(function(){
     });
-	$("#stop-button").click(function(){
-	});
+    $("#stop-button").click(function(){
+    });
     $("#input-file").change(function(evt){
         onFileSelect(evt, palette_tracker, block_tracker);
     });
