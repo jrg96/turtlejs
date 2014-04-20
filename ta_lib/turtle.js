@@ -84,6 +84,9 @@ Turtle.prototype = {
         }else{
             this.rotation += degrees;
         }
+        if (this.rotation < 0){
+            this.rotation = 360 + this.rotation;
+        }
         if (Math.abs(this.rotation) >= 360){
             if (this.rotation < 0){
                 this.rotation += 360;
