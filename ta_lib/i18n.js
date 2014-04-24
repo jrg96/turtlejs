@@ -54,7 +54,7 @@ I18n.prototype = {
                     keys.push(key);
                 }
             }
-            //alert(keys);
+
             for (var key in factories){
                 this.change_factory_labels(factories[key]);
             }
@@ -62,10 +62,15 @@ I18n.prototype = {
     },
     change_factory_labels: function(factory){
         factory.sprite.delete_all_labels();
-        //alert(this.get_labels(factory.block_name, DEFAULT_LANG, BLOCK_SIDE));
         factory.sprite.set_labels(this.get_labels(factory.block_name, DEFAULT_LANG, BLOCK_SIDE));
     },
     change_block_labels: function(){
+        var blocks = block_tracker.get_blocks();
+        for (var i=0; i<blocks.length; i++){
+            var block = blocks[i];
+            block.sprite.delete_all_labels();
+            block.sprite.set_labels(this.get_labels(block.block_type, DEFAULT_LANG, BLOCK_SIDE));
+        }
     }
 }
 

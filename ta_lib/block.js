@@ -39,6 +39,8 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
 
     this.box_start_pos = 20;
     this.last_label_width = 0;
+    
+    this.block_type = '';
 
     // set joined blocks
     this.receiver_slots = [];
