@@ -52,6 +52,7 @@ I18n.prototype = {
         for (var i=0; i<palettes.length; i++){
             var factories = palettes[i].container.get_factories();
             var keys = [];
+            var descriptors = palettes[i].pal_desc;
             
             for (var key in factories){
                 if (factories.hasOwnProperty(key)){
@@ -62,6 +63,13 @@ I18n.prototype = {
             for (var key in factories){
                 this.change_factory_labels(factories[key]);
             }
+            
+            /*for (var i=0; i<descriptors.length; i++){
+                var descriptor = descriptors[i];
+                descriptor.delete_all_labels();
+                alert(descriptor.block_name + DEFAULT_LANG + FACTORY_SIDE);
+                descriptor.add_labels(descriptor.block_name, DEFAULT_LANG, FACTORY_SIDE);
+            }*/
         }
     },
     change_factory_labels: function(factory){

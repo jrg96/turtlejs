@@ -38,6 +38,9 @@ BlockDescriptor.prototype = {
         label["font_color"] = font_color;
         this.labels.push(label);
     },
+    delete_all_labels: function(){
+        this.labels = [];
+    },
     add_labels: function(block_name, lang, type){
         var labels = i18n_tracker.get_labels(block_name, lang, type);
         for(var i=0; i<labels.length; i++){
