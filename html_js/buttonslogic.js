@@ -82,6 +82,10 @@ $(document).ready(function() {
     });
     $("#save-bt").click(function(){
     });
+    $("#es-lang-bt").click(function(){
+    });
+    $("#en-lang-bt").click(function(){
+    });
     $("#stop-button").click(function(){
     });
     $("#input-file").change(function(evt){
