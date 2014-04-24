@@ -33,3 +33,7 @@ i18n_tracker.add_label('heading_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['h
 
 i18n_tracker.add_label('xcor_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['xcor', 50, 13, 19, 'Calibri', 'black']);
 i18n_tracker.add_label('ycor_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['ycor', 50, 13, 19, 'Calibri', 'black']);
+
+
+
+i18n_tracker.add_label('forward_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Adelante', 5, 13, 19, 'Calibri', 'black']);

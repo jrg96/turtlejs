@@ -34,7 +34,11 @@ I18n.prototype = {
         }
     },
     get_labels: function(block_name, lang, type){
-        return this.words[block_name][lang][type];
+        if (this.words[block_name][lang] != null){
+            return this.words[block_name][lang][type];
+        } else{
+            return this.words[block_name]['en_US'][type];
+        }
     },
     change_language: function(lang){
         if (lang){

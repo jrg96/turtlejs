@@ -83,6 +83,7 @@ $(document).ready(function() {
     $("#save-bt").click(function(){
     });
     $("#es-lang-bt").click(function(){
+        i18n_tracker.change_language('es_ES');
     });
     $("#en-lang-bt").click(function(){
         i18n_tracker.change_language('en_US');
