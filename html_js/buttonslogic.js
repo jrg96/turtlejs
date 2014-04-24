@@ -85,6 +85,7 @@ $(document).ready(function() {
     $("#es-lang-bt").click(function(){
     });
     $("#en-lang-bt").click(function(){
+        i18n_tracker.change_language('en_US');
     });
     $("#stop-button").click(function(){
     });

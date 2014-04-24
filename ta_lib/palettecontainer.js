@@ -43,6 +43,9 @@ PaletteContainer.prototype = {
         this.elements[key] = block;
         this.group.add(block.group);
     },
+    get_factories: function(){
+        return this.elements;
+    },
     show: function(){
         this.visible = true;
         this.layer.add(this.group);

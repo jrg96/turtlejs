@@ -35,6 +35,35 @@ I18n.prototype = {
     },
     get_labels: function(block_name, lang, type){
         return this.words[block_name][lang][type];
+    },
+    change_language: function(lang){
+        if (lang){
+            DEFAULT_LANG = lang;
+            this.change_palette_labels();
+            this.change_block_labels();
+        }
+    },
+    change_palette_labels: function(){
+        var palettes = palette_tracker.get_palettes();
+        for (var i=0; i<palettes.length; i++){
+            var factories = palettes[i].container.get_factories();
+            var keys = [];
+            
+            for (var key in factories){
+                if (factories.hasOwnProperty(key)){
+                    keys.push(key);
+                }
+            }
+            //alert(keys);
+            for (var key in factories){
+                this.change_factory_label(factories[key]);
+            }
+        }
+    },
+    change_factory_label: function(factory){
+        
+    },
+    change_block_labels: function(){
     }
 }
 
