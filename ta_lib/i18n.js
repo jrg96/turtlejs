@@ -56,12 +56,14 @@ I18n.prototype = {
             }
             //alert(keys);
             for (var key in factories){
-                this.change_factory_label(factories[key]);
+                this.change_factory_labels(factories[key]);
             }
         }
     },
-    change_factory_label: function(factory){
-        
+    change_factory_labels: function(factory){
+        factory.sprite.delete_all_labels();
+        //alert(this.get_labels(factory.block_name, DEFAULT_LANG, BLOCK_SIDE));
+        factory.sprite.set_labels(this.get_labels(factory.block_name, DEFAULT_LANG, BLOCK_SIDE));
     },
     change_block_labels: function(){
     }
