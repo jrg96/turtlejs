@@ -41,7 +41,7 @@ I18n.prototype = {
         }
     },
     change_language: function(lang){
-        if (lang){
+        if (DEFAULT_LANG != lang){
             DEFAULT_LANG = lang;
             this.change_palette_labels();
             this.change_block_labels();
