@@ -96,7 +96,13 @@ $(document).ready(function() {
     
     $("#canvas").scrollTop(1700);
     $("#canvas").scrollLeft(1300);
-    /*$("#canvas").scroll(function(){
+    
+    $("#canvas").scroll(function(){
+        var pal = palette_tracker.get_visible_palette();
+        
+        if (pal != null){
+            pal.container.repos();
+        }
         //console.log($("#canvas").scrollTop(0));
-    });*/
+    });
 });

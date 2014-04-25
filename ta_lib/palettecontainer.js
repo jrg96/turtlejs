@@ -49,12 +49,15 @@ PaletteContainer.prototype = {
     show: function(){
         this.visible = true;
         this.layer.add(this.group);
-        this.setY($("#canvas").scrollTop());
-        this.setX($("#canvas").scrollLeft());
+        this.repos();
     },
     hide: function(){
         this.visible = false;
         this.group.remove();
+    },
+    repos: function(){
+        this.setY($("#canvas").scrollTop());
+        this.setX($("#canvas").scrollLeft());
     },
     is_visible: function(){
         return this.visible;
