@@ -94,7 +94,7 @@ $(document).ready(function() {
         onFileSelect(evt, palette_tracker, block_tracker);
     });
     
-	$("#canvas").scrollTop(1700);
+    $("#canvas").scrollTop(1700);
     $("#canvas").scrollLeft(1300);
     /*$("#canvas").scroll(function(){
         //console.log($("#canvas").scrollTop(0));
