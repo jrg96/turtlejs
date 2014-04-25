@@ -49,6 +49,8 @@ PaletteContainer.prototype = {
     show: function(){
         this.visible = true;
         this.layer.add(this.group);
+        this.setY($("#canvas").scrollTop());
+        this.setX($("#canvas").scrollLeft());
     },
     hide: function(){
         this.visible = false;
@@ -74,5 +76,11 @@ PaletteContainer.prototype = {
     },
     get_factory: function(name){
         return this.elements[name];
+    },
+    setX: function(x){
+        this.group.setX(x);
+    },
+    setY: function(y){
+        this.group.setY(y);
     }
 }
