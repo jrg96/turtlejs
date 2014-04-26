@@ -34,8 +34,8 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     this.joint_height = 4;
 
     this.block_value = 0;
-    this.base_center_width = 28 + 70;
-    this.actual_center_width = 28 + 70;
+    this.base_center_width =  82;
+    this.actual_center_width = 82;
 
     this.box_start_pos = 20;
     this.last_label_width = 0;

@@ -92,7 +92,6 @@ BlockFactory.prototype = {
         block1.set_xy(this.get_pos());
 
         if (box_types.indexOf(name) != -1){
-            block1.box_block_normal_size(block1);
             var block_value = parseInt(block1.sprite.get_label(0).getText());
             if (block_value >= 0 || block_value <= -1){
                 block1.block_value = block_value;
@@ -112,7 +111,7 @@ BlockFactory.prototype = {
         sprit.set_label(label['value'], label['x'], label['y'], label['font_size'], label['font_type'], label['font_color']);
     },
     box_block_normal_size: function(){
-		this.sprite.img[2].setX(this.sprite.img[2].getX() + 70);
+        this.sprite.img[2].setX(this.sprite.img[2].getX() + 70);
         this.sprite.img[1].setWidth(this.sprite.img[1].getWidth() + 70);
     }
 }

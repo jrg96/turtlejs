@@ -29,7 +29,7 @@ PenPaletteDesc.prototype = {
         new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_pen_size_block, null, ['set_pen_size_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
         var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', text_block, get_number, ['box_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
-        descriptor.component_positions = [0, 28, 12];
+        descriptor.component_positions = [0, 28, 82];
 
         new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_color_block, null, ['set_color_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
     },

@@ -31,7 +31,7 @@ BasicBlockDesc.prototype = {
         new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', left_block, null, ['left_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
         var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', text_block, get_number, ['box_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
-        descriptor.component_positions = [0, 28, 12];
+        descriptor.component_positions = [0, 28, 82];
 
         new BlockDescriptor(image_tracker.get_resource('basic'), 'basic', clean_block, null, ['clean_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
@@ -42,13 +42,13 @@ BasicBlockDesc.prototype = {
         new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_heading_block, null, ['set_heading_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);;
 
         var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', null, get_turtle_heading, ['heading_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
-        descriptor.component_positions = [0, 28, 12];
+        descriptor.component_positions = [0, 28, 82];
 
         var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', null, get_turtle_x, ['xcor_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
-        descriptor.component_positions = [0, 28, 12];
+        descriptor.component_positions = [0, 28, 82];
 
         var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', null, get_turtle_y, ['ycor_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
-        descriptor.component_positions = [0, 28, 12];
+        descriptor.component_positions = [0, 28, 82];
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];
