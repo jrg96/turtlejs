@@ -85,5 +85,11 @@ PaletteContainer.prototype = {
     },
     setY: function(y){
         this.group.setY(y);
+    },
+    getX: function(){
+        return this.group.getX();
+    },
+    getY: function(){
+        return this.group.getY();
     }
 }

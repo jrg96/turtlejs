@@ -52,7 +52,10 @@ BlockFactory.prototype = {
         this.fire('mouseup');
     },
     get_pos: function(){
-        return this.pos;
+        var pos = [0, 0];
+        pos[0] = this.pos[0] + this.palette.container.getX();
+        pos[1] = this.pos[1] + this.palette.container.getY();
+        return pos;
     },
     add_labels: function(block_name, lang, type){
         var labels = i18n_tracker.get_labels(block_name, lang, type);
