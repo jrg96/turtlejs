@@ -85,11 +85,24 @@ function text_block(params, import_action, value) {
     import_action = import_action || false;
     if (!import_action){
         var number = 0;
-        do{
-            number = parseInt(prompt('Set value:'));
-        } while(isNaN(number));
-        params[2].set_box_label('' + number);
-        params[2].block_value = number;
+
+        var text_y = params[2].get_xy()[1] + 7;
+        var text_x = params[2].get_xy()[0] + 18;
+            
+        var textArea = "<div id='textAreaPopUp' style='position:absolute;top:" + text_y + "px;left:" + text_x + "px;z-index:30;'><input type='text' value='" + params[2].block_value + "' id='text_input' style='width:90px' />";
+        $("#container2").append(textArea);
+        $("#text_input").keyup(function(e){
+            if (e.keyCode == 13){
+                var text = $("#text_input").val();
+                number = parseInt(text);
+                if (!isNaN(number)){
+                    params[2].set_box_label('' + number);
+                    params[2].block_value = number;
+                    $("#text_input").remove();
+                }
+            }
+        });
+        $("#text_input").focus();
     } else{
         params[2].sprite.labels[0].setText(value + '');
     }
