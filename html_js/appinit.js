@@ -14,6 +14,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 var global_tracker = new GlobalVarsTracker();
+var user_vars_tracker = new UserVarsTracker();
 var block_tracker = new BlockTracker();
 var palette_tracker = new PaletteTracker();
 var dock_tracker = new DockTracker();
@@ -29,6 +30,7 @@ global_tracker.add_var('palette_tracker', palette_tracker);
 global_tracker.add_var('dock_tracker', dock_tracker);
 global_tracker.add_var('i18n_tracker', i18n_tracker);
 global_tracker.add_var('block_image_tracker', image_tracker);
+global_tracker.add_var('user_vars_tracker', user_vars_tracker);
 
 var basic1 = new BasicBlockPalette(495, 200, 'green', draw_stage.layer, new BasicBlockDesc(), global_tracker);
 palette_tracker.add_palette(basic1);
