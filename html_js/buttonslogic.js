@@ -65,17 +65,14 @@ $(document).ready(function() {
                 break;
             }
         }
+        check_block_visibility(true);
     });
     $("#clear-bt").click(function(){
         draw_stage.draw_tracker.clear_canvas();
         block_tracker.on_infinite_loop = false;
     });
     $("#hideshow-bt").click(function(){
-        if (!block_tracker.are_blocks_visible()){
-            block_tracker.hide_blocks();
-        }else{
-            block_tracker.show_blocks();
-        }
+        check_block_visibility(false);
     });
     $("#open-bt").click(function(){
         $("#input-file").focus().click();
@@ -105,4 +102,12 @@ $(document).ready(function() {
         }
         //console.log($("#canvas").scrollTop(0));
     });
+
+    var check_block_visibility = function(caller){
+        if (!block_tracker.are_blocks_visible() || caller){
+            block_tracker.hide_blocks();
+        }else{
+            block_tracker.show_blocks();
+        }
+    };
 });
