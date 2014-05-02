@@ -14,6 +14,8 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 $(document).ready(function() {
+    var count = 0;
+    
     $("#basictb-bt").click(function(){
         if (basic1.is_visible()){
             basic1.hide();
@@ -101,6 +103,16 @@ $(document).ready(function() {
             pal.container.repos();
         }
         //console.log($("#canvas").scrollTop(0));
+    });
+    
+    $("#canvas").click(function(){
+        if ($("#text_input").is(":visible")){
+            count++;
+            if (count == 2){
+                $("#text_input").remove();
+                count = 0;
+            }
+        }
     });
 
     var check_block_visibility = function(caller){
