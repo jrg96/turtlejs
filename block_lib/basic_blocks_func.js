@@ -104,9 +104,6 @@ function text_block(params, import_action, value) {
             }
         });
         $("#text_input").focus();
-        /*$("#text_input").blur(function(){
-            $("#text_input").remove();
-        });*/
     } else{
         params[2].sprite.labels[0].setText(value + '');
     }
