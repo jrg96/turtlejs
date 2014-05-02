@@ -17,7 +17,7 @@ function UserVarsTracker(){
     this.dic = {};
 }
 
-GlobalVarsTracker.prototype = {
+UserVarsTracker.prototype = {
     constructor: UserVarsTracker,
     add_var: function(key, value){
         this.dic[key] = value;

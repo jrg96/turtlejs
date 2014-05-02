@@ -32,3 +32,12 @@ function show_block(params){
         }
     }
 }
+
+function store_in_box_block(params){
+    if (params[2].has_all_slots()){
+        var values = params[2].get_slot_values();
+        if (values[0][0]){
+            user_vars_tracker.add_var(values[0][1], values[1][1]);
+        }
+    }
+}
