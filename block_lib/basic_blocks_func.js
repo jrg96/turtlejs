@@ -92,7 +92,7 @@ function text_block(params, import_action, value) {
             
         var textArea = "<div id='textAreaPopUp' style='position:absolute;top:" + text_y + "px;left:" + text_x + "px;z-index:30;'><input type='text' value='" + params[2].block_value + "' id='text_input' style='width:" + width + "px' />";
         $("#container2").append(textArea);
-        $("#text_input").keyup(function(e){
+        $("#text_input").keypress(function(e){
             if (e.keyCode == 13){
                 var text = $("#text_input").val();
                 number = parseInt(text);
@@ -102,6 +102,11 @@ function text_block(params, import_action, value) {
                     $("#text_input").remove();
                 }
             }
+            var keycode = (e.which) ? e.which : e.keyCode;
+            if (keycode > 31 && (keycode < 48 || keycode > 57)) {
+               return false;
+           }
+           else return true;
         });
         $("#text_input").focus();
     } else{
