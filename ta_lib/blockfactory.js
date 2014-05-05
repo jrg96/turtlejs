@@ -96,7 +96,7 @@ BlockFactory.prototype = {
             if (block_value >= 0 || block_value <= -1){
                 block1.block_value = block_value;
             } else{
-                block1.block_value = block1.sprite.get_label(0);
+                block1.block_value = block1.sprite.get_label(0).getText();
             }
             block1.last_label_width = block1.sprite.get_label(0).getWidth();
         }
