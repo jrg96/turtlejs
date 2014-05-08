@@ -22,7 +22,7 @@ var dock_tracker = new DockTracker();
 var draw_stage = new DrawStage('container2', 4000, 4000);
 var image_tracker = new BlockImageTracker();
 
-var error_message_displayer = new ErrorMessage([0, 0], draw_stage.layer);
+//var error_message_displayer = new ErrorMessage([0, 0], draw_stage.layer);
 
 block_tracker.set_palette_tracker(palette_tracker);
 
