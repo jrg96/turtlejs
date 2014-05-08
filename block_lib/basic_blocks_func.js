@@ -17,6 +17,16 @@ var forward_block = function(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();
         if (values[0][0]){
+            var result = eval_int_user_var(values[0][1]);
+            
+            if (result[0] >-1 && result[0] < 2){
+                return false;
+            }
+            
+            if (result[0] != -1){
+                values[0][1] = result[1];
+            }
+            
             params[0].move(values[0][1]);
             x_pos = params[0].get_xy()[0];
             y_pos = params[0].get_xy()[1];
@@ -31,10 +41,41 @@ var forward_block = function(params){
     }
 }
 
+function eval_int_user_var(name){
+    var result = [-1, null];
+    
+    if (isNaN(parseInt(name))){
+        var data = user_vars_tracker.get_var(name);
+        if (data != null){
+            if (isNaN(parseInt(data))){
+                result[0] = 1;
+                result[1] = "Error, value of variable different of int";
+            } else{
+                result[0] = 2;
+                result[1] = data;
+            }
+        } else{
+            result[0] = 0;
+            result[1] = "Error, variable doesn't exist";
+        }
+    }
+    return result;
+}
+
 function backward_block(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();
         if (values[0][0]){
+            var result = eval_int_user_var(values[0][1]);
+            
+            if (result[0] >-1 && result[0] < 2){
+                return false;
+            }
+            
+            if (result[0] != -1){
+                values[0][1] = result[1];
+            }
+            
             params[0].move(-values[0][1]);
             x_pos = params[0].get_xy()[0];
             y_pos = params[0].get_xy()[1];
@@ -53,6 +94,16 @@ function right_block(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();
         if (values[0][0]){
+            var result = eval_int_user_var(values[0][1]);
+            
+            if (result[0] >-1 && result[0] < 2){
+                return false;
+            }
+            
+            if (result[0] != -1){
+                values[0][1] = result[1];
+            }
+            
             params[0].rotate(values[0][1]);
             return true;
         }
@@ -67,6 +118,16 @@ function left_block(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();
         if (values[0][0]){
+            var result = eval_int_user_var(values[0][1]);
+            
+            if (result[0] >-1 && result[0] < 2){
+                return false;
+            }
+            
+            if (result[0] != -1){
+                values[0][1] = result[1];
+            }
+            
             params[0].rotate(-values[0][1]);
             return true;
         }
