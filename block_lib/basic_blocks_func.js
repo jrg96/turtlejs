@@ -62,6 +62,19 @@ function eval_int_user_var(name){
     return result;
 }
 
+function eval_str_user_var(name){
+    var result = [-1, null];
+    
+    if (isNaN(parseInt(name))){
+        var data = user_vars_tracker.get_var(name);
+        if (data != null){
+            result[0] = 2;
+            result[1] = data;
+        }
+    }
+    return result;
+}
+
 function backward_block(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();

@@ -40,6 +40,12 @@ function show_block(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();
         if (values[0][0]){
+            var result = eval_str_user_var(values[0][1]);
+            
+            if (result[0] == 2){
+                values[0][1] = result[1];
+            }
+            
             params[1].add_label(values[0][1], params[0]);
         }
     }
