@@ -24,5 +24,8 @@ UserVarsTracker.prototype = {
     },
     get_var: function(key){
         return this.dic[key];
+    },
+    clear: function(){
+        this.dic = {};
     }
 }
