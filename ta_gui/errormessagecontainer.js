@@ -29,10 +29,10 @@ function ErrorMessage(startpos, layer){
     this.mess = "";
     this.visible = false;
     this.label = new Kinetic.Text({
-            x: 0,
-            y: 0,
+            x: 10,
+            y: 10,
             text: this.mess,
-            fontSize: 19,
+            fontSize: 23,
             fontFamily: 'Calibri',
             fill: 'black'
     });
@@ -72,13 +72,21 @@ ErrorMessage.prototype = {
         img.setY(12);
         //parent.layer.add(parent.group);
     },
+    show_error: function(error){
+        this.label.setText(error);
+        this.show();
+    },
     show: function(){
-        this.layer.add(this.group);
-        this.visible = true;
+        if (!this.visible){
+            this.layer.add(this.group);
+            this.visible = true;
+        }
     },
     hide: function(){
-        this.group.remove();
-        this.visible = false;
+        if (this.visible){
+            this.group.remove();
+            this.visible = false;
+        }
     },
     is_visible: function(){
         return this.visible;

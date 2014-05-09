@@ -36,7 +36,7 @@ var forward_block = function(params){
         }
         return false;
     }else{
-        alert('Missing value from forward block');
+        error_message_displayer.show_error('Missing value from forward block');
         return false;
     }
 }
@@ -98,7 +98,7 @@ function backward_block(params){
         }
         return false;
     }else{
-       alert('Missing value from backward block');
+       error_message_displayer.show_error('Missing value from backward block');
        return false;
     }
 }
@@ -122,7 +122,7 @@ function right_block(params){
         }
         return false;
     }else{
-        alert('Missing value from right block');
+        error_message_displayer.show_error('Missing value from right block');
         return false;
     }
 }
@@ -146,7 +146,7 @@ function left_block(params){
         }
         return false;
     }else{
-        alert('Missing value from right block');
+        error_message_displayer.show_error('Missing value from right block');
         return false;
     }
 }
