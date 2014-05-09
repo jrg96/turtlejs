@@ -96,6 +96,8 @@ $(document).ready(function() {
     
     $("#canvas").scrollTop(1700);
     $("#canvas").scrollLeft(1300);
+
+    error_message_displayer.repos();
     
     $("#canvas").scroll(function(){
         var pal = palette_tracker.get_visible_palette();
@@ -103,6 +105,7 @@ $(document).ready(function() {
         if (pal != null){
             pal.container.repos();
         }
+        error_message_displayer.repos();
         //console.log($("#canvas").scrollTop(0));
     });
     

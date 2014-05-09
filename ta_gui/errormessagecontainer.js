@@ -16,19 +16,22 @@
 function ErrorMessage(startpos, layer){
     this.layer = layer;
     this.rect = new Kinetic.Rect({
-        x: 239,
-        y: 75,
-        width: 100,
-        height: 50,
+        x: 0,
+        y: 0,
+        width: 550,
+        height: 40,
         fill: 'green',
         stroke: 'black',
-        strokeWidth: 4
+        cornerRadius: 14,
+        strokeWidth: 1
     });
-    this.message = "";
+    this.img = null;
+    this.mess = "";
+    this.visible = false;
     this.label = new Kinetic.Text({
             x: 0,
             y: 0,
-            text: this.essage,
+            text: this.mess,
             fontSize: 19,
             fontFamily: 'Calibri',
             fill: 'black'
@@ -36,12 +39,48 @@ function ErrorMessage(startpos, layer){
     this.group = new Kinetic.Group({
         draggable: false
     });
+
     this.group.add(this.rect);
     this.group.add(this.label);
+
+    var imageObj = new Image();
+    var parent = this;
+    imageObj.onload = parent.close_on_load(parent, imageObj);
+    imageObj.src = "ta_icons/no.png";
 }
 
 ErrorMessage.prototype = {
     constructor: ErrorMessage,
-    init: function(){
+    repos: function(){
+        this.group.setX($("#canvas").scrollLeft() + 20);
+        this.group.setY($("#canvas").scrollTop() + $(window).height() - 130);
+    },
+    close_on_load: function(parent, imageObj){
+        var img = new Kinetic.Image({
+            image: imageObj,
+            width: imageObj.width,
+            height: imageObj.height,
+        });
+
+        img.on('click', function(){
+            parent.hide();
+        });
+
+        parent.img = img;
+        parent.group.add(img);
+        img.setX(520);
+        img.setY(12);
+        //parent.layer.add(parent.group);
+    },
+    show: function(){
+        this.layer.add(this.group);
+        this.visible = true;
+    },
+    hide: function(){
+        this.group.remove();
+        this.visible = false;
+    },
+    is_visible: function(){
+        return this.visible;
     }
 }
