@@ -47,8 +47,11 @@ function show_block(params){
             }
             
             params[1].add_label(values[0][1], params[0]);
+            return true;
         }
+        return false;
     }
+    return false;
 }
 
 function store_in_box_block(params){
@@ -56,6 +59,9 @@ function store_in_box_block(params){
         var values = params[2].get_slot_values();
         if (values[0][0]){
             user_vars_tracker.add_var(values[0][1], values[1][1]);
+            return true;
         }
+        return false;
     }
+    return false;
 }
