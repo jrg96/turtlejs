@@ -15,6 +15,7 @@
 
 function I18n(){
     this.words = {};
+    this.error_messages = {};
 }
 
 I18n.prototype = {
@@ -33,11 +34,24 @@ I18n.prototype = {
            this.words[block_name][lang][type[i]].push(properties);
         }
     },
+    add_error_message: function(lang, id, text){
+        if (!this.error_messages[id]){
+            this.error_messages[id] = {};
+        }
+        this.error_messages[id][lang] = text;
+    },
     get_labels: function(block_name, lang, type){
         if (this.words[block_name][lang] != null){
             return this.words[block_name][lang][type];
         } else{
             return this.words[block_name]['en_US'][type];
+        }
+    },
+    get_error_message: function(lang, id){
+        if (this.error_messages[id][lang] != null){
+            return this.error_messages[id][lang];
+        } else{
+            return this.error_messages[id]['en_US'];
         }
     },
     change_language: function(lang){
