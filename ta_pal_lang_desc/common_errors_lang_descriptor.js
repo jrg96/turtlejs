@@ -13,4 +13,4 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-i18n_tracker.add_error_message('en_US', 'missing_block_error', 'Missing value from {X} block');
+i18n_tracker.add_error_message('en_US', 'missing_value_error', 'Missing value from {X} block');

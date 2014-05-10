@@ -36,7 +36,7 @@ var forward_block = function(params){
         }
         return false;
     }else{
-        error_message_displayer.show_error('Missing value from forward block');
+        error_message_displayer.show_error(i18n_tracker.get_miss_val_msg(DEFAULT_LANG, 'Forward'));
         return false;
     }
 }
@@ -98,7 +98,7 @@ function backward_block(params){
         }
         return false;
     }else{
-       error_message_displayer.show_error('Missing value from backward block');
+       error_message_displayer.show_error(i18n_tracker.get_miss_val_msg(DEFAULT_LANG, 'Backward'));
        return false;
     }
 }
@@ -122,7 +122,7 @@ function right_block(params){
         }
         return false;
     }else{
-        error_message_displayer.show_error('Missing value from right block');
+        error_message_displayer.show_error(i18n_tracker.get_miss_val_msg(DEFAULT_LANG, 'Right'));
         return false;
     }
 }
@@ -146,7 +146,7 @@ function left_block(params){
         }
         return false;
     }else{
-        error_message_displayer.show_error('Missing value from right block');
+        error_message_displayer.show_error(i18n_tracker.get_miss_val_msg(DEFAULT_LANG, 'Left'));
         return false;
     }
 }

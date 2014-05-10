@@ -103,6 +103,11 @@ I18n.prototype = {
             block.sprite.delete_all_labels();
             block.sprite.set_labels(this.get_labels(block.block_type, DEFAULT_LANG, BLOCK_SIDE));
         }
+    },
+    get_miss_val_msg: function(lang, block_name){
+        var message = this.get_error_message(lang, "missing_value_error");
+        message = message.replace("{X}", block_name);
+        return message;
     }
 }
 
