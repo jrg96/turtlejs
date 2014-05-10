@@ -37,6 +37,14 @@ function set_pen_size_block(params){
     }
 }
 
+function is_color(str){
+    var arr = ['red', 'green', 'purple', 'orange', 'cyan', 'white', 'yellow', 'blue', 'black'];
+    if (arr.indexOf(str) != -1){
+        return true;
+    }
+    return false;
+}
+
 function pen_size_value_block(){
     
 }
@@ -45,8 +53,17 @@ function set_color_block(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();
         if (values[0][0]){
-            params[1].set_pen_color(values[0][1]);
-            return true;
+            var result = eval_int_user_var(values[0][1]);
+
+            if (result[0] == 2){
+                values[0][1] = result[1];
+            }
+
+            if (is_color(values[0][1]) || (result[0] == 2) || (result[0] == -1)){
+                params[1].set_pen_color(values[0][1]);
+                return true;
+            }
+            return false;
         }
         return false;
     }else{
