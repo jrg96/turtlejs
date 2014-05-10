@@ -20,6 +20,7 @@ var forward_block = function(params){
             var result = eval_int_user_var(values[0][1]);
             
             if (result[0] >-1 && result[0] < 2){
+                error_message_displayer.show_error(result[1]);
                 return false;
             }
             
@@ -82,6 +83,7 @@ function backward_block(params){
             var result = eval_int_user_var(values[0][1]);
             
             if (result[0] >-1 && result[0] < 2){
+                error_message_displayer.show_error(result[1]);
                 return false;
             }
             
@@ -110,6 +112,7 @@ function right_block(params){
             var result = eval_int_user_var(values[0][1]);
             
             if (result[0] >-1 && result[0] < 2){
+                error_message_displayer.show_error(result[1]);
                 return false;
             }
             
@@ -134,6 +137,7 @@ function left_block(params){
             var result = eval_int_user_var(values[0][1]);
             
             if (result[0] >-1 && result[0] < 2){
+                error_message_displayer.show_error(result[1]);
                 return false;
             }
             
@@ -212,7 +216,7 @@ function setxy_block(params){
         }
         return false;
     }else{
-        alert('Missing value from set xy block');
+        error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['set xy']));
         return false;
     }
 }
@@ -237,7 +241,7 @@ function arc_block(params){
         }
         return false;
     }else{
-        alert('Missing value from arc block');
+        error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['arc']));
         return false;
     }
 }
@@ -252,7 +256,7 @@ function set_heading_block(params) {
         }
         return false;
     }else{
-        alert('Missing value from set heading block');
+        error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['Set heading']));
         return false;
     }
 }
