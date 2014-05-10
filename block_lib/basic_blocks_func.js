@@ -36,7 +36,7 @@ var forward_block = function(params){
         }
         return false;
     }else{
-        error_message_displayer.show_error(i18n_tracker.get_miss_val_msg(DEFAULT_LANG, 'Forward'));
+        error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['Forward']));
         return false;
     }
 }
@@ -49,14 +49,14 @@ function eval_int_user_var(name){
         if (data != null){
             if (isNaN(parseInt(data))){
                 result[0] = 1;
-                result[1] = "Error, value of variable different of int";
+                result[1] = i18n_tracker.get_err_msg(DEFAULT_LANG, 'not_int_value_error', [name]);
             } else{
                 result[0] = 2;
                 result[1] = data;
             }
         } else{
             result[0] = 0;
-            result[1] = "Error, variable doesn't exist";
+            result[1] = i18n_tracker.get_err_msg(DEFAULT_LANG, 'var_not_exist_error', [name]);
         }
     }
     return result;
@@ -98,7 +98,7 @@ function backward_block(params){
         }
         return false;
     }else{
-       error_message_displayer.show_error(i18n_tracker.get_miss_val_msg(DEFAULT_LANG, 'Backward'));
+       error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['Backward']));
        return false;
     }
 }
@@ -122,7 +122,7 @@ function right_block(params){
         }
         return false;
     }else{
-        error_message_displayer.show_error(i18n_tracker.get_miss_val_msg(DEFAULT_LANG, 'Right'));
+        error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['Right']));
         return false;
     }
 }
@@ -146,7 +146,7 @@ function left_block(params){
         }
         return false;
     }else{
-        error_message_displayer.show_error(i18n_tracker.get_miss_val_msg(DEFAULT_LANG, 'Left'));
+        error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['Left']));
         return false;
     }
 }

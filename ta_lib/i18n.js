@@ -47,12 +47,19 @@ I18n.prototype = {
             return this.words[block_name]['en_US'][type];
         }
     },
-    get_error_message: function(lang, id){
+    get_err_msg: function(lang, id, params){
+        var error_message;
+
         if (this.error_messages[id][lang] != null){
-            return this.error_messages[id][lang];
+            error_message = this.error_messages[id][lang];
         } else{
-            return this.error_messages[id]['en_US'];
+            error_message = this.error_messages[id]['en_US'];
         }
+
+        for (var i=0; i<params.length; i++){
+            error_message = error_message.replace("{" + i + "}", params[i]);
+        }
+        return error_message;
     },
     change_language: function(lang){
         if (DEFAULT_LANG != lang){
@@ -103,11 +110,6 @@ I18n.prototype = {
             block.sprite.delete_all_labels();
             block.sprite.set_labels(this.get_labels(block.block_type, DEFAULT_LANG, BLOCK_SIDE));
         }
-    },
-    get_miss_val_msg: function(lang, block_name){
-        var message = this.get_error_message(lang, "missing_value_error");
-        message = message.replace("{X}", block_name);
-        return message;
     }
 }
 
