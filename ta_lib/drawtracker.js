@@ -43,6 +43,7 @@ DrawTracker.prototype = {
     },
     clear_canvas: function(){
         this.turtle.reset_pos();
+        this.reset_scroll_pos();
         for (var i=0; i<this.lines.length; i++){
             this.lines[i].remove();
         }
@@ -132,5 +133,9 @@ DrawTracker.prototype = {
         }
         this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
         this.make_base_line();
+    },
+    reset_scroll_pos: function(){
+        $("#canvas").scrollTop(2000 - ($(window).height()/2) + 25);
+        $("#canvas").scrollLeft(2000 - ($(window).width()/2));
     }
 }
