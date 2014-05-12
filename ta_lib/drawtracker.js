@@ -96,12 +96,14 @@ DrawTracker.prototype = {
     },
     set_pen_color: function(value){
         if (!isNaN(parseInt(value))){
+            /*value = 16711680 + value;
             value = value.toString(16);
             var zeroes = "";
             for (var i = 0; i<(6 -value.length); i++){
                 zeroes += "0";
             }
-            value = "#" + zeroes + value;
+            value = "#" + zeroes + value;*/
+            value = COLOR_TABLE[this.wrap100(value)];
         }
         if (this.stroke_line != value){
             this.stroke_line = value;
@@ -137,5 +139,12 @@ DrawTracker.prototype = {
     reset_scroll_pos: function(){
         $("#canvas").scrollTop(2000 - ($(window).height()/2) + 25);
         $("#canvas").scrollLeft(2000 - ($(window).width()/2));
+    },
+    wrap100: function(n){
+        n = n % 200;
+        if (n > 99){
+            n = 199 - n;
+        }
+        return n;
     }
 }
