@@ -37,7 +37,7 @@ global_tracker.add_var('user_vars_tracker', user_vars_tracker);
 var basic1 = new BasicBlockPalette(495, 200, 'green', draw_stage.layer, new BasicBlockDesc(), global_tracker);
 palette_tracker.add_palette(basic1);
 
-var pen_palette = new PenPalette(475, 110, 'green', draw_stage.layer, new PenPaletteDesc(), global_tracker);
+var pen_palette = new PenPalette(640, 110, 'green', draw_stage.layer, new PenPaletteDesc(), global_tracker);
 palette_tracker.add_palette(pen_palette);
 
 var colors_palette = new ColorsPalette(550, 160, 'green', draw_stage.layer, new ColorsPaletteDesc(), global_tracker);

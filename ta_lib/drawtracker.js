@@ -19,7 +19,7 @@ function DrawTracker(layer, turtle){
     this.labels = [];
     this.pen_down = true;
     this.pen_size = 3;
-    this.stroke_line = "red";
+    this.stroke_line = "#FF0000";
     this.layer = layer;
     this.turtle = turtle;
     this.points = [];
@@ -29,6 +29,7 @@ function DrawTracker(layer, turtle){
 
     this.shade = 50;
     this.gray = 100;
+    this.color = 0xFF0000;
 }
 
 DrawTracker.prototype = {
@@ -99,22 +100,28 @@ DrawTracker.prototype = {
     },
     set_pen_color: function(value){
         if (!isNaN(parseInt(value))){
-            /*value = 16711680 + value;
-            value = value.toString(16);
-            var zeroes = "";
-            for (var i = 0; i<(6 -value.length); i++){
-                zeroes += "0";
-            }
-            value = "#" + zeroes + value;*/
-            //value = COLOR_TABLE[this.wrap100(value)];
             value = this.set_fgcolor(null, null, value);
         }
-        //if (this.stroke_line != value){
+        this.on_color_change(value);
+    },
+    get_pen_color: function(){
+        return this.color;
+    },
+    set_pen_shade: function(value){
+        value = this.set_fgcolor(value, null, null);
+        this.on_color_change(value);
+    },
+    set_pen_gray: function(value){
+        value = this.set_fgcolor(null, value, null);
+        this.on_color_change(value);
+    },
+    on_color_change: function(value){
+        if (this.stroke_line != value){
             this.stroke_line = value;
             this.lines.push(this.line);
             this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
             this.make_base_line();
-        //}
+        }
     },
     add_shape: function(shape){
         this.shapes.push(shape);

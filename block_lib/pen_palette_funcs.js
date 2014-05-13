@@ -71,3 +71,7 @@ function set_color_block(params){
         return false;
     }
 }
+
+function get_pen_color(params){
+    return [true, params[1].get_pen_color()];
+}
