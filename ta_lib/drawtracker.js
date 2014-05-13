@@ -118,6 +118,9 @@ DrawTracker.prototype = {
         value = this.set_fgcolor(null, value, null);
         this.on_color_change(value);
     },
+    get_pen_gray: function(){
+        return this.gray;
+    },
     on_color_change: function(value){
         if (this.stroke_line != value){
             this.stroke_line = value;

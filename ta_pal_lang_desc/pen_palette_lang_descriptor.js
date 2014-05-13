@@ -22,3 +22,5 @@ i18n_tracker.add_label('set_color_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], [
 i18n_tracker.add_label('color_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['color', 45, 13, 19, 'Calibri', 'black']);
 
 i18n_tracker.add_label('shade_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['shade', 45, 13, 19, 'Calibri', 'black']);
+
+i18n_tracker.add_label('gray_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['gray', 45, 13, 19, 'Calibri', 'black']);

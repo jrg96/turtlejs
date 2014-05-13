@@ -38,6 +38,9 @@ PenPaletteDesc.prototype = {
 
         var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', null, get_pen_shade, ['shade_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         descriptor.component_positions = [0, 28, 82];
+
+        var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', null, get_pen_gray, ['gray_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        descriptor.component_positions = [0, 28, 82];
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

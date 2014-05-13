@@ -79,3 +79,7 @@ function get_pen_color(params){
 function get_pen_shade(params){
     return [true, params[1].get_pen_shade()];
 }
+
+function get_pen_gray(params){
+    return [true, params[1].get_pen_gray()];
+}
