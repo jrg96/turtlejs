@@ -75,3 +75,7 @@ function set_color_block(params){
 function get_pen_color(params){
     return [true, params[1].get_pen_color()];
 }
+
+function get_pen_shade(params){
+    return [true, params[1].get_pen_shade()];
+}
