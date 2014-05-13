@@ -26,6 +26,9 @@ function DrawTracker(layer, turtle){
     this.points.push(turtle.get_xy()[0]);
     this.points.push(turtle.get_xy()[1]);
     this.make_base_line();
+
+    this.shade = 50;
+    this.gray = 100;
 }
 
 DrawTracker.prototype = {
@@ -103,14 +106,15 @@ DrawTracker.prototype = {
                 zeroes += "0";
             }
             value = "#" + zeroes + value;*/
-            value = COLOR_TABLE[this.wrap100(value)];
+            //value = COLOR_TABLE[this.wrap100(value)];
+            value = this.set_fgcolor(null, null, value);
         }
-        if (this.stroke_line != value){
+        //if (this.stroke_line != value){
             this.stroke_line = value;
             this.lines.push(this.line);
             this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
             this.make_base_line();
-        }
+        //}
     },
     add_shape: function(shape){
         this.shapes.push(shape);
@@ -146,5 +150,70 @@ DrawTracker.prototype = {
             n = 199 - n;
         }
         return n;
+    },
+    set_fgcolor: function(shade, gray, color){
+        if (shade != null){
+            this.shade = shade;
+        }
+        if (gray != null){
+            this.gray = gray;
+        }
+        if (color != null){
+            this.color = color;
+        }
+
+        var sh = (this.wrap100(this.shade) - 50) / 50.0;
+        rgb = COLOR_TABLE2[this.wrap100(this.color)];
+        var r = (rgb >> 8) & 0xFF00;
+        r = this.calc_gray(r, this.gray, false);
+        r = this.calc_shade(r, sh, false);
+        var g = rgb & 0xFF00;
+        g = this.calc_gray(g, this.gray, false);
+        g = this.calc_shade(g, sh, false);
+        var b = (rgb << 8) & 0xFF00;
+        b = this.calc_gray(b, this.gray, false);
+        b = this.calc_shade(b, sh, false);
+      
+        var final_color = (r * 256)  + g + (b >> 8);
+        final_color = final_color.toString(16);
+
+        var zeroes = "";
+
+        for (var i = 0; i<(6 -final_color.length); i++){
+            zeroes += "0";
+        }
+
+        final_color = "#" + zeroes + final_color;
+        final_color = final_color.toUpperCase();
+        return final_color; 
+    },
+    calc_gray: function(color, gray, invert){
+        if (gray == 100){
+            return parseInt(color);
+        }
+        if (invert){
+            if (gray == 0){
+                return parseInt(color);
+            } else{
+                return parseInt(((color * 100) - (32768 * (100 - gray))) / gray);
+            }
+        } else{
+            return parseInt(((color * gray) + (32768 * (100 - gray))) / 100);
+        }
+    },
+    calc_shade: function(color, shade, invert){
+        if (invert){
+            if (shade == -1){
+                return parseInt(color);
+            } else if (shade < 0){
+                return parseInt(color / (1 + shade));
+            }
+            return parseInt((color - 65536 * shade) / (1 - shade));
+        } else{
+            if (shade < 0){
+                return parseInt(color * (1 + shade));
+            }
+            return parseInt(color + (65536 - color) * shade);
+        }
     }
 }
