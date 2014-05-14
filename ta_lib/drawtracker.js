@@ -19,7 +19,7 @@ function DrawTracker(layer, turtle){
     this.labels = [];
     this.pen_down = true;
     this.pen_size = 3;
-    this.stroke_line = "#FF001A";
+    this.stroke_line = "#FF0000";
     this.layer = layer;
     this.turtle = turtle;
     this.points = [];
@@ -29,7 +29,7 @@ function DrawTracker(layer, turtle){
 
     this.shade = 50;
     this.gray = 100;
-    this.color = 100;
+    this.color = 0;
 }
 
 DrawTracker.prototype = {
@@ -187,7 +187,9 @@ DrawTracker.prototype = {
         b = this.calc_gray(b, this.gray, false);
         b = this.calc_shade(b, sh, false);
       
-        var final_color = (r * 256)  + g + (b >> 8);
+        //var final_color = (r * 256)  + g + (b >> 8);
+        var arr_rgb = [r >> 8, g >> 8, b >> 8];
+        var final_color = (arr_rgb[0] * 65536) + (arr_rgb[1] * 256) + (arr_rgb[2]);
         final_color = final_color.toString(16);
 
         var zeroes = "";
