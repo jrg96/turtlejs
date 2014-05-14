@@ -19,7 +19,7 @@ function DrawTracker(layer, turtle){
     this.labels = [];
     this.pen_down = true;
     this.pen_size = 3;
-    this.stroke_line = "#FF0000";
+    this.stroke_line = "#FF001A";
     this.layer = layer;
     this.turtle = turtle;
     this.points = [];
@@ -29,7 +29,7 @@ function DrawTracker(layer, turtle){
 
     this.shade = 50;
     this.gray = 100;
-    this.color = 0xFF0000;
+    this.color = 100;
 }
 
 DrawTracker.prototype = {

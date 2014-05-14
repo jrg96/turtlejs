@@ -19,6 +19,8 @@ i18n_tracker.add_label('set_pen_size_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE]
 
 i18n_tracker.add_label('set_color_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Set color', 5, 13, 19, 'Calibri', 'black']);
 
+i18n_tracker.add_label('set_shade_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Set shade', 5, 13, 19, 'Calibri', 'black']);
+
 i18n_tracker.add_label('color_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['color', 45, 13, 19, 'Calibri', 'black']);
 
 i18n_tracker.add_label('shade_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['shade', 45, 13, 19, 'Calibri', 'black']);

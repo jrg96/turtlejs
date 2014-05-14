@@ -72,6 +72,29 @@ function set_color_block(params){
     }
 }
 
+function set_shade_block(params){
+    if (params[2].has_all_slots()){
+        var values = params[2].get_slot_values();
+        if (values[0][0]){
+            var result = eval_int_user_var(values[0][1]);
+
+            if (result[0] == 2){
+                values[0][1] = result[1];
+            }
+
+            if ((result[0] == 2) || (result[0] == -1)){
+                params[1].set_pen_shade(values[0][1]);
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }else{
+        alert('Missing value from set shade block');
+        return false;
+    }
+}
+
 function get_pen_color(params){
     return [true, params[1].get_pen_color()];
 }
