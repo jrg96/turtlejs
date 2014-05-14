@@ -160,6 +160,15 @@ DrawTracker.prototype = {
     wrap100: function(n){
         n = parseInt(n);
         n = n % 200;
+
+        if (n < 0){
+            if (n > -101){
+                n = 100 + n;
+            } else{
+                n = 199 + n;
+            }
+        }
+
         if (n > 99){
             n = 199 - n;
         }
