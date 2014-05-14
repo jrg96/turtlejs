@@ -42,6 +42,9 @@ NumbersPalette.prototype = {
         var sprit1 = new Sprite(image_tracker.get_resource('compare'), this.container.layer, true);
         new BlockFactory([5, 5], sprit1, 'greaterthan_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'greaterthan']);
 
+        sprit1 = new Sprite(image_tracker.get_resource('number1arg'), this.container.layer, true);
+        new BlockFactory([5, 95], sprit1, 'identity_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'backward']);
+
         var sprit1 = new Sprite(image_tracker.get_resource('numbern'), this.container.layer, true);
         new BlockFactory([115, 5], sprit1, 'add_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'add']);
 

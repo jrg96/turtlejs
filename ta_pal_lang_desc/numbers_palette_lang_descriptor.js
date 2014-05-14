@@ -20,3 +20,5 @@ i18n_tracker.add_label('add_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['+', 4
 i18n_tracker.add_label('multiply_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['x', 45, 35, 19, 'Calibri', 'black']);
 
 i18n_tracker.add_label('divide_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['/', 45, 35, 19, 'Calibri', 'black']);
+
+i18n_tracker.add_label('identity_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['<-', 52, 13, 19, 'Calibri', 'black']);
