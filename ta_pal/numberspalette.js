@@ -47,5 +47,8 @@ NumbersPalette.prototype = {
 
         var sprit1 = new Sprite(image_tracker.get_resource('numbern'), this.container.layer, true);
         new BlockFactory([215, 5], sprit1, 'multiply_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'multiply']);
+
+        var sprit1 = new Sprite(image_tracker.get_resource('numbern'), this.container.layer, true);
+        new BlockFactory([315, 5], sprit1, 'divide_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'multiply']);
     }
 }

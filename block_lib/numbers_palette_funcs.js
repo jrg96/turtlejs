@@ -54,3 +54,17 @@ function multiply_block(params){
         return [false, 0];
     }
 }
+
+function divide_block(params){
+    if (params[2].has_all_slots()){
+        var values = params[2].get_slot_values();
+        if (values[0][0]){
+            var total = (values[0][1] * 1.0) / (values[1][1] * 1.0);
+            return [true, total];
+        }
+        return [false, 0];
+    }else{
+        alert('Missing value from Multiply block');
+        return [false, 0];
+    }
+}
