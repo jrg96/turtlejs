@@ -35,6 +35,8 @@ PenPaletteDesc.prototype = {
 
         new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_shade_block, null, ['set_shade_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
+        new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_gray_block, null, ['set_gray_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+
         var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', null, get_pen_color, ['color_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         descriptor.component_positions = [0, 28, 82];
 
