@@ -158,6 +158,7 @@ DrawTracker.prototype = {
         $("#canvas").scrollLeft(2000 - ($(window).width()/2));
     },
     wrap100: function(n){
+        n = parseInt(n);
         n = n % 200;
         if (n > 99){
             n = 199 - n;
@@ -176,6 +177,8 @@ DrawTracker.prototype = {
         }
 
         var sh = (this.wrap100(this.shade) - 50) / 50.0;
+        //sh = Math.round(sh * 100) / 100;
+
         rgb = COLOR_TABLE2[this.wrap100(this.color)];
         var r = (rgb >> 8) & 0xFF00;
         r = this.calc_gray(r, this.gray, false);

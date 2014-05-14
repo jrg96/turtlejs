@@ -60,6 +60,7 @@ function divide_block(params){
         var values = params[2].get_slot_values();
         if (values[0][0]){
             var total = (values[0][1] * 1.0) / (values[1][1] * 1.0);
+            total = (Math.round(total * 100) / 100);
             return [true, total];
         }
         return [false, 0];
