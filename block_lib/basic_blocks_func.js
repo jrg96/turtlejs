@@ -188,10 +188,11 @@ function text_block(params, import_action, value) {
                 }
             }
             var keycode = (e.which) ? e.which : e.keyCode;
-            if (keycode > 31 && (keycode < 48 || keycode > 57)) {
-               return false;
-           }
-           else return true;
+            if (keycode > 31 && (keycode < 48 || keycode > 57) && keycode != 37 & keycode != 39) {
+                return false;
+            }else{
+                return true;
+            }
         });
         $("#text_input").focus();
     } else{
