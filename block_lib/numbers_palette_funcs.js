@@ -27,6 +27,7 @@ function add_block(params){
                 if (results[i][0] == 2){
                     values[i][1] = results[i][1];
                 } else if(results[i][0] == 0 || results[i][0] == 1){
+                    error_message_displayer.show_error(results[i][1]);
                     return [false, 0];
                 }
             }

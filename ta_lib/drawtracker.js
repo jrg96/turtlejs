@@ -165,7 +165,7 @@ DrawTracker.prototype = {
             if (n > -101){
                 n = 100 + n;
             } else{
-                n = 199 + n;
+                n = Math.abs(n + 101);
             }
         }
 

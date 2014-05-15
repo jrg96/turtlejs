@@ -13,9 +13,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
+function forward(params, values){
+    params[0].move(values[0][1]);
+    x_pos = params[0].get_xy()[0];
+    y_pos = params[0].get_xy()[1];
+    params[1].add_point([x_pos, y_pos]);
+    params[0].bring_front();
+}
+
 var forward_block = function(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();
+
         if (values[0][0]){
             var result = eval_int_user_var(values[0][1]);
             
@@ -27,17 +36,13 @@ var forward_block = function(params){
             if (result[0] != -1){
                 values[0][1] = result[1];
             }
-            
-            params[0].move(values[0][1]);
-            x_pos = params[0].get_xy()[0];
-            y_pos = params[0].get_xy()[1];
-            params[1].add_point([x_pos, y_pos]);
-            params[0].bring_front();
+
+            forward(params, values);
             return true;
         }
         return false;
     }else{
-        error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['Forward']));
+        error_message_displayer.show_error();
         return false;
     }
 }
@@ -71,6 +76,8 @@ function eval_str_user_var(name){
         if (data != null){
             result[0] = 2;
             result[1] = data;
+        } else{
+            result[0] = 1;
         }
     }
     return result;

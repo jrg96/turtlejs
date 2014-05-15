@@ -24,6 +24,9 @@ function BlockDescriptor(block_img, dock_desc, callback_func, value_func, proper
     this.base_clamp_height = 0;
     this.add_labels(this.block_name, properties[1], properties[2]);
     properties[3][this.block_name] = this;
+    if (properties.length == 5){
+        this.param_types = properties[4];
+    }
 }
 
 BlockDescriptor.prototype = {
