@@ -19,17 +19,7 @@ function forward(params, values){
     y_pos = params[0].get_xy()[1];
     params[1].add_point([x_pos, y_pos]);
     params[0].bring_front();
-}
-
-var forward_block = function(params){
-    var result = get_block_data(params, 'Forward');
-    if (!result[0]){
-        error_message_displayer.show_error(result[1]);
-        return false;
-    } else{
-        forward(params, result[1]);
-        return true;
-    }
+    return true;
 }
 
 function backward(params, values){
@@ -38,54 +28,24 @@ function backward(params, values){
     y_pos = params[0].get_xy()[1];
     params[1].add_point([x_pos, y_pos]);
     params[0].bring_front();
-}
-
-function backward_block(params){
-    var result = get_block_data(params, 'Backward');
-    if (!result[0]){
-        error_message_displayer.show_error(result[1]);
-        return false;
-    } else{
-        backward(params, result[1]);
-        return true;
-    }
+    return true;
 }
 
 function right(params, values){
     params[0].rotate(values[0][1]);
-}
-
-function right_block(params){
-    var result = get_block_data(params, 'Right');
-    if (!result[0]){
-        error_message_displayer.show_error(result[1]);
-        return false;
-    } else{
-        right(params, result[1]);
-        return true;
-    }
+    return true;
 }
 
 function left(params, values){
     params[0].rotate(-values[0][1]);
-}
-
-function left_block(params){
-    var result = get_block_data(params, 'Left');
-    if (!result[0]){
-        error_message_displayer.show_error(result[1]);
-        return false;
-    } else{
-        left(params, result[1]);
-        return true;
-    }
+    return true;
 }
 
 function get_number(params){
     return [true, params[2].block_value];
 }
 
-function text_block(params, import_action, value) {
+function text_block(params, values, import_action, value) {
     import_action = import_action || false;
     if (!import_action){
         var number = 0;
@@ -119,7 +79,7 @@ function text_block(params, import_action, value) {
     }
 }
 
-function clean_block(params) {
+function clean_block(params, values) {
     params[1].clear_canvas();
     return true;
 }
@@ -135,17 +95,7 @@ function setxy(params, values){
     y_pos = params[0].get_xy()[1];
     params[1].add_point([x_pos, y_pos]);
     params[0].bring_front();
-}
-
-function setxy_block(params){
-    var result = get_block_data(params, 'Set xy');
-    if (!result[0]){
-        error_message_displayer.show_error(result[1]);
-        return false;
-    } else{
-        setxy(params, result[1]);
-        return true;
-    }
+    return true;
 }
 
 function arc(params, values){
@@ -161,33 +111,13 @@ function arc(params, values){
     params[0].set_xy(final_pos);
     params[0].rotate(values[0][1]);
     params[1].add_shape(arc);
-}
-
-function arc_block(params){
-    var result = get_block_data(params, 'Arc');
-    if (!result[0]){
-        error_message_displayer.show_error(result[1]);
-        return false;
-    } else{
-        arc(params, result[1]);
-        return true;
-    }
+    return true;
 }
 
 function set_heading(params, values){
     params[0].reset_rotation();
     params[0].rotate(values[0][1]);
-}
-
-function set_heading_block(params) {
-    var result = get_block_data(params, 'Set heading');
-    if (!result[0]){
-        error_message_displayer.show_error(result[1]);
-        return false;
-    } else{
-        set_heading(params, result[1]);
-        return true;
-    }
+    return true;
 }
 
 function get_turtle_heading(params){

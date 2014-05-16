@@ -59,7 +59,15 @@ TurtleBlock.prototype = {
     set_events: function(){
         var parent = this;
         this.group.on('click', function(){
-            parent.func(parent.params);
+            var result = get_block_data(parent.params, 'Set heading');
+            if (!result[0]){
+                error_message_displayer.show_error(result[1]);
+                return false;
+            } else{
+                parent.func(parent.params, result[1]);
+                return true;
+            }
+
         });
         this.group.on('mousedown', function(){
             parent.start_drag_pos = parent.get_xy();
@@ -382,7 +390,13 @@ TurtleBlock.prototype = {
     exec_block: function(){
         var can_continue = true;
         if ((!this.has_giving_param() && this.has_receiver_param()) || (!this.has_giving_param() && !this.has_receiver_param())){
-            can_continue = this.func(this.params);
+            var result = get_block_data(this.params, 'Set heading');
+            if (!result[0]){
+                error_message_displayer.show_error(result[1]);
+                return false;
+            } else{
+                return this.func(this.params, result[1]);;
+            }
         }
         return can_continue;
     },

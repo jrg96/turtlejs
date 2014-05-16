@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-function string_block(params, import_action, value) {
+function string_block(params, values, import_action, value) {
     import_action = import_action || false;
     if (!import_action){
         var text_y = params[2].get_xy()[1] + 7;
@@ -36,32 +36,12 @@ function string_block(params, import_action, value) {
     }
 }
 
-function show_block(params){
-    if (params[2].has_all_slots()){
-        var values = params[2].get_slot_values();
-        if (values[0][0]){
-            var result = eval_str_user_var(values[0][1]);
-            
-            if (result[0] == 2){
-                values[0][1] = result[1];
-            }
-            
-            params[1].add_label(values[0][1], params[0]);
-            return true;
-        }
-        return false;
-    }
-    return false;
+function show(params, values){
+    params[1].add_label(values[0][1], params[0]);
+    return true;
 }
 
-function store_in_box_block(params){
-    if (params[2].has_all_slots()){
-        var values = params[2].get_slot_values();
-        if (values[0][0]){
-            user_vars_tracker.add_var(values[0][1], values[1][1]);
-            return true;
-        }
-        return false;
-    }
-    return false;
+function store_in_box(params, values){
+    user_vars_tracker.add_var(values[0][1], values[1][1]);
+    return true;
 }
