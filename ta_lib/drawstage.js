@@ -43,7 +43,7 @@ DrawStage.prototype = {
             y: 0,
             width: this.width,
             height: this.height,
-            fill: 'white'
+            fill: '#FFF8DE'
         });
         this.layer.add(this.bg);
         this.turtle = new Turtle([this.width/2, this.height/2], this.layer);
