@@ -26,16 +26,16 @@ PenPaletteDesc.prototype = {
 
         new BlockDescriptor(image_tracker.get_resource('basic'), 'basic', pendown_block, null, ['pendown_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_pen_size_block, null, ['set_pen_size_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_pen_size_block, null, ['set_pen_size_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int']]);
 
         var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', text_block, get_number, ['box_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         descriptor.component_positions = [0, 28, 82];
 
-        new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_color_block, null, ['set_color_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_color_block, null, ['set_color_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int']]);
 
-        new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_shade_block, null, ['set_shade_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_shade_block, null, ['set_shade_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int']]);
 
-        new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_gray_block, null, ['set_gray_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', set_gray_block, null, ['set_gray_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int']]);
 
         var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', null, get_pen_color, ['color_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         descriptor.component_positions = [0, 28, 82];
