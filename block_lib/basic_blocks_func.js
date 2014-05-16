@@ -47,42 +47,6 @@ var forward_block = function(params){
     }
 }
 
-function eval_int_user_var(name){
-    var result = [-1, null];
-    
-    if (isNaN(parseInt(name))){
-        var data = user_vars_tracker.get_var(name);
-        if (data != null){
-            if (isNaN(parseInt(data))){
-                result[0] = 1;
-                result[1] = i18n_tracker.get_err_msg(DEFAULT_LANG, 'not_int_value_error', [name]);
-            } else{
-                result[0] = 2;
-                result[1] = data;
-            }
-        } else{
-            result[0] = 0;
-            result[1] = i18n_tracker.get_err_msg(DEFAULT_LANG, 'var_not_exist_error', [name]);
-        }
-    }
-    return result;
-}
-
-function eval_str_user_var(name){
-    var result = [-1, null];
-    
-    if (isNaN(parseInt(name))){
-        var data = user_vars_tracker.get_var(name);
-        if (data != null){
-            result[0] = 2;
-            result[1] = data;
-        } else{
-            result[0] = 1;
-        }
-    }
-    return result;
-}
-
 function backward_block(params){
     if (params[2].has_all_slots()){
         var values = params[2].get_slot_values();

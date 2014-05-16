@@ -22,6 +22,7 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     this.func = func;
     this.value_func = value_func;
     this.params = params;
+    this.param_types = null;
     this.move_params = true;
     this.group = new Kinetic.Group({
         draggable: true
@@ -632,6 +633,9 @@ TurtleBlock.prototype = {
             return true;
         }
         return false;
+    },
+    get_param_types: function(){
+        return this.param_types;
     },
     fire: function(evt){
         this.group.fire(evt);
