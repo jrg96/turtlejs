@@ -25,7 +25,7 @@ function get_block_data(params, name){
                         success = false;
                         break;
                     } else if (parse_result[0] == 2){
-                        if (!isNaN(parseInt(parse_result[1])) && types[i] == 'str'){
+                        if (isNaN(parseInt(parse_result[1])) && types[i] == 'str'){
                             result[1] = i18n_tracker.get_err_msg(DEFAULT_LANG, 
                                 'not_str_value_error', [values[i][1]]);
                             success = false;
@@ -33,8 +33,16 @@ function get_block_data(params, name){
                         }
                         values[i][1] = parse_result[1];
                     }
+                    //alert("Valor final de retorno de string " + values[i][1]);
                 } else if (types[i] == 'bool'){
                     // at the moment... just skip any analysis of bool params
+                } else if (types[i] == 'str_no_parse'){
+                    if (!isNaN(parseInt(values[i][1]))){
+                        result[1] = i18n_tracker.get_err_msg(DEFAULT_LANG, 
+                                'not_str_value_error', [values[i][1]]);
+                        success = false;
+                        break;
+                    }
                 }
             } else{
                 success = false;
@@ -46,6 +54,7 @@ function get_block_data(params, name){
         if (success){
             result[0] = true;
             result[1] = values;
+            //alert(result[1][0][1]);
         }
     } else{
         result[1] = i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', [name]);
