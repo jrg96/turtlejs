@@ -124,67 +124,69 @@ function clean_block(params) {
     return true;
 }
 
-function setxy_block(params){
+function setxy(params, values){
     var zero_coord = params[0].start_pos;
+    var pos = [];
+    pos[0] = zero_coord[0] + values[0][1];
+    pos[1] = zero_coord[1] - values[1][1];
+    params[0].set_xy(pos);
 
-    if (params[2].has_all_slots()){
-        var values = params[2].get_slot_values();
-        if (values[0][0]){
-            var pos = [];
-            pos[0] = zero_coord[0] + values[0][1];
-            pos[1] = zero_coord[1] - values[1][1];
-            params[0].set_xy(pos);
+    x_pos = params[0].get_xy()[0];
+    y_pos = params[0].get_xy()[1];
+    params[1].add_point([x_pos, y_pos]);
+    params[0].bring_front();
+}
 
-            x_pos = params[0].get_xy()[0];
-            y_pos = params[0].get_xy()[1];
-            params[1].add_point([x_pos, y_pos]);
-            params[0].bring_front();
-            return true;
-        }
+function setxy_block(params){
+    var result = get_block_data(params, 'Set xy');
+    if (!result[0]){
+        error_message_displayer.show_error(result[1]);
         return false;
-    }else{
-        error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['set xy']));
-        return false;
+    } else{
+        setxy(params, result[1]);
+        return true;
     }
+}
+
+function arc(params, values){
+    var arc = new ArcShape(params[0].get_xy(), values[1][1], 0, values[0][1], params[1].stroke_line, params[1].pen_size);
+
+    params[0].layer.add(arc.group);
+    arc.rotate(-180 + params[0].rotation);
+
+    arc.set_start_offset();
+    arc.set_xy(params[0].get_xy());
+
+    var final_pos = [arc.end_point.getAbsolutePosition().x, arc.end_point.getAbsolutePosition().y];
+    params[0].set_xy(final_pos);
+    params[0].rotate(values[0][1]);
+    params[1].add_shape(arc);
 }
 
 function arc_block(params){
-    if (params[2].has_all_slots()){
-        var values = params[2].get_slot_values();
-        if (values[0][0]){
-            var arc = new ArcShape(params[0].get_xy(), values[1][1], 0, values[0][1], params[1].stroke_line, params[1].pen_size);
-
-            params[0].layer.add(arc.group);
-            arc.rotate(-180 + params[0].rotation);
-
-            arc.set_start_offset();
-            arc.set_xy(params[0].get_xy());
-
-            var final_pos = [arc.end_point.getAbsolutePosition().x, arc.end_point.getAbsolutePosition().y];
-            params[0].set_xy(final_pos);
-            params[0].rotate(values[0][1]);
-            params[1].add_shape(arc);
-            return true;
-        }
+    var result = get_block_data(params, 'Arc');
+    if (!result[0]){
+        error_message_displayer.show_error(result[1]);
         return false;
-    }else{
-        error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['arc']));
-        return false;
+    } else{
+        arc(params, result[1]);
+        return true;
     }
 }
 
+function set_heading(params, values){
+    params[0].reset_rotation();
+    params[0].rotate(values[0][1]);
+}
+
 function set_heading_block(params) {
-    if (params[2].has_all_slots()){
-        var values = params[2].get_slot_values();
-        if (values[0][0]){
-            params[0].reset_rotation();
-            params[0].rotate(values[0][1]);
-            return true;
-        }
+    var result = get_block_data(params, 'Set heading');
+    if (!result[0]){
+        error_message_displayer.show_error(result[1]);
         return false;
-    }else{
-        error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['Set heading']));
-        return false;
+    } else{
+        set_heading(params, result[1]);
+        return true;
     }
 }
 
