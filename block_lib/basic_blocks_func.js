@@ -22,107 +22,62 @@ function forward(params, values){
 }
 
 var forward_block = function(params){
-    if (params[2].has_all_slots()){
-        var values = params[2].get_slot_values();
-
-        if (values[0][0]){
-            var result = eval_int_user_var(values[0][1]);
-            
-            if (result[0] >-1 && result[0] < 2){
-                error_message_displayer.show_error(result[1]);
-                return false;
-            }
-            
-            if (result[0] != -1){
-                values[0][1] = result[1];
-            }
-
-            forward(params, values);
-            return true;
-        }
+    var result = get_block_data(params, 'Forward');
+    if (!result[0]){
+        error_message_displayer.show_error(result[1]);
         return false;
-    }else{
-        error_message_displayer.show_error();
-        return false;
+    } else{
+        forward(params, result[1]);
+        return true;
     }
+}
+
+function backward(params, values){
+    params[0].move(-values[0][1]);
+    x_pos = params[0].get_xy()[0];
+    y_pos = params[0].get_xy()[1];
+    params[1].add_point([x_pos, y_pos]);
+    params[0].bring_front();
 }
 
 function backward_block(params){
-    if (params[2].has_all_slots()){
-        var values = params[2].get_slot_values();
-        if (values[0][0]){
-            var result = eval_int_user_var(values[0][1]);
-            
-            if (result[0] >-1 && result[0] < 2){
-                error_message_displayer.show_error(result[1]);
-                return false;
-            }
-            
-            if (result[0] != -1){
-                values[0][1] = result[1];
-            }
-            
-            params[0].move(-values[0][1]);
-            x_pos = params[0].get_xy()[0];
-            y_pos = params[0].get_xy()[1];
-            params[1].add_point([x_pos, y_pos]);
-            params[0].bring_front();
-            return true;
-        }
+    var result = get_block_data(params, 'Backward');
+    if (!result[0]){
+        error_message_displayer.show_error(result[1]);
         return false;
-    }else{
-       error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['Backward']));
-       return false;
+    } else{
+        backward(params, result[1]);
+        return true;
     }
+}
+
+function right(params, values){
+    params[0].rotate(values[0][1]);
 }
 
 function right_block(params){
-    if (params[2].has_all_slots()){
-        var values = params[2].get_slot_values();
-        if (values[0][0]){
-            var result = eval_int_user_var(values[0][1]);
-            
-            if (result[0] >-1 && result[0] < 2){
-                error_message_displayer.show_error(result[1]);
-                return false;
-            }
-            
-            if (result[0] != -1){
-                values[0][1] = result[1];
-            }
-            
-            params[0].rotate(values[0][1]);
-            return true;
-        }
+    var result = get_block_data(params, 'Right');
+    if (!result[0]){
+        error_message_displayer.show_error(result[1]);
         return false;
-    }else{
-        error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['Right']));
-        return false;
+    } else{
+        right(params, result[1]);
+        return true;
     }
 }
 
+function left(params, values){
+    params[0].rotate(-values[0][1]);
+}
+
 function left_block(params){
-    if (params[2].has_all_slots()){
-        var values = params[2].get_slot_values();
-        if (values[0][0]){
-            var result = eval_int_user_var(values[0][1]);
-            
-            if (result[0] >-1 && result[0] < 2){
-                error_message_displayer.show_error(result[1]);
-                return false;
-            }
-            
-            if (result[0] != -1){
-                values[0][1] = result[1];
-            }
-            
-            params[0].rotate(-values[0][1]);
-            return true;
-        }
+    var result = get_block_data(params, 'Left');
+    if (!result[0]){
+        error_message_displayer.show_error(result[1]);
         return false;
-    }else{
-        error_message_displayer.show_error(i18n_tracker.get_err_msg(DEFAULT_LANG, 'missing_value_error', ['Left']));
-        return false;
+    } else{
+        left(params, result[1]);
+        return true;
     }
 }
 
