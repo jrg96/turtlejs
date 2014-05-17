@@ -98,6 +98,7 @@ I18n.prototype = {
                 descriptor.add_labels(descriptor.block_name, DEFAULT_LANG, FACTORY_SIDE);
             }
         }
+        draw_stage.palette_layer.draw();
     },
     change_factory_labels: function(factory){
         factory.sprite.delete_all_labels();
