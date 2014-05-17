@@ -58,7 +58,7 @@ TurtleBlock.prototype = {
     constructor: TurtleBlock,
     set_events: function(){
         var parent = this;
-        this.group.on('click', function(){
+        this.group.on('click tap', function(){
             var result = get_block_data(parent.params, 'Set heading');
             if (!result[0]){
                 error_message_displayer.show_error(result[1]);
@@ -70,7 +70,7 @@ TurtleBlock.prototype = {
             }
 
         });
-        this.group.on('mousedown', function(){
+        this.group.on('mousedown touchstart', function(){
             parent.start_drag_pos = parent.get_xy();
         });
         this.group.on('dragstart', function(){

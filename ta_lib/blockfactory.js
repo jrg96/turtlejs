@@ -38,7 +38,7 @@ BlockFactory.prototype = {
             draggable: false
         });
         this.group.add(this.sprite.group);
-        this.group.on('mousedown', function(){
+        this.group.on('mousedown touchstart', function(){
             parent.make_block(parent.block_name, true);
         });
     },
