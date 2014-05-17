@@ -51,7 +51,13 @@ DrawTracker.prototype = {
         this.turtle.reset_pos();
         this.reset_scroll_pos();
 
-        this.stroke_line = "red";
+        this.stroke_line = "#FF0000";
+        this.pen_size = 3;
+        this.shade = 50;
+        this.gray = 100;
+        this.color = 0;
+        this.already_filling = false;
+
         this.layer.removeChildren();
         this.layer.add(this.bg_obj);
         this.lines = [];
@@ -77,9 +83,16 @@ DrawTracker.prototype = {
     },
     start_fill: function(){
         this.already_filling = true;
-        alert(this.line.closed());
+        this.end_line();
+        this.line.closed(true);
+        this.line.fill(this.stroke_line);
+        //alert(this.line.closed());
     },
     end_fill: function(){
+        if (this.already_filling){
+            this.end_line();
+            this.already_filling = false;
+        }
     },
     make_base_line: function(){
         this.line = new Kinetic.Line({
@@ -89,7 +102,6 @@ DrawTracker.prototype = {
             lineJoin: 'round',
             stroke: this.stroke_line
         });
-        //this.line.opacity(1.0);
         this.layer.add(this.line);
     },
     set_pen_size: function(value){
