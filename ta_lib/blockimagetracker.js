@@ -17,6 +17,7 @@ function BlockImageTracker(){
     this.dic = {};
     this.add_resource('basic1arg', [NA_ARRANGE, 'block_res/basic1arg.svg']);
     this.add_resource('basic1arg_blue', [NA_ARRANGE, 'block_res/basic1arg_blue.svg']);
+    this.add_resource('basic1arg_orange', [NA_ARRANGE, 'block_res/basic1arg_orange.svg']);
     this.add_resource('box2', [HORIZ_ARRANGE, 'block_res/box-left.svg', 'block_res/box-center.svg', 'block_res/box-right.svg']);
     this.add_resource('box2_blue', [HORIZ_ARRANGE, 'block_res/box-left_blue.svg', 'block_res/box-center_blue.svg', 'block_res/box-right_blue.svg']);
     this.add_resource('box2_red', [HORIZ_ARRANGE, 'block_res/box-left_red.svg', 'block_res/box-center_red.svg', 'block_res/box-right_red.svg']);
@@ -34,7 +35,10 @@ function BlockImageTracker(){
     this.add_resource('compare', [NA_ARRANGE, 'block_res/compare.svg']);
     this.add_resource('compare_purple', [NA_ARRANGE, 'block_res/compare_purple.svg']);
     this.add_resource('clampn', [VERT_ARRANGE, 'block_res/repeat-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg']);
+    this.add_resource('clampn_orange', [VERT_ARRANGE, 'block_res/repeat-top_orange.svg', 'block_res/clamp-filler_orange.svg', 'block_res/clamp-bottom_orange.svg']);
     this.add_resource('clamp', [VERT_ARRANGE, 'block_res/clamp-top.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg']);
+    this.add_resource('clamp_orange', [VERT_ARRANGE, 'block_res/clamp-top_orange.svg', 'block_res/clamp-filler_orange.svg', 'block_res/clamp-bottom_orange.svg']);
+    this.add_resource('clampb_orange', [VERT_ARRANGE, 'block_res/clampboolean_orange.svg', 'block_res/clamp-filler_orange.svg', 'block_res/clamp-bottom_orange.svg']);
     this.add_resource('clampb', [VERT_ARRANGE, 'block_res/clampboolean.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg']);
     this.add_resource('numbern', [NA_ARRANGE, 'block_res/numbern.svg']);
     this.add_resource('numbern_purple', [NA_ARRANGE, 'block_res/numbern_purple.svg']);
