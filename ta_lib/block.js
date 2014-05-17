@@ -124,9 +124,9 @@ TurtleBlock.prototype = {
             var movement = [0, 0];
             movement[0] = actual_pos[0] - parent.start_drag_pos[0];
             movement[1] = actual_pos[1] - parent.start_drag_pos[1];
-            if (parent.upper_block.length > 0){
+            /*if (parent.upper_block.length > 0){
                 parent.upper_block[0].group_movement(parent, movement, false, true);
-            }
+            }*/
             if (parent.lower_block.length > 0){
                 parent.lower_block[0].group_movement(parent, movement, false, true);
             }
@@ -306,7 +306,7 @@ TurtleBlock.prototype = {
         clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
         clamp.sprite.img[1].setHeight(clamp.sprite.img[1].getHeight() + added_height);
         clamp.calc_lower_dock(clamp, added_height);
-        clamp.move_params = false;
+        clamp.move_params = true;
         clamp.group_movement(clamp, [0, added_height], true, false);
         if (clamp.has_upper_block()){
             var parent_stack = clamp.get_stack_top_block(clamp);
@@ -587,7 +587,7 @@ TurtleBlock.prototype = {
         if (this.lower_block.length > 0 && this.lower_block[0] != caller){
             this.lower_block[0].group_movement(this, movement, false, true);
         }
-        if (this.receiver_slots.length > 0){
+        if (this.receiver_slots.length > 0 && (!moved || !caller.has_stack_dock())){
             if (caller.move_params){
                 for (var i=0; i<this.receiver_slots.length; i++){
                     if (this.receiver_slots[i] != null && this.receiver_slots[i] != caller){
