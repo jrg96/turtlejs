@@ -64,6 +64,7 @@ DrawTracker.prototype = {
         this.labels = [];
         this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
         this.make_base_line();
+        this.layer.draw();
     },
     check_repos: function(){
         if (this.points.length == 2){

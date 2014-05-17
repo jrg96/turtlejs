@@ -65,6 +65,7 @@ TurtleBlock.prototype = {
                 return false;
             } else{
                 parent.func(parent.params, result[1]);
+                draw_stage.draw_layer.draw();
                 return true;
             }
 
