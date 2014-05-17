@@ -20,6 +20,7 @@ function DrawTracker(layer, turtle){
     this.pen_down = true;
     this.pen_size = 3;
     this.stroke_line = "#FF0000";
+    this.bg_obj;
     this.layer = layer;
     this.turtle = turtle;
     this.points = [];
@@ -48,17 +49,10 @@ DrawTracker.prototype = {
     clear_canvas: function(){
         this.turtle.reset_pos();
         this.reset_scroll_pos();
-        for (var i=0; i<this.lines.length; i++){
-            this.lines[i].remove();
-        }
-        for (var i=0; i<this.shapes.length; i++){
-            this.shapes[i].remove();
-        }
-        for (var i=0; i<this.labels.length; i++){
-            this.labels[i].remove();
-        }
+
         this.stroke_line = "red";
-        this.line.remove();
+        this.layer.removeChildren();
+        this.layer.add(this.bg_obj);
         this.lines = [];
         this.shapes = [];
         this.labels = [];

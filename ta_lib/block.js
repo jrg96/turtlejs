@@ -125,9 +125,9 @@ TurtleBlock.prototype = {
             var movement = [0, 0];
             movement[0] = actual_pos[0] - parent.start_drag_pos[0];
             movement[1] = actual_pos[1] - parent.start_drag_pos[1];
-            /*if (parent.upper_block.length > 0){
-                parent.upper_block[0].group_movement(parent, movement, false, true);
-            }*/
+            //if (parent.upper_block.length > 0){
+                //parent.upper_block[0].group_movement(parent, movement, false, true);
+            //}
             if (parent.lower_block.length > 0){
                 parent.lower_block[0].group_movement(parent, movement, false, true);
             }
