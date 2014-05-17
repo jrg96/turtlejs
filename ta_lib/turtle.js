@@ -18,7 +18,8 @@ function Turtle(startpos, layer){
     this.img = new Sprite([NA_ARRANGE, 'turtle.png'], layer, false, true, this.turtle_drag, this);
     this.img.group.setX(startpos[0]);
     this.img.group.setY(startpos[1]);
-    this.img.group.setOffset(27, 27);
+    this.img.group.offsetX(27);
+    this.img.group.offsetY(27);
     this.rotation = 0;
     this.start_pos = startpos;
     this.draw_tracker = null;

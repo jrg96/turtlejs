@@ -102,7 +102,7 @@ function arc(params, values){
     var arc = new ArcShape(params[0].get_xy(), values[1][1], 0, values[0][1], params[1].stroke_line, params[1].pen_size);
 
     draw_stage.draw_layer.add(arc.group);
-    arc.rotate(-180 + params[0].rotation);
+    arc.rotate(-180  + params[0].rotation);
 
     arc.set_start_offset();
     arc.set_xy(params[0].get_xy());
