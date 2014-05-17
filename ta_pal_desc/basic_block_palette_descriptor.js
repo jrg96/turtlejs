@@ -30,7 +30,7 @@ BasicBlockDesc.prototype = {
 
         new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', left, null, ['left_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int']]);
 
-        var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', text_block, get_number, ['box_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        var descriptor = new BlockDescriptor(image_tracker.get_resource('box2_purple'), 'box', text_block, get_number, ['box_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         descriptor.component_positions = [0, 28, 82];
 
         new BlockDescriptor(image_tracker.get_resource('basic'), 'basic', clean_block, null, ['clean_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
