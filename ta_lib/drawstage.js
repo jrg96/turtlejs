@@ -38,8 +38,8 @@ DrawStage.prototype = {
         });
 
         this.layer = new Kinetic.Layer();
-
         this.draw_layer = new Kinetic.Layer();
+        this.palette_layer = new Kinetic.Layer();
 
         this.bg = new Kinetic.Rect({
             x: 0,
@@ -50,7 +50,7 @@ DrawStage.prototype = {
         });
         this.draw_layer.add(this.bg);
 
-        this.stage.add(this.draw_layer).add(this.layer);
+        this.stage.add(this.draw_layer).add(this.palette_layer).add(this.layer);
 
         this.anim = new Kinetic.Animation(function(frame) {}, this.layer);
         this.anim.start();

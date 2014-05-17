@@ -54,10 +54,12 @@ PaletteContainer.prototype = {
     hide: function(){
         this.visible = false;
         this.group.remove();
+        this.layer.draw();
     },
     repos: function(){
         this.setY($("#canvas").scrollTop());
         this.setX($("#canvas").scrollLeft());
+        this.layer.draw();
     },
     is_visible: function(){
         return this.visible;
