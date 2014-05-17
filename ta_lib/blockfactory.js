@@ -65,7 +65,19 @@ BlockFactory.prototype = {
         }
     },
     make_block: function(name, user_action){
-        var box_types = ['box_block', 'xcor_block', 'ycor_block', 'number', 'heading_block', 'text_block', 'red_block', 'green_block', 'purple_block', 'orange_block', 'cyan_block', 'white_block', 'yellow_block', 'blue_block', 'black_block'];
+        var box_types = ['box_block', 'number', 'text_block'];
+
+        var color_blocks = {
+            'red_block' : '#FF0000',
+            'green_block' : '#00FF00',
+            'purple_block' : '#551A8B',
+            'orange_block' : '#FFA500',
+            'cyan_block' : '#00FFFF',
+            'white_block' : '#FFFFFF',
+            'yellow_block' : '#FFFF00',
+            'blue_block' : '#0000FF',
+            'black_block' : '#000000'
+        };
 
         if (user_action){
             this.end_event();
@@ -101,6 +113,10 @@ BlockFactory.prototype = {
                 block1.block_value = block1.sprite.get_label(0).getText();
             }
             block1.last_label_width = block1.sprite.get_label(0).getWidth();
+        }
+
+        if (color_blocks[name] != null){
+            block1.block_value = color_blocks[name];
         }
 
         if (user_action){
