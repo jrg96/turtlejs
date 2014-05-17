@@ -52,6 +52,12 @@ PenPalette.prototype = {
         block_factory1 = new BlockFactory([500, 5], sprit1, 'box_block', this, null);
         this.container.add_block_factory('pensize', block_factory1);
 
+        sprit1 = new Sprite(image_tracker.get_resource('basic_blue'), this.container.layer, true);
+        block_factory1 = new BlockFactory([375, 55], sprit1, 'start_fill_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'startfill']);
+
+        sprit1 = new Sprite(image_tracker.get_resource('basic_blue'), this.container.layer, true);
+        block_factory1 = new BlockFactory([375, 105], sprit1, 'end_fill_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'endfill']);
+
         sprit1 = new Sprite(image_tracker.get_resource('basic1arg_blue'), this.container.layer, true);
         new BlockFactory([5, 5], sprit1, 'set_color_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'setcolor']);
 

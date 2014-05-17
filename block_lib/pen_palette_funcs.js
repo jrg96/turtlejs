@@ -51,6 +51,16 @@ function set_gray(params, values){
     return true;
 }
 
+function start_fill(params, values){
+    params[1].start_fill();
+    return true;
+}
+
+function end_fill(params, values){
+    params[1].end_fill();
+    return true;
+}
+
 function get_pen_color(params){
     return [true, params[1].get_pen_color()];
 }

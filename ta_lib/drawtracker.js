@@ -18,6 +18,7 @@ function DrawTracker(layer, turtle){
     this.shapes = [];
     this.labels = [];
     this.pen_down = true;
+    this.already_filling = false;
     this.pen_size = 3;
     this.stroke_line = "#FF0000";
     this.bg_obj;
@@ -73,6 +74,12 @@ DrawTracker.prototype = {
     },
     pen_down_action: function(){
         this.pen_down = true;
+    },
+    start_fill: function(){
+        this.already_filling = true;
+        alert(this.line.closed());
+    },
+    end_fill: function(){
     },
     make_base_line: function(){
         this.line = new Kinetic.Line({
