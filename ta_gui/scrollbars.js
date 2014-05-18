@@ -24,7 +24,8 @@ var updateBackgroundPos = function() {
     draw_stage.draw_layer.y(-y);
     draw_stage.layer.x(-x);
     draw_stage.layer.y(-y);
-    draw_stage.draw_layer.draw();
+    draw_stage.draw_layer.batchDraw();
+    //draw_stage.draw_tracker.group.show();
 };
 
 var vscrollArea = new Kinetic.Rect({

@@ -22,7 +22,20 @@ function DrawTracker(layer, turtle){
     this.pen_size = 3;
     this.stroke_line = "#FF0000";
     this.bg_obj;
+    
+    this.min_x_cache = turtle.get_xy()[0];
+    this.min_y_cache = turtle.get_xy()[1];
+    
+    this.max_x_cache = turtle.get_xy()[0];
+    this.max_y_cache = turtle.get_xy()[1];
+    
     this.layer = layer;
+    this.group = new Kinetic.Group({
+        x: 0,
+        y: 0,
+        draggable: false
+    });
+    this.layer.add(this.group);
     this.turtle = turtle;
     this.points = [];
     this.points.push(turtle.get_xy()[0]);
@@ -57,16 +70,31 @@ DrawTracker.prototype = {
         this.gray = 100;
         this.color = 0;
         this.already_filling = false;
+        
+        this.min_x_cache = this.turtle.get_xy()[0];
+        this.min_y_cache = this.turtle.get_xy()[1];
+    
+        this.max_x_cache = this.turtle.get_xy()[0];
+        this.max_y_cache = this.turtle.get_xy()[1];;
 
-        this.layer.removeChildren();
-        this.layer.add(this.bg_obj);
+        this.group.removeChildren();
+        this.group.clearCache();
         this.lines = [];
         this.shapes = [];
         this.labels = [];
         this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
         this.make_base_line();
-        this.layer.clearCache();
         this.layer.draw();
+    },
+    save_cache: function(){
+        //console.log("x: " + this.min_x_cache + " width: " + (this.max_x_cache - this.min_x_cache) + " y: " + this.min_y_cache + " height: " + (this.max_y_cache - this.min_y_cache));
+        this.group.cache({
+            x: 0,
+            y: 0,
+            width: 2000,
+            height: 2000,
+            drawBorder: true
+        });
     },
     check_repos: function(){
         if (this.points.length == 2){
@@ -103,7 +131,7 @@ DrawTracker.prototype = {
             lineJoin: 'round',
             stroke: this.stroke_line
         });
-        this.layer.add(this.line);
+        this.group.add(this.line);
     },
     set_pen_size: function(value){
         if (this.pen_size != value){

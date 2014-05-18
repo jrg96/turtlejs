@@ -77,6 +77,11 @@ Turtle.prototype = {
         }
         this.img.move_relative(coord);
         this.bring_front();
+        
+        var x = this.get_xy()[0];
+        var y = this.get_xy()[1];
+        
+        this.on_turtle_move();
     },
     rotate: function(degrees){
         this.img.group.rotateDeg(degrees);
@@ -114,9 +119,30 @@ Turtle.prototype = {
     set_xy: function(pos){
         this.img.group.setX(pos[0]);
         this.img.group.setY(pos[1]);
+        this.on_turtle_move();
     },
     reset_rotation: function(){
         this.img.group.rotateDeg(360 - this.rotation);
         this.rotation = 0;
+    },
+    on_turtle_move: function(){
+        var x = this.get_xy()[0];
+        var y = this.get_xy()[1];
+        
+        //console.log("turtle x: " + x + " turtle y: " + y);
+        
+        if (x < draw_stage.draw_tracker.min_x_cache){
+            draw_stage.draw_tracker.min_x_cache = x;
+        }
+        if (x > draw_stage.draw_tracker.max_x_cache){
+            draw_stage.draw_tracker.max_x_cache = x;
+        }
+        
+        if (y < draw_stage.draw_tracker.min_y_cache){
+            draw_stage.draw_tracker.min_y_cache = y;
+        }
+        if (y > draw_stage.draw_tracker.max_y_cache){
+            draw_stage.draw_tracker.max_y_cache = y;
+        }
     }
 }
