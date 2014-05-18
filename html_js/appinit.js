@@ -18,7 +18,7 @@ var user_vars_tracker = new UserVarsTracker();
 var block_tracker = new BlockTracker();
 var palette_tracker = new PaletteTracker();
 var dock_tracker = new DockTracker();
-var draw_stage = new DrawStage('container2', $(window).width(), $(window).height() - 58);
+var draw_stage = new DrawStage('container2', $(window).width() - 5, $(window).height() - 62);
 //var draw_stage = new DrawStage('container2', 2000, 2000);
 var image_tracker = new BlockImageTracker();
 

@@ -28,18 +28,18 @@ var updateBackgroundPos = function() {
 };
 
 var vscrollArea = new Kinetic.Rect({
-    x: draw_stage.stage.getWidth() - 30,
+    x: draw_stage.stage.getWidth() - 50,
     y: 10,
-    width: 20,
+    width: 40,
     height: draw_stage.stage.getHeight() - 40,
     fill: 'black',
     opacity: 0.3
 });
 
 var vscroll = new Kinetic.Rect({
-    x: draw_stage.stage.getWidth() - 30,
+    x: draw_stage.stage.getWidth() - 50,
     y: 10,
-    width: 20,
+    width: 40,
     height: 70,
     fill: '#9f005b',
     draggable: true,
@@ -63,18 +63,18 @@ var vscroll = new Kinetic.Rect({
 
 var hscrollArea = new Kinetic.Rect({
     x: 10,
-    y: draw_stage.stage.getHeight() - 30,
-    width: draw_stage.stage.getWidth() - 40,
-    height: 20,
+    y: draw_stage.stage.getHeight() - 50,
+    width: draw_stage.stage.getWidth() - 60,
+    height: 40,
     fill: 'black',
     opacity: 0.3
 });
 
 var hscroll = new Kinetic.Rect({
     x: 10,
-    y: draw_stage.stage.getHeight() - 30,
+    y: draw_stage.stage.getHeight() - 50,
     width: 130,
-    height: 20,
+    height: 40,
     fill: '#9f005b',
     draggable: true,
     dragBoundFunc: function(pos) {
