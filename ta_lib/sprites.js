@@ -144,6 +144,8 @@ Sprite.prototype = {
                 pos[0] = position[0] + parent.component_positions[parent.img_refs_pos];
             }
             imageObj2.onload = parent.image_on_load(imageObj2, parent, pos);
+        } else{
+            parent.img_refs = null;
         }
     },
     redraw_labels: function(){

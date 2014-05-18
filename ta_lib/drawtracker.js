@@ -168,8 +168,8 @@ DrawTracker.prototype = {
         this.make_base_line();
     },
     reset_scroll_pos: function(){
-        $("#canvas").scrollTop(2000 - ($(window).height()/2) + 25);
-        $("#canvas").scrollLeft(2000 - ($(window).width()/2));
+        $("#canvas").scrollTop(1000 - ($(window).height()/2) + 25);
+        $("#canvas").scrollLeft(1000 - ($(window).width()/2));
     },
     wrap100: function(n){
         n = parseInt(n);
