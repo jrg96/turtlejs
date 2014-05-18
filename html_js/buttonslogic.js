@@ -69,6 +69,12 @@ $(document).ready(function() {
         }
         check_block_visibility(true);
         draw_stage.draw_layer.draw();
+        draw_stage.draw_layer.cache({
+            x: 0,
+            y: 0,
+            width: 2000,
+            height: 2000
+        });
     });
     $("#clear-bt").click(function(){
         draw_stage.draw_tracker.clear_canvas();

@@ -39,23 +39,30 @@ DrawStage.prototype = {
 
         this.layer = new Kinetic.Layer();
         this.draw_layer = new Kinetic.Layer();
+        //this.draw_layer.x(-1000);
         this.palette_layer = new Kinetic.Layer();
+        this.scroll_layer = new Kinetic.Layer();
+        
 
         this.bg = new Kinetic.Rect({
             x: 0,
             y: 0,
-            width: this.width,
-            height: this.height,
+            width: 2000,
+            height: 2000,
             fill: '#FFF8DE'
         });
         this.draw_layer.add(this.bg);
 
-        this.stage.add(this.draw_layer).add(this.palette_layer).add(this.layer);
+        this.stage.add(this.draw_layer).add(this.palette_layer).add(this.layer).add(this.scroll_layer);
 
         this.anim = new Kinetic.Animation(function(frame) {}, this.layer);
         this.anim.start();
+        
+        this.anim_scroll = new Kinetic.Animation(function(frame) {}, this.scroll_layer);
+        this.anim_scroll.start();
+        
 
-        this.turtle = new Turtle([this.width/2, this.height/2], this.layer);
+        this.turtle = new Turtle([this.bg.width()/2, this.bg.height()/2], this.layer);
         this.draw_tracker = new DrawTracker(this.draw_layer, this.turtle);
         this.draw_tracker.bg_obj = this.bg;
         this.turtle.draw_tracker = this.draw_tracker;

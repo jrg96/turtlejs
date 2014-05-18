@@ -50,8 +50,8 @@ function text_block(params, values, import_action, value) {
     if (!import_action){
         var number = 0;
 
-        var text_y = params[2].get_xy()[1] + 7;
-        var text_x = params[2].get_xy()[0] + 18;
+        var text_y = params[2].get_xy()[1] + (draw_stage.draw_layer.y()) + 7;
+        var text_x = params[2].get_xy()[0] + (draw_stage.draw_layer.x()) + 18;
         var width = params[2].actual_center_width + 8;
             
         var textArea = "<div id='textAreaPopUp' style='position:absolute;top:" + text_y + "px;left:" + text_x + "px;z-index:30;'><input type='text' value='" + params[2].block_value + "' id='text_input' style='width:" + width + "px' />";

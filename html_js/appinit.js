@@ -18,8 +18,8 @@ var user_vars_tracker = new UserVarsTracker();
 var block_tracker = new BlockTracker();
 var palette_tracker = new PaletteTracker();
 var dock_tracker = new DockTracker();
-//var draw_stage = new DrawStage('container2', $(window).width() - 17, $(window).height());
-var draw_stage = new DrawStage('container2', 2000, 2000);
+var draw_stage = new DrawStage('container2', $(window).width(), $(window).height() - 58);
+//var draw_stage = new DrawStage('container2', 2000, 2000);
 var image_tracker = new BlockImageTracker();
 
 var error_message_displayer = new ErrorMessage([0, 0], draw_stage.layer);

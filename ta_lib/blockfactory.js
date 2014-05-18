@@ -53,8 +53,8 @@ BlockFactory.prototype = {
     },
     get_pos: function(){
         var pos = [0, 0];
-        pos[0] = this.pos[0] + this.palette.container.getX();
-        pos[1] = this.pos[1] + this.palette.container.getY();
+        pos[0] = this.pos[0] + Math.abs(draw_stage.layer.x());
+        pos[1] = this.pos[1] + Math.abs(draw_stage.layer.y());
         return pos;
     },
     add_labels: function(block_name, lang, type){

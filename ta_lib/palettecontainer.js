@@ -65,12 +65,12 @@ PaletteContainer.prototype = {
         return this.visible;
     },
     get_xy: function(){
-        var pos = [this.group.getX(), this.group.getY()];
+        var pos = [Math.abs(draw_stage.layer.x()), Math.abs(draw_stage.layer.y())];
     },
     is_collide: function(point){
-        min_x = this.group.getX();
+        min_x = Math.abs(draw_stage.layer.x());
         max_x = min_x + this.rect.getWidth();
-        min_y = this.group.getY();
+        min_y = Math.abs(draw_stage.layer.y());
         max_y = min_y + this.rect.getHeight();
 
         if ((point[0] > min_x && point[0] < max_x) && (point[1] > min_y && point[1] < max_y)){

@@ -65,6 +65,7 @@ DrawTracker.prototype = {
         this.labels = [];
         this.points = [this.turtle.get_xy()[0], this.turtle.get_xy()[1]];
         this.make_base_line();
+        this.layer.clearCache();
         this.layer.draw();
     },
     check_repos: function(){
@@ -168,8 +169,7 @@ DrawTracker.prototype = {
         this.make_base_line();
     },
     reset_scroll_pos: function(){
-        $("#canvas").scrollTop(1000 - ($(window).height()/2) + 25);
-        $("#canvas").scrollLeft(1000 - ($(window).width()/2));
+        center_scrollbars();
     },
     wrap100: function(n){
         n = parseInt(n);
