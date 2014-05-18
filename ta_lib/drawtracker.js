@@ -88,13 +88,19 @@ DrawTracker.prototype = {
     },
     save_cache: function(){
         //console.log("x: " + this.min_x_cache + " width: " + (this.max_x_cache - this.min_x_cache) + " y: " + this.min_y_cache + " height: " + (this.max_y_cache - this.min_y_cache));
-        this.group.cache({
-            x: 0,
-            y: 0,
-            width: 2000,
-            height: 2000,
-            drawBorder: true
-        });
+        if (this.total_object_count() > 100){
+            this.group.cache({
+                x: 0,
+                y: 0,
+                width: 2000,
+                height: 2000,
+                drawBorder: false
+            });
+        }
+    },
+    total_object_count: function(){
+        var total = this.lines.length + this.shapes.length + this.labels.length;
+        return total;
     },
     check_repos: function(){
         if (this.points.length == 2){
