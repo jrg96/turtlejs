@@ -193,7 +193,7 @@ DrawTracker.prototype = {
             fill: this.stroke_line
         });
         this.labels.push(lbl);
-        this.layer.add(lbl);
+        this.group.add(lbl);
     },
     end_line: function(){
         if (this.points.length > 2){
