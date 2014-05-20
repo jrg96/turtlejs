@@ -21,6 +21,7 @@ var dock_tracker = new DockTracker();
 var draw_stage = new DrawStage('container2', $(window).width() - 5, $(window).height() - 62);
 //var draw_stage = new DrawStage('container2', 2000, 2000);
 var image_tracker = new BlockImageTracker();
+var descriptor_tracker = new BlockDescriptorTracker();
 
 var error_message_displayer = new ErrorMessage([0, 0], draw_stage.layer);
 
@@ -34,20 +35,20 @@ global_tracker.add_var('i18n_tracker', i18n_tracker);
 global_tracker.add_var('block_image_tracker', image_tracker);
 global_tracker.add_var('user_vars_tracker', user_vars_tracker);
 
-var basic1 = new BasicBlockPalette(495, 200, '#FFD000', draw_stage.palette_layer, new BasicBlockDesc(), global_tracker);
+var basic1 = new BasicBlockPalette(495, 200, '#FFD000', draw_stage.palette_layer, null, global_tracker);
 palette_tracker.add_palette(basic1);
 
-var pen_palette = new PenPalette(640, 160, '#FFD000', draw_stage.palette_layer, new PenPaletteDesc(), global_tracker);
+var pen_palette = new PenPalette(640, 160, '#FFD000', draw_stage.palette_layer, null, global_tracker);
 palette_tracker.add_palette(pen_palette);
 
-var colors_palette = new ColorsPalette(550, 160, '#FFD000', draw_stage.palette_layer, new ColorsPaletteDesc(), global_tracker);
+var colors_palette = new ColorsPalette(550, 160, '#FFD000', draw_stage.palette_layer, null, global_tracker);
 palette_tracker.add_palette(colors_palette);
 
-var flow_palette = new FlowPalette(575, 160, '#FFD000', draw_stage.palette_layer, new FlowPaletteDesc(), global_tracker);
+var flow_palette = new FlowPalette(575, 160, '#FFD000', draw_stage.palette_layer, null, global_tracker);
 palette_tracker.add_palette(flow_palette);
 
-var numbers_palette = new NumbersPalette(475, 150, '#FFD000', draw_stage.palette_layer, new NumbersPaletteDesc(), global_tracker);
+var numbers_palette = new NumbersPalette(475, 150, '#FFD000', draw_stage.palette_layer, null, global_tracker);
 palette_tracker.add_palette(numbers_palette);
 
-var blocks_palette = new BlocksPalette(475, 150, '#FFD000', draw_stage.palette_layer, new BlocksPaletteDesc(), global_tracker);
+var blocks_palette = new BlocksPalette(475, 150, '#FFD000', draw_stage.palette_layer, null, global_tracker);
 palette_tracker.add_palette(blocks_palette);

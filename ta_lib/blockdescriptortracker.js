@@ -13,11 +13,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-var descriptor = new BlockDescriptor(image_tracker.get_resource('box2'), 'box', string_block, get_number, ['text_block', DEFAULT_LANG, FACTORY_SIDE, descriptor_tracker.descriptors]);
-descriptor.component_positions = [0, 28, 82];
+function BlockDescriptorTracker(){
+    this.descriptors = {};
+}
 
-new BlockDescriptor(image_tracker.get_resource('basic1arg'), 'basic1arg', show, null, ['show_block', DEFAULT_LANG, FACTORY_SIDE, descriptor_tracker.descriptors, ['str_int']]);
-        
-new BlockDescriptor(image_tracker.get_resource('basic2arg'), 'basic2arg', store_in_box, null, ['store_in_box_block', DEFAULT_LANG, FACTORY_SIDE, descriptor_tracker.descriptors, ['str_no_parse', 'str_int']]);
-
-//alert(Object.keys(descriptor_tracker.descriptors));
+BlockDescriptorTracker.prototype = {
+    constructor: BlockDescriptorTracker,
+    add_descriptor: function(key, value){
+        this.descriptors[key] = value;
+    },
+    get_descriptor: function(index){
+        return this.descriptors[index];
+    }
+}

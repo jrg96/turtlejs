@@ -73,8 +73,6 @@ I18n.prototype = {
         for (var i=0; i<palettes.length; i++){
             var factories = palettes[i].container.get_factories();
             var keys = [];
-            var descriptors = palettes[i].pal_desc.descriptors;
-            var descriptor_keys = [];
             
             for (var key in factories){
                 if (factories.hasOwnProperty(key)){
@@ -82,21 +80,24 @@ I18n.prototype = {
                 }
             }
 
-            for (var key in descriptors){
-                if (descriptors.hasOwnProperty(key)){
-                    descriptor_keys.push(key);
-                }
-            }
-
             for (var key in factories){
                 this.change_factory_labels(factories[key]);
             }
-            
-            for (var i2=0; i2<descriptor_keys.length; i2++){
-                var descriptor = descriptors[descriptor_keys[i2]];
-                descriptor.delete_all_labels();
-                descriptor.add_labels(descriptor.block_name, DEFAULT_LANG, FACTORY_SIDE);
+        }
+        
+        var descriptors = descriptor_tracker.descriptors;
+        var descriptor_keys = [];
+        
+        for (var key in descriptors){
+            if (descriptors.hasOwnProperty(key)){
+                descriptor_keys.push(key);
             }
+        }
+        
+        for (var i2=0; i2<descriptor_keys.length; i2++){
+            var descriptor = descriptors[descriptor_keys[i2]];
+            descriptor.delete_all_labels();
+            descriptor.add_labels(descriptor.block_name, DEFAULT_LANG, FACTORY_SIDE);
         }
         draw_stage.palette_layer.draw();
     },

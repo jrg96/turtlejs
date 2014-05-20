@@ -83,10 +83,10 @@ BlockFactory.prototype = {
             this.end_event();
         }
 
-        var draw_stage = this.palette.global_tracker.get_var('draw_stage');
-        var block_tracker = this.palette.global_tracker.get_var('block_tracker');
-        var dock_tracker = this.palette.global_tracker.get_var('dock_tracker');
-        var block_descriptor = this.palette.pal_desc.descriptors[name];
+        var draw_stage = global_tracker.get_var('draw_stage');
+        var block_tracker = global_tracker.get_var('block_tracker');
+        var dock_tracker = global_tracker.get_var('dock_tracker');
+        var block_descriptor = descriptor_tracker.descriptors[name];
 
         var dock_descriptor = dock_tracker.get_dock(block_descriptor.dock_desc);
 
