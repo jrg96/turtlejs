@@ -14,6 +14,8 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 function PaletteContainer(width, height, fill_color, layer, block_tracker){
+    this.unused_factories = [];
+    this.palettes = {};
     this.width = width;
     this.height = height;
     this.fill_color = fill_color;
@@ -29,6 +31,10 @@ function PaletteContainer(width, height, fill_color, layer, block_tracker){
 PaletteContainer.prototype = {
     constructor: PaletteContainer,
     init: function(){
+        for (var i=0; i<14; i++){
+            this.unused_factories[i] = new BlockFactory();
+        }
+        //alert("las creamos con exito");
         this.group = new Kinetic.Group({
             draggable: false
         });
@@ -39,9 +45,12 @@ PaletteContainer.prototype = {
         });
         this.group.add(this.rect);
     },
-    add_block_factory: function(key, block){
+    create_palette: function(name){
+        this.palettes[name] = [];
+    },
+    add_block_factory: function(palette, key, block){
         this.elements[key] = block;
-        this.group.add(block.group);
+        this.elements[palette].push(key);
     },
     get_factories: function(){
         return this.elements;

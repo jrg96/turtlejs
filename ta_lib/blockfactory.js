@@ -14,11 +14,11 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 function BlockFactory(pos, sprite, block_name, palette, properties){
-    this.pos = pos;
+    this.pos = pos || [0, 0];
     this.group = null;
-    this.sprite = sprite;
-    this.block_name = block_name;
-    this.palette = palette;
+    this.sprite = sprite || null;
+    this.block_name = block_name || null;
+    this.palette = palette || null;
     if(properties != null){
         this.add_labels(block_name, properties[0], properties[1]);
     }
@@ -37,7 +37,9 @@ BlockFactory.prototype = {
             y: this.pos[1],
             draggable: false
         });
-        this.group.add(this.sprite.group);
+        if (this.sprite != null){
+            this.group.add(this.sprite.group);
+        }
         this.group.on('mousedown touchstart', function(){
             parent.make_block(parent.block_name, true);
         });
