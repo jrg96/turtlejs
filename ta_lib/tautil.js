@@ -171,11 +171,11 @@ function collide_helper(parent, collide){
                 var point = [0, 0];
                 point[0] = collide.get_xy()[0] + align_point[0];
                 point[1] = collide.get_xy()[1] + align_point[1];
-                parent.set_xy(point);
+                //parent.set_xy(point);
                 var movement = [0, 0];
                 movement[0] = point[0] - parent.start_drag_pos[0];
                 movement[1] = point[1] - parent.start_drag_pos[1];
-                parent.group_movement(parent, movement, true, true);
+                parent.group_movement(parent, movement, false, true);
                 //special case: add a block in the start of the stack of a flow block
                 var total_height = 0;
                 var stack_start = true;
@@ -205,11 +205,11 @@ function collide_helper(parent, collide){
             var point = [];
             point.push(collide.get_xy()[0]);
             point.push(collide.get_lower_dock()[1] + collide.get_xy()[1] - 1);
-            parent.set_xy(point);
+            //parent.set_xy(point);
             var movement = [0, 0];
             movement[0] = point[0] - parent.start_drag_pos[0];
             movement[1] = point[1] - parent.start_drag_pos[1];
-            parent.group_movement(parent, movement, true, true);
+            parent.group_movement(parent, movement, false, true);
             // make the respective joints
             if (parent.upper_block.indexOf(collide) == -1){
                 var total_height = 0;
