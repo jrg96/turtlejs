@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
+Kinetic.pixelRatio = 1;
+
 var global_tracker = new GlobalVarsTracker();
 var user_vars_tracker = new UserVarsTracker();
 var block_tracker = new BlockTracker();
