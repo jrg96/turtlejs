@@ -24,7 +24,8 @@ var draw_stage = new DrawStage('container2', $(window).width() - 5, $(window).he
 //var draw_stage = new DrawStage('container2', 2000, 2000);
 var image_tracker = new BlockImageTracker();
 
-var error_message_displayer = new ErrorMessage([0, 0], draw_stage.layer);
+var error_message_displayer = new ErrorMessage([0, 0], draw_stage.scroll_layer);
+error_message_displayer.repos();
 
 block_tracker.set_palette_tracker(palette_tracker);
 
