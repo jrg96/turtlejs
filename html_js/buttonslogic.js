@@ -120,6 +120,14 @@ $(document).ready(function() {
             }
         }
     });
+    
+    $(window).resize(function(){
+        draw_stage.stage.height($(window).height() - 62);
+        draw_stage.stage.width($(window).width() - 5);
+        
+        remove_scrolls();
+        make_scrolls();
+    });
 
     var check_block_visibility = function(caller){
         if (!block_tracker.are_blocks_visible() || caller){
