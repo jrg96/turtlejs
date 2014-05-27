@@ -106,10 +106,14 @@ I18n.prototype = {
     },
     change_block_labels: function(){
         var blocks = block_tracker.get_blocks();
+        var box_types = ['box_block', 'number', 'text_block'];
+        
         for (var i=0; i<blocks.length; i++){
             var block = blocks[i];
-            block.sprite.delete_all_labels();
-            block.sprite.set_labels(this.get_labels(block.block_type, DEFAULT_LANG, BLOCK_SIDE));
+            if (box_types.indexOf(block.block_type) == -1){
+                block.sprite.delete_all_labels();
+                block.sprite.set_labels(this.get_labels(block.block_type, DEFAULT_LANG, BLOCK_SIDE));
+            }
         }
     }
 }
