@@ -104,6 +104,8 @@ var updateBackgroundPos = function() {
     draw_stage.draw_layer.y(-y);
     draw_stage.layer.x(-x);
     draw_stage.layer.y(-y);
+    draw_stage.block_layer.x(-x);
+    draw_stage.block_layer.y(-y);
     draw_stage.draw_layer.batchDraw();
 };
 
