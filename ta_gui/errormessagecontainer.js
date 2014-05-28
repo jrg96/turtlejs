@@ -62,7 +62,7 @@ ErrorMessage.prototype = {
             height: imageObj.height,
         });
 
-        img.on('click', function(){
+        img.on('click tap', function(){
             parent.hide();
         });
 
