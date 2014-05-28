@@ -44,6 +44,8 @@ function BlockImageTracker(){
     this.add_resource('numbern_purple', [NA_ARRANGE, 'block_res/numbern_purple.svg']);
     this.add_resource('number1arg', [NA_ARRANGE, 'block_res/number1arg.svg']);
     this.add_resource('number1arg_purple', [NA_ARRANGE, 'block_res/number1arg_purple.svg']);
+    this.add_resource('head', [NA_ARRANGE, 'block_res/head.svg']);
+    this.add_resource('head1arg', [NA_ARRANGE, 'block_res/head1arg.svg']);
 }
 
 BlockImageTracker.prototype = {

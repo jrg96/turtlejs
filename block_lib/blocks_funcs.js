@@ -45,3 +45,7 @@ function store_in_box(params, values){
     user_vars_tracker.add_var(values[0][1], values[1][1]);
     return true;
 }
+
+function start_block(){
+    return true;
+}

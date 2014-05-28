@@ -61,6 +61,8 @@ $(document).ready(function() {
     $("#run-bt").click(function(){
         var starter_blocks = block_tracker.get_starter_blocks();
         var can_continue = true;
+        //var start_blocks = [];
+        
         for (var i=0; i<starter_blocks.length; i++){
             can_continue = starter_blocks[i].chain_exec();
             if (!can_continue || block_tracker.on_infinite_loop){

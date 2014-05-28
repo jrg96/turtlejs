@@ -63,7 +63,7 @@ BlockTracker.prototype = {
     get_starter_blocks: function(){
         var starter_blocks = [];
         for (var i=0; i<this.blocks.length; i++){
-            if (this.blocks[i].is_start_block()){
+            if (this.blocks[i].block_type == 'start_block'){
                 starter_blocks.push(this.blocks[i]);
             }
         }
