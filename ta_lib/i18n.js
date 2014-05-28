@@ -57,7 +57,8 @@ I18n.prototype = {
         }
 
         for (var i=0; i<params.length; i++){
-            error_message = error_message.replace("{" + i + "}", params[i]);
+            var block_name = this.words[params[i]][lang][FACTORY_SIDE][0][0];
+            error_message = error_message.replace("{" + i + "}", block_name);
         }
         return error_message;
     },
