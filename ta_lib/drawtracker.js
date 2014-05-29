@@ -20,6 +20,7 @@ function DrawTracker(layer, turtle){
     this.pen_down = true;
     this.already_filling = false;
     this.pen_size = 3;
+	this.font_size = 19;
     this.stroke_line = "#FF0000";
     this.bg_obj;
     
@@ -183,12 +184,17 @@ DrawTracker.prototype = {
         this.end_line();
     },
     add_label: function(str, turtle){
+		if (this.pen_size < 19){
+		    this.font_size = 19;
+        } else{
+            this.font_size = this.pen_size;
+        }
         var pos = turtle.get_xy();
         var lbl = new Kinetic.Text({
             x: pos[0] + 27,
             y: pos[1],
             text: str,
-            fontSize: 19,
+            fontSize: this.font_size,
             fontFamily: 'Calibri',
             fill: this.stroke_line
         });

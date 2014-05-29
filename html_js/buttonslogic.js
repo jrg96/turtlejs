@@ -130,6 +130,10 @@ $(document).ready(function() {
         remove_scrolls();
         make_scrolls();
     });
+	
+	$(window).on('scroll', function(){
+		console.log("test");
+	});
 
     var check_block_visibility = function(caller){
         if (!block_tracker.are_blocks_visible() || caller){
