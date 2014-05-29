@@ -184,7 +184,7 @@ DrawTracker.prototype = {
         this.end_line();
     },
     add_label: function(str, turtle){
-		if (this.pen_size < 19){
+        if (this.pen_size < 19){
 		    this.font_size = 19;
         } else{
             this.font_size = this.pen_size;
