@@ -33,6 +33,8 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     this.base_clamp_height = 45;
     this.actual_clamp_height = 45;
     this.joint_height = 4;
+    
+    this.add_count = 0;
 
     this.block_value = 0;
     this.base_center_width =  82;
@@ -254,9 +256,25 @@ TurtleBlock.prototype = {
         this.group.add(this.add_sprite.group);
         this.add_sprite.group.x(pos[0]);
         this.add_sprite.group.y(pos[1]);
+        this.add_size_pos = pos;
+        
+        parent = this;
         
         this.add_sprite.group.on('click tap', function(){
-            alert("detected!!!");
+            if (parent.add_count == 0){
+                parent.group.add(parent.del_sprite.group);
+                parent.del_sprite.group.x(parent.add_size_pos[0]);
+                parent.del_sprite.group.y(4);
+            }
+            parent.add_count++;
+        });
+        
+        this.del_sprite.group.on('click tap', function(){
+            parent.add_count--;
+            
+            if (parent.add_count == 0){
+                parent.del_sprite.group.remove();
+            }
         });
     },
     display_block: function(){
