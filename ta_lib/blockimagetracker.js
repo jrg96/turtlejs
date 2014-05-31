@@ -48,6 +48,7 @@ function BlockImageTracker(){
     this.add_resource('head1arg', [NA_ARRANGE, 'block_res/head1arg.svg']);
     this.add_resource('add_size', [NA_ARRANGE, 'block_res/increment_size.svg']);
     this.add_resource('del_size', [NA_ARRANGE, 'block_res/decrement_size.svg']);
+    this.add_resource('basic_resize', [VERT_ARRANGE, 'block_res/basic_resize_up.svg', 'block_res/basic_resize_center.svg', 'block_res/basic_resize_down.svg']);
 }
 
 BlockImageTracker.prototype = {

@@ -9,7 +9,7 @@
    xmlns="http://www.w3.org/2000/svg"
    version="1.1"
    width="60.200001"
-   height="14"
+   height="15"
    id="svg2">
   <metadata
      id="metadata12">
@@ -46,19 +46,19 @@
          style="opacity:0.8;fill:#ff0000;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     </clipPath>
     <clipPath
-       id="clipPath3068">
+       id="clipPath2997">
       <rect
-         width="60.349052"
-         height="14.000001"
-         x="-0.110126"
-         y="-4.4803298e-07"
-         id="rect3070"
+         width="60.150551"
+         height="15"
+         x="0"
+         y="-1.8447781e-09"
+         id="rect2999"
          style="opacity:0.8;fill:#ff0000;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     </clipPath>
   </defs>
   <g
-     clip-path="url(#clipPath3068)"
-     id="g3060">
+     clip-path="url(#clipPath2997)"
+     id="g2991">
     <g
        transform="scale(2,2)"
        clip-path="url(#clipPath2991)"

@@ -9,7 +9,7 @@
    xmlns="http://www.w3.org/2000/svg"
    version="1.1"
    width="60.200001"
-   height="10.03"
+   height="8"
    id="svg2">
   <metadata
      id="metadata12">
@@ -46,38 +46,37 @@
          style="opacity:0.8;fill:#ff0000;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     </clipPath>
     <clipPath
-       clipPathUnits="userSpaceOnUse"
-       id="clipPath3091">
+       id="clipPath3074">
       <rect
-         style="opacity:0.8;fill:#ff0000;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         id="rect3093"
-         width="60.349052"
-         height="10.026598"
-         x="-0.110126"
-         y="14.101261" />
+         width="60"
+         height="8.0006628"
+         x="0"
+         y="15.093646"
+         id="rect3076"
+         style="opacity:0.8;fill:#ff0000;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     </clipPath>
   </defs>
   <g
-     id="g3060"
-     clip-path="url(#clipPath3091)"
-     transform="translate(0,-14.097859)">
+     transform="translate(0,-15.094309)"
+     clip-path="url(#clipPath3074)"
+     id="g2991">
     <g
-       id="g4"
+       transform="scale(2,2)"
        clip-path="url(#clipPath2991)"
-       transform="scale(2,2)">
+       id="g4">
       <path
-         style="fill:#ffdf4e;fill-opacity:1;stroke:#bb9000;stroke-width:1;stroke-linecap:round;stroke-opacity:1"
+         d="m 0.5,8.5 0,-4 a 4,4 90 0 1 4,-4 l 4,0 0,2 10,0 0,-2 30,0 4,0 a 4,4 90 0 1 4,4 l 0,4 0,4 a 4,4 90 0 1 -4,4 l -4,0 -30,0 -1,0 0,2 -8,0 0,-2 -1,0 -4,0 a 4,4 90 0 1 -4,-4 l 0,-4 z"
          id="path6"
-         d="m 0.5,8.5 0,-4 a 4,4 90 0 1 4,-4 l 4,0 0,2 10,0 0,-2 30,0 4,0 a 4,4 90 0 1 4,4 l 0,4 0,4 a 4,4 90 0 1 -4,4 l -4,0 -30,0 -1,0 0,2 -8,0 0,-2 -1,0 -4,0 a 4,4 90 0 1 -4,-4 l 0,-4 z" />
+         style="fill:#ffdf4e;fill-opacity:1;stroke:#bb9000;stroke-width:1;stroke-linecap:round;stroke-opacity:1" />
     </g>
     <g
-       id="g4-1"
+       transform="matrix(2.0000234,0,0,2,-53.803927,0)"
        clip-path="url(#clipPath2991-0)"
-       transform="matrix(2.0000234,0,0,2,-53.803927,0)">
+       id="g4-1">
       <path
-         style="fill:#ffdf4e;fill-opacity:1;stroke:#bb9000;stroke-width:0.99999416;stroke-linecap:round;stroke-opacity:1"
+         d="m 0.5,8.5 0,-4 a 4,4 90 0 1 4,-4 l 4,0 0,2 10,0 0,-2 30,0 4,0 a 4,4 90 0 1 4,4 l 0,4 0,4 a 4,4 90 0 1 -4,4 l -4,0 -30,0 -1,0 0,2 -8,0 0,-2 -1,0 -4,0 a 4,4 90 0 1 -4,-4 l 0,-4 z"
          id="path6-6"
-         d="m 0.5,8.5 0,-4 a 4,4 90 0 1 4,-4 l 4,0 0,2 10,0 0,-2 30,0 4,0 a 4,4 90 0 1 4,4 l 0,4 0,4 a 4,4 90 0 1 -4,4 l -4,0 -30,0 -1,0 0,2 -8,0 0,-2 -1,0 -4,0 a 4,4 90 0 1 -4,-4 l 0,-4 z" />
+         style="fill:#ffdf4e;fill-opacity:1;stroke:#bb9000;stroke-width:0.99999416;stroke-linecap:round;stroke-opacity:1" />
     </g>
   </g>
 </svg>

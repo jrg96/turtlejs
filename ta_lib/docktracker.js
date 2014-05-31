@@ -15,7 +15,7 @@
 
 function DockTracker(){
     this.dic = {};
-    this.special_types = ["clampn", "clamp", "clamp_bool", "numbern"];
+    this.special_types = ["clampn", "clamp", "clamp_bool", "numbern", "basic_resize"];
 
     this.add_dock("basic1arg", this.make_dock_descriptor([17, 1], [17, 43], [[115, 25, SQUARE_DOCK]], null));
     this.add_dock("box", this.make_dock_descriptor(null, null, [[17, 25, SQUARE_DOCK]], null));
@@ -42,6 +42,8 @@ DockTracker.prototype = {
                 return this.make_dock_descriptor([17, 1], [17, 123], [[56, 40, ROUND_DOCK]], [[18, 66]]);
 	        } else if (name == "numbern"){
 	            return this.make_dock_descriptor(null, null, [[17, 25, SQUARE_DOCK], [85, 25, SQUARE_DOCK], [85, 67, SQUARE_DOCK]], null);
+	        } else if (name == "basic_resize"){
+	            return this.make_dock_descriptor([17, 1], [17, 35], null, null);
 	        }
         }
         return this.dic[name];
