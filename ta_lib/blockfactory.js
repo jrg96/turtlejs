@@ -96,6 +96,11 @@ BlockFactory.prototype = {
         }
 
         var block1 = new TurtleBlock(sprit1, draw_stage.block_layer, dock_descriptor, block_descriptor.callback_func, block_descriptor.value_func, [draw_stage.turtle, draw_stage.draw_tracker, null, block_tracker]);
+        
+        if (block_descriptor.user_resizable != null){
+            block1.set_user_resize(block_descriptor.user_resizable);
+        }
+        
         block1.block_type = name;
         block1.param_types = block_descriptor.param_types;
         block1.params[2] = block1;

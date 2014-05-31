@@ -27,12 +27,15 @@ NumbersPaletteDesc.prototype = {
 
         var block_descriptor = new BlockDescriptor(image_tracker.get_resource('numbern_purple'), 'numbern', null, add_block, ['add_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
         block_descriptor.component_positions = [0, 34, 15];
+        block_descriptor.user_resizable = [18, 55];
 
         var block_descriptor = new BlockDescriptor(image_tracker.get_resource('numbern_purple'), 'numbern', null, multiply_block, ['multiply_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
         block_descriptor.component_positions = [0, 34, 15];
+        block_descriptor.user_resizable = [18, 55];
 
         var block_descriptor = new BlockDescriptor(image_tracker.get_resource('numbern_purple'), 'numbern', null, divide_block, ['divide_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
         block_descriptor.component_positions = [0, 34, 15];
+        block_descriptor.user_resizable = [18, 55];
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

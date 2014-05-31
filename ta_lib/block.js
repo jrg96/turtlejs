@@ -248,6 +248,17 @@ TurtleBlock.prototype = {
         this.sprite.get_label(0).setX(x_pos);
         this.last_label_width = this.sprite.get_label(0).getWidth();
     },
+    set_user_resize: function(pos){
+        this.add_sprite = new Sprite(image_tracker.get_resource('add_size'), this.layer, true);
+        this.del_sprite = new Sprite(image_tracker.get_resource('del_size'), this.layer, true);
+        this.group.add(this.add_sprite.group);
+        this.add_sprite.group.x(pos[0]);
+        this.add_sprite.group.y(pos[1]);
+        
+        this.add_sprite.group.on('click tap', function(){
+            alert("detected!!!");
+        });
+    },
     display_block: function(){
         this.group.add(this.sprite.group);
         this.layer.add(this.group);
