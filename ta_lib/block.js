@@ -266,11 +266,34 @@ TurtleBlock.prototype = {
                 parent.del_sprite.group.x(parent.add_size_pos[0]);
                 parent.del_sprite.group.y(4);
             }
+            
+            added_size = 42;
+            parent.sprite.img[2].setY(parent.sprite.img[2].getY() + added_size);
+            parent.sprite.img[1].setHeight(parent.sprite.img[1].getHeight() + added_size);
+            parent.add_sprite.group.y(parent.add_sprite.group.y() + added_size);
+            
+            if (parent.has_receiver_param()){
+                parent.descriptor.param_dock[2][1] += added_size;
+            }
+            
+            parent.group_movement(parent, [0, added_size], true, false);
+            
             parent.add_count++;
         });
         
         this.del_sprite.group.on('click tap', function(){
             parent.add_count--;
+            
+            added_size = 42;
+            parent.sprite.img[2].setY(parent.sprite.img[2].getY() - added_size);
+            parent.sprite.img[1].setHeight(parent.sprite.img[1].getHeight() - added_size);
+            parent.add_sprite.group.y(parent.add_sprite.group.y() - added_size);
+            
+            if (parent.has_receiver_param()){
+                parent.descriptor.param_dock[2][1] -= added_size;
+            }
+            
+            parent.group_movement(parent, [0, -added_size], true, false);
             
             if (parent.add_count == 0){
                 parent.del_sprite.group.remove();
