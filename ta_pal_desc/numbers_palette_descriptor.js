@@ -25,11 +25,14 @@ NumbersPaletteDesc.prototype = {
 
         new BlockDescriptor(image_tracker.get_resource('number1arg_purple'), 'number1arg', null, identity_block, ['identity_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        new BlockDescriptor(image_tracker.get_resource('numbern_purple'), 'numbern', null, add_block, ['add_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
+        var block_descriptor = new BlockDescriptor(image_tracker.get_resource('numbern_purple'), 'numbern', null, add_block, ['add_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
+        block_descriptor.component_positions = [0, 34, 15];
 
-        new BlockDescriptor(image_tracker.get_resource('numbern_purple'), 'numbern', null, multiply_block, ['multiply_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
+        var block_descriptor = new BlockDescriptor(image_tracker.get_resource('numbern_purple'), 'numbern', null, multiply_block, ['multiply_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
+        block_descriptor.component_positions = [0, 34, 15];
 
-        new BlockDescriptor(image_tracker.get_resource('numbern_purple'), 'numbern', null, divide_block, ['divide_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
+        var block_descriptor = new BlockDescriptor(image_tracker.get_resource('numbern_purple'), 'numbern', null, divide_block, ['divide_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
+        block_descriptor.component_positions = [0, 34, 15];
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

@@ -41,7 +41,7 @@ function BlockImageTracker(){
     this.add_resource('clampb_orange', [VERT_ARRANGE, 'block_res/clampboolean_orange.svg', 'block_res/clamp-filler_orange.svg', 'block_res/clamp-bottom_orange.svg']);
     this.add_resource('clampb', [VERT_ARRANGE, 'block_res/clampboolean.svg', 'block_res/clamp-filler.svg', 'block_res/clamp-bottom.svg']);
     this.add_resource('numbern', [NA_ARRANGE, 'block_res/numbern.svg']);
-    this.add_resource('numbern_purple', [NA_ARRANGE, 'block_res/numbern_purple.svg']);
+    this.add_resource('numbern_purple', [VERT_ARRANGE, 'block_res/numbern_up_purple.svg', 'block_res/numbern_center_purple.svg', 'block_res/numbern_down_purple.svg']);
     this.add_resource('number1arg', [NA_ARRANGE, 'block_res/number1arg.svg']);
     this.add_resource('number1arg_purple', [NA_ARRANGE, 'block_res/number1arg_purple.svg']);
     this.add_resource('head', [NA_ARRANGE, 'block_res/head.svg']);
