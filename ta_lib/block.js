@@ -280,6 +280,13 @@ TurtleBlock.prototype = {
             parent.sprite.img[1].setHeight(parent.sprite.img[1].getHeight() + added_size);
             parent.add_sprite.group.y(parent.add_sprite.group.y() + added_size);
             
+            if (parent.has_lower_dock()){
+                parent.descriptor.lower_dock[0][1] += added_size;
+                if (parent.lower_block[0] != null){
+                    parent.lower_block[0].group_movement(parent.lower_block[0], [0, added_size], false, true);
+                }
+            }
+            
             if (parent.has_receiver_param()){
                 parent.descriptor.param_dock[2][1] += added_size;
                 if (parent.receiver_slots[1] != null){
@@ -301,6 +308,13 @@ TurtleBlock.prototype = {
             
             if (parent.add_count == 0){
                 parent.del_sprite.group.remove();
+            }
+            
+            if (parent.has_lower_dock()){
+                parent.descriptor.lower_dock[0][1] -= added_size;
+                                if (parent.lower_block[0] != null){
+                    parent.lower_block[0].group_movement(parent.lower_block[0], [0, -added_size], false, true);
+                }
             }
             
             if (parent.has_receiver_param()){
