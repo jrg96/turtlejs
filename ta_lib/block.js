@@ -62,6 +62,12 @@ TurtleBlock.prototype = {
         var parent = this;
         this.group.on('click tap', function(){
             var result = get_block_data(parent.params, 'Set heading');
+            
+            /*if (this.sizeable_icon_touched){
+                this.sizeable_icon_touched = false;
+                return;
+            }*/
+            
             if (!result[0]){
                 error_message_displayer.show_error(result[1]);
                 return false;
@@ -258,7 +264,7 @@ TurtleBlock.prototype = {
         this.add_sprite.group.y(pos[1]);
         this.add_size_pos = pos;
         
-        parent = this;
+        var parent = this;
         
         this.add_sprite.group.on('click tap', function(){
             if (parent.add_count == 0){
@@ -267,6 +273,8 @@ TurtleBlock.prototype = {
                 parent.del_sprite.group.y(4);
             }
             
+            parent.add_count++;
+            
             added_size = 42;
             parent.sprite.img[2].setY(parent.sprite.img[2].getY() + added_size);
             parent.sprite.img[1].setHeight(parent.sprite.img[1].getHeight() + added_size);
@@ -274,29 +282,33 @@ TurtleBlock.prototype = {
             
             if (parent.has_receiver_param()){
                 parent.descriptor.param_dock[2][1] += added_size;
+                if (parent.receiver_slots[1] != null){
+                    parent.receiver_slots[1].group_movement(parent.receiver_slots[1], 
+                                                        [0, added_size], false, false);
+                }
             }
-            
-            parent.group_movement(parent, [0, added_size], true, false);
-            
-            parent.add_count++;
         });
         
         this.del_sprite.group.on('click tap', function(){
             parent.add_count--;
+            
+            //this.sizeable_icon_touched = true;
             
             added_size = 42;
             parent.sprite.img[2].setY(parent.sprite.img[2].getY() - added_size);
             parent.sprite.img[1].setHeight(parent.sprite.img[1].getHeight() - added_size);
             parent.add_sprite.group.y(parent.add_sprite.group.y() - added_size);
             
-            if (parent.has_receiver_param()){
-                parent.descriptor.param_dock[2][1] -= added_size;
-            }
-            
-            parent.group_movement(parent, [0, -added_size], true, false);
-            
             if (parent.add_count == 0){
                 parent.del_sprite.group.remove();
+            }
+            
+            if (parent.has_receiver_param()){
+                parent.descriptor.param_dock[2][1] -= added_size;
+                if (parent.receiver_slots[1] != null){
+                    parent.receiver_slots[1].group_movement(parent.receiver_slots[1], 
+                                                        [0, -added_size], false, false);
+                }
             }
         });
     },
@@ -515,9 +527,9 @@ TurtleBlock.prototype = {
                 caller.move_params = true;
             }
         }
-        if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
+        /*if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
             this.param_blocks[i].group_movement(this, movement, false, true);
-        }
+        }*/
         if (this.stack_slots.length > 0 && move_stack){
             for (var i=0; i<this.stack_slots.length; i++){
                 if (this.stack_slots[i] != null && this.stack_slots[i] != caller){

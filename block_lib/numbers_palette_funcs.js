@@ -10,7 +10,6 @@ function greaterthan_block(params){
         }
         return false;
     }else{
-        alert('Missing value from set Greater than block');
         return [false, false];
     }
 }
@@ -37,7 +36,6 @@ function add_block(params){
         }
         return [false, 0];
     }else{
-        alert('Missing value from Add block');
         return [false, 0];
     }
 }
@@ -51,7 +49,6 @@ function multiply_block(params){
         }
         return [false, 0];
     }else{
-        alert('Missing value from Multiply block');
         return [false, 0];
     }
 }
@@ -66,7 +63,6 @@ function divide_block(params){
         }
         return [false, 0];
     }else{
-        alert('Missing value from Multiply block');
         return [false, 0];
     }
 }
@@ -79,7 +75,6 @@ function identity_block(params){
         }
         return [false, 0];
     }else{
-        alert('Missing value from Identity block');
         return [false, 0];
     }
 }
