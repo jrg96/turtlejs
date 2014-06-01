@@ -285,6 +285,10 @@ TurtleBlock.prototype = {
                 if (parent.lower_block[0] != null){
                     parent.lower_block[0].group_movement(parent.lower_block[0], [0, added_size], false, true);
                 }
+                var stack_parent = parent.get_stack_top_block(parent);
+                if (stack_parent != null){
+                    stack_parent.upper_block[0].calc_clamp_height(false, added_size + parent.joint_height, stack_parent.upper_block[0]);
+                }
             }
             
             if (parent.has_receiver_param()){
@@ -312,8 +316,12 @@ TurtleBlock.prototype = {
             
             if (parent.has_lower_dock()){
                 parent.descriptor.lower_dock[0][1] -= added_size;
-                                if (parent.lower_block[0] != null){
+                if (parent.lower_block[0] != null){
                     parent.lower_block[0].group_movement(parent.lower_block[0], [0, -added_size], false, true);
+                }
+                var stack_parent = parent.get_stack_top_block(parent);
+                if (stack_parent != null){
+                    stack_parent.upper_block[0].calc_clamp_height(false, -added_size +parent.joint_height, stack_parent.upper_block[0]);
                 }
             }
             

@@ -77,3 +77,7 @@ function wait(params, values){
     var myVar = setTimeout(function(){wait_exec(params)}, values[0][1]);
     return false;
 }
+
+function space_block(params, values){
+    return true;
+}

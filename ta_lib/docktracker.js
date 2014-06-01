@@ -43,7 +43,7 @@ DockTracker.prototype = {
 	        } else if (name == "numbern"){
 	            return this.make_dock_descriptor(null, null, [[17, 25, SQUARE_DOCK], [85, 25, SQUARE_DOCK], [85, 67, SQUARE_DOCK]], null);
 	        } else if (name == "basic_resize"){
-	            return this.make_dock_descriptor([17, 1], [17, 35], null, null);
+	            return this.make_dock_descriptor([18, 1], [18, 35], null, null);
 	        }
         }
         return this.dic[name];
