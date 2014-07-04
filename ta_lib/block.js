@@ -272,8 +272,13 @@ TurtleBlock.prototype = {
 			//alert("test");
             if (parent.add_count == 0){
                 parent.group.add(parent.del_sprite.group);
-                parent.del_sprite.group.x(parent.add_size_pos[0]);
-                parent.del_sprite.group.y(4);
+                if (parent.add_size_pos[0] > 20){
+                    parent.del_sprite.group.x(18);
+                    parent.del_sprite.group.y(8);
+                } else{
+                    parent.del_sprite.group.x(parent.add_size_pos[0]);
+                    parent.del_sprite.group.y(4);
+                }
             }
             
             parent.add_count++;
@@ -315,10 +320,17 @@ TurtleBlock.prototype = {
             
             //this.sizeable_icon_touched = true;
             
-            added_size = 42;
-            parent.sprite.img[2].setY(parent.sprite.img[2].getY() - added_size);
-            parent.sprite.img[1].setHeight(parent.sprite.img[1].getHeight() - added_size);
-            parent.add_sprite.group.y(parent.add_sprite.group.y() - added_size);
+            if (parent.add_size_pos[0] > 20){
+                added_size = 60;
+                parent.sprite.img[2].setX(parent.sprite.img[2].getX() - added_size);
+                parent.sprite.img[1].setWidth(parent.sprite.img[1].getWidth() - added_size);
+                parent.add_sprite.group.x(parent.add_sprite.group.x() - added_size);
+            } else{
+                added_size = 42;
+                parent.sprite.img[2].setY(parent.sprite.img[2].getY() - added_size);
+                parent.sprite.img[1].setHeight(parent.sprite.img[1].getHeight() - added_size);
+                parent.add_sprite.group.y(parent.add_sprite.group.y() - added_size);
+            }
             
             if (parent.add_count == 0){
                 parent.del_sprite.group.remove();
