@@ -40,8 +40,10 @@ NumbersPaletteDesc.prototype = {
         block_descriptor.base_clamp_height = 15;
         block_descriptor.user_resizable = [18, 55];
 		
-		var block_descriptor = new BlockDescriptor(image_tracker.get_resource('number1arg_purple_2'), 'number1arg', null, identity_block, ['identity_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, null]);
+		var block_descriptor = new BlockDescriptor(image_tracker.get_resource('number1arg_purple_2'), 'number1arg', null, identity_block, ['identity_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         block_descriptor.component_positions = [0, 40, 60];
+		block_descriptor.base_clamp_height = 15;
+		block_descriptor.user_resizable = [85, 8];
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

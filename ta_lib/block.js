@@ -54,6 +54,9 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     // variable that stores tart point of drag
     this.start_drag_pos = this.get_xy();
     this.configure_receiver_slots();
+	
+	this.add_sprite = new Sprite(image_tracker.get_resource('add_size'), this.layer, true);
+    this.del_sprite = new Sprite(image_tracker.get_resource('del_size'), this.layer, true);
 }
 
 TurtleBlock.prototype = {
@@ -257,8 +260,7 @@ TurtleBlock.prototype = {
         this.last_label_width = this.sprite.get_label(0).getWidth();
     },
     set_user_resize: function(pos){
-        this.add_sprite = new Sprite(image_tracker.get_resource('add_size'), this.layer, true);
-        this.del_sprite = new Sprite(image_tracker.get_resource('del_size'), this.layer, true);
+        
         this.group.add(this.add_sprite.group);
         this.add_sprite.group.x(pos[0]);
         this.add_sprite.group.y(pos[1]);
@@ -267,6 +269,7 @@ TurtleBlock.prototype = {
         var parent = this;
         
         this.add_sprite.group.on('click tap', function(){
+			//alert("test");
             if (parent.add_count == 0){
                 parent.group.add(parent.del_sprite.group);
                 parent.del_sprite.group.x(parent.add_size_pos[0]);
@@ -275,10 +278,17 @@ TurtleBlock.prototype = {
             
             parent.add_count++;
             
-            added_size = 42;
-            parent.sprite.img[2].setY(parent.sprite.img[2].getY() + added_size);
-            parent.sprite.img[1].setHeight(parent.sprite.img[1].getHeight() + added_size);
-            parent.add_sprite.group.y(parent.add_sprite.group.y() + added_size);
+            if (parent.add_size_pos[0] > 20){
+                added_size = 60;
+                parent.sprite.img[2].setX(parent.sprite.img[2].getX() + added_size);
+                parent.sprite.img[1].setWidth(parent.sprite.img[1].getWidth() + added_size);
+                parent.add_sprite.group.x(parent.add_sprite.group.x() + added_size);
+            } else{
+                added_size = 42;
+                parent.sprite.img[2].setY(parent.sprite.img[2].getY() + added_size);
+                parent.sprite.img[1].setHeight(parent.sprite.img[1].getHeight() + added_size);
+                parent.add_sprite.group.y(parent.add_sprite.group.y() + added_size);
+            }
             
             if (parent.has_lower_dock()){
                 parent.descriptor.lower_dock[0][1] += added_size;
