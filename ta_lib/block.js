@@ -282,7 +282,7 @@ TurtleBlock.prototype = {
             }
             
             parent.add_count++;
-            
+            added_size = 0;
             if (parent.add_size_pos[0] > 20){
                 added_size = 60;
                 parent.sprite.img[2].setX(parent.sprite.img[2].getX() + added_size);
@@ -307,10 +307,19 @@ TurtleBlock.prototype = {
             }
             
             if (parent.has_receiver_param()){
-                parent.descriptor.param_dock[2][1] += added_size;
-                if (parent.receiver_slots[1] != null){
-                    parent.receiver_slots[1].group_movement(parent.receiver_slots[1], 
-                                                        [0, added_size], false, false);
+                //alert("detecta receiver param");
+                if (parent.add_size_pos[0] > 20){
+                    parent.descriptor.param_dock[1][0] += added_size;
+                    if (parent.receiver_slots[0] != null){
+                        parent.receiver_slots[0].group_movement(parent.receiver_slots[1], 
+                                                            [added_size, 0], false, false);
+                    }
+                } else{
+                    parent.descriptor.param_dock[2][1] += added_size;
+                    if (parent.receiver_slots[1] != null){
+                        parent.receiver_slots[1].group_movement(parent.receiver_slots[1], 
+                                                            [0, added_size], false, false);
+                    }
                 }
             }
         });
@@ -319,6 +328,7 @@ TurtleBlock.prototype = {
             parent.add_count--;
             
             //this.sizeable_icon_touched = true;
+            added_size = 0;
             
             if (parent.add_size_pos[0] > 20){
                 added_size = 60;
@@ -348,10 +358,18 @@ TurtleBlock.prototype = {
             }
             
             if (parent.has_receiver_param()){
-                parent.descriptor.param_dock[2][1] -= added_size;
-                if (parent.receiver_slots[1] != null){
-                    parent.receiver_slots[1].group_movement(parent.receiver_slots[1], 
-                                                        [0, -added_size], false, false);
+                if (parent.add_size_pos[0] > 20){
+                    parent.descriptor.param_dock[0][0] -= added_size;
+                    if (parent.receiver_slots[0] != null){
+                        parent.receiver_slots[0].group_movement(parent.receiver_slots[1], 
+                                                            [-added_size, 0], false, false);
+                    }
+                } else{
+                    parent.descriptor.param_dock[2][1] -= added_size;
+                    if (parent.receiver_slots[1] != null){
+                        parent.receiver_slots[1].group_movement(parent.receiver_slots[1], 
+                                                            [0, -added_size], false, false);
+                    }
                 }
             }
         });
