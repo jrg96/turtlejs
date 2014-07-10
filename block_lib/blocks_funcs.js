@@ -51,6 +51,14 @@ function action_block(params, values){
     return true;
 }
 
+function action_exec_block(params, values){
+    var block = user_funcs_tracker.get_func(values[0][1]);
+    if (block.lower_block[0] != null){
+        block.lower_block[0].chain_exec();
+    }
+    return true;
+}
+
 function start_block(){
     return true;
 }

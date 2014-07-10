@@ -59,6 +59,12 @@ $(document).ready(function() {
         }
     });
     $("#run-bt").click(function(){
+        var func_blocks = block_tracker.get_func_blocks();
+        
+        for (var i = 0; i<func_blocks.length; i++){
+            func_blocks[i].exec_block();
+        }
+        
         var starter_blocks = block_tracker.get_starter_blocks();
         var can_continue = true;
         //var start_blocks = [];

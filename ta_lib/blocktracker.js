@@ -69,6 +69,15 @@ BlockTracker.prototype = {
         }
         return starter_blocks;
     },
+    get_func_blocks: function(){
+        var func_blocks = [];
+        for (var i=0; i<this.blocks.length; i++){
+            if (this.blocks[i].block_type == 'action_make_block'){
+                func_blocks.push(this.blocks[i]);
+            }
+        }
+        return func_blocks;
+    },
     are_blocks_visible: function(){
         return this.hide;
     },
