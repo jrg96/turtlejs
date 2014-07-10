@@ -121,6 +121,9 @@ Turtle.prototype = {
         this.img.group.setY(pos[1]);
         this.on_turtle_move();
     },
+    get_rotation: function(){
+        return this.rotation;
+    },
     reset_rotation: function(){
         this.img.group.rotateDeg(360 - this.rotation);
         this.rotation = 0;

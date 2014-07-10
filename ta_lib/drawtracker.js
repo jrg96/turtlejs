@@ -193,6 +193,7 @@ DrawTracker.prototype = {
         var lbl = new Kinetic.Text({
             x: pos[0] + 27,
             y: pos[1],
+            rotation: this.turtle.get_rotation(),
             text: str,
             fontSize: this.font_size,
             fontFamily: 'Calibri',
