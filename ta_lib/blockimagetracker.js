@@ -18,6 +18,7 @@ function BlockImageTracker(){
     this.add_resource('basic1arg', [NA_ARRANGE, 'block_res/basic1arg.svg']);
     this.add_resource('basic1arg_blue', [NA_ARRANGE, 'block_res/basic1arg_blue.svg']);
     this.add_resource('basic1arg_orange', [NA_ARRANGE, 'block_res/basic1arg_orange.svg']);
+    this.add_resource('basic1arg_yellow', [NA_ARRANGE, 'block_res/basic1arg_yellow.svg']);
     this.add_resource('box2', [HORIZ_ARRANGE, 'block_res/box-left.svg', 'block_res/box-center.svg', 'block_res/box-right.svg']);
     this.add_resource('box2_blue', [HORIZ_ARRANGE, 'block_res/box-left_blue.svg', 'block_res/box-center_blue.svg', 'block_res/box-right_blue.svg']);
     this.add_resource('box2_red', [HORIZ_ARRANGE, 'block_res/box-left_red.svg', 'block_res/box-center_red.svg', 'block_res/box-right_red.svg']);
@@ -46,7 +47,7 @@ function BlockImageTracker(){
     //this.add_resource('number1arg_purple', [NA_ARRANGE, 'block_res/number1arg_purple.svg']);
 	this.add_resource('number1arg_purple_2', [HORIZ_ARRANGE, 'block_res/number1arg_left_purple.svg', 'block_res/number1arg_center_purple.svg', 'block_res/number1arg_right_purple.svg']);
     this.add_resource('head', [NA_ARRANGE, 'block_res/head_yellow.svg']);
-    this.add_resource('head1arg', [NA_ARRANGE, 'block_res/head1arg.svg']);
+    this.add_resource('head1arg', [NA_ARRANGE, 'block_res/head1arg_yellow.svg']);
     this.add_resource('add_size', [NA_ARRANGE, 'block_res/increment_size.svg']);
     this.add_resource('del_size', [NA_ARRANGE, 'block_res/decrement_size.svg']);
     this.add_resource('basic_resize', [VERT_ARRANGE, 'block_res/basic_resize_up.svg', 'block_res/basic_resize_center.svg', 'block_res/basic_resize_down.svg']);
