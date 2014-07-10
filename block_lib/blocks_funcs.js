@@ -59,6 +59,22 @@ function action_exec_block(params, values){
     return true;
 }
 
+function turtle_color_block(params, values){
+        var color_blocks = {
+            '#FF0000' : 'red',
+            '#00FF00' : 'green',
+            '#551A8B' : 'purple',
+            '#FFA500' : 'orange',
+            '#00FFFF' : 'cyan',
+            '#FFFFFF' : 'white',
+            '#FFFF00' : 'yellow',
+            '#0000FF' : 'blue',
+            '#000000' : 'black'
+        };
+    params[0].change_color(color_blocks[values[0][1]]);
+    return true;
+}
+
 function start_block(){
     return true;
 }

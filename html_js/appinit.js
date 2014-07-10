@@ -15,6 +15,13 @@
 
 Kinetic.pixelRatio = 1;
 
+var turtle_names = ['black', 'blue', 'cyan', 'green', 'orange', 'purple', 'red', 'yellow', 'white'];
+var turtles = {};
+
+for (var i=0; i<turtle_names.length; i++){
+    turtles[turtle_names[i]] = new Sprite([NA_ARRANGE, 'turtle_img/turtle' + turtle_names[i] + '.png'], null, false, true, null, null);
+}
+
 var global_tracker = new GlobalVarsTracker();
 var user_vars_tracker = new UserVarsTracker();
 var block_tracker = new BlockTracker();

@@ -57,7 +57,7 @@ BlocksPalette.prototype = {
         var sprit1 = new Sprite(image_tracker.get_resource('basic1arg_yellow'), this.container.layer, true);
         new BlockFactory([375, 5], sprit1, 'action_call_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'action_call']);
         
-        
-        
+        var sprit1 = new Sprite(image_tracker.get_resource('basic1arg_yellow'), this.container.layer, true);
+        new BlockFactory([375, 55], sprit1, 'turtle_color_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'turtle_color']);
     }
 }
