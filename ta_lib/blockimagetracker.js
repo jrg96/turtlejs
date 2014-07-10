@@ -45,7 +45,7 @@ function BlockImageTracker(){
     this.add_resource('number1arg', [NA_ARRANGE, 'block_res/number1arg.svg']);
     //this.add_resource('number1arg_purple', [NA_ARRANGE, 'block_res/number1arg_purple.svg']);
 	this.add_resource('number1arg_purple_2', [HORIZ_ARRANGE, 'block_res/number1arg_left_purple.svg', 'block_res/number1arg_center_purple.svg', 'block_res/number1arg_right_purple.svg']);
-    this.add_resource('head', [NA_ARRANGE, 'block_res/head.svg']);
+    this.add_resource('head', [NA_ARRANGE, 'block_res/head_yellow.svg']);
     this.add_resource('head1arg', [NA_ARRANGE, 'block_res/head1arg.svg']);
     this.add_resource('add_size', [NA_ARRANGE, 'block_res/increment_size.svg']);
     this.add_resource('del_size', [NA_ARRANGE, 'block_res/decrement_size.svg']);
