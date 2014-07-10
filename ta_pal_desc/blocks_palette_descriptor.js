@@ -30,7 +30,7 @@ BlocksPaletteDesc.prototype = {
       
         new BlockDescriptor(image_tracker.get_resource('head'), 'head', start_block, null, ['start_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
       
-        new BlockDescriptor(image_tracker.get_resource('head1arg'), 'head1arg', start_block, null, ['action_make_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        new BlockDescriptor(image_tracker.get_resource('head1arg'), 'head1arg', action_block, null, ['action_make_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['str_no_parse']]);
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

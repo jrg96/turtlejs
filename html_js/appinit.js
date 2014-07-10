@@ -23,6 +23,7 @@ var dock_tracker = new DockTracker();
 var draw_stage = new DrawStage('container2', $(window).width() - 5, $(window).height() - 62);
 //var draw_stage = new DrawStage('container2', 2000, 2000);
 var image_tracker = new BlockImageTracker();
+var user_funcs_tracker = new UserFuncsTracker();
 
 var error_message_displayer = new ErrorMessage([0, 0], draw_stage.scroll_layer);
 error_message_displayer.repos();
@@ -36,6 +37,7 @@ global_tracker.add_var('dock_tracker', dock_tracker);
 global_tracker.add_var('i18n_tracker', i18n_tracker);
 global_tracker.add_var('block_image_tracker', image_tracker);
 global_tracker.add_var('user_vars_tracker', user_vars_tracker);
+global_tracker.add_var('user_funcs_tracker', user_funcs_tracker);
 
 var basic1 = new BasicBlockPalette(495, 200, '#FFD000', draw_stage.palette_layer, new BasicBlockDesc(), global_tracker);
 palette_tracker.add_palette(basic1);

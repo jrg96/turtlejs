@@ -76,6 +76,7 @@ $(document).ready(function() {
     $("#clear-bt").click(function(){
         draw_stage.draw_tracker.clear_canvas();
         user_vars_tracker.clear();
+        user_funcs_tracker.clear();
         block_tracker.on_infinite_loop = false;
     });
     $("#hideshow-bt").click(function(){

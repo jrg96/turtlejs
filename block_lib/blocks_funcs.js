@@ -46,6 +46,11 @@ function store_in_box(params, values){
     return true;
 }
 
+function action_block(params, values){
+    user_funcs_tracker.add_func(values[0][1], params[2]);
+    return true;
+}
+
 function start_block(){
     return true;
 }

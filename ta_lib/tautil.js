@@ -1,5 +1,5 @@
 function get_block_data(params, name){
-    var result = [false, null];
+    var result = [false, null, null];
     var success = true;
 
     if (params[2].has_all_slots()){
@@ -54,6 +54,7 @@ function get_block_data(params, name){
         if (success){
             result[0] = true;
             result[1] = values;
+            result[2] = params[2];
             //alert(result[1][0][1]);
         }
     } else{
