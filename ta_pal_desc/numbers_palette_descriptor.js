@@ -63,6 +63,13 @@ NumbersPaletteDesc.prototype = {
         block_descriptor.component_positions = [0, 40, 60];
 		block_descriptor.base_clamp_height = 15;
 		block_descriptor.user_resizable = [85, 8];
+        
+        var block_descriptor = new BlockDescriptor(image_tracker.get_resource('numbern_purple'), 'numbern', null, rand_block, ['rand_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
+        block_descriptor.component_positions = [0, 34, 15];
+        block_descriptor.base_clamp_height = 15;
+        block_descriptor.user_resizable = [18, 55];
+        
+        
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];
