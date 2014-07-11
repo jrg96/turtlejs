@@ -62,5 +62,8 @@ NumbersPalette.prototype = {
         
         var sprit1 = new Sprite(image_tracker.get_resource('compare_purple'), this.container.layer, true);
         new BlockFactory([625, 5], sprit1, 'equals_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'equals']);
+        
+        var sprit1 = new Sprite(image_tracker.get_resource('numbern_purple'), this.container.layer, true, false, null, null, [0, 34, 15]);
+        new BlockFactory([145, 95], sprit1, 'mod_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'mod']);
     }
 }

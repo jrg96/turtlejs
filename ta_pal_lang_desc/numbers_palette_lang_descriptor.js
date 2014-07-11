@@ -19,6 +19,8 @@ i18n_tracker.add_label('lowerthan_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], [
 
 i18n_tracker.add_label('equals_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['=', 65, 35, 19, 'Calibri', 'black']);
 
+i18n_tracker.add_label('mod_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['mod', 25, 35, 19, 'Calibri', 'black']);
+
 i18n_tracker.add_label('add_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['+', 45, 35, 19, 'Calibri', 'black']);
 
 i18n_tracker.add_label('multiply_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['x', 45, 35, 19, 'Calibri', 'black']);
