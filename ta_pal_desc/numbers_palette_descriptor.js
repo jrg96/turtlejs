@@ -39,6 +39,11 @@ NumbersPaletteDesc.prototype = {
         block_descriptor.component_positions = [0, 34, 15];
         block_descriptor.base_clamp_height = 15;
         block_descriptor.user_resizable = [18, 55];
+        
+        var block_descriptor = new BlockDescriptor(image_tracker.get_resource('numbern_purple'), 'numbern', null, substract_block, ['substract_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
+        block_descriptor.component_positions = [0, 34, 15];
+        block_descriptor.base_clamp_height = 15;
+        block_descriptor.user_resizable = [18, 55];
 		
 		var block_descriptor = new BlockDescriptor(image_tracker.get_resource('number1arg_purple_2'), 'number1arg', null, identity_block, ['identity_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         block_descriptor.component_positions = [0, 40, 60];
