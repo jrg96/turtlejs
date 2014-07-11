@@ -22,6 +22,8 @@ NumbersPaletteDesc.prototype = {
     constructor: NumbersPaletteDesc,
     init_descriptor: function(){
         new BlockDescriptor(image_tracker.get_resource('compare_purple'), 'bool2arg', null, greaterthan_block, ['greaterthan_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
+        
+        new BlockDescriptor(image_tracker.get_resource('compare_purple'), 'bool2arg', null, lowerthan_block, ['lowerthan_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['int', 'int']]);
 
         //new BlockDescriptor(image_tracker.get_resource('number1arg_purple'), 'number1arg', null, identity_block, ['identity_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
