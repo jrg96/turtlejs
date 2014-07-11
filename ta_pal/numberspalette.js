@@ -59,5 +59,8 @@ NumbersPalette.prototype = {
         
         var sprit1 = new Sprite(image_tracker.get_resource('compare_purple'), this.container.layer, true);
         new BlockFactory([515, 5], sprit1, 'lowerthan_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'lowerthan']);
+        
+        var sprit1 = new Sprite(image_tracker.get_resource('compare_purple'), this.container.layer, true);
+        new BlockFactory([625, 5], sprit1, 'equals_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'equals']);
     }
 }
