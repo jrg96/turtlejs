@@ -93,6 +93,15 @@ $(document).ready(function() {
     });
     $("#save-bt").click(function(){
     });
+    
+    function on_saved_image(data){
+        $("#saved-image").attr("src", data);
+    }
+    
+    $("#img-save-bt").click(function(){
+        draw_stage.stage.toDataURL({callback: on_saved_image});
+        //$("#saved-image").attr("src", data);
+    });
     $("#es-lang-bt").click(function(){
         i18n_tracker.change_language('es_ES');
     });
