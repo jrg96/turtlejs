@@ -31,6 +31,10 @@
   background-image: url(../ta_icons/filesaveoff.svg);
 }
 
+#img-save-bt {
+  background-image: url(../ta_icons/image-saveon.svg);
+}
+
 #es-lang-bt {
   background-image: url(../activity/turtleart.svg);
 }
