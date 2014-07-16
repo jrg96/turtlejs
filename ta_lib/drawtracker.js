@@ -117,6 +117,9 @@ DrawTracker.prototype = {
     pen_down_action: function(){
         this.pen_down = true;
     },
+	is_pen_down: function(){
+        return this.pen_down;
+	},
     start_fill: function(){
         this.already_filling = true;
         this.end_line();

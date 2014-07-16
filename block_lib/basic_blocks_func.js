@@ -110,7 +110,10 @@ function arc(params, values){
     var final_pos = [arc.end_point.getAbsolutePosition().x + Math.abs(draw_stage.draw_layer.x()), arc.end_point.getAbsolutePosition().y + Math.abs(draw_stage.draw_layer.y())];
     params[0].set_xy(final_pos);
     params[0].rotate(values[0][1]);
-    params[1].add_shape(arc);
+	
+    if (draw_tracker.is_pen_down()){
+        params[1].add_shape(arc);
+    }
     return true;
 }
 
