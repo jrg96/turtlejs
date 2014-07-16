@@ -14,6 +14,10 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 $(document).ready(function() {
+    
+    $("#saved-image").attr("height", parseInt($(window).height() * 0.45));
+    $("#saved-image").attr("width", parseInt($(window).width() * 0.45));
+    
     var count = 0;
     
     $("#basictb-bt").click(function(){
@@ -96,6 +100,8 @@ $(document).ready(function() {
     
     function on_saved_image(data){
         $("#saved-image").attr("src", data);
+        $("#saved-image").attr("height", parseInt($(window).height() * 0.45));
+        $("#saved-image").attr("width", parseInt($(window).width() * 0.45));
     }
     
     $("#img-save-bt").click(function(){
