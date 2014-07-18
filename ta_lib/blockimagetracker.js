@@ -32,6 +32,7 @@ function BlockImageTracker(){
     this.add_resource('basic', [NA_ARRANGE, 'block_res/basic.svg']);
     this.add_resource('basic_blue', [NA_ARRANGE, 'block_res/basic_blue.svg']);
     this.add_resource('basic2arg', [NA_ARRANGE, 'block_res/basic2arg.svg']);
+    this.add_resource('basic3arg_blue', [NA_ARRANGE, 'block_res/basic3arg_blue.svg']);
     this.add_resource('box', [NA_ARRANGE, 'block_res/box.svg']);
     this.add_resource('compare', [NA_ARRANGE, 'block_res/compare.svg']);
     this.add_resource('compare_purple', [NA_ARRANGE, 'block_res/compare_purple.svg']);

@@ -33,6 +33,11 @@ i18n_tracker.add_label('start_fill_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], 
 
 i18n_tracker.add_label('end_fill_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['end fill', 5, 13, 18, 'Calibri', 'black']);
 
+i18n_tracker.add_label('fill_screen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['fill screen', 5, 30, 23, 'Calibri', 'black']);
+i18n_tracker.add_label('fill_screen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['color', 54, 10, 17, 'Calibri', 'black']);
+i18n_tracker.add_label('fill_screen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['shade', 51, 56, 17, 'Calibri', 'black']);
+i18n_tracker.add_label('fill_screen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['gray', 61, 96, 17, 'Calibri', 'black']);
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 i18n_tracker.add_label('penup_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Subir pluma', 5, 13, 19, 'Calibri', 'black']);
