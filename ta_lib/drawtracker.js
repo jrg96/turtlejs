@@ -79,6 +79,8 @@ DrawTracker.prototype = {
         this.max_x_cache = this.turtle.get_xy()[0];
         this.max_y_cache = this.turtle.get_xy()[1];;
 
+        draw_stage.bg.fill('#FFF8DE');
+        
         this.group.removeChildren();
         this.group.clearCache();
         this.lines = [];
