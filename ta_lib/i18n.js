@@ -56,8 +56,17 @@ I18n.prototype = {
             error_message = this.error_messages[id]['en_US'];
         }
 
+        //alert(Object.keys(this.words));
+        //alert(params);
+        
+        var block_keys = Object.keys(this.words);
+        
         for (var i=0; i<params.length; i++){
-            var block_name = this.words[params[i]][lang][FACTORY_SIDE][0][0];
+            var block_name = params[i];
+            
+            if (block_keys.indexOf(params[i]) != -1){
+                block_name = this.words[params[i]][lang][FACTORY_SIDE][0][0];
+            }
             error_message = error_message.replace("{" + i + "}", block_name);
         }
         return error_message;
