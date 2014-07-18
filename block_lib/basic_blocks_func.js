@@ -111,7 +111,7 @@ function arc(params, values){
     params[0].set_xy(final_pos);
     params[0].rotate(values[0][1]);
 	
-    if (draw_tracker.is_pen_down()){
+    if (draw_stage.draw_tracker.is_pen_down()){
         params[1].add_shape(arc);
     }
     return true;

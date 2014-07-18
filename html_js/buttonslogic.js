@@ -82,6 +82,7 @@ $(document).ready(function() {
         check_block_visibility(true);
         draw_stage.draw_tracker.save_cache();
         draw_stage.draw_layer.draw();
+        //center_scrollbars();
     });
     $("#clear-bt").click(function(){
         draw_stage.draw_tracker.clear_canvas();
