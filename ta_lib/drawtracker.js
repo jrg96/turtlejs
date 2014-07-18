@@ -70,6 +70,7 @@ DrawTracker.prototype = {
         this.shade = 50;
         this.gray = 100;
         this.color = 0;
+        this.pen_down = true;
         this.already_filling = false;
         
         this.min_x_cache = this.turtle.get_xy()[0];

@@ -102,6 +102,7 @@ function arc(params, values){
     var arc = new ArcShape(params[0].get_xy(), values[1][1], 0, values[0][1], params[1].stroke_line, params[1].pen_size);
 
     draw_stage.draw_tracker.group.add(arc.group);
+    
     arc.rotate(-180  + params[0].rotation);
 
     arc.set_start_offset();
@@ -113,6 +114,10 @@ function arc(params, values){
 	
     if (draw_stage.draw_tracker.is_pen_down()){
         params[1].add_shape(arc);
+    }
+    
+    if (!draw_stage.draw_tracker.is_pen_down()){
+        arc.group.destroy();
     }
     return true;
 }
