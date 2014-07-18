@@ -605,6 +605,9 @@ TurtleBlock.prototype = {
     chain_delete: function(){
         this.tracker.remove_block(this);
         this.hide();
+        
+        this.group.destroy();
+        
         for (var i=0; i<this.receiver_slots.length; i++){
             if (this.receiver_slots[i] != null){
                 this.receiver_slots[i].chain_delete();
