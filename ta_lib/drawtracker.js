@@ -83,6 +83,19 @@ DrawTracker.prototype = {
         
         this.group.removeChildren();
         this.group.clearCache();
+        
+        for (var i=0; i<this.lines.length; i++){
+            this.lines[i].destroy();
+        }
+        
+        for (var i=0; i<this.labels.length; i++){
+            this.labels[i].destroy();
+        }
+        
+        for (var i=0; i<this.shapes.length; i++){
+            this.shapes[i].group.destroy();
+        }
+        
         this.lines = [];
         this.shapes = [];
         this.labels = [];
