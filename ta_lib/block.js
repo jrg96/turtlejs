@@ -383,7 +383,6 @@ TurtleBlock.prototype = {
         if ((!this.has_giving_param() && this.has_receiver_param()) || (!this.has_giving_param() && !this.has_receiver_param())){
             
             var result = get_block_data(this.params, this.block_type);
-            //alert("Valor de nombre: " + this.block_type);
             
             if (!result[0]){
                 error_message_displayer.show_error(result[1]);

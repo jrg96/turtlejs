@@ -55,9 +55,6 @@ I18n.prototype = {
         } else{
             error_message = this.error_messages[id]['en_US'];
         }
-
-        //alert(Object.keys(this.words));
-        //alert(params);
         
         var block_keys = Object.keys(this.words);
         
