@@ -80,12 +80,13 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                 } else{
                     if (json_flow_data[link_data[0]][2] == index){
                         makeUpperStackLink(block, upper_block);
+                        block.set_xy(upper_block.relative_stack_pos(0));
                     } else{
                         makeUpperLink(block, upper_block);
                         block.set_xy(upper_block.relative_lower_pos());
                     }
                 }
-                block.set_xy(upper_block.relative_lower_pos());
+                //block.set_xy(upper_block.relative_lower_pos());
             }
 
             if (lower_block != null){
