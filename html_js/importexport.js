@@ -76,11 +76,13 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             if (upper_block != null){
                 if (json_flow_data[link_data[0]] == null){
                     makeUpperLink(block, upper_block);
+                    block.set_xy(upper_block.relative_lower_pos());
                 } else{
                     if (json_flow_data[link_data[0]][2] == index){
-                        alert("Detectamos union stack");
+                        makeUpperStackLink(block, upper_block);
                     } else{
                         makeUpperLink(block, upper_block);
+                        block.set_xy(upper_block.relative_lower_pos());
                     }
                 }
                 block.set_xy(upper_block.relative_lower_pos());
@@ -128,6 +130,13 @@ function checkIDCount(block_tracker, index){
 function isVerticalFlow(block){
     if (block.has_lower_dock()){
         return true;
+    }
+}
+
+function makeUpperStackLink(caller, receiver){
+    if (caller.upper_block.indexOf(receiver) == -1){
+        caller.upper_block.push(receiver);
+        receiver.stack_slots[0] = caller;
     }
 }
 
