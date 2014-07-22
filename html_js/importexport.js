@@ -14,6 +14,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 var flow_blocks = ['repeat'];
+var json_flow_data = {};
 
 function onFileSelect(evt, palette_tracker, block_tracker) {
     var file = evt.target.files[0];
@@ -57,6 +58,11 @@ function parseTAFile(json, palette_tracker, block_tracker) {
 
         if (json[i][1] instanceof Array){
             //alert(json[i][1][1]);
+            if (isFlowBlock(json[i][1][0])){
+                json_flow_data[index] = link_data;
+                alert(json_flow_data[index]);
+            }
+            
             if (json[i][1][0] == 'number'){
                 block.func(block.params, [], true, json[i][1][1]);
             } else if(!isFlowBlock(json[i][1][0])){
