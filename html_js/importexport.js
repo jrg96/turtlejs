@@ -60,7 +60,6 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             //alert(json[i][1][1]);
             if (isFlowBlock(json[i][1][0])){
                 json_flow_data[index] = link_data;
-                alert(json_flow_data[index]);
             }
             
             if (json[i][1][0] == 'number'){
@@ -75,7 +74,15 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             var lower_block = block_tracker.get_block(link_data[link_data.length - 1])
 
             if (upper_block != null){
-                makeUpperLink(block, upper_block);
+                if (json_flow_data[link_data[0]] == null){
+                    makeUpperLink(block, upper_block);
+                } else{
+                    if (json_flow_data[link_data[0]][2] == index){
+                        alert("Detectamos union stack");
+                    } else{
+                        makeUpperLink(block, upper_block);
+                    }
+                }
                 block.set_xy(upper_block.relative_lower_pos());
             }
 
