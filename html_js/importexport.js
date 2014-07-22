@@ -59,7 +59,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             //alert(json[i][1][1]);
             if (json[i][1][0] == 'number'){
                 block.func(block.params, [], true, json[i][1][1]);
-            } else{
+            } else if(!isFlowBlock(json[i][1][0])){
                 block.func(block.params, []);
             }
         }
