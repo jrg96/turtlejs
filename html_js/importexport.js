@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
+var flow_blocks = ['repeat'];
+
 function onFileSelect(evt, palette_tracker, block_tracker) {
     var file = evt.target.files[0];
     var reader = new FileReader();
@@ -75,12 +77,15 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                 makeLowerLink(block, lower_block);
             }
 
-            for (var i2=1; i2<link_data.length-1; i2++){
-                var param_block = block_tracker.get_block(link_data[i2]);
-                if (param_block != null){
-                    makeReceiverGivingLink(block, param_block, i2-1);
-                    param_block.set_xy(block.relative_param_pos(link_data.indexOf(param_block.block_id)-1));
+            if (!isFlowBlock()){
+                for (var i2=1; i2<link_data.length-1; i2++){
+                    var param_block = block_tracker.get_block(link_data[i2]);
+                    if (param_block != null){
+                        makeReceiverGivingLink(block, param_block, i2-1);
+                        param_block.set_xy(block.relative_param_pos(link_data.indexOf(param_block.block_id)-1));
+                    }
                 }
+            } else{
             }
         } else{
             var receiver_block = block_tracker.get_block(link_data[0]);
@@ -92,6 +97,13 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             }
         }
     }
+}
+
+function isFlowBlock(name){
+    if (flow_blocks.indexOf(name) == -1){
+        return false;
+    }
+    return true;
 }
 
 function checkIDCount(block_tracker, index){
