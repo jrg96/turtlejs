@@ -56,7 +56,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             factory = palette_tracker.search_factory(json[i][1]);
         }
         
-        alert("factory de " + block_name + " = " + factory);
+        //alert("factory de " + block_name + " = " + factory);
 
         block = factory.make_block(factory.block_name, false);
         block.block_id = index;
