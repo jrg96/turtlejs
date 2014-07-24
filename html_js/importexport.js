@@ -44,12 +44,15 @@ function parseTAFile(json, palette_tracker, block_tracker) {
         var factory = null;
         var block = null;
         var link_data = json[i][4];
+        var block_name = null;
 
         checkIDCount(block_tracker, index);
 
         if (json[i][1] instanceof Array){
+            block_name = json[i][1][0];
             factory = palette_tracker.search_factory(json[i][1][0]);
         } else{
+            block_name = json[i][1];
             factory = palette_tracker.search_factory(json[i][1]);
         }
 
@@ -72,7 +75,23 @@ function parseTAFile(json, palette_tracker, block_tracker) {
 
         if (isVerticalFlow(block)){
             var upper_block = block_tracker.get_block(link_data[0]);
-            var lower_block = block_tracker.get_block(link_data[link_data.length - 1])
+            var lower_block = block_tracker.get_block(link_data[link_data.length - 1]);
+			var stack_block = null;
+            var name = null;
+			
+            if (json[i][1] instanceof Array){
+                if (isFlowBlock(json[i][1][0])){
+                    stack_block = block_tracker.get_block(link_data[2]);
+                }
+            } else{
+                if (isFlowBlock(json[i][1])){
+                    stack_block = block_tracker.get_block(link_data[2]);
+                }
+            }
+            
+            if (stack_block != null){
+                makeStackUpperLink(block, stack_block);
+            }
 
             if (upper_block != null){
                 if (json_flow_data[link_data[0]] == null){
@@ -87,14 +106,13 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                         block.set_xy(upper_block.relative_lower_pos());
                     }
                 }
-                //block.set_xy(upper_block.relative_lower_pos());
             }
 
             if (lower_block != null){
                 makeLowerLink(block, lower_block);
             }
 
-            if (!isFlowBlock()){
+            if (!isFlowBlock(block_name)){
                 for (var i2=1; i2<link_data.length-1; i2++){
                     var param_block = block_tracker.get_block(link_data[i2]);
                     if (param_block != null){
@@ -152,6 +170,13 @@ function checkIDCount(block_tracker, index){
 function isVerticalFlow(block){
     if (block.has_lower_dock()){
         return true;
+    }
+}
+
+function makeStackUpperLink(caller, receiver){
+    if (receiver.upper_block.indexOf(caller) == -1){
+        receiver.upper_block.push(caller);
+        caller.stack_slots[0] = receiver;
     }
 }
 

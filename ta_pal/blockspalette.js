@@ -52,7 +52,7 @@ BlocksPalette.prototype = {
         new BlockFactory([135, 55], sprit1, 'start_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'start2']);
       
         sprit1 = new Sprite(image_tracker.get_resource('head1arg'), this.container.layer, true);
-        new BlockFactory([5, 55], sprit1, 'action_make_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'action_make']);
+        new BlockFactory([5, 55], sprit1, 'action_make_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'hat']);
         
         var sprit1 = new Sprite(image_tracker.get_resource('basic1arg_yellow'), this.container.layer, true);
         new BlockFactory([375, 5], sprit1, 'action_call_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'action_call']);
