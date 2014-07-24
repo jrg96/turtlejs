@@ -43,7 +43,7 @@ BasicBlockPalette.prototype = {
         new BlockFactory([5, 5], sprit1, 'forward_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'forward']);
 
         sprit1 = new Sprite(image_tracker.get_resource('basic1arg'), this.container.layer, true);
-        new BlockFactory([120, 5], sprit1, 'backward_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'backward']);
+        new BlockFactory([120, 5], sprit1, 'backward_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'back']);
 
         sprit1 = new Sprite(image_tracker.get_resource('basic1arg'), this.container.layer, true);
         new BlockFactory([235, 5], sprit1, 'right_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'right']);
