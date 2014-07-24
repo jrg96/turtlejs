@@ -55,6 +55,8 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             block_name = json[i][1];
             factory = palette_tracker.search_factory(json[i][1]);
         }
+        
+        alert("factory de " + block_name + " = " + factory);
 
         block = factory.make_block(factory.block_name, false);
         block.block_id = index;
@@ -66,27 +68,26 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                 json_flow_data[index] = link_data;
             }
             
-            if (json[i][1][0] == 'number'){
+            if (json[i][1][0] == 'number' || json[i][1][0] == 'string'){
                 block.func(block.params, [], true, json[i][1][1]);
-            } else if(!isFlowBlock(json[i][1][0])){
+            } else if(!isFlowBlock(json[i][1][0]) && block_name != 'hat'){
                 block.func(block.params, []);
             }
         }
 
         if (isVerticalFlow(block)){
             var upper_block = block_tracker.get_block(link_data[0]);
-            var lower_block = block_tracker.get_block(link_data[link_data.length - 1]);
-			var stack_block = null;
-            var name = null;
-			
-            if (json[i][1] instanceof Array){
-                if (isFlowBlock(json[i][1][0])){
-                    stack_block = block_tracker.get_block(link_data[2]);
-                }
+            var lower_block = null;
+            var stack_block = null;
+            
+            if (block_name != 'hat'){
+                lower_block = block_tracker.get_block(link_data[link_data.length - 1]);
             } else{
-                if (isFlowBlock(json[i][1])){
-                    stack_block = block_tracker.get_block(link_data[2]);
-                }
+                lower_block = block_tracker.get_block(link_data[2]);
+            }
+			
+            if (isFlowBlock(block_name)){
+                stack_block = block_tracker.get_block(link_data[2]);
             }
             
             if (stack_block != null){
@@ -110,11 +111,16 @@ function parseTAFile(json, palette_tracker, block_tracker) {
 
             if (lower_block != null){
                 makeLowerLink(block, lower_block);
+                var final_pos = block.relative_lower_pos();
+                var initial_pos = lower_block.get_xy();
+                var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
+                lower_block.group_movement(lower_block, movement, false, true);
             }
 
-            if (!isFlowBlock(block_name)){
+            if (!isFlowBlock(block_name) && block_name != 'hat'){
                 for (var i2=1; i2<link_data.length-1; i2++){
                     var param_block = block_tracker.get_block(link_data[i2]);
+                    //alert(param_block + " de " + block_name);
                     if (param_block != null){
                         makeReceiverGivingLink(block, param_block, i2-1);
                         param_block.set_xy(block.relative_param_pos(link_data.indexOf(param_block.block_id)-1));

@@ -40,7 +40,7 @@ BlocksPalette.prototype = {
     },
     make_block_factories: function(){
         var sprit1 = new Sprite(image_tracker.get_resource('box2'), this.container.layer, true, false, null, null, [0, 28, 82]);
-        var factory = new BlockFactory([5, 5], sprit1, 'text_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'text']);
+        var factory = new BlockFactory([5, 5], sprit1, 'text_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'string']);
 		
         var sprit1 = new Sprite(image_tracker.get_resource('basic1arg_yellow'), this.container.layer, true);
         new BlockFactory([135, 5], sprit1, 'show_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'show']);
