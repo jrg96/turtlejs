@@ -88,16 +88,26 @@ function parseTAFile(json, palette_tracker, block_tracker) {
 			
             if (isFlowBlock(block_name)){
                 stack_block = block_tracker.get_block(link_data[2]);
+                //alert("valor de stack " + stack_block);
             }
             
             if (stack_block != null){
+                /*var final_pos = block.relative_stack_pos(0);
+                var initial_pos = stack_block.get_xy();
+                var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
+                alert(final_pos);
+                stack_block.group_movement(stack_block, movement, false, true);*/
                 makeStackUpperLink(block, stack_block);
             }
 
             if (upper_block != null){
                 if (json_flow_data[link_data[0]] == null){
                     makeUpperLink(block, upper_block);
-                    block.set_xy(upper_block.relative_lower_pos());
+                    
+                    var final_pos = upper_block.relative_lower_pos();
+                    var initial_pos = block.get_xy();
+                    var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
+                    block.group_movement(block, movement, false, true);
                 } else{
                     if (json_flow_data[link_data[0]][2] == index){
                         makeUpperStackLink(block, upper_block);
