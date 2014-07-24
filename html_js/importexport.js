@@ -15,6 +15,7 @@
 
 var flow_blocks = ['repeat'];
 var flow_types = ['repeat_block'];
+var arithmetic_blocks = ['plus2'];
 var json_flow_data = {};
 
 function onFileSelect(evt, palette_tracker, block_tracker) {
@@ -70,7 +71,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             
             if (json[i][1][0] == 'number' || json[i][1][0] == 'string'){
                 block.func(block.params, [], true, json[i][1][1]);
-            } else if(!isFlowBlock(json[i][1][0]) && block_name != 'hat'){
+            } else if(!isFlowBlock(json[i][1][0]) && block_name != 'hat' && !isArithmeticBlock(block_name)){
                 block.func(block.params, []);
             }
         }
@@ -146,6 +147,14 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                 makeGivingReceiverLink(block, receiver_block, block_json[4].indexOf(index)-1);
                 block.set_xy(receiver_block.relative_param_pos(block_json[4].indexOf(index)-1));
             }
+            
+            for (var i2=1; i2<link_data.length; i2++){
+                var param_block = block_tracker.get_block(link_data[i2]);
+                if (param_block != null){
+                    makeReceiverGivingLink(block, param_block, i2-1);
+                    param_block.set_xy(block.relative_param_pos(link_data.indexOf(param_block.block_id)-1));
+                }
+            }
         }
     }
     setTimeout(function(){make_flow_resize()}, 200);
@@ -161,6 +170,13 @@ function make_flow_resize(){
             }
         }
     }
+}
+
+function isArithmeticBlock(name){
+    if (arithmetic_blocks.indexOf(name) == -1){
+        return false;
+    }
+    return true;
 }
 
 function isFlowType(name){
