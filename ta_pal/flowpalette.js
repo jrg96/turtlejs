@@ -58,7 +58,7 @@ FlowPalette.prototype = {
         new BlockFactory([460, 5], sprit1, 'until_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'until']);
         
         var sprit1 = new Sprite(image_tracker.get_resource('basic_resize'), this.container.layer, true, false, null, null, [0, 15, 8]);
-        new BlockFactory([145, 105], sprit1, 'space_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'space']);
+        new BlockFactory([145, 105], sprit1, 'space_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'vspace']);
     }
 }
 

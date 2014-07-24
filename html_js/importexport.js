@@ -15,7 +15,7 @@
 
 var flow_blocks = ['repeat'];
 var flow_types = ['repeat_block'];
-var arithmetic_blocks = ['plus2', 'minus2'];
+var arithmetic_blocks = ['plus2', 'minus2', 'division2'];
 var json_flow_data = {};
 var box_data = {};
 
@@ -73,7 +73,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                 
                 if (json[i][1][0] == 'number' || json[i][1][0] == 'string'){
                     block.func(block.params, [], true, json[i][1][1]);
-                } else if(!isFlowBlock(json[i][1][0]) && block_name != 'hat' && !isArithmeticBlock(block_name) && block_name != 'storein' && block_name != 'arc'){
+                } else if(!isFlowBlock(json[i][1][0]) && block_name != 'hat' && !isArithmeticBlock(block_name) && block_name != 'storein' && block_name != 'arc' && block_name != 'vspace'){
                     block.func(block.params, []);
                 }
             }
