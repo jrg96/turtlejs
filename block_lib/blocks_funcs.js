@@ -33,6 +33,7 @@ function string_block(params, values, import_action, value) {
         $("#text_input").focus();
     } else{
         params[2].sprite.labels[0].setText(value + '');
+        params[2].block_value = value;
     }
 }
 
@@ -53,10 +54,12 @@ function action_block(params, values){
 
 function action_exec_block(params, values){
     var block = user_funcs_tracker.get_func(values[0][1]);
+    var val = true;
     if (block.lower_block[0] != null){
-        block.lower_block[0].chain_exec();
+        val = block.lower_block[0].chain_exec();
     }
-    return true;
+    val = true;
+    return val;
 }
 
 function turtle_color_block(params, values){

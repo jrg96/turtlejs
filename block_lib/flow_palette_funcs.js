@@ -14,11 +14,14 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 function repeat(params, values){
-    if (params[2].stack_slots[0] != null){
-        for (var i=0; i<values[0][1]; i++){
-            params[2].stack_slots[0].chain_exec();
+    function inicia(){
+        if (params[2].stack_slots[0] != null){
+            for (var i=0; i<values[0][1]; i++){
+                params[2].stack_slots[0].chain_exec();
+            }
         }
     }
+    inicia();
     return true;
 }
 
