@@ -46,7 +46,7 @@ BlocksPalette.prototype = {
         new BlockFactory([135, 5], sprit1, 'show_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'show']);
         
         sprit1 = new Sprite(image_tracker.get_resource('basic2arg'), this.container.layer, true);
-        new BlockFactory([255, 5], sprit1, 'store_in_box_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'store_in_box']);
+        new BlockFactory([255, 5], sprit1, 'store_in_box_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'storein']);
       
         sprit1 = new Sprite(image_tracker.get_resource('head'), this.container.layer, true);
         new BlockFactory([135, 55], sprit1, 'start_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'start2']);
