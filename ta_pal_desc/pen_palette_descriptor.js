@@ -34,8 +34,8 @@ PenPaletteDesc.prototype = {
 
        new BlockDescriptor(image_tracker.get_resource('basic_blue'), 'basic', end_fill, null, ['end_fill_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
 
-        var descriptor = new BlockDescriptor(image_tracker.get_resource('box2_blue'), 'box', text_block, get_number, ['box_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
-        descriptor.component_positions = [0, 28, 82];
+        /*var descriptor = new BlockDescriptor(image_tracker.get_resource('box2_blue'), 'box', text_block, get_number, ['box_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        descriptor.component_positions = [0, 28, 82];*/
 
         new BlockDescriptor(image_tracker.get_resource('basic1arg_blue'), 'basic1arg', set_color, null, ['set_color_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['str_int']]);
 
@@ -50,6 +50,9 @@ PenPaletteDesc.prototype = {
         descriptor.component_positions = [0, 28, 82];
 
         var descriptor = new BlockDescriptor(image_tracker.get_resource('box2_blue'), 'box', null, get_pen_gray, ['gray_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        descriptor.component_positions = [0, 28, 82];
+        
+        var descriptor = new BlockDescriptor(image_tracker.get_resource('box2_blue'), 'box', null, get_pen_size, ['pensize_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         descriptor.component_positions = [0, 28, 82];
     },
     get_block_descriptor: function(name){

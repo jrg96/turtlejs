@@ -190,6 +190,9 @@ DrawTracker.prototype = {
     get_pen_gray: function(){
         return this.gray;
     },
+    get_pen_size: function(){
+        return this.pen_size;
+    },
     on_color_change: function(value){
         if (this.stroke_line != value){
             this.stroke_line = value;
