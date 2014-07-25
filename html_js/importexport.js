@@ -21,6 +21,7 @@ var box_data = {};
 
 function onFileSelect(evt, palette_tracker, block_tracker) {
     var file = evt.target.files[0];
+	//alert(file);
     var reader = new FileReader();
 
     reader.onload = (function(theFile) {

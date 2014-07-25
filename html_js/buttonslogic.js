@@ -17,6 +17,16 @@ $(document).ready(function() {
     
     $("#saved-image").attr("height", parseInt($(window).height() * 0.45));
     $("#saved-image").attr("width", parseInt($(window).width() * 0.45));
+	
+	$('#popupShowHelp').css('overflow-y', 'scroll');
+	
+    $('.card').click(function(){
+        var id = $(this).find('img')[0];
+        id = $(id).attr('id');
+        
+        var json_obj = JSON.parse(examples[id]);
+        parseTAFile(json_obj, palette_tracker, block_tracker);
+    });
     
     var count = 0;
     
@@ -97,6 +107,8 @@ $(document).ready(function() {
         $("#input-file").focus().click();
     });
     $("#save-bt").click(function(){
+    });
+	$("#help-bt").click(function(){
     });
     
     function on_saved_image(data){
