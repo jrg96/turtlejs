@@ -58,7 +58,7 @@ BasicBlockPalette.prototype = {
         new BlockFactory([130, 55], sprit1, 'clean_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'clean']);
 
         sprit1 = new Sprite(image_tracker.get_resource('basic2arg'), this.container.layer, true);
-        new BlockFactory([5, 100], sprit1, 'setxy_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'setxy']);
+        new BlockFactory([5, 100], sprit1, 'setxy_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'setxy2']);
 
         sprit1 = new Sprite(image_tracker.get_resource('box2'), this.container.layer, true, false, null, null, [0, 28, 82]);
         new BlockFactory([125, 100], sprit1, 'xcor_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'xcor']);
