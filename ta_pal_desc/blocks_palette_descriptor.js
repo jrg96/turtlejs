@@ -35,6 +35,12 @@ BlocksPaletteDesc.prototype = {
         new BlockDescriptor(image_tracker.get_resource('basic1arg_yellow'), 'basic1arg', action_exec_block, null, ['action_call_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['str_no_parse']]);
         
         new BlockDescriptor(image_tracker.get_resource('basic1arg_yellow'), 'basic1arg', turtle_color_block, null, ['turtle_color_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['str_int']]);
+        
+        descriptor = new BlockDescriptor(image_tracker.get_resource('box2_blue_c'), 'box', null, get_width_block, ['width_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        descriptor.component_positions = [0, 28, 82];
+        
+        descriptor = new BlockDescriptor(image_tracker.get_resource('box2_blue_c'), 'box', null, get_height_block, ['height_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        descriptor.component_positions = [0, 28, 82];
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

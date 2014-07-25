@@ -59,5 +59,11 @@ BlocksPalette.prototype = {
         
         var sprit1 = new Sprite(image_tracker.get_resource('basic1arg_yellow'), this.container.layer, true);
         new BlockFactory([375, 55], sprit1, 'turtle_color_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'turtle_color']);
+        
+        sprit1 = new Sprite(image_tracker.get_resource('box2_blue_c'), this.container.layer, true, false, null, null, [0, 28, 82]);
+        new BlockFactory([285, 110], sprit1, 'width_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'width']);
+        
+        sprit1 = new Sprite(image_tracker.get_resource('box2_blue_c'), this.container.layer, true, false, null, null, [0, 28, 82]);
+        new BlockFactory([415, 110], sprit1, 'height_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'height']);
     }
 }

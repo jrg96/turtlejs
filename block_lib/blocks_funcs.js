@@ -81,3 +81,11 @@ function turtle_color_block(params, values){
 function start_block(params, values){
     return true;
 }
+
+function get_width_block(params, values){
+    return [true, $(window).width()];
+}
+
+function get_height_block(params, values){
+    return [true, $(window).height()];
+}

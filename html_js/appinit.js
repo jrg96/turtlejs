@@ -61,5 +61,5 @@ palette_tracker.add_palette(flow_palette);
 var numbers_palette = new NumbersPalette(775, 200, '#FFD000', draw_stage.palette_layer, new NumbersPaletteDesc(), global_tracker);
 palette_tracker.add_palette(numbers_palette);
 
-var blocks_palette = new BlocksPalette(575, 150, '#FFD000', draw_stage.palette_layer, new BlocksPaletteDesc(), global_tracker);
+var blocks_palette = new BlocksPalette(575, 160, '#FFD000', draw_stage.palette_layer, new BlocksPaletteDesc(), global_tracker);
 palette_tracker.add_palette(blocks_palette);
