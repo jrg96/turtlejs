@@ -54,13 +54,12 @@ function parseTAFile(json, palette_tracker, block_tracker) {
         block.set_xy([json[i][2], json[i][3]]);
 
         if (json[i][1] instanceof Array){
-            alert(json[i][1][1]);
+            //alert(json[i][1][1]);
             if (json[i][1][0] == 'number'){
                 block.func(block.params, [], true, json[i][1][1]);
             } else{
                 block.func(block.params, []);
             }
-            //block.func(block.params, true, json[i][1][1]);
         }
 
         if (isVerticalFlow(block)){
@@ -69,6 +68,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
 
             if (upper_block != null){
                 makeUpperLink(block, upper_block);
+                block.set_xy(upper_block.relative_lower_pos());
             }
 
             if (lower_block != null){
@@ -87,6 +87,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             if (receiver_block != null){
                 var block_json = getBlockJSON(json, link_data[0]);
                 makeGivingReceiverLink(block, receiver_block, block_json[4].indexOf(index)-1);
+                block.set_xy(receiver_block.relative_param_pos(block_json[4].indexOf(index)-1));
             }
         }
     }

@@ -550,6 +550,18 @@ TurtleBlock.prototype = {
     get_stack_points: function(){
         return this.descriptor.get_stack_points();
     },
+    relative_lower_pos: function(){
+        var points = this.get_xy();
+        points[0] += this.descriptor.get_lower_dock()[0] - 17;
+        points[1] += this.descriptor.get_lower_dock()[1] - 1;
+        return points;
+    },
+    relative_param_pos: function(index){
+        var points = this.get_xy();
+        points[0] += this.descriptor.get_receiver_points()[index][0] - 17;
+        points[1] += this.descriptor.get_receiver_points()[index][1] - 25;
+        return points;
+    },
     configure_receiver_slots: function(){
         var slots = this.descriptor.get_receiver_points();
         for (var i=0; i<slots.length; i++){
