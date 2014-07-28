@@ -79,6 +79,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                 var param_block = block_tracker.get_block(link_data[i2]);
                 if (param_block != null){
                     makeReceiverGivingLink(block, param_block, i2-1);
+                    param_block.set_xy(block.relative_param_pos(link_data.indexOf(param_block.block_id)-1));
                 }
             }
         } else{
