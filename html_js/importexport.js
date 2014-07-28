@@ -54,7 +54,13 @@ function parseTAFile(json, palette_tracker, block_tracker) {
         block.set_xy([json[i][2], json[i][3]]);
 
         if (json[i][1] instanceof Array){
-            block.func(block.params, true, json[i][1][1]);
+            alert(json[i][1][1]);
+            if (json[i][1][0] == 'number'){
+                block.func(block.params, [], true, json[i][1][1]);
+            } else{
+                block.func(block.params, []);
+            }
+            //block.func(block.params, true, json[i][1][1]);
         }
 
         if (isVerticalFlow(block)){

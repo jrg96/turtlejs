@@ -46,7 +46,6 @@ function get_number(params){
 }
 
 function text_block(params, values, import_action, value) {
-    import_action = import_action || false;
     if (!import_action){
         var number = 0;
 
@@ -75,6 +74,7 @@ function text_block(params, values, import_action, value) {
         });
         $("#text_input").focus();
     } else{
+        params[2].block_value = value;
         params[2].sprite.labels[0].setText(value + '');
     }
 }

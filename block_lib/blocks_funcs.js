@@ -75,6 +75,6 @@ function turtle_color_block(params, values){
     return true;
 }
 
-function start_block(){
+function start_block(params, values){
     return true;
 }
