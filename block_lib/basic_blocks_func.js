@@ -99,11 +99,20 @@ function setxy(params, values){
 }
 
 function arc(params, values){
-    var arc = new ArcShape(params[0].get_xy(), values[1][1], 0, values[0][1], params[1].stroke_line, params[1].pen_size);
+    var anti_clockwise = false;
+    
+    if (values[0][1] < 0){
+        anti_clockwise = true;
+    }
+    var arc = new ArcShape(params[0].get_xy(), values[1][1], 0, values[0][1], params[1].stroke_line, params[1].pen_size, anti_clockwise);
 
     draw_stage.draw_tracker.group.add(arc.group);
     
-    arc.rotate(-180  + params[0].rotation);
+    if (anti_clockwise){
+        arc.rotate(params[0].rotation);
+    } else{
+        arc.rotate(-180  + params[0].rotation);
+    }
 
     arc.set_start_offset();
     arc.set_xy(params[0].get_xy());
