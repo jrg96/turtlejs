@@ -14,6 +14,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 var flow_blocks = ['repeat'];
+var flow_types = ['repeat_block'];
 var json_flow_data = {};
 
 function onFileSelect(evt, palette_tracker, block_tracker) {
@@ -113,6 +114,26 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             }
         }
     }
+    setTimeout(function(){make_flow_resize()}, 200);
+}
+
+function make_flow_resize(){
+    for (var i=0; i<block_tracker.blocks.length; i++){
+        if (isFlowType(block_tracker.blocks[i].block_type)){
+            var block = block_tracker.blocks[i];
+            
+            if (block.stack_slots[0] != null){
+                block.calc_clamp_height(true, block.stack_slots[0].chain_height(), block);
+            }
+        }
+    }
+}
+
+function isFlowType(name){
+    if (flow_types.indexOf(name) == -1){
+        return false;
+    }
+    return true;
 }
 
 function isFlowBlock(name){
