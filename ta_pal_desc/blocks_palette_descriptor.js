@@ -28,6 +28,9 @@ BlocksPaletteDesc.prototype = {
         
         var descriptor = new BlockDescriptor(image_tracker.get_resource('basic2arg2'), 'basic2arg', store_in_box, null, ['store_in_box_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors, ['str_no_parse', 'str_int']]);
         descriptor.component_positions = [0, 38, 10];
+        descriptor.base_clamp_height = 10;
+        descriptor.user_resizable = [10, 55];
+        
       
         new BlockDescriptor(image_tracker.get_resource('head'), 'head', start_block, null, ['start_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
       
