@@ -201,7 +201,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                     if (param_block != null){
                         makeReceiverGivingLink(block, param_block, i2-1);
                         if (isConnectedToBox(link_data[i2])){
-                            param_block.set_xy(block.relative_param_pos(link_data.indexOf(index)-1));
+                            //param_block.set_xy(block.relative_param_pos(link_data.indexOf(index)-1));
                             
                             var final_pos = block.relative_param_pos(link_data.indexOf(index)-1);
                             var initial_pos = param_block.get_xy();
@@ -209,7 +209,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                             param_block.group_movement(param_block, movement, false, true);
                             
                         } else{
-                            param_block.set_xy(block.relative_param_pos(link_data.indexOf(param_block.block_id)-1));
+                            //param_block.set_xy(block.relative_param_pos(link_data.indexOf(param_block.block_id)-1));
                             
                             var final_pos = block.relative_param_pos(link_data.indexOf(param_block.block_id)-1);
                             var initial_pos = param_block.get_xy();
