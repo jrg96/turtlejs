@@ -315,7 +315,12 @@ TurtleBlock.prototype = {
                                                             [added_size, 0], false, false);
                     }
                 } else{
-                    parent.descriptor.param_dock[2][1] += added_size;
+                    if (parent.descriptor.param_dock.length == 3){
+                        parent.descriptor.param_dock[2][1] += added_size;
+                    } else{
+                        parent.descriptor.param_dock[1][1] += added_size;
+                    }
+                    alert(parent.descriptor.param_dock[2][1]);
                     if (parent.receiver_slots[1] != null){
                         parent.receiver_slots[1].group_movement(parent.receiver_slots[1], 
                                                             [0, added_size], false, false);
