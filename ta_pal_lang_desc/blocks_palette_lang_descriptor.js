@@ -22,6 +22,7 @@ i18n_tracker.add_label('turtle_color_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE]
 i18n_tracker.add_label('width_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['width', 48, 13, 19, 'Calibri', 'black']);
 i18n_tracker.add_label('height_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['height', 48, 13, 19, 'Calibri', 'black']);
 i18n_tracker.add_label('left2_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['left', 48, 13, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('right2_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['right', 48, 13, 19, 'Calibri', 'black']);
 
 i18n_tracker.add_label('store_in_box_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Store in', 12, 31, 24, 'Calibri', 'black']);
 i18n_tracker.add_label('store_in_box_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['box', 59, 10, 20, 'Calibri', 'black']);

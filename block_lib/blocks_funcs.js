@@ -93,3 +93,7 @@ function get_height_block(params, values){
 function get_left_block(params, values){
     return [true, ($(window).width()/2) * -1];
 }
+
+function get_right_block(params, values){
+    return [true, ($(window).width()/2)];
+}
