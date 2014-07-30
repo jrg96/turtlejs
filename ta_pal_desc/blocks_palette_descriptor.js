@@ -45,6 +45,9 @@ BlocksPaletteDesc.prototype = {
         
         descriptor = new BlockDescriptor(image_tracker.get_resource('box2_blue_c'), 'box', null, get_height_block, ['height_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
         descriptor.component_positions = [0, 28, 82];
+        
+        descriptor = new BlockDescriptor(image_tracker.get_resource('box2_blue_c'), 'box', null, get_left_block, ['left2_block', DEFAULT_LANG, FACTORY_SIDE, this.descriptors]);
+        descriptor.component_positions = [0, 28, 82];
     },
     get_block_descriptor: function(name){
         return this.descriptors[name];

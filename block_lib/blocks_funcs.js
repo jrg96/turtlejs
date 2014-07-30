@@ -89,3 +89,7 @@ function get_width_block(params, values){
 function get_height_block(params, values){
     return [true, $(window).height()];
 }
+
+function get_left_block(params, values){
+    return [true, ($(window).width()/2) * -1];
+}

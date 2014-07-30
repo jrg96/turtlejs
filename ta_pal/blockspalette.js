@@ -65,5 +65,8 @@ BlocksPalette.prototype = {
         
         sprit1 = new Sprite(image_tracker.get_resource('box2_blue_c'), this.container.layer, true, false, null, null, [0, 28, 82]);
         new BlockFactory([415, 110], sprit1, 'height_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'height']);
+        
+        sprit1 = new Sprite(image_tracker.get_resource('box2_blue_c'), this.container.layer, true, false, null, null, [0, 28, 82]);
+        new BlockFactory([135, 110], sprit1, 'left2_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'left']);
     }
 }
