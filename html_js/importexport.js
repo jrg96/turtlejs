@@ -13,8 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-var flow_blocks = ['repeat'];
-var flow_types = ['repeat_block'];
+var flow_blocks = ['repeat', 'forever'];
+var flow_types = ['repeat_block', 'forever_block'];
 var arithmetic_blocks = ['plus2', 'minus2', 'division2', 'random'];
 
 var resize_blocks = ['storein', 'arc', 'vspace', 'setxy2', 'plus2', 'minus2', 'division2', 'product2'];
@@ -60,18 +60,15 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             //factory = palette_tracker.search_factory(json[i][1][0]);
         } else{
             block_name = json[i][1];
-            //factory = palette_tracker.search_factory(json[i][1]);
         }
         
         if (block_name != 'box'){
-            //alert("factory de " + block_name + " = " + factory);
             factory = palette_tracker.search_factory(block_name);
             block = factory.make_block(factory.block_name, false);
             block.block_id = index;
             block.set_xy([json[i][2], json[i][3]]);
 
             if (json[i][1] instanceof Array){
-                //alert(json[i][1][1]);
                 if (isFlowBlock(json[i][1][0])){
                     json_flow_data[index] = link_data;
                 }
@@ -110,7 +107,6 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                 
                 if (isFlowBlock(block_name)){
                     stack_block = block_tracker.get_block(link_data[2]);
-                    //alert("valor de stack " + stack_block);
                 }
                 
                 if (stack_block != null){
@@ -123,21 +119,21 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                 }
 
                 if (upper_block != null){
-                    if (json_flow_data[link_data[0]] == null){
-                        makeUpperLink(block, upper_block);
-                        
-                        var final_pos = upper_block.relative_lower_pos();
-                        var initial_pos = block.get_xy();
-                        var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
-                        block.group_movement(block, movement, false, true);
-                    } else{
-                        if (json_flow_data[link_data[0]][2] == index){
+                    if (json_flow_data[link_data[0]] != null){
+                        if (json_flow_data[link_data[0]][2] == index || json_flow_data[link_data[0]][1] == index){
                             makeUpperStackLink(block, upper_block);
                             block.set_xy(upper_block.relative_stack_pos(0));
                         } else{
                             makeUpperLink(block, upper_block);
                             block.set_xy(upper_block.relative_lower_pos());
                         }
+                    } else{
+                        makeUpperLink(block, upper_block);
+                        
+                        var final_pos = upper_block.relative_lower_pos();
+                        var initial_pos = block.get_xy();
+                        var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
+                        block.group_movement(block, movement, false, true);
                     }
                 }
 
