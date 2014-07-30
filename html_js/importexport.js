@@ -18,6 +18,7 @@ var flow_types = ['repeat_block'];
 var arithmetic_blocks = ['plus2', 'minus2', 'division2'];
 
 var resize_blocks = ['storein', 'arc', 'vspace', 'setxy2', 'plus2', 'minus2', 'division2'];
+var resize_data = [];
 
 var json_flow_data = {};
 var box_data = {};
@@ -85,15 +86,15 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             if (isResizeBlock(block_name)){
                 var limit = (json[i][1][1]);
                 
-                if (limit == 20){
-                    limit = 1;
-                } else{
-                    limit = (limit / 10) - 2; 
+                if (limit != 0){
+                    if (limit == 20){
+                        limit = 1;
+                    } else{
+                        limit = (limit / 10) - 2; 
+                    }
                 }
                 
-                for (var i=0; i<limit; i++){
-                    block.add_sprite.group.fire('click');
-                }
+               resize_data.push([block, limit]);
             }
 
             if (isVerticalFlow(block)){
@@ -203,6 +204,18 @@ function parseTAFile(json, palette_tracker, block_tracker) {
         } else{
             box_data[index] = link_data;
             //alert(box_data[index]);
+        }
+    }
+    setTimeout(function(){make_vertical_resize()}, 200);
+}
+
+function make_vertical_resize(){
+    for (var i=0; i<resize_data.length; i++){
+        var limit = resize_data[i][1];
+        var block = resize_data[i][0];
+        
+        for (var i2=0; i2<limit; i2++){
+            block.add_sprite.group.fire('click');
         }
     }
     setTimeout(function(){make_flow_resize()}, 200);
