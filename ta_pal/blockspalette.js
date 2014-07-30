@@ -67,9 +67,9 @@ BlocksPalette.prototype = {
         new BlockFactory([415, 110], sprit1, 'height_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'height']);
         
         sprit1 = new Sprite(image_tracker.get_resource('box2_blue_c'), this.container.layer, true, false, null, null, [0, 28, 82]);
-        new BlockFactory([135, 110], sprit1, 'left2_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'left']);
+        new BlockFactory([135, 110], sprit1, 'left2_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'leftpos']);
         
         sprit1 = new Sprite(image_tracker.get_resource('box2_blue_c'), this.container.layer, true, false, null, null, [0, 28, 82]);
-        new BlockFactory([5, 115], sprit1, 'right2_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'right']);
+        new BlockFactory([5, 115], sprit1, 'right2_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'rightpos']);
     }
 }
