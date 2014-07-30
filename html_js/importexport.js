@@ -15,7 +15,7 @@
 
 var flow_blocks = ['repeat'];
 var flow_types = ['repeat_block'];
-var arithmetic_blocks = ['plus2', 'minus2', 'division2'];
+var arithmetic_blocks = ['plus2', 'minus2', 'division2', 'random'];
 
 var resize_blocks = ['storein', 'arc', 'vspace', 'setxy2', 'plus2', 'minus2', 'division2'];
 var resize_data = [];

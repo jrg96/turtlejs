@@ -70,6 +70,6 @@ NumbersPalette.prototype = {
         new BlockFactory([245, 95], sprit1, 'sqrt_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'sqrt']);
         
         var sprit1 = new Sprite(image_tracker.get_resource('numbern_purple'), this.container.layer, true, false, null, null, [0, 34, 15]);
-        new BlockFactory([380, 95], sprit1, 'rand_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'rand']);
+        new BlockFactory([380, 95], sprit1, 'rand_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'random']);
     }
 }
