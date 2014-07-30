@@ -45,7 +45,9 @@ Sprite.prototype = {
         // add the new object to the layer ()canvas
 
         if (!this.is_in_block){
-            this.layer.add(group);
+            if (this.layer != null){
+                this.layer.add(group);
+            }
         }
 
         // style the mouse cursor depending if it's over the object or not
@@ -96,6 +98,12 @@ Sprite.prototype = {
         // add it to the array of labels
         this.labels.push(textel);
     },
+    set_labels: function(labels){
+        for (var i=0; i<labels.length; i++){
+            var label = labels[i];
+            this.set_label(label[0], label[1], label[2], label[3], label[4], label[5]);
+        }
+    },
     set_label_text: function(index, txt){
         if (index > -1 && index < this.labels.length){
             this.labels[index].setText(txt);
@@ -104,6 +112,12 @@ Sprite.prototype = {
     get_label: function(index){
         return this.labels[index];
 	},
+    delete_all_labels: function(){
+        for (index=0; index<this.labels.length; index++){
+            this.labels[index].remove();
+        }
+        this.labels = [];
+    },
     image_on_load: function(imageObj, parent, position){
         // when image it's completely loaded, create the corresponding Kinetic image
         var img = new Kinetic.Image({
@@ -132,6 +146,8 @@ Sprite.prototype = {
                 pos[0] = position[0] + parent.component_positions[parent.img_refs_pos];
             }
             imageObj2.onload = parent.image_on_load(imageObj2, parent, pos);
+        } else{
+            parent.img_refs = null;
         }
     },
     redraw_labels: function(){

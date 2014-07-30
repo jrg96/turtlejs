@@ -13,11 +13,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-function ArcShape(pos, radio, startAng, endAng, stroke, line){
+function ArcShape(pos, radio, startAng, endAng, stroke, line, anti_clockwise){
     this.radio = radio;
     this.pos = pos;
     this.startAng = (startAng * Math.PI) / 180;
     this.endAng = (endAng * Math.PI) / 180;
+    this.anti_clockwise = anti_clockwise;
     this.stroke = stroke;
     this.line = line;
     this.group = null;
@@ -34,7 +35,7 @@ ArcShape.prototype = {
         this.arc = new Kinetic.Shape({
             drawFunc: function (ctx) {
                 ctx.beginPath();
-                ctx.arc(0, 0, parent.radio, parent.startAng, parent.endAng, false);
+                ctx.arc(0, 0, parent.radio, parent.startAng, parent.endAng, parent.anti_clockwise);
                 ctx.fillStrokeShape(this);
             },
             x: 0,
@@ -76,17 +77,18 @@ ArcShape.prototype = {
         this.group.remove();
     },
     rotate: function(deg){
-        this.group.rotate((deg * Math.PI) / 180);
+        this.group.rotate(deg);
     },
     set_start_offset: function(){
-        this.group.setOffset([this.start_point.getX(), this.start_point.getY()]);
+        this.group.offsetX(this.start_point.getX());
+        this.group.offsetY(this.start_point.getY());
     },
     set_normal_offset: function(){
         this.group.setOffset([this.get_xy()[0] + this.radio, this.get_xy()[1] + this.radio]);
     },
     set_xy: function(point){
-        this.group.setX(point[0]);
-        this.group.setY(point[1]);
+        this.group.x(point[0]);
+        this.group.y(point[1]);
     },
     get_end_point: function(){
         var pos = [];

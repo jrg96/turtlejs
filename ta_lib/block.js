@@ -22,6 +22,7 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     this.func = func;
     this.value_func = value_func;
     this.params = params;
+    this.param_types = null;
     this.move_params = true;
     this.group = new Kinetic.Group({
         draggable: true
@@ -32,13 +33,17 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     this.base_clamp_height = 45;
     this.actual_clamp_height = 45;
     this.joint_height = 4;
+    
+    this.add_count = 0;
 
     this.block_value = 0;
-    this.base_center_width = 28 + 70;
-    this.actual_center_width = 28 + 70;
+    this.base_center_width =  82;
+    this.actual_center_width = 82;
 
     this.box_start_pos = 20;
     this.last_label_width = 0;
+    
+    this.block_type = '';
 
     // set joined blocks
     this.receiver_slots = [];
@@ -49,16 +54,34 @@ function TurtleBlock(sprite, layer, descriptor, func, value_func, params){
     // variable that stores tart point of drag
     this.start_drag_pos = this.get_xy();
     this.configure_receiver_slots();
+	
+	this.add_sprite = new Sprite(image_tracker.get_resource('add_size'), this.layer, true);
+    this.del_sprite = new Sprite(image_tracker.get_resource('del_size'), this.layer, true);
 }
 
 TurtleBlock.prototype = {
     constructor: TurtleBlock,
     set_events: function(){
         var parent = this;
-        this.group.on('click', function(){
-            parent.func(parent.params);
+        this.group.on('click tap', function(){
+            var result = get_block_data(parent.params, 'Set heading');
+            
+            /*if (this.sizeable_icon_touched){
+                this.sizeable_icon_touched = false;
+                return;
+            }*/
+            
+            if (!result[0]){
+                error_message_displayer.show_error(result[1]);
+                return false;
+            } else{
+                parent.func(parent.params, result[1]);
+                draw_stage.draw_layer.draw();
+                return true;
+            }
+
         });
-        this.group.on('mousedown', function(){
+        this.group.on('mousedown touchstart', function(){
             parent.start_drag_pos = parent.get_xy();
         });
         this.group.on('dragstart', function(){
@@ -113,9 +136,9 @@ TurtleBlock.prototype = {
             var movement = [0, 0];
             movement[0] = actual_pos[0] - parent.start_drag_pos[0];
             movement[1] = actual_pos[1] - parent.start_drag_pos[1];
-            if (parent.upper_block.length > 0){
-                parent.upper_block[0].group_movement(parent, movement, false, true);
-            }
+            //if (parent.upper_block.length > 0){
+                //parent.upper_block[0].group_movement(parent, movement, false, true);
+            //}
             if (parent.lower_block.length > 0){
                 parent.lower_block[0].group_movement(parent, movement, false, true);
             }
@@ -146,143 +169,7 @@ TurtleBlock.prototype = {
         });
     },
     collide_action: function(parent, collide){
-        var upper_distance = -1;
-        var lower_distance = -1;
-        var op1 = -1;
-        var op2 = -1;
-                
-        if (parent.has_upper_dock() && collide.has_lower_dock()){
-            op1 = (parent.get_upper_dock()[0] + parent.get_xy()[0]);
-            op1 -= (collide.get_lower_dock()[0] + collide.get_xy()[0]);
-            op2 = (parent.get_upper_dock()[1] + parent.get_xy()[1]);
-            op2 -= (collide.get_lower_dock()[1] + collide.get_xy()[1]);
-            upper_distance = Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2));
-        }
-        if (parent.has_giving_param() && collide.has_receiver_param()){
-            var giving_point = parent.get_giving_point();
-            var receiver_points = collide.get_receiver_points();
-            var point_distances = [];
-            for (var i=0; i<receiver_points.length; i++){
-                op1 = (giving_point[0] + parent.get_xy()[0]);
-                op1 -= (receiver_points[i][0] + collide.get_xy()[0]);
-                op2 = (giving_point[1] + parent.get_xy()[1]);
-                op2 -= (receiver_points[i][1] + collide.get_xy()[1]);
-                point_distances.push(Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2)));
-            }
-            for (var i=0; i< point_distances.length; i++){
-                if (point_distances[i] < 23.0){
-                    var align_point = receiver_points[i];
-                    if (giving_point[2] == align_point[2]){
-                        var point = [0, 0];
-                        var movement = parent.get_xy();
-
-                        point[0] = collide.get_xy()[0] + align_point[0] - 17;
-
-                        if (align_point[1] <= 25){
-                            point[1] = collide.get_xy()[1];
-                        } else {
-                            point[1] = collide.get_xy()[1] + align_point[1] - 25;
-                        }
-
-                        if (giving_point[2] == ROUND_DOCK){
-                            point[0] += 17;
-                            point[1] = point[1] - giving_point[1] + 25;
-                        }
-
-                        movement[0] = point[0] - movement[0];
-                        movement[1] = point[1] - movement[1];
-
-                        parent.set_xy(point);
-                        collide.receiver_slots[i] = parent;
-                        parent.param_blocks[0] = collide;
-                        parent.group_movement(parent, movement, true, true);
-                    }
-                    break;
-                }
-            }
-        }
-        if (parent.has_upper_dock() && collide.has_stack_dock()){
-            var stack_points = collide.get_stack_points();
-            var upper_point = parent.get_upper_dock();
-            var point_distances = [];
-            for (var i=0; i<stack_points.length; i++){
-                op1 = (upper_point[0] + parent.get_xy()[0]);
-                op1 -= (stack_points[i][0] + collide.get_xy()[0]);
-                op2 = (upper_point[1] + parent.get_xy()[1]);
-                op2 -= (stack_points[i][1] + collide.get_xy()[1]);
-                point_distances.push(Math.sqrt(Math.pow(op1, 2) + Math.pow(op2, 2)));
-            }
-            for (var i=0; i< point_distances.length; i++){
-                if (point_distances[i] < 25.0){
-                    var align_point = stack_points[i];
-                    var point = [0, 0];
-                    point[0] = collide.get_xy()[0] + align_point[0];
-                    point[1] = collide.get_xy()[1] + align_point[1];
-                    parent.set_xy(point);
-                    var movement = [0, 0];
-                    movement[0] = point[0] - parent.start_drag_pos[0];
-                    movement[1] = point[1] - parent.start_drag_pos[1];
-                    parent.group_movement(parent, movement, true, true);
-                    //special case: add a block in the start of the stack of a flow block
-                    var total_height = 0;
-                    var stack_start = true;
-                    if (collide.stack_slots[i] != null){
-                        var flow_bottom_block = parent.get_flow_bottom_block(parent);
-                        total_height = parent.chain_height();
-                        flow_bottom_block.lower_block[0] = collide.stack_slots[i];
-                        parent.upper_block[0] = collide;
-                        collide.stack_slots[i] = parent;
-                        flow_bottom_block.lower_block[0].upper_block[0] = flow_bottom_block;
-                        total_height -= parent.joint_height; 
-                        flow_bottom_block.lower_block[0].group_movement(flow_bottom_block.lower_block[0], [0, total_height], false, true);
-                        total_height += parent.joint_height;
-                        stack_start = false;
-                    } else {
-                        collide.stack_slots[i] = parent;
-                        parent.upper_block[0] = collide;
-                        total_height = parent.chain_height();
-                    }
-                    collide.calc_clamp_height(stack_start, total_height, collide);
-                    break;
-                }
-            }
-        }
-        if(upper_distance > -1){
-            if (upper_distance < 13.0 && upper_distance > 0){
-                var point = [];
-                point.push(collide.get_xy()[0]);
-                point.push(collide.get_lower_dock()[1] + collide.get_xy()[1] - 1);
-                parent.set_xy(point);
-                var movement = [0, 0];
-                movement[0] = point[0] - parent.start_drag_pos[0];
-                movement[1] = point[1] - parent.start_drag_pos[1];
-                parent.group_movement(parent, movement, true, true);
-                // make the respective joints
-                if (parent.upper_block.indexOf(collide) == -1){
-                    var total_height = 0;
-                    // special case: add block in the middle of a flow
-                    if (collide.has_lower_block()){
-                        var flow_bottom_block = parent.get_flow_bottom_block(parent);
-                        total_height = parent.chain_height();
-                        flow_bottom_block.lower_block[0] = collide.lower_block[0];
-                        parent.upper_block[0] = collide;
-                        collide.lower_block[0] = parent;
-                        flow_bottom_block.lower_block[0].upper_block[0] = flow_bottom_block;
-                        total_height -= parent.joint_height; 
-                        flow_bottom_block.lower_block[0].group_movement(flow_bottom_block.lower_block[0], [0, total_height], false, true);
-                        total_height += parent.joint_height;
-                    } else{
-                        parent.upper_block.push(collide);
-                        collide.lower_block.push(parent);
-                        total_height = parent.chain_height();
-                    }
-                    var stack_parent = collide.get_stack_top_block(parent);
-                    if (stack_parent != null){
-                        stack_parent.upper_block[0].calc_clamp_height(false, total_height, stack_parent.upper_block[0]);
-                    }
-                }
-            }
-        }
+        collide_helper(parent, collide);
     },
     calc_clamp_height: function(is_stack_joint, height, clamp){
         var added_height = 0;
@@ -295,7 +182,7 @@ TurtleBlock.prototype = {
         clamp.sprite.img[2].setY(clamp.sprite.img[2].getY() + added_height);
         clamp.sprite.img[1].setHeight(clamp.sprite.img[1].getHeight() + added_height);
         clamp.calc_lower_dock(clamp, added_height);
-        clamp.move_params = false;
+        clamp.move_params = true;
         clamp.group_movement(clamp, [0, added_height], true, false);
         if (clamp.has_upper_block()){
             var parent_stack = clamp.get_stack_top_block(clamp);
@@ -372,6 +259,126 @@ TurtleBlock.prototype = {
         this.sprite.get_label(0).setX(x_pos);
         this.last_label_width = this.sprite.get_label(0).getWidth();
     },
+    set_user_resize: function(pos){
+        
+        this.group.add(this.add_sprite.group);
+        this.add_sprite.group.x(pos[0]);
+        this.add_sprite.group.y(pos[1]);
+        this.add_size_pos = pos;
+        
+        var parent = this;
+        
+        this.add_sprite.group.on('click tap', function(){
+			//alert("test");
+            if (parent.add_count == 0){
+                parent.group.add(parent.del_sprite.group);
+                if (parent.add_size_pos[0] > 20){
+                    parent.del_sprite.group.x(18);
+                    parent.del_sprite.group.y(8);
+                } else{
+                    parent.del_sprite.group.x(parent.add_size_pos[0]);
+                    parent.del_sprite.group.y(4);
+                }
+            }
+            
+            parent.add_count++;
+            added_size = 0;
+            if (parent.add_size_pos[0] > 20){
+                added_size = 60;
+                parent.sprite.img[2].setX(parent.sprite.img[2].getX() + added_size);
+                parent.sprite.img[1].setWidth(parent.sprite.img[1].getWidth() + added_size);
+                parent.add_sprite.group.x(parent.add_sprite.group.x() + added_size);
+            } else{
+                added_size = 42;
+                parent.sprite.img[2].setY(parent.sprite.img[2].getY() + added_size);
+                parent.sprite.img[1].setHeight(parent.sprite.img[1].getHeight() + added_size);
+                parent.add_sprite.group.y(parent.add_sprite.group.y() + added_size);
+            }
+            
+            if (parent.has_lower_dock()){
+                parent.descriptor.lower_dock[0][1] += added_size;
+                if (parent.lower_block[0] != null){
+                    parent.lower_block[0].group_movement(parent.lower_block[0], [0, added_size], false, true);
+                }
+                var stack_parent = parent.get_stack_top_block(parent);
+                if (stack_parent != null){
+                    stack_parent.upper_block[0].calc_clamp_height(false, added_size + parent.joint_height, stack_parent.upper_block[0]);
+                }
+            }
+            
+            if (parent.has_receiver_param()){
+                //alert("detecta receiver param");
+                if (parent.add_size_pos[0] > 20){
+                    parent.descriptor.param_dock[1][0] += added_size;
+                    if (parent.receiver_slots[0] != null){
+                        parent.receiver_slots[0].group_movement(parent.receiver_slots[1], 
+                                                            [added_size, 0], false, false);
+                    }
+                } else{
+                    if (parent.descriptor.param_dock.length == 3){
+                        parent.descriptor.param_dock[2][1] += added_size;
+                    } else{
+                        parent.descriptor.param_dock[1][1] += added_size;
+                    }
+                    
+                    if (parent.receiver_slots[1] != null){
+                        parent.receiver_slots[1].group_movement(parent.receiver_slots[1], 
+                                                            [0, added_size], false, false);
+                    }
+                }
+            }
+        });
+        
+        this.del_sprite.group.on('click tap', function(){
+            parent.add_count--;
+            
+            //this.sizeable_icon_touched = true;
+            added_size = 0;
+            
+            if (parent.add_size_pos[0] > 20){
+                added_size = 60;
+                parent.sprite.img[2].setX(parent.sprite.img[2].getX() - added_size);
+                parent.sprite.img[1].setWidth(parent.sprite.img[1].getWidth() - added_size);
+                parent.add_sprite.group.x(parent.add_sprite.group.x() - added_size);
+            } else{
+                added_size = 42;
+                parent.sprite.img[2].setY(parent.sprite.img[2].getY() - added_size);
+                parent.sprite.img[1].setHeight(parent.sprite.img[1].getHeight() - added_size);
+                parent.add_sprite.group.y(parent.add_sprite.group.y() - added_size);
+            }
+            
+            if (parent.add_count == 0){
+                parent.del_sprite.group.remove();
+            }
+            
+            if (parent.has_lower_dock()){
+                parent.descriptor.lower_dock[0][1] -= added_size;
+                if (parent.lower_block[0] != null){
+                    parent.lower_block[0].group_movement(parent.lower_block[0], [0, -added_size], false, true);
+                }
+                var stack_parent = parent.get_stack_top_block(parent);
+                if (stack_parent != null){
+                    stack_parent.upper_block[0].calc_clamp_height(false, -added_size +parent.joint_height, stack_parent.upper_block[0]);
+                }
+            }
+            
+            if (parent.has_receiver_param()){
+                if (parent.add_size_pos[0] > 20){
+                    parent.descriptor.param_dock[0][0] -= added_size;
+                    if (parent.receiver_slots[0] != null){
+                        parent.receiver_slots[0].group_movement(parent.receiver_slots[1], 
+                                                            [-added_size, 0], false, false);
+                    }
+                } else{
+                    parent.descriptor.param_dock[2][1] -= added_size;
+                    if (parent.receiver_slots[1] != null){
+                        parent.receiver_slots[1].group_movement(parent.receiver_slots[1], 
+                                                            [0, -added_size], false, false);
+                    }
+                }
+            }
+        });
+    },
     display_block: function(){
         this.group.add(this.sprite.group);
         this.layer.add(this.group);
@@ -379,7 +386,15 @@ TurtleBlock.prototype = {
     exec_block: function(){
         var can_continue = true;
         if ((!this.has_giving_param() && this.has_receiver_param()) || (!this.has_giving_param() && !this.has_receiver_param())){
-            can_continue = this.func(this.params);
+            
+            var result = get_block_data(this.params, this.block_type);
+            
+            if (!result[0]){
+                error_message_displayer.show_error(result[1]);
+                return false;
+            } else{
+                return this.func(this.params, result[1]);;
+            }
         }
         return can_continue;
     },
@@ -540,6 +555,24 @@ TurtleBlock.prototype = {
     get_stack_points: function(){
         return this.descriptor.get_stack_points();
     },
+    relative_lower_pos: function(){
+        var points = this.get_xy();
+        points[0] += this.descriptor.get_lower_dock()[0] - 17;
+        points[1] += this.descriptor.get_lower_dock()[1] - 1;
+        return points;
+    },
+    relative_param_pos: function(index){
+        var points = this.get_xy();
+        points[0] += this.descriptor.get_receiver_points()[index][0] - 17;
+        points[1] += this.descriptor.get_receiver_points()[index][1] - 25;
+        return points;
+    },
+    relative_stack_pos: function(index){
+        var points = this.get_xy();
+        points[0] += this.descriptor.get_stack_points()[index][0];
+        points[1] += this.descriptor.get_stack_points()[index][1];
+        return points;
+    },
     configure_receiver_slots: function(){
         var slots = this.descriptor.get_receiver_points();
         for (var i=0; i<slots.length; i++){
@@ -570,7 +603,7 @@ TurtleBlock.prototype = {
         if (this.lower_block.length > 0 && this.lower_block[0] != caller){
             this.lower_block[0].group_movement(this, movement, false, true);
         }
-        if (this.receiver_slots.length > 0){
+        if (this.receiver_slots.length > 0 && (!moved || !caller.has_stack_dock())){
             if (caller.move_params){
                 for (var i=0; i<this.receiver_slots.length; i++){
                     if (this.receiver_slots[i] != null && this.receiver_slots[i] != caller){
@@ -581,9 +614,9 @@ TurtleBlock.prototype = {
                 caller.move_params = true;
             }
         }
-        if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
+        /*if (this.param_blocks.length > 0 && this.param_blocks[0] != caller){
             this.param_blocks[i].group_movement(this, movement, false, true);
-        }
+        }*/
         if (this.stack_slots.length > 0 && move_stack){
             for (var i=0; i<this.stack_slots.length; i++){
                 if (this.stack_slots[i] != null && this.stack_slots[i] != caller){
@@ -595,6 +628,9 @@ TurtleBlock.prototype = {
     chain_delete: function(){
         this.tracker.remove_block(this);
         this.hide();
+        
+        this.group.destroy();
+        
         for (var i=0; i<this.receiver_slots.length; i++){
             if (this.receiver_slots[i] != null){
                 this.receiver_slots[i].chain_delete();
@@ -630,6 +666,9 @@ TurtleBlock.prototype = {
             return true;
         }
         return false;
+    },
+    get_param_types: function(){
+        return this.param_types;
     },
     fire: function(evt){
         this.group.fire(evt);
