@@ -49,7 +49,7 @@ NumbersPalette.prototype = {
         new BlockFactory([115, 5], sprit1, 'add_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'plus2']);
 
         var sprit1 = new Sprite(image_tracker.get_resource('numbern_purple'), this.container.layer, true, false, null, null, [0, 34, 15]);
-        new BlockFactory([215, 5], sprit1, 'multiply_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'multiply']);
+        new BlockFactory([215, 5], sprit1, 'multiply_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'product2']);
 
         var sprit1 = new Sprite(image_tracker.get_resource('numbern_purple'), this.container.layer, true, false, null, null, [0, 34, 15]);
         new BlockFactory([315, 5], sprit1, 'divide_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'division2']);
