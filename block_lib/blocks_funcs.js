@@ -91,9 +91,17 @@ function get_height_block(params, values){
 }
 
 function get_left_block(params, values){
-    return [true, ($(window).width()/2) * -1];
+    return [true, parseInt($(window).width()/2) * -1];
 }
 
 function get_right_block(params, values){
-    return [true, ($(window).width()/2)];
+    return [true, parseInt($(window).width()/2)];
+}
+
+function get_bottom_block(params, values){
+    return [true, parseInt($(window).height()/2) * -1];
+}
+
+function get_top_block(params, values){
+    return [true, parseInt($(window).height()/2)];
 }

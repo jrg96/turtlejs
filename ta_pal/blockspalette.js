@@ -71,5 +71,11 @@ BlocksPalette.prototype = {
         
         sprit1 = new Sprite(image_tracker.get_resource('box2_blue_c'), this.container.layer, true, false, null, null, [0, 28, 82]);
         new BlockFactory([5, 115], sprit1, 'right2_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'rightpos']);
+        
+        sprit1 = new Sprite(image_tracker.get_resource('box2_blue_c'), this.container.layer, true, false, null, null, [0, 28, 82]);
+        new BlockFactory([5, 165], sprit1, 'bottom_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'bottompos']);
+        
+        sprit1 = new Sprite(image_tracker.get_resource('box2_blue_c'), this.container.layer, true, false, null, null, [0, 28, 82]);
+        new BlockFactory([135, 165], sprit1, 'top_block', this, [DEFAULT_LANG, BLOCK_SIDE, 'toppos']);
     }
 }
