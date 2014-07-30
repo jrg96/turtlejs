@@ -81,6 +81,20 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                     block.func(block.params, []);
                 }
             }
+            
+            if (isResizeBlock(block_name)){
+                var limit = (json[i][1][1]);
+                
+                if (limit == 20){
+                    limit = 1;
+                } else{
+                    limit = (limit / 10) - 2; 
+                }
+                
+                for (var i=0; i<limit; i++){
+                    block.add_sprite.group.fire('click');
+                }
+            }
 
             if (isVerticalFlow(block)){
                 var upper_block = block_tracker.get_block(link_data[0]);
