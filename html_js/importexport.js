@@ -151,7 +151,12 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                         //alert(param_block + " de " + block_name);
                         if (param_block != null){
                             makeReceiverGivingLink(block, param_block, i2-1);
-                            param_block.set_xy(block.relative_param_pos(link_data.indexOf(param_block.block_id)-1));
+                            //param_block.set_xy(block.relative_param_pos(link_data.indexOf(param_block.block_id)-1));
+                            
+                            var final_pos = block.relative_param_pos(link_data.indexOf(param_block.block_id)-1);
+                            var initial_pos = param_block.get_xy();
+                            var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
+                            param_block.group_movement(param_block, movement, false, true);
                         }
                     }
                 } else{
@@ -175,7 +180,13 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                         block_json = getBlockJSON(json, receiver_block.block_id);
                     }
                     makeGivingReceiverLink(block, receiver_block, block_json[4].indexOf(index)-1);
-                    block.set_xy(receiver_block.relative_param_pos(block_json[4].indexOf(index)-1));
+                    //block.set_xy(receiver_block.relative_param_pos(block_json[4].indexOf(index)-1));
+                    
+                    var final_pos = receiver_block.relative_param_pos(block_json[4].indexOf(index)-1);
+                    var initial_pos = block.get_xy();
+                    var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
+                    //alert(movement + " para " + block_name + " con id " + index + " final: " + final_pos + " initial: " + initial_pos);
+                    block.group_movement(block, movement, false, true);
                 }
                 
                 for (var i2=1; i2<link_data.length; i2++){
@@ -191,8 +202,19 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                         makeReceiverGivingLink(block, param_block, i2-1);
                         if (isConnectedToBox(link_data[i2])){
                             param_block.set_xy(block.relative_param_pos(link_data.indexOf(index)-1));
+                            
+                            var final_pos = block.relative_param_pos(link_data.indexOf(index)-1);
+                            var initial_pos = param_block.get_xy();
+                            var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
+                            param_block.group_movement(param_block, movement, false, true);
+                            
                         } else{
                             param_block.set_xy(block.relative_param_pos(link_data.indexOf(param_block.block_id)-1));
+                            
+                            var final_pos = block.relative_param_pos(link_data.indexOf(param_block.block_id)-1);
+                            var initial_pos = param_block.get_xy();
+                            var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
+                            param_block.group_movement(param_block, movement, false, true);
                         }
                     }
                 }
