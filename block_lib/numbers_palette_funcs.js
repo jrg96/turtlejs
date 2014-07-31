@@ -262,7 +262,16 @@ function rand_block(params){
                 }
             }
             
-            var total = Math.floor((Math.random() * values[1][1]) + values[0][1]);
+            var total = 0;
+            
+            if (values[0][1] < 0){
+                total = Math.floor((Math.random() * (values[1][1] + Math.abs(values[0][1]) + 1)) + values[0][1]);
+            } else{
+                total = Math.floor((Math.random() * values[1][1]) + values[0][1]);
+            }
+            
+            //var total = Math.floor((Math.random() * values[1][1]) + values[0][1]);
+            //var total = -values[0][1] + parseInt(Math.random() * ((values[1][1] - (-values[0][1])) + 1));
             return [true, total];
         }
         return [false, 0];
