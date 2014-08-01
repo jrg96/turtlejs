@@ -37,6 +37,7 @@ NORMAL_BLOCKS_NAMES['backward_block'] = 'back';
 NORMAL_BLOCKS_NAMES['right_block'] = 'right';
 NORMAL_BLOCKS_NAMES['left_block'] = 'left';
 NORMAL_BLOCKS_NAMES['set_heading_block'] = 'seth';
+NORMAL_BLOCKS_NAMES['clean_block'] = 'clean';
 
 NORMAL_BLOCKS_NAMES['penup_block'] = 'penup';
 NORMAL_BLOCKS_NAMES['pendown_block'] = 'pendown';
@@ -45,6 +46,10 @@ NORMAL_BLOCKS_NAMES['start_fill_block'] = 'startfill';
 NORMAL_BLOCKS_NAMES['end_fill_block'] = 'stopfill';
 NORMAL_BLOCKS_NAMES['set_shade_block'] = 'setshade';
 NORMAL_BLOCKS_NAMES['set_color_block'] = 'setcolor';
+NORMAL_BLOCKS_NAMES['set_gray_block'] = 'setgray';
+
+NORMAL_BLOCKS_NAMES['wait_block'] = 'wait';
+NORMAL_BLOCKS_NAMES['space_block'] = 'vspace';
 
 NORMAL_BLOCKS_NAMES['start_block'] = 'start2';
 NORMAL_BLOCKS_NAMES['action_make_block'] = 'hat';
@@ -54,6 +59,9 @@ NORMAL_BLOCKS_NAMES['action_call_block'] = 'stack';
 NORMAL_RESIZE_BLOCK_NAMES = {};
 NORMAL_RESIZE_BLOCK_NAMES['setxy_block'] = 'setxy2';
 NORMAL_RESIZE_BLOCK_NAMES['arc_block'] = 'arc';
+
+NORMAL_RESIZE_BLOCK_NAMES['fill_screen_block'] = 'fillscreen2';
+
 NORMAL_RESIZE_BLOCK_NAMES['store_in_box_block'] = 'storein';
 
 
@@ -70,6 +78,7 @@ SPECIAL_VAR_GET_BLOCK_NAMES['heading_block'] = 'heading';
 SPECIAL_VAR_GET_BLOCK_NAMES['pensize_block'] = 'pensize';
 SPECIAL_VAR_GET_BLOCK_NAMES['color_block'] = 'color';
 SPECIAL_VAR_GET_BLOCK_NAMES['shade_block'] = 'shade';
+SPECIAL_VAR_GET_BLOCK_NAMES['gray_block'] = 'gray';
 
 SPECIAL_VAR_GET_BLOCK_NAMES['red_block'] = 'red';
 SPECIAL_VAR_GET_BLOCK_NAMES['green_block'] = 'green';
@@ -95,3 +104,17 @@ COMPLEX_PARAM_BLOCK_NAMES['add_block'] = 'plus2';
 COMPLEX_PARAM_BLOCK_NAMES['multiply_block'] = 'product2';
 COMPLEX_PARAM_BLOCK_NAMES['divide_block'] = 'division2';
 COMPLEX_PARAM_BLOCK_NAMES['rand_block'] = 'random';
+COMPLEX_PARAM_BLOCK_NAMES['mod_block'] = 'remainder2';
+COMPLEX_PARAM_BLOCK_NAMES['lowerthan_block'] = 'less2';
+COMPLEX_PARAM_BLOCK_NAMES['equals_block'] = 'equal2';
+COMPLEX_PARAM_BLOCK_NAMES['greaterthan_block'] = 'greater2';
+
+
+COMPLEX_FLOW_BLOCK_NAMES = {};
+COMPLEX_FLOW_BLOCK_NAMES['repeat_block'] = 'repeat';
+COMPLEX_FLOW_BLOCK_NAMES['ifthen_block'] = 'if';
+COMPLEX_FLOW_BLOCK_NAMES['while_block'] = 'while';
+COMPLEX_FLOW_BLOCK_NAMES['until_block'] = 'until';
+
+NORMAL_FLOW_BLOCK_NAMES = {};
+NORMAL_FLOW_BLOCK_NAMES['forever_block'] = 'forever';
