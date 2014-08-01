@@ -608,12 +608,14 @@ function getSABlockData(block){
     data += '[';
     data += '"' + STANDALONE_PARAM_BLOCK_NAMES[block.block_type] + '", ';
     
-    if (block.block_type == 'string_block'){
-        val = '"' + val + '"';
+    val = val.replace('d', block.block_value);
+    
+    if (block.block_type == 'text_block'){
+        data += '"' + val + '"' + '], ';
+    } else{
+        data += val + '], ';
     }
     
-    val = val.replace('d', block.block_value);
-    data += val + '], ';
     data += block.get_xy()[0] + ', ';
     data += block.get_xy()[1] + ', ';
     data += '[';
@@ -686,7 +688,7 @@ function getComplexParamBlockData(block){
             data += ', ';
         }
     }
-    data += ']';
+    data += ']]';
     
     return data;
 }
