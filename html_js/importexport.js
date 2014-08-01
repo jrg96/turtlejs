@@ -358,3 +358,68 @@ function getBlockJSON(json, id){
     }
     return data;
 }
+
+//-------------------- IMPORT --------------------------------
+
+var normal_blocks_names = [];
+var block_types = {};
+
+function exportTAFile(){
+	var json_data = '[';
+	for (var i=0; i<block_tracker.blocks.length; i++){
+		json_data += getBlockImport(block_tracker.blocks[i]);
+	}
+	json_data += ']';
+	return json_data;
+}
+
+function getBlockImport(block){
+	var data = null;
+	if (isVerticalFlow(block)){
+		if (isFlowType(block.block_type)){
+		} else{
+			//alert('entramos a deteccion de bloque normal');
+			data = getNormalBlockData(block);
+		}
+	} else{
+	}
+	
+	return data;
+}
+
+
+function getNormalBlockData(block){
+	var data = '[';
+	
+	data += block.block_id + ', ';
+	data += '"' + NORMAL_BLOCKS_NAMES[block.block_type] + '", ';
+	data += block.get_xy()[0] + ', ';
+	data += block.get_xy()[1] + ', ';
+	
+	
+	data += '[';
+	if (!block.has_upper_dock() || !block.has_upper_block()){
+		data += 'null';
+	} else{
+		data += block.upper_block[0].block_id;
+	}
+	data += ', ';
+	
+	for (var i=0; i<block.receiver_slots.length; i++){
+		if (block.receiver_slots[i] != null){
+			data += block.receiver_slots[i].block_id;
+		} else{
+			data += 'null';
+		}
+		data += ', ';
+	}
+	
+	if (!block.has_lower_dock() || !block.has_upper_block()){
+		data += 'null';
+	} else{
+		data += block.upper_block[0].block_id;
+	}
+	data += ']]';
+	
+	return data;
+}

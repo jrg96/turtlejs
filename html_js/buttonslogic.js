@@ -107,6 +107,8 @@ $(document).ready(function() {
         $("#input-file").focus().click();
     });
     $("#save-bt").click(function(){
+		var data = exportTAFile();
+		alert(data);
     });
 	$("#help-bt").click(function(){
     });
