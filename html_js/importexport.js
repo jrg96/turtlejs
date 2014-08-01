@@ -382,6 +382,19 @@ function isNormalResizeBlock(block_name){
     return false;
 }
 
+function isNormalFlowBlock(block_name){
+    if (NORMAL_FLOW_BLOCK_NAMES[block_name] != null){
+        return true;
+    }
+    return false;
+}
+
+function isComplexFlowBlock(block_name){
+    if (COMPLEX_FLOW_BLOCK_NAMES[block_name] != null){
+        return true;
+    }
+    return false;
+}
 
 var normal_blocks_names = [];
 var block_types = {};
@@ -401,7 +414,10 @@ function exportTAFile(){
 function getBlockImport(block){
     var data = null;
     if (isVerticalFlow(block)){
-        if (isFlowType(block.block_type)){
+        if (isNormalFlowBlock(block.block_type)){
+            data = getNormalFlowBlockData(block);
+        } else if (isComplexFlowBlock(block.block_type)){
+            data = getComplexFlowBlockData(block);
         } else if (isNormalResizeBlock(block.block_type)){
             data = getNormalResizeBlockData(block);
         } else{
@@ -417,6 +433,87 @@ function getBlockImport(block){
         }
     }
 
+    return data;
+}
+
+function getNormalFlowBlockData(block){
+    var data = '[';
+    
+    data += block.block_id + ', ';
+    data += '[';
+    data += '"' + NORMAL_FLOW_BLOCK_NAMES[block.block_type] + '", ';
+    data += '0], ';
+    
+    data += block.get_xy()[0] + ', ';
+    data += block.get_xy()[1] + ', ';
+    data += '[';
+    
+    if (!block.has_upper_dock() || !block.has_upper_block()){
+        data += 'null';
+    } else{
+        data += block.upper_block[0].block_id;
+    }
+    data += ', ';
+    
+    if (block.stack_slots[0] == null){
+        data += 'null';
+    } else{
+        data += block.stack_slots[0].block_id;
+    }
+    data += ', ';
+    
+    if (!block.has_lower_dock() || !block.has_lower_block()){
+        data += 'null';
+    } else{
+        data += block.lower_block[0].block_id;
+    }
+    data += ']]';
+    
+    return data;
+}
+
+function getComplexFlowBlockData(block){
+    var data = '[';
+    
+    data += block.block_id + ', ';
+    data += '[';
+    data += '"' + COMPLEX_FLOW_BLOCK_NAMES[block.block_type] + '", ';
+    data += '0], ';
+    
+    data += block.get_xy()[0] + ', ';
+    data += block.get_xy()[1] + ', ';
+    data += '[';
+    
+    if (!block.has_upper_dock() || !block.has_upper_block()){
+        data += 'null';
+    } else{
+        data += block.upper_block[0].block_id;
+    }
+    data += ', ';
+    
+    for (var i=0; i<block.receiver_slots.length; i++){
+        if (block.receiver_slots[i] != null){
+            data += block.receiver_slots[i].block_id;
+        } else{
+            data += 'null';
+        }
+        data += ', ';
+    }
+    
+    if (block.stack_slots[0] == null){
+        data += 'null';
+    } else{
+        data += block.stack_slots[0].block_id;
+    }
+    data += ', ';
+    
+    if (!block.has_lower_dock() || !block.has_lower_block()){
+        data += 'null';
+    } else{
+        data += block.lower_block[0].block_id;
+    }
+    data += ']]';
+    
     return data;
 }
 

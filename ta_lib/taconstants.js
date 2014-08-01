@@ -49,7 +49,6 @@ NORMAL_BLOCKS_NAMES['set_color_block'] = 'setcolor';
 NORMAL_BLOCKS_NAMES['set_gray_block'] = 'setgray';
 
 NORMAL_BLOCKS_NAMES['wait_block'] = 'wait';
-NORMAL_BLOCKS_NAMES['space_block'] = 'vspace';
 
 NORMAL_BLOCKS_NAMES['start_block'] = 'start2';
 NORMAL_BLOCKS_NAMES['action_make_block'] = 'hat';
@@ -59,6 +58,7 @@ NORMAL_BLOCKS_NAMES['action_call_block'] = 'stack';
 NORMAL_RESIZE_BLOCK_NAMES = {};
 NORMAL_RESIZE_BLOCK_NAMES['setxy_block'] = 'setxy2';
 NORMAL_RESIZE_BLOCK_NAMES['arc_block'] = 'arc';
+NORMAL_RESIZE_BLOCK_NAMES['space_block'] = 'vspace';
 
 NORMAL_RESIZE_BLOCK_NAMES['fill_screen_block'] = 'fillscreen2';
 
