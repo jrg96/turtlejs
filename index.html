@@ -48,7 +48,9 @@ Copyright (c) 2014 Jorge Alberto Gómez López <gomezlopez.jorge96@gmail.com>
             <button class="toolbutton" id="clear-bt" title="Clear canvas"></button>
             <button class="toolbutton" id="hideshow-bt" title="Hide/Show blocks"></button>
             <button class="toolbutton" id="open-bt" title="Open file"></button>
-            <button class="toolbutton" id="save-bt" title="Save file"></button>
+            <a href="#popupShowCode" data-rel="popup" data-position-to="window" >
+                <button class="toolbutton" id="save-bt" title="Save file"></button>
+            </a>
             <a href="#popupShowDraw" data-rel="popup" >
                 <button class="toolbutton" id="img-save-bt" title="Save file"></button>
             </a>
@@ -130,6 +132,10 @@ Copyright (c) 2014 Jorge Alberto Gómez López <gomezlopez.jorge96@gmail.com>
         </div>
         <div data-role="popup" id="popupShowDraw">
             <img id = "saved-image" src="ta_icons/white.jpg" height = "300" width = "300"/>
+        </div>
+        <div data-role="popup" id="popupShowCode" style="max-width:400px; max-height:600px;" >
+            <textarea id="txt_code" style="height: 500px; width: 300px" >
+            </textarea>
         </div>
 		<div data-role="popup" id="popupShowHelp" style="max-width:600px; max-height:300px;">
 			<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">

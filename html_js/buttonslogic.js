@@ -19,6 +19,7 @@ $(document).ready(function() {
     $("#saved-image").attr("width", parseInt($(window).width() * 0.45));
 	
 	$('#popupShowHelp').css('overflow-y', 'scroll');
+    $('#popupShowCode').css('overflow-y', 'scroll');
 	
     $('.card').click(function(){
         var id = $(this).find('img')[0];
@@ -108,7 +109,8 @@ $(document).ready(function() {
     });
     $("#save-bt").click(function(){
         var data = exportTAFile();
-        alert(data);
+        $("#txt_code").val(data);
+        //alert(data);
     });
 	$("#help-bt").click(function(){
     });
