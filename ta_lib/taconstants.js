@@ -32,5 +32,9 @@ COLOR_TABLE2 = [
     0xFF0080, 0xFF0066, 0xFF004D, 0xFF0033, 0xFF001A];
 	
 NORMAL_BLOCKS_NAMES = {};
-
 NORMAL_BLOCKS_NAMES['forward_block'] = 'forward';
+
+
+STANDALONE_PARAM_BLOCK_NAMES = {};
+STANDALONE_PARAM_BLOCK_NAMES['box_block'] = 'number';
+STANDALONE_PARAM_BLOCK_NAMES['text_block'] = 'string';

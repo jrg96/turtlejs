@@ -361,6 +361,13 @@ function getBlockJSON(json, id){
 
 //-------------------- IMPORT --------------------------------
 
+function isStandaloneParam(block_name){
+    if (STANDALONE_PARAM_BLOCK_NAMES[block_name] != null){
+        return true;
+    }
+    return false;
+}
+
 var normal_blocks_names = [];
 var block_types = {};
 
@@ -381,10 +388,13 @@ function getBlockImport(block){
     if (isVerticalFlow(block)){
         if (isFlowType(block.block_type)){
         } else{
-            //alert('entramos a deteccion de bloque normal');
             data = getNormalBlockData(block);
         }
     } else{
+        if (isStandaloneParam(block.block_type)){
+            data = getSABlockData(block);
+            //alert("detectamos standalone");
+        }
     }
 
     return data;
@@ -424,5 +434,33 @@ function getNormalBlockData(block){
     }
     data += ']]';
 
+    return data;
+}
+
+function getSABlockData(block){
+    var data = '[';
+    var val = 'd';
+    
+    data += block.block_id + ', ';
+    data += '[';
+    data += '"' + STANDALONE_PARAM_BLOCK_NAMES[block.block_type] + '", ';
+    
+    if (block.block_type == 'string_block'){
+        val = '"' + val + '"';
+    }
+    
+    val = val.replace('d', block.block_value);
+    data += val + '], ';
+    data += block.get_xy()[0] + ', ';
+    data += block.get_xy()[1] + ', ';
+    data += '[';
+    
+    if (block.param_blocks[0] != null){
+        data += block.param_blocks[0].block_id;
+    } else{
+        data += 'null';
+    }
+    data += ', null]]';
+    
     return data;
 }
