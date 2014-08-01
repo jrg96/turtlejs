@@ -38,3 +38,7 @@ NORMAL_BLOCKS_NAMES['forward_block'] = 'forward';
 STANDALONE_PARAM_BLOCK_NAMES = {};
 STANDALONE_PARAM_BLOCK_NAMES['box_block'] = 'number';
 STANDALONE_PARAM_BLOCK_NAMES['text_block'] = 'string';
+
+
+COMPLEX_PARAM_BLOCK_NAMES = {};
+COMPLEX_PARAM_BLOCK_NAMES['substract_block'] = 'minus2';

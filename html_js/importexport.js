@@ -376,7 +376,7 @@ function exportTAFile(){
     for (var i=0; i<block_tracker.blocks.length; i++){
         json_data += getBlockImport(block_tracker.blocks[i]);
         if ((i+1) < block_tracker.blocks.length){
-            json_data += ',';
+            json_data += ',' + "\n";
         }
     }
     json_data += ']';
@@ -393,7 +393,8 @@ function getBlockImport(block){
     } else{
         if (isStandaloneParam(block.block_type)){
             data = getSABlockData(block);
-            //alert("detectamos standalone");
+        } else{
+            data = getComplexParamBlockData(block);
         }
     }
 
@@ -461,6 +462,50 @@ function getSABlockData(block){
         data += 'null';
     }
     data += ', null]]';
+    
+    return data;
+}
+
+function getComplexParamBlockData(block){
+    var data = '[';
+    var size_block = block.add_count;
+    
+    data += block.block_id + ', ';
+    data += '[';
+    data += '"' + COMPLEX_PARAM_BLOCK_NAMES[block.block_type] + '", ';
+    
+    if (size_block != 0){
+        if (size_block == 1){
+            size_block = 20;
+        } else{
+            size_block = (size_block + 2) * 10;
+        }
+    }
+    
+    data += size_block + '], ';
+    data += block.get_xy()[0] + ', ';
+    data += block.get_xy()[1] + ', ';
+    data += '[';
+    
+    if (block.param_blocks[0] != null){
+        data += block.param_blocks[0].block_id;
+    } else{
+        data += 'null';
+    }
+    data += ',';
+    
+    for (var i=0; i<block.receiver_slots.length; i++){
+        if (block.receiver_slots[i] != null){
+            data += block.receiver_slots[i].block_id;
+        } else{
+            data += 'null';
+        }
+        
+        if ((i+1) < block.receiver_slots.length){
+            data += ', ';
+        }
+    }
+    data += ']';
     
     return data;
 }
