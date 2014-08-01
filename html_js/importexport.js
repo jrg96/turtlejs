@@ -368,6 +368,13 @@ function isStandaloneParam(block_name){
     return false;
 }
 
+function isSpecialEnvVarParam(block_name){
+    if (SPECIAL_VAR_GET_BLOCK_NAMES[block_name] != null){
+        return true;
+    }
+    return false;
+}
+
 var normal_blocks_names = [];
 var block_types = {};
 
@@ -393,6 +400,8 @@ function getBlockImport(block){
     } else{
         if (isStandaloneParam(block.block_type)){
             data = getSABlockData(block);
+        } else if (isSpecialEnvVarParam(block.block_type)){
+            data = getEnvVarParamBlock(block);
         } else{
             data = getComplexParamBlockData(block);
         }
@@ -452,6 +461,25 @@ function getSABlockData(block){
     
     val = val.replace('d', block.block_value);
     data += val + '], ';
+    data += block.get_xy()[0] + ', ';
+    data += block.get_xy()[1] + ', ';
+    data += '[';
+    
+    if (block.param_blocks[0] != null){
+        data += block.param_blocks[0].block_id;
+    } else{
+        data += 'null';
+    }
+    data += ', null]]';
+    
+    return data;
+}
+
+function getEnvVarParamBlock(block){
+    var data = '[';
+    
+    data += block.block_id + ', ';
+    data += '"' + SPECIAL_VAR_GET_BLOCK_NAMES[block.block_type] + '", ';
     data += block.get_xy()[0] + ', ';
     data += block.get_xy()[1] + ', ';
     data += '[';
