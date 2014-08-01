@@ -17,7 +17,7 @@ var flow_blocks = ['repeat', 'forever'];
 var flow_types = ['repeat_block', 'forever_block'];
 var arithmetic_blocks = ['plus2', 'minus2', 'division2', 'random'];
 
-var resize_blocks = ['storein', 'arc', 'vspace', 'setxy2', 'plus2', 'minus2', 'division2', 'product2'];
+var resize_blocks = ['storein', 'arc', 'vspace', 'setxy2', 'plus2', 'minus2', 'division2', 'product2', 'random'];
 var resize_data = [];
 
 var json_flow_data = {};

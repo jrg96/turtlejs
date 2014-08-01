@@ -42,3 +42,7 @@ STANDALONE_PARAM_BLOCK_NAMES['text_block'] = 'string';
 
 COMPLEX_PARAM_BLOCK_NAMES = {};
 COMPLEX_PARAM_BLOCK_NAMES['substract_block'] = 'minus2';
+COMPLEX_PARAM_BLOCK_NAMES['add_block'] = 'plus2';
+COMPLEX_PARAM_BLOCK_NAMES['multiply_block'] = 'product2';
+COMPLEX_PARAM_BLOCK_NAMES['divide_block'] = 'division2';
+COMPLEX_PARAM_BLOCK_NAMES['rand_block'] = 'random';
