@@ -33,6 +33,22 @@ COLOR_TABLE2 = [
 	
 NORMAL_BLOCKS_NAMES = {};
 NORMAL_BLOCKS_NAMES['forward_block'] = 'forward';
+NORMAL_BLOCKS_NAMES['backward_block'] = 'back';
+NORMAL_BLOCKS_NAMES['right_block'] = 'right';
+NORMAL_BLOCKS_NAMES['left_block'] = 'left';
+NORMAL_BLOCKS_NAMES['set_heading_block'] = 'seth';
+
+NORMAL_BLOCKS_NAMES['penup_block'] = 'penup';
+NORMAL_BLOCKS_NAMES['pendown_block'] = 'pendown';
+NORMAL_BLOCKS_NAMES['set_pen_size_block'] = 'setpensize';
+NORMAL_BLOCKS_NAMES['start_fill_block'] = 'startfill';
+NORMAL_BLOCKS_NAMES['end_fill_block'] = 'stopfill';
+NORMAL_BLOCKS_NAMES['set_shade_block'] = 'setshade';
+NORMAL_BLOCKS_NAMES['set_color_block'] = 'setcolor';
+
+NORMAL_BLOCKS_NAMES['start_block'] = 'start2';
+NORMAL_BLOCKS_NAMES['action_make_block'] = 'hat';
+NORMAL_BLOCKS_NAMES['action_call_block'] = 'stack';
 
 
 STANDALONE_PARAM_BLOCK_NAMES = {};
