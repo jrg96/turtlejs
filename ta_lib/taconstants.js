@@ -56,6 +56,21 @@ STANDALONE_PARAM_BLOCK_NAMES['box_block'] = 'number';
 STANDALONE_PARAM_BLOCK_NAMES['text_block'] = 'string';
 
 
+SPECIAL_VAR_GET_BLOCK_NAMES = {};
+SPECIAL_VAR_GET_BLOCK_NAMES['xcor_block'] = 'xcor';
+SPECIAL_VAR_GET_BLOCK_NAMES['ycor_block'] = 'ycor';
+SPECIAL_VAR_GET_BLOCK_NAMES['heading_block'] = 'heading';
+SPECIAL_VAR_GET_BLOCK_NAMES['pensize_block'] = 'pensize';
+SPECIAL_VAR_GET_BLOCK_NAMES['color_block'] = 'color';
+SPECIAL_VAR_GET_BLOCK_NAMES['shade_block'] = 'shade';
+SPECIAL_VAR_GET_BLOCK_NAMES['width_block'] = 'width';
+SPECIAL_VAR_GET_BLOCK_NAMES['height_block'] = 'height';
+SPECIAL_VAR_GET_BLOCK_NAMES['left2_block'] = 'leftpos';
+SPECIAL_VAR_GET_BLOCK_NAMES['right2_block'] = 'rightpos';
+SPECIAL_VAR_GET_BLOCK_NAMES['bottom_block'] = 'bottompos';
+SPECIAL_VAR_GET_BLOCK_NAMES['top_block'] = 'toppos';
+
+
 COMPLEX_PARAM_BLOCK_NAMES = {};
 COMPLEX_PARAM_BLOCK_NAMES['substract_block'] = 'minus2';
 COMPLEX_PARAM_BLOCK_NAMES['add_block'] = 'plus2';
