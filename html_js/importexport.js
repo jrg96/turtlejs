@@ -375,6 +375,14 @@ function isSpecialEnvVarParam(block_name){
     return false;
 }
 
+function isNormalResizeBlock(block_name){
+    if (NORMAL_RESIZE_BLOCK_NAMES[block_name] != null){
+        return true;
+    }
+    return false;
+}
+
+
 var normal_blocks_names = [];
 var block_types = {};
 
@@ -394,6 +402,8 @@ function getBlockImport(block){
     var data = null;
     if (isVerticalFlow(block)){
         if (isFlowType(block.block_type)){
+        } else if (isNormalResizeBlock(block.block_type)){
+            data = getNormalResizeBlockData(block);
         } else{
             data = getNormalBlockData(block);
         }
@@ -410,6 +420,52 @@ function getBlockImport(block){
     return data;
 }
 
+function getNormalResizeBlockData(block){
+    var data = '[';
+    var size_block = block.add_count;
+    
+    data += block.block_id + ', ';
+    data += '[';
+    data += '"' + NORMAL_RESIZE_BLOCK_NAMES[block.block_type] + '", ';
+    
+    if (size_block != 0){
+        if (size_block == 1){
+            size_block = 20;
+        } else{
+            size_block = (size_block + 2) * 10;
+        }
+    }
+    
+    data += size_block + '], ';
+    data += block.get_xy()[0] + ', ';
+    data += block.get_xy()[1] + ', ';
+    data += '[';
+    
+    if (!block.has_upper_dock() || !block.has_upper_block()){
+        data += 'null';
+    } else{
+        data += block.upper_block[0].block_id;
+    }
+    data += ', ';
+    
+    for (var i=0; i<block.receiver_slots.length; i++){
+        if (block.receiver_slots[i] != null){
+            data += block.receiver_slots[i].block_id;
+        } else{
+            data += 'null';
+        }
+        data += ', ';
+    }
+    
+    if (!block.has_lower_dock() || !block.has_lower_block()){
+        data += 'null';
+    } else{
+        data += block.lower_block[0].block_id;
+    }
+    data += ']]';
+    
+    return data;
+}
 
 function getNormalBlockData(block){
     var data = '[';

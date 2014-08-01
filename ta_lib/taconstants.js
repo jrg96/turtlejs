@@ -51,6 +51,12 @@ NORMAL_BLOCKS_NAMES['action_make_block'] = 'hat';
 NORMAL_BLOCKS_NAMES['action_call_block'] = 'stack';
 
 
+NORMAL_RESIZE_BLOCK_NAMES = {};
+NORMAL_RESIZE_BLOCK_NAMES['setxy_block'] = 'setxy2';
+NORMAL_RESIZE_BLOCK_NAMES['arc_block'] = 'arc';
+NORMAL_RESIZE_BLOCK_NAMES['store_in_box_block'] = 'storein';
+
+
 STANDALONE_PARAM_BLOCK_NAMES = {};
 STANDALONE_PARAM_BLOCK_NAMES['box_block'] = 'number';
 STANDALONE_PARAM_BLOCK_NAMES['text_block'] = 'string';
@@ -60,9 +66,21 @@ SPECIAL_VAR_GET_BLOCK_NAMES = {};
 SPECIAL_VAR_GET_BLOCK_NAMES['xcor_block'] = 'xcor';
 SPECIAL_VAR_GET_BLOCK_NAMES['ycor_block'] = 'ycor';
 SPECIAL_VAR_GET_BLOCK_NAMES['heading_block'] = 'heading';
+
 SPECIAL_VAR_GET_BLOCK_NAMES['pensize_block'] = 'pensize';
 SPECIAL_VAR_GET_BLOCK_NAMES['color_block'] = 'color';
 SPECIAL_VAR_GET_BLOCK_NAMES['shade_block'] = 'shade';
+
+SPECIAL_VAR_GET_BLOCK_NAMES['red_block'] = 'red';
+SPECIAL_VAR_GET_BLOCK_NAMES['green_block'] = 'green';
+SPECIAL_VAR_GET_BLOCK_NAMES['purple_block'] = 'purple';
+SPECIAL_VAR_GET_BLOCK_NAMES['orange_block'] = 'orange';
+SPECIAL_VAR_GET_BLOCK_NAMES['cyan_block'] = 'cyan';
+SPECIAL_VAR_GET_BLOCK_NAMES['white_block'] = 'white';
+SPECIAL_VAR_GET_BLOCK_NAMES['yellow_block'] = 'yellow';
+SPECIAL_VAR_GET_BLOCK_NAMES['blue_block'] = 'blue';
+SPECIAL_VAR_GET_BLOCK_NAMES['black_block'] = 'black';
+
 SPECIAL_VAR_GET_BLOCK_NAMES['width_block'] = 'width';
 SPECIAL_VAR_GET_BLOCK_NAMES['height_block'] = 'height';
 SPECIAL_VAR_GET_BLOCK_NAMES['left2_block'] = 'leftpos';
