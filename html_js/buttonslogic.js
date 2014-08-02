@@ -177,4 +177,24 @@ $(document).ready(function() {
             block_tracker.show_blocks();
         }
     };
+	
+	$('#canvas').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#main-toolbar').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#basictb-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#pentb-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#colortb-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#numberstb-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#flowtb-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#blockstb-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#run-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#clear-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#hideshow-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#basictb-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#open-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#save-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#img-save-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#help-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#es-lang-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#en-lang-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#stop-button').css('cursor', 'url(ta_icons/arrow.cur), auto');
 });
