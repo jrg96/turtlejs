@@ -19,7 +19,7 @@ var arithmetic_blocks = ['plus2', 'minus2', 'division2', 'random', 'less2', 'equ
 
 var boolean_blocks = ['less2', 'equal2', 'greater2'];
 
-var resize_blocks = ['storein', 'arc', 'vspace', 'setxy2', 'plus2', 'minus2', 'division2', 'product2', 'random'];
+var resize_blocks = ['storein', 'arc', 'vspace', 'setxy2', 'plus2', 'minus2', 'division2', 'product2', 'random', 'fillscreen2'];
 var resize_data = [];
 
 var json_flow_data = {};
