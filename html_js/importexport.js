@@ -13,9 +13,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-var flow_blocks = ['repeat', 'forever'];
-var flow_types = ['repeat_block', 'forever_block'];
-var arithmetic_blocks = ['plus2', 'minus2', 'division2', 'random'];
+var flow_blocks = ['repeat', 'forever', 'if'];
+var flow_types = ['repeat_block', 'forever_block', 'ifthen_block'];
+var arithmetic_blocks = ['plus2', 'minus2', 'division2', 'random', 'less2'];
+
+var boolean_blocks = ['less2'];
 
 var resize_blocks = ['storein', 'arc', 'vspace', 'setxy2', 'plus2', 'minus2', 'division2', 'product2', 'random'];
 var resize_data = [];
@@ -155,6 +157,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                             
                             var final_pos = block.relative_param_pos(link_data.indexOf(param_block.block_id)-1);
                             var initial_pos = param_block.get_xy();
+                            
                             var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
                             param_block.group_movement(param_block, movement, false, true);
                         }
@@ -165,10 +168,8 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                 var receiver_block = block_tracker.get_block(link_data[0]);
                 
                 if (isConnectedToBox(link_data[0])){
-                    //alert("detectamos conexion a box");
                     index = getBoxReceiver(link_data[0]);
                     receiver_block = block_tracker.get_block(index);
-                    //alert(receiver_block);
                     index = link_data[0];
                 }
 
@@ -184,8 +185,13 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                     
                     var final_pos = receiver_block.relative_param_pos(block_json[4].indexOf(index)-1);
                     var initial_pos = block.get_xy();
+                    
+                    if (isBooleanBlock(block_name)){
+                        initial_pos = param_block.relative_giving_pos();
+                    }
+                    
                     var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
-                    //alert(movement + " para " + block_name + " con id " + index + " final: " + final_pos + " initial: " + initial_pos);
+                    alert(movement + " para " + block_name + " con id " + index + " final: " + final_pos + " initial: " + initial_pos);
                     block.group_movement(block, movement, false, true);
                 }
                 
@@ -264,6 +270,13 @@ function getBoxReceiver(index){
 
 function getBoxGiving(index){
     return box_data[index][1];
+}
+
+function isBooleanBlock(name){
+    if (boolean_blocks.indexOf(name) == -1){
+        return false;
+    }
+    return true;
 }
 
 function isResizeBlock(name){

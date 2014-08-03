@@ -567,6 +567,12 @@ TurtleBlock.prototype = {
         points[1] += this.descriptor.get_receiver_points()[index][1] - 25;
         return points;
     },
+    relative_giving_pos: function(){
+        var points = this.get_xy();
+        points[0] += this.descriptor.get_giving_point()[0];
+        points[1] += this.descriptor.get_giving_point()[1];
+        return points;
+    },
     relative_stack_pos: function(index){
         var points = this.get_xy();
         points[0] += this.descriptor.get_stack_points()[index][0];
