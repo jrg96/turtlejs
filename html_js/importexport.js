@@ -191,7 +191,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                     }
                     
                     var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
-                    alert(movement + " para " + block_name + " con id " + index + " final: " + final_pos + " initial: " + initial_pos);
+                    //alert(movement + " para " + block_name + " con id " + index + " final: " + final_pos + " initial: " + initial_pos);
                     block.group_movement(block, movement, false, true);
                 }
                 
