@@ -13,11 +13,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-var flow_blocks = ['repeat', 'forever', 'if'];
-var flow_types = ['repeat_block', 'forever_block', 'ifthen_block'];
-var arithmetic_blocks = ['plus2', 'minus2', 'division2', 'random', 'less2'];
+var flow_blocks = ['repeat', 'forever', 'if', 'while', 'until'];
+var flow_types = ['repeat_block', 'forever_block', 'ifthen_block', 'while_block', 'until_block'];
+var arithmetic_blocks = ['plus2', 'minus2', 'division2', 'random', 'less2', 'equal2', 'greater2'];
 
-var boolean_blocks = ['less2'];
+var boolean_blocks = ['less2', 'equal2', 'greater2'];
 
 var resize_blocks = ['storein', 'arc', 'vspace', 'setxy2', 'plus2', 'minus2', 'division2', 'product2', 'random'];
 var resize_data = [];
