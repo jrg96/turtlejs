@@ -187,7 +187,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                     var initial_pos = block.get_xy();
                     
                     if (isBooleanBlock(block_name)){
-                        initial_pos = param_block.relative_giving_pos();
+                        initial_pos = block.relative_giving_pos();
                     }
                     
                     var movement = [final_pos[0] - initial_pos[0], final_pos[1] - initial_pos[1]];
@@ -273,6 +273,7 @@ function getBoxGiving(index){
 }
 
 function isBooleanBlock(name){
+    //alert(name);
     if (boolean_blocks.indexOf(name) == -1){
         return false;
     }

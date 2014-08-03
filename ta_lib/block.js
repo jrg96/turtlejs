@@ -569,8 +569,8 @@ TurtleBlock.prototype = {
     },
     relative_giving_pos: function(){
         var points = this.get_xy();
-        points[0] += this.descriptor.get_giving_point()[0];
-        points[1] += this.descriptor.get_giving_point()[1];
+        points[0] += this.descriptor.get_giving_point()[0] - 17;
+        points[1] += this.descriptor.get_giving_point()[1] - 25;
         return points;
     },
     relative_stack_pos: function(index){
