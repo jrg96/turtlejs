@@ -19,7 +19,7 @@ var arithmetic_blocks = ['plus2', 'minus2', 'division2', 'random', 'less2', 'equ
 
 var boolean_blocks = ['less2', 'equal2', 'greater2'];
 
-var resize_blocks = ['storein', 'arc', 'vspace', 'setxy2', 'plus2', 'minus2', 'division2', 'product2', 'random', 'fillscreen2'];
+var resize_blocks = ['storein', 'arc', 'vspace', 'setxy2', 'plus2', 'minus2', 'division2', 'product2', 'random', 'fillscreen2', 'identity2', 'sqrt'];
 var resize_data = [];
 
 var json_flow_data = {};
@@ -165,6 +165,20 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                 } else{
                 }
             } else{
+                if (isResizeBlock(block_name)){
+                    var limit = (json[i][1][1]);
+                
+                    if (limit != 0){
+                        if (limit == 20){
+                            limit = 1;
+                        } else{
+                            limit = (limit / 10) - 2; 
+                        }
+                    }
+                
+                    resize_data.push([block, limit]);
+                }
+                
                 var receiver_block = block_tracker.get_block(link_data[0]);
                 
                 if (isConnectedToBox(link_data[0])){
@@ -442,6 +456,8 @@ function getBlockImport(block){
             data = getSABlockData(block);
         } else if (isSpecialEnvVarParam(block.block_type)){
             data = getEnvVarParamBlock(block);
+        } else if (isNormalResizeBlock(block.block_type)){
+            data = getParamResizeBlockData(block);
         } else{
             data = getComplexParamBlockData(block);
         }
@@ -557,6 +573,7 @@ function getNormalResizeBlockData(block){
     } else{
         data += block.upper_block[0].block_id;
     }
+	
     data += ', ';
     
     for (var i=0; i<block.receiver_slots.length; i++){
@@ -573,6 +590,52 @@ function getNormalResizeBlockData(block){
     } else{
         data += block.lower_block[0].block_id;
     }
+    data += ']]';
+    
+    return data;
+}
+
+function getParamResizeBlockData(block){
+    var data = '[';
+    var size_block = block.add_count;
+    
+    data += block.block_id + ', ';
+    data += '[';
+    data += '"' + NORMAL_RESIZE_BLOCK_NAMES[block.block_type] + '", ';
+    
+    if (size_block != 0){
+        if (size_block == 1){
+            size_block = 20;
+        } else{
+            size_block = (size_block + 2) * 10;
+        }
+    }
+    
+    data += size_block + '], ';
+    data += block.get_xy()[0] + ', ';
+    data += block.get_xy()[1] + ', ';
+    data += '[';
+	
+	if (block.param_blocks[0] != null){
+        data += block.param_blocks[0].block_id;
+    } else{
+        data += 'null';
+    }
+	
+    data += ', ';
+    
+    for (var i=0; i<block.receiver_slots.length; i++){
+        if (block.receiver_slots[i] != null){
+            data += block.receiver_slots[i].block_id;
+        } else{
+            data += 'null';
+        }
+        
+        if ((i+1) < block.receiver_slots.length){
+            data += ', ';
+        }
+    }
+    
     data += ']]';
     
     return data;

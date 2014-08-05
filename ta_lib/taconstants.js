@@ -62,6 +62,9 @@ NORMAL_RESIZE_BLOCK_NAMES['space_block'] = 'vspace';
 
 NORMAL_RESIZE_BLOCK_NAMES['fill_screen_block'] = 'fillscreen2';
 
+NORMAL_RESIZE_BLOCK_NAMES['identity_block'] = 'identity2';
+NORMAL_RESIZE_BLOCK_NAMES['sqrt_block'] = 'sqrt';
+
 NORMAL_RESIZE_BLOCK_NAMES['store_in_box_block'] = 'storein';
 
 
