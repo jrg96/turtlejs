@@ -58,7 +58,7 @@ function text_block(params, values, import_action, value) {
         $("#text_input").keypress(function(e){
             if (e.keyCode == 13){
                 var text = $("#text_input").val();
-                number = parseInt(text);
+                number = parseFloat(text);
                 if (!isNaN(number)){
                     params[2].set_box_label('' + number);
                     params[2].block_value = number;
@@ -66,7 +66,7 @@ function text_block(params, values, import_action, value) {
                 }
             }
             var keycode = (e.which) ? e.which : e.keyCode;
-            if (keycode > 31 && (keycode < 48 || keycode > 57) && keycode != 37 & keycode != 39 && keycode != 45) {
+            if (keycode > 31 && (keycode < 48 || keycode > 57) && keycode != 37 & keycode != 39 && keycode != 45 && keycode != 46) {
                 return false;
             }else{
                 return true;
@@ -100,11 +100,22 @@ function setxy(params, values){
 
 function arc(params, values){
     var anti_clockwise = false;
+	var negative_radio = false;
+    var start_angle = 0;
+    var end_angle = values[0][1];
     
-    if (values[0][1] < 0){
+    if (values[1][1] < 0){
+        values[1][1] = Math.abs(values[1][1]);
+        negative_radio = true;
+        params[0].rotate(180);
+        end_angle = -end_angle;
+    }
+    
+    if (end_angle < 0){
         anti_clockwise = true;
     }
-    var arc = new ArcShape(params[0].get_xy(), values[1][1], 0, values[0][1], params[1].stroke_line, params[1].pen_size, anti_clockwise);
+    
+    var arc = new ArcShape(params[0].get_xy(), values[1][1], start_angle, end_angle, params[1].stroke_line, params[1].pen_size, anti_clockwise);
 
     draw_stage.draw_tracker.group.add(arc.group);
     
@@ -117,9 +128,16 @@ function arc(params, values){
     arc.set_start_offset();
     arc.set_xy(params[0].get_xy());
 
-    var final_pos = [arc.end_point.getAbsolutePosition().x + Math.abs(draw_stage.draw_layer.x()), arc.end_point.getAbsolutePosition().y + Math.abs(draw_stage.draw_layer.y())];
+    var final_pos = null;
+    final_pos = [arc.end_point.getAbsolutePosition().x + Math.abs(draw_stage.draw_layer.x()), arc.end_point.getAbsolutePosition().y + Math.abs(draw_stage.draw_layer.y())];
+	
     params[0].set_xy(final_pos);
-    params[0].rotate(values[0][1]);
+    
+    if (negative_radio){
+        params[0].rotate(-(180 + values[0][1]));
+    } else{
+        params[0].rotate(values[0][1]);
+    }
 	
     if (draw_stage.draw_tracker.is_pen_down()){
         params[1].add_shape(arc);
