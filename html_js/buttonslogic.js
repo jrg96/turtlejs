@@ -93,6 +93,7 @@ $(document).ready(function() {
         check_block_visibility(true);
         draw_stage.draw_tracker.save_cache();
         draw_stage.draw_layer.draw();
+        draw_stage.draw_tracker.destroy_draw_objects();
         //center_scrollbars();
     });
     $("#clear-bt").click(function(){

@@ -61,6 +61,19 @@ DrawTracker.prototype = {
             this.make_base_line();
         }
     },
+    destroy_draw_objects: function(){
+        for (var i=0; i<this.lines.length; i++){
+            this.lines[i].destroy();
+        }
+        
+        for (var i=0; i<this.labels.length; i++){
+            this.labels[i].destroy();
+        }
+        
+        for (var i=0; i<this.shapes.length; i++){
+            this.shapes[i].group.destroy();
+        }
+    },
     clear_canvas: function(){
         this.turtle.reset_pos();
         this.reset_scroll_pos();
@@ -83,18 +96,7 @@ DrawTracker.prototype = {
         
         this.group.removeChildren();
         this.group.clearCache();
-        
-        for (var i=0; i<this.lines.length; i++){
-            this.lines[i].destroy();
-        }
-        
-        for (var i=0; i<this.labels.length; i++){
-            this.labels[i].destroy();
-        }
-        
-        for (var i=0; i<this.shapes.length; i++){
-            this.shapes[i].group.destroy();
-        }
+        this.destroy_draw_objects();
         
         this.lines = [];
         this.shapes = [];
