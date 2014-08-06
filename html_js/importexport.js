@@ -165,20 +165,6 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                 } else{
                 }
             } else{
-                if (isResizeBlock(block_name)){
-                    var limit = (json[i][1][1]);
-                
-                    if (limit != 0){
-                        if (limit == 20){
-                            limit = 1;
-                        } else{
-                            limit = (limit / 10) - 2; 
-                        }
-                    }
-                
-                    resize_data.push([block, limit]);
-                }
-                
                 var receiver_block = block_tracker.get_block(link_data[0]);
                 
                 if (isConnectedToBox(link_data[0])){
@@ -244,7 +230,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             //alert(box_data[index]);
         }
     }
-    setTimeout(function(){make_vertical_resize()}, 200);
+    setTimeout(function(){make_vertical_resize()}, 1000);
 }
 
 function make_vertical_resize(){
@@ -252,7 +238,7 @@ function make_vertical_resize(){
         var limit = resize_data[i][1];
         var block = resize_data[i][0];
         
-        for (var i2=0; i2<limit; i2++){
+        for (var j=0; j<limit; j++){
             block.add_sprite.group.fire('click');
         }
     }
