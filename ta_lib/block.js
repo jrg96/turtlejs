@@ -64,7 +64,7 @@ TurtleBlock.prototype = {
     set_events: function(){
         var parent = this;
         this.group.on('click tap', function(){
-            var result = get_block_data(parent.params, 'Set heading');
+            var result = get_block_data(parent.params, i18n_tracker.get_labels(parent.block_type, DEFAULT_LANG, FACTORY_SIDE)[0][0]);
             
             /*if (this.sizeable_icon_touched){
                 this.sizeable_icon_touched = false;
