@@ -234,7 +234,7 @@ function parseTAFile(json, palette_tracker, block_tracker) {
     if (resize_data.length > 0){
         setTimeout(function(){make_vertical_resize()}, 1000);
     } else{
-        setTimeout(function(){make_flow_resize()}, 200);
+        setTimeout(function(){make_flow_resize()}, 400);
     }
 }
 

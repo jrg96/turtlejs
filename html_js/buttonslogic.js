@@ -110,7 +110,11 @@ $(document).ready(function() {
     });
     $("#save-bt").click(function(){
         var data = exportTAFile();
-        $("#txt_code").val(data);
+        var pom = document.createElement('a');
+        pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
+        pom.setAttribute('download', 'test.txt');
+        pom.click();
+        //$("#txt_code").val(data);
         //alert(data);
     });
 	$("#help-bt").click(function(){
