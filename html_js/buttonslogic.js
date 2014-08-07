@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.*/
 
+var project_count = 1;
+
 $(document).ready(function() {
     
     $("#saved-image").attr("height", parseInt($(window).height() * 0.45));
@@ -113,7 +115,8 @@ $(document).ready(function() {
         var array = new Array();
         array[0] = data;
         var blob = new Blob(array, {type: "text/plain;charset=utf-8"});
-        saveAs(blob, "example.ta");
+        saveAs(blob, "project" + project_count + ".ta");
+        project_count++;
     });
 	$("#help-bt").click(function(){
     });
