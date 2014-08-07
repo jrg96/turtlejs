@@ -364,7 +364,7 @@ TurtleBlock.prototype = {
             
             if (parent.has_receiver_param()){
                 if (parent.add_size_pos[0] > 20){
-                    parent.descriptor.param_dock[0][0] -= added_size;
+                    parent.descriptor.param_dock[1][0] -= added_size;
                     if (parent.receiver_slots[0] != null){
                         parent.receiver_slots[0].group_movement(parent.receiver_slots[1], 
                                                             [-added_size, 0], false, false);
