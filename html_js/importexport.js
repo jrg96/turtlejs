@@ -93,9 +93,8 @@ function parseTAFile(json, palette_tracker, block_tracker) {
                     } else{
                         limit = (limit / 10) - 2; 
                     }
+                    resize_data.push([block, limit]);
                 }
-                
-               resize_data.push([block, limit]);
             }
 
             if (isVerticalFlow(block)){
@@ -229,10 +228,14 @@ function parseTAFile(json, palette_tracker, block_tracker) {
             }
         } else{
             box_data[index] = link_data;
-            //alert(box_data[index]);
         }
     }
-    setTimeout(function(){make_vertical_resize()}, 1000);
+    
+    if (resize_data.length > 0){
+        setTimeout(function(){make_vertical_resize()}, 1000);
+    } else{
+        setTimeout(function(){make_flow_resize()}, 200);
+    }
 }
 
 function make_vertical_resize(){
