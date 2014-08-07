@@ -57,3 +57,9 @@ i18n_tracker.add_label('set_gray_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['
 i18n_tracker.add_label('shade_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['tono', 49, 13, 19, 'Calibri', 'black']);
 
 i18n_tracker.add_label('gray_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['gris', 49, 13, 19, 'Calibri', 'black']);
+
+
+i18n_tracker.add_label('fill_screen_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['llenar pantalla', 5, 30, 18, 'Calibri', 'black']);
+i18n_tracker.add_label('fill_screen_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['color', 54, 10, 17, 'Calibri', 'black']);
+i18n_tracker.add_label('fill_screen_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['tono', 51, 56, 17, 'Calibri', 'black']);
+i18n_tracker.add_label('fill_screen_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['gris', 61, 96, 17, 'Calibri', 'black']);
