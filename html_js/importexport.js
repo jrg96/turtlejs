@@ -22,6 +22,8 @@ var boolean_blocks = ['less2', 'equal2', 'greater2'];
 var resize_blocks = ['storein', 'arc', 'vspace', 'setxy2', 'plus2', 'minus2', 'division2', 'product2', 'random', 'fillscreen2', 'identity2', 'sqrt'];
 var resize_data = [];
 
+var flow_resize_substract = [];
+
 var json_flow_data = {};
 var box_data = {};
 
@@ -240,6 +242,17 @@ function make_vertical_resize(){
         
         for (var j=0; j<limit; j++){
             block.add_sprite.group.fire('click');
+            
+            if (isVerticalFlow(block)){
+                var stack_parent = block.get_stack_top_block(block);
+                if (stack_parent != null){
+                    if (flow_resize_substract[stack_parent.upper_block[0].block_id] != null){
+                        flow_resize_substract[stack_parent.upper_block[0].block_id] += 42;
+                    } else {
+                        flow_resize_substract[stack_parent.upper_block[0].block_id] = 42;
+                    }
+                }
+            }
         }
     }
     setTimeout(function(){make_flow_resize()}, 200);
@@ -251,7 +264,13 @@ function make_flow_resize(){
             var block = block_tracker.blocks[i];
             
             if (block.stack_slots[0] != null){
-                block.calc_clamp_height(true, block.stack_slots[0].chain_height(), block);
+                var height = block.stack_slots[0].chain_height();
+                
+                if (flow_resize_substract[block.block_id] != null){
+                    height -= flow_resize_substract[block.block_id];
+                }
+                
+                block.calc_clamp_height(true, height, block);
             }
         }
     }
