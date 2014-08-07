@@ -110,12 +110,10 @@ $(document).ready(function() {
     });
     $("#save-bt").click(function(){
         var data = exportTAFile();
-        var pom = document.createElement('a');
-        pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
-        pom.setAttribute('download', 'test.txt');
-        pom.click();
-        //$("#txt_code").val(data);
-        //alert(data);
+        var array = new Array();
+        array[0] = data;
+        var blob = new Blob(array, {type: "text/plain;charset=utf-8"});
+        saveAs(blob, "example.ta");
     });
 	$("#help-bt").click(function(){
     });
