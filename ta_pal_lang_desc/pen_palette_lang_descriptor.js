@@ -58,6 +58,12 @@ i18n_tracker.add_label('shade_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['ton
 
 i18n_tracker.add_label('gray_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['gris', 49, 13, 19, 'Calibri', 'black']);
 
+i18n_tracker.add_label('start_fill_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['rellenar', 15, 10, 18, 'Calibri', 'black']);
+
+i18n_tracker.add_label('end_fill_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['terminar relleno', 3, 9, 16, 'Calibri', 'black']);
+
+i18n_tracker.add_label('pensize_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['tamaño pincel', 20, 13, 17, 'Calibri', 'black']);
+
 
 i18n_tracker.add_label('fill_screen_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['llenar pantalla', 5, 30, 18, 'Calibri', 'black']);
 i18n_tracker.add_label('fill_screen_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['color', 54, 10, 17, 'Calibri', 'black']);
