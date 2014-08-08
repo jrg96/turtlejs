@@ -635,6 +635,7 @@ TurtleBlock.prototype = {
         this.tracker.remove_block(this);
         this.hide();
         
+        this.group.destroyChildren();
         this.group.destroy();
         
         for (var i=0; i<this.receiver_slots.length; i++){
