@@ -8,7 +8,7 @@ function make_vscroll_area(){
     return new Kinetic.Rect({
         x: draw_stage.stage.getWidth() - 50,
         y: 10,
-        width: 40,
+        width: 50,
         height: draw_stage.stage.getHeight() - 40,
         fill: 'black',
         opacity: 0.3
@@ -19,7 +19,7 @@ function make_vscroll(){
     return new Kinetic.Rect({
         x: draw_stage.stage.getWidth() - 50,
         y: 10,
-        width: 40,
+        width: 50,
         height: 70,
         fill: '#9f005b',
         draggable: true,
@@ -47,7 +47,7 @@ function make_hscroll_area(){
         x: 10,
         y: draw_stage.stage.getHeight() - 50,
         width: draw_stage.stage.getWidth() - 60,
-        height: 40,
+        height: 45,
         fill: 'black',
         opacity: 0.3
     });
@@ -58,7 +58,7 @@ function make_hscroll(){
         x: 10,
         y: draw_stage.stage.getHeight() - 50,
         width: 130,
-        height: 40,
+        height: 45,
         fill: '#9f005b',
         draggable: true,
         dragBoundFunc: function(pos) {
