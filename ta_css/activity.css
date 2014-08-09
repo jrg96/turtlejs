@@ -1,6 +1,6 @@
 * {
-  -moz-user-select: none;
-  -webkit-user-select: none;
+  -moz-user-select: auto;
+  -webkit-user-select: auto;
 }
 
 #main-toolbar #activity-button {
