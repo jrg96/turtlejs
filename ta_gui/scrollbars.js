@@ -146,5 +146,3 @@ var vscroll = null;
 
 var hscrollArea = null;
 var hscroll = null;
-
-make_scrolls();

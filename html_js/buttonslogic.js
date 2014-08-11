@@ -183,6 +183,12 @@ $(document).ready(function() {
             block_tracker.show_blocks();
         }
     };
+    
+    if (MOBILE_VER){
+        setTimeout(function(){make_scrolls();}, 3000);
+    } else{
+        make_scrolls();
+    }
 	
 	$('#canvas').css('cursor', 'url(ta_icons/arrow.cur), auto');
 	$('#main-toolbar').css('cursor', 'url(ta_icons/arrow.cur), auto');
