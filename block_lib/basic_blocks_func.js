@@ -50,6 +50,7 @@ function text_block(params, values, import_action, value) {
     
         if (MOBILE_VER){
             palette_tracker.hide_visible_palette();
+            draw_stage.redraw_layers();
         }
         
         var number = 0;
@@ -68,6 +69,7 @@ function text_block(params, values, import_action, value) {
                     params[2].set_box_label('' + number);
                     params[2].block_value = number;
                     $("#text_input").remove();
+                    draw_stage.redraw_layers();
                 }
             }
             var keycode = (e.which) ? e.which : e.keyCode;

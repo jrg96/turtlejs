@@ -126,5 +126,12 @@ DrawStage.prototype = {
         
         parent.block_layer.x(x_pos);
         parent.block_layer.y(y_pos);
+    },
+    redraw_layers: function(){
+        this.draw_layer.draw();
+        this.layer.batchDraw();
+        this.palette_layer.draw();
+        this.block_layer.draw();
+        this.scroll_layer.draw();
     }
 }

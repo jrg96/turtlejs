@@ -19,6 +19,7 @@ function string_block(params, values, import_action, value) {
     
         if (MOBILE_VER){
             palette_tracker.hide_visible_palette();
+            draw_stage.redraw_layers();
         }
         
         var text_y = params[2].get_xy()[1] + (draw_stage.draw_layer.y()) + 7;
@@ -33,6 +34,8 @@ function string_block(params, values, import_action, value) {
                 params[2].set_box_label(text);
                 params[2].block_value = text;
                 $("#text_input").remove();
+                
+                draw_stage.redraw_layers();
             }
         });
         $("#text_input").focus();
