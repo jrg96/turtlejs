@@ -16,6 +16,12 @@
 function string_block(params, values, import_action, value) {
     import_action = import_action || false;
     if (!import_action){
+    
+        if (MOBILE_VER){
+            palette_tracker.hide_visible_palette();
+            remove_scrolls();
+        }
+        
         var text_y = params[2].get_xy()[1] + (draw_stage.draw_layer.y()) + 7;
         var text_x = params[2].get_xy()[0] + (draw_stage.draw_layer.x()) + 18;
         var width = params[2].actual_center_width + 8;
@@ -28,6 +34,10 @@ function string_block(params, values, import_action, value) {
                 params[2].set_box_label(text);
                 params[2].block_value = text;
                 $("#text_input").remove();
+                
+                if (MOBILE_VER){
+                    add_scrolls();
+                }
             }
         });
         $("#text_input").focus();

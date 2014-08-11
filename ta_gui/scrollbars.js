@@ -122,13 +122,8 @@ function make_scrolls(){
     hscroll = make_hscroll();
 
     attach_events();
-
-    draw_stage.scroll_layer.add(hscrollArea);
-    draw_stage.scroll_layer.add(vscrollArea);
-    draw_stage.scroll_layer.add(hscroll);
-    draw_stage.scroll_layer.add(vscroll);
-
     center_scrollbars();
+    add_scrolls();
 }
 
 function remove_scrolls(){
@@ -137,6 +132,13 @@ function remove_scrolls(){
     
     hscrollArea.remove();
     hscroll.remove();
+}
+
+function add_scrolls(){
+    draw_stage.scroll_layer.add(hscrollArea);
+    draw_stage.scroll_layer.add(vscrollArea);
+    draw_stage.scroll_layer.add(hscroll);
+    draw_stage.scroll_layer.add(vscroll);
 }
 
 var vscrollArea = null;
