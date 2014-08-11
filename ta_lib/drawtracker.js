@@ -76,7 +76,12 @@ DrawTracker.prototype = {
     },
     clear_canvas: function(){
         this.turtle.reset_pos();
-        this.reset_scroll_pos();
+		
+        if (!MOBILE_VER){
+            this.reset_scroll_pos();
+        } else{
+            center_touch_bg();
+        }
 
         this.stroke_line = "#FF0000";
         this.pen_size = 3;
