@@ -172,8 +172,10 @@ $(document).ready(function() {
         draw_stage.stage.height($(window).height() - 62);
         draw_stage.stage.width($(window).width() - 5);
         
-        remove_scrolls();
-        make_scrolls();
+        if (!MOBILE_VER){
+            remove_scrolls();
+            make_scrolls();
+        }
     });
 
     var check_block_visibility = function(caller){
@@ -184,9 +186,7 @@ $(document).ready(function() {
         }
     };
     
-    if (MOBILE_VER){
-        setTimeout(function(){make_scrolls();}, 3000);
-    } else{
+    if (!MOBILE_VER){
         make_scrolls();
     }
 	
