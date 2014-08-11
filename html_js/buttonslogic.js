@@ -175,6 +175,8 @@ $(document).ready(function() {
         if (!MOBILE_VER){
             remove_scrolls();
             make_scrolls();
+        } else{
+            center_touch_bg();
         }
     });
 
@@ -188,6 +190,8 @@ $(document).ready(function() {
     
     if (!MOBILE_VER){
         make_scrolls();
+    } else{
+        center_touch_bg();
     }
 	
 	$('#canvas').css('cursor', 'url(ta_icons/arrow.cur), auto');

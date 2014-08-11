@@ -109,6 +109,16 @@ var updateBackgroundPos = function() {
     draw_stage.draw_layer.batchDraw();
 };
 
+function center_touch_bg(){
+    draw_stage.draw_layer.x(-1000 + parseInt($(window).width() / 2));
+    draw_stage.draw_layer.y(-1000 + ($(window).height() / 2));
+    draw_stage.layer.x(-1000 + parseInt($(window).width() / 2));
+    draw_stage.layer.y(-1000 + ($(window).height() / 2));
+    draw_stage.block_layer.x(-1000 + parseInt($(window).width() / 2));
+    draw_stage.block_layer.y(-1000 + ($(window).height() / 2));
+    draw_stage.draw_layer.batchDraw();
+}
+
 function attach_events(){
     hscroll.on('dragmove', updateBackgroundPos);
     vscroll.on('dragmove', updateBackgroundPos);
