@@ -170,11 +170,10 @@ $(document).ready(function() {
     
     $(window).resize(function(){
         if (!MOBILE_VER){
-            remove_scrolls();
-            make_scrolls();
-            
             draw_stage.stage.height($(window).height() - 62);
             draw_stage.stage.width($(window).width() - 5);
+            remove_scrolls();
+            make_scrolls();
         } else{
             center_touch_bg();
         }
