@@ -1,22 +1,14 @@
 function greaterthan_block(params){
     if (params[2].has_all_slots()){
-        var values = params[2].get_slot_values();
+        var values = get_block_data(params, i18n_tracker.get_labels(params[2].block_type, DEFAULT_LANG, FACTORY_SIDE)[0][0]);
+        
+        if (!values[0]){
+            return [false, values[1]];
+        }
+        values = values[1];
         
         if (values[0][0]){
             var result = false;
-            
-            var results = [];
-            results.push(eval_int_user_var(values[0][1]));
-            results.push(eval_int_user_var(values[1][1]));
-		
-            for (i =0; i<results.length; i++){
-                if (results[i][0] == 2){
-                    values[i][1] = results[i][1];
-                } else if(results[i][0] == 0 || results[i][0] == 1){
-                    error_message_displayer.show_error(results[i][1]);
-                    return [false, 0];
-                }
-            }
             
             if (values[0][1] > values[1][1]){
                 result = true;
@@ -31,22 +23,15 @@ function greaterthan_block(params){
 
 function lowerthan_block(params){
     if (params[2].has_all_slots()){
-        var values = params[2].get_slot_values();
+        var values = get_block_data(params, i18n_tracker.get_labels(params[2].block_type, DEFAULT_LANG, FACTORY_SIDE)[0][0]);
+        
+        if (!values[0]){
+            return [false, values[1]];
+        }
+        values = values[1];
+        
         if (values[0][0]){
             var result = false;
-            
-            var results = [];
-            results.push(eval_int_user_var(values[0][1]));
-            results.push(eval_int_user_var(values[1][1]));
-		
-            for (i =0; i<results.length; i++){
-                if (results[i][0] == 2){
-                    values[i][1] = results[i][1];
-                } else if(results[i][0] == 0 || results[i][0] == 1){
-                    error_message_displayer.show_error(results[i][1]);
-                    return [false, 0];
-                }
-            }
             
             if (values[0][1] < values[1][1]){
                 result = true;
@@ -61,22 +46,15 @@ function lowerthan_block(params){
 
 function equals_block(params){
     if (params[2].has_all_slots()){
-        var values = params[2].get_slot_values();
+        var values = get_block_data(params, i18n_tracker.get_labels(params[2].block_type, DEFAULT_LANG, FACTORY_SIDE)[0][0]);
+        
+        if (!values[0]){
+            return [false, values[1]];
+        }
+        values = values[1];
+        
         if (values[0][0]){
             var result = false;
-            
-            var results = [];
-            results.push(eval_int_user_var(values[0][1]));
-            results.push(eval_int_user_var(values[1][1]));
-		
-            for (i =0; i<results.length; i++){
-                if (results[i][0] == 2){
-                    values[i][1] = results[i][1];
-                } else if(results[i][0] == 0 || results[i][0] == 1){
-                    error_message_displayer.show_error(results[i][1]);
-                    return [false, 0];
-                }
-            }
             
             if (values[0][1] == values[1][1]){
                 result = true;
