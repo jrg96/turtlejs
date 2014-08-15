@@ -198,7 +198,7 @@ function rand_block(params){
             if (values[0][1] < 0){
                 total = Math.floor((Math.random() * (values[1][1] + Math.abs(values[0][1]) + 1)) + values[0][1]);
             } else{
-                total = Math.floor((Math.random() * values[1][1]) + values[0][1]);
+                total = Math.floor(Math.random() * (values[1][1] - values[0][1] + 1) + values[0][1]);
             }
             
             return [true, total];
