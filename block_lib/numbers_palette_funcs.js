@@ -135,6 +135,7 @@ function substract_block(params){
         values = values[1];
         
         if (values[0][0]){
+			//alert(values);
             var total = values[0][1] - values[1][1];
             return [true, total];
         }

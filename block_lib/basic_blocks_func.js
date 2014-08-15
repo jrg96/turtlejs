@@ -171,5 +171,5 @@ function get_turtle_x(params){
 }
 
 function get_turtle_y(params){
-    return [true, params[0].get_xy()[1] - params[0].start_pos[1]];
+    return [true,  params[0].start_pos[1] - params[0].get_xy()[1]];
 }
