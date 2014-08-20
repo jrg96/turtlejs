@@ -22,6 +22,9 @@ function string_block(params, values, import_action, value) {
             
         var textArea = "<div id='textAreaPopUp' style='position:absolute;top:" + text_y + "px;left:" + text_x + "px;z-index:30;'><input type='text' value='" + params[2].block_value + "' id='text_input' style='width:" + width + "px' />";
         $("#container2").append(textArea);
+        $("#text_input").focus(function(){
+			this.selectionStart = this.selectionEnd = this.value.length;
+		});		
         $("#text_input").keyup(function(e){
             if (e.keyCode == 13){
                 var text = $("#text_input").val();
