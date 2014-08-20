@@ -126,12 +126,20 @@ $(document).ready(function() {
         i18n_tracker.change_language('es_ES');
 		document.getElementById("es-lang-bt").classList.add('active');
 		document.getElementById("en-lang-bt").classList.remove('active');
+		document.getElementById("fr-lang-bt").classList.remove('active');
     });
     $("#en-lang-bt").click(function(){
         i18n_tracker.change_language('en_US');
 		document.getElementById("es-lang-bt").classList.remove('active');
 		document.getElementById("en-lang-bt").classList.add('active');		
+		document.getElementById("fr-lang-bt").classList.remove('active');		
     });
+    $("#fr-lang-bt").click(function(){
+        i18n_tracker.change_language('fr_FR');
+		document.getElementById("es-lang-bt").classList.remove('active');
+		document.getElementById("en-lang-bt").classList.remove('active');	
+		document.getElementById("fr-lang-bt").classList.add('active');	
+    });	
     $("#stop-button").click(function(){
     });
     $("#input-file").change(function(evt){
