@@ -121,11 +121,16 @@ $(document).ready(function() {
         draw_stage.stage.toDataURL({callback: on_saved_image});
         //$("#saved-image").attr("src", data);
     });
+	document.getElementById("en-lang-bt").classList.add('active');	
     $("#es-lang-bt").click(function(){
         i18n_tracker.change_language('es_ES');
+		document.getElementById("es-lang-bt").classList.add('active');
+		document.getElementById("en-lang-bt").classList.remove('active');
     });
     $("#en-lang-bt").click(function(){
         i18n_tracker.change_language('en_US');
+		document.getElementById("es-lang-bt").classList.remove('active');
+		document.getElementById("en-lang-bt").classList.add('active');		
     });
     $("#stop-button").click(function(){
     });
