@@ -224,5 +224,6 @@ $(document).ready(function() {
 	$('#help-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
 	$('#es-lang-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
 	$('#en-lang-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
+	$('#fr-lang-bt').css('cursor', 'url(ta_icons/arrow.cur), auto');
 	$('#stop-button').css('cursor', 'url(ta_icons/arrow.cur), auto');
 });
