@@ -19,13 +19,13 @@ i18n_tracker.add_label('right_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Rig
 i18n_tracker.add_label('left_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Left', 5, 13, 19, 'Calibri', 'black']);
 i18n_tracker.add_label('clean_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Clean', 5, 13, 18, 'Calibri', 'black']);
 
-i18n_tracker.add_label('setxy_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['set xy', 18, 30, 24, 'Calibri', 'black']);
+i18n_tracker.add_label('setxy_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Set xy', 18, 30, 24, 'Calibri', 'black']);
 i18n_tracker.add_label('setxy_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['x', 79, 10, 20, 'Calibri', 'black']);
 i18n_tracker.add_label('setxy_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['y', 79, 50, 20, 'Calibri', 'black']);
 
-i18n_tracker.add_label('arc_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['arc', 18, 30, 24, 'Calibri', 'black']);
-i18n_tracker.add_label('arc_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['angle', 40, 10, 20, 'Calibri', 'black']);
-i18n_tracker.add_label('arc_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['radius', 32, 56, 20, 'Calibri', 'black']);
+i18n_tracker.add_label('arc_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Arc', 18, 30, 24, 'Calibri', 'black']);
+i18n_tracker.add_label('arc_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Angle', 40, 10, 20, 'Calibri', 'black']);
+i18n_tracker.add_label('arc_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Radius', 32, 56, 20, 'Calibri', 'black']);
 
 i18n_tracker.add_label('set_heading_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Set heading', 5, 15, 16, 'Calibri', 'black']);
 i18n_tracker.add_label('box_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['100', 52, 13, 19, 'Calibri', 'black']);
@@ -42,13 +42,13 @@ i18n_tracker.add_label('right_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Der
 i18n_tracker.add_label('left_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Izquierda', 5, 13, 19, 'Calibri', 'black']);
 i18n_tracker.add_label('clean_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Limpiar', 5, 11, 19, 'Calibri', 'black']);
 
-i18n_tracker.add_label('setxy_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['fijar xy', 18, 30, 24, 'Calibri', 'black']);
+i18n_tracker.add_label('setxy_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Fijar xy', 18, 30, 24, 'Calibri', 'black']);
 i18n_tracker.add_label('setxy_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['x', 79, 10, 20, 'Calibri', 'black']);
 i18n_tracker.add_label('setxy_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['y', 79, 50, 20, 'Calibri', 'black']);
 
-i18n_tracker.add_label('arc_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['arco', 18, 30, 24, 'Calibri', 'black']);
-i18n_tracker.add_label('arc_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['ángulo', 37, 10, 20, 'Calibri', 'black']);
-i18n_tracker.add_label('arc_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['radio', 37, 56, 20, 'Calibri', 'black']);
+i18n_tracker.add_label('arc_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Arco', 18, 30, 24, 'Calibri', 'black']);
+i18n_tracker.add_label('arc_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Ángulo', 37, 10, 20, 'Calibri', 'black']);
+i18n_tracker.add_label('arc_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Radio', 37, 56, 20, 'Calibri', 'black']);
 
 i18n_tracker.add_label('set_heading_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Fijar rumbo', 5, 15, 16, 'Calibri', 'black']);
 
@@ -62,14 +62,14 @@ i18n_tracker.add_label('right_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['Dro
 i18n_tracker.add_label('left_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['Gauche', 5, 13, 19, 'Calibri', 'black']);
 i18n_tracker.add_label('clean_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['Efface', 5, 11, 19, 'Calibri', 'black']);
 
-i18n_tracker.add_label('setxy_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['fixe xy', 18, 30, 24, 'Calibri', 'black']);
+i18n_tracker.add_label('setxy_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['Fixe xy', 18, 30, 24, 'Calibri', 'black']);
 i18n_tracker.add_label('setxy_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['x', 79, 10, 20, 'Calibri', 'black']);
 i18n_tracker.add_label('setxy_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['y', 79, 50, 20, 'Calibri', 'black']);
 
-i18n_tracker.add_label('arc_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['arc', 18, 30, 24, 'Calibri', 'black']);
-i18n_tracker.add_label('arc_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['angle', 37, 10, 20, 'Calibri', 'black']);
-i18n_tracker.add_label('arc_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['rayon', 37, 56, 20, 'Calibri', 'black']);
+i18n_tracker.add_label('arc_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['Arc', 18, 30, 24, 'Calibri', 'black']);
+i18n_tracker.add_label('arc_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['Angle', 37, 10, 20, 'Calibri', 'black']);
+i18n_tracker.add_label('arc_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['Rayon', 37, 56, 20, 'Calibri', 'black']);
 
-i18n_tracker.add_label('set_heading_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['fixe cap', 5, 15, 19, 'Calibri', 'black']);
+i18n_tracker.add_label('set_heading_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['Fixe cap', 5, 15, 19, 'Calibri', 'black']);
 
 i18n_tracker.add_label('heading_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['cap', 35, 13, 19, 'Calibri', 'black']);

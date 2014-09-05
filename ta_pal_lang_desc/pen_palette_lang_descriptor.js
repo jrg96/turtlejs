@@ -31,11 +31,11 @@ i18n_tracker.add_label('gray_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['gray
 
 i18n_tracker.add_label('pensize_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['pen size', 45, 13, 19, 'Calibri', 'black']);
 
-i18n_tracker.add_label('start_fill_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['start fill', 5, 13, 18, 'Calibri', 'black']);
+i18n_tracker.add_label('start_fill_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Start fill', 5, 13, 18, 'Calibri', 'black']);
 
-i18n_tracker.add_label('end_fill_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['end fill', 5, 13, 18, 'Calibri', 'black']);
+i18n_tracker.add_label('end_fill_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['End fill', 5, 13, 18, 'Calibri', 'black']);
 
-i18n_tracker.add_label('fill_screen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['fill screen', 5, 30, 23, 'Calibri', 'black']);
+i18n_tracker.add_label('fill_screen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['Fill screen', 5, 30, 23, 'Calibri', 'black']);
 i18n_tracker.add_label('fill_screen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['color', 54, 10, 17, 'Calibri', 'black']);
 i18n_tracker.add_label('fill_screen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['shade', 51, 56, 17, 'Calibri', 'black']);
 i18n_tracker.add_label('fill_screen_block', 'en_US', [FACTORY_SIDE, BLOCK_SIDE], ['gray', 61, 96, 17, 'Calibri', 'black']);
@@ -58,14 +58,14 @@ i18n_tracker.add_label('shade_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['ton
 
 i18n_tracker.add_label('gray_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['gris', 49, 13, 19, 'Calibri', 'black']);
 
-i18n_tracker.add_label('start_fill_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['rellenar', 15, 10, 18, 'Calibri', 'black']);
+i18n_tracker.add_label('start_fill_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Rellenar', 15, 10, 18, 'Calibri', 'black']);
 
-i18n_tracker.add_label('end_fill_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['terminar relleno', 3, 9, 16, 'Calibri', 'black']);
+i18n_tracker.add_label('end_fill_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Terminar relleno', 3, 9, 16, 'Calibri', 'black']);
 
 i18n_tracker.add_label('pensize_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['tamaño pincel', 20, 13, 17, 'Calibri', 'black']);
 
 
-i18n_tracker.add_label('fill_screen_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['llenar pantalla', 5, 30, 18, 'Calibri', 'black']);
+i18n_tracker.add_label('fill_screen_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['Llenar pantalla', 5, 30, 18, 'Calibri', 'black']);
 i18n_tracker.add_label('fill_screen_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['color', 54, 10, 17, 'Calibri', 'black']);
 i18n_tracker.add_label('fill_screen_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['tono', 51, 56, 17, 'Calibri', 'black']);
 i18n_tracker.add_label('fill_screen_block', 'es_ES', [FACTORY_SIDE, BLOCK_SIDE], ['gris', 61, 96, 17, 'Calibri', 'black']);
@@ -87,13 +87,13 @@ i18n_tracker.add_label('shade_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['tei
 
 i18n_tracker.add_label('gray_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['gris', 45, 13, 19, 'Calibri', 'black']);
 
-i18n_tracker.add_label('pensize_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['épaisseur du trait', 45, 13, 10, 'Calibri', 'black']);
+i18n_tracker.add_label('pensize_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['Épaisseur du trait', 45, 13, 10, 'Calibri', 'black']);
 
-i18n_tracker.add_label('start_fill_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['commence le remplissage', 5, 13, 10, 'Calibri', 'black']);
+i18n_tracker.add_label('start_fill_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['Commence le remplissage', 5, 13, 10, 'Calibri', 'black']);
 
 i18n_tracker.add_label('end_fill_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['arrête le remplissage', 5, 13, 12, 'Calibri', 'black']);
 
-i18n_tracker.add_label('fill_screen_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['peint le fond', 5, 30, 18, 'Calibri', 'black']);
+i18n_tracker.add_label('fill_screen_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['Peint le fond', 5, 30, 18, 'Calibri', 'black']);
 i18n_tracker.add_label('fill_screen_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['couleur', 54, 10, 13, 'Calibri', 'black']);
 i18n_tracker.add_label('fill_screen_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['teinte', 51, 56, 17, 'Calibri', 'black']);
 i18n_tracker.add_label('fill_screen_block', 'fr_FR', [FACTORY_SIDE, BLOCK_SIDE], ['gris', 61, 96, 17, 'Calibri', 'black']);
